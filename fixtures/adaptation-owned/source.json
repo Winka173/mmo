@@ -1,0 +1,11 @@
+{
+  "_note": "Nguồn gốc thuộc sở hữu dự án: video nguồn được chính hệ thống tạo ra (testsrc + giọng tiếng Anh tổng hợp) ở bước e2e, nên quyền dịch/phái sinh/thương mại là của chủ dự án.",
+  "assetId": "owned-src-clip",
+  "title": "How a simple pendulum keeps time (owned demo source)",
+  "language": "en",
+  "segments": [
+    { "en": "A pendulum swings back and forth at a steady rhythm.", "vi": "Con lắc đung đưa qua lại với một nhịp đều đặn." },
+    { "en": "For small swings, the time of one swing depends mainly on the length of the pendulum.", "vi": "Với biên độ nhỏ, thời gian một lần dao động phụ thuộc chủ yếu vào chiều dài con lắc." },
+    { "en": "That is why old clocks used pendulums to keep time.", "vi": "Đó là lý do đồng hồ quả lắc xưa dùng con lắc để giữ nhịp thời gian." }
+  ]
+}

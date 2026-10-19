@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-binh-giu-nhiet",
+  "title": "Bình giữ nhiệt DEMO (sản phẩm giả lập)",
+  "isDemo": true,
+  "shopeeUrl": null,
+  "affiliateLink": null,
+  "price": null,
+  "features": [
+    { "text": "Giữ nóng 12 giờ", "claimId": null }
+  ],
+  "disclosure": "DEMO: sản phẩm giả lập để kiểm thử. Video thật sẽ có công bố link tiếp thị liên kết."
+}

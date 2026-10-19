@@ -1,0 +1,15 @@
+{
+  "projectId": "fixture-adaptation-owned",
+  "title": "Vì sao đồng hồ quả lắc chạy đều?",
+  "hook": "Vì sao đồng hồ quả lắc chạy đều?",
+  "hookNarration": "Đây là bản biên dịch tiếng Việt một video ngắn do chính Tủ Tò Mò sở hữu, kèm phần giải thích thêm.",
+  "points": [
+    { "title": "Nhịp đung đưa đều", "narration": "Con lắc đung đưa qua lại với một nhịp đều đặn.", "bullets": ["Bản dịch từ video gốc tiếng Anh"], "assetId": "owned-src-frame-1", "kind": "point" },
+    { "title": "Chiều dài quyết định nhịp", "narration": "Với biên độ nhỏ, thời gian một lần dao động phụ thuộc chủ yếu vào chiều dài con lắc.", "bullets": ["Biên độ nhỏ", "Chiều dài là yếu tố chính"], "assetId": "owned-src-frame-2", "kind": "point" },
+    { "title": "Bình luận của Tủ Tò Mò", "narration": "Giải thích thêm: vì nhịp gần như không đổi, người ta chỉnh đồng hồ bằng cách vặn quả nặng lên hoặc xuống để đổi chiều dài con lắc.", "bullets": ["Phần giải thích gốc của kênh"], "kind": "point" }
+  ],
+  "cta": "Theo dõi để xem thêm",
+  "ctaNarration": "Theo dõi Tủ Tò Mò để xem thêm những điều thú vị quanh bạn.",
+  "disclosures": [],
+  "credits": ["Video nguồn: Tủ Tò Mò (tự sở hữu)", "Bản dịch & bình luận: Tủ Tò Mò"]
+}

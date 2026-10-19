@@ -1,0 +1,28 @@
+{
+  "name": "@ttm/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --webpack -H 127.0.0.1 -p 3077",
+    "build": "next build --webpack",
+    "start": "next start -H 127.0.0.1 -p 3077"
+  },
+  "dependencies": {
+    "@ttm/automation": "workspace:*",
+    "@ttm/core": "workspace:*",
+    "@ttm/storage": "workspace:*",
+    "next": "16.0.10",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "server-only": "^0.0.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.7.0"
+  }
+}

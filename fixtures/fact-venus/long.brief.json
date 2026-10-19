@@ -1,0 +1,16 @@
+{
+  "projectId": "fixture-long-venus",
+  "title": "Sao Kim — hành tinh kỳ lạ nhất ngay cạnh Trái Đất",
+  "hook": "Hành tinh “song sinh” nhưng khắc nghiệt nhất",
+  "hookNarration": "Sao Kim thường được gọi là hành tinh song sinh của Trái Đất vì kích thước gần giống nhau. Nhưng càng tìm hiểu, bạn sẽ thấy nó là một trong những nơi khắc nghiệt và kỳ lạ nhất trong Hệ Mặt Trời. Hôm nay, Tủ Tò Mò sẽ cùng bạn mở ba ngăn tủ về Sao Kim.",
+  "points": [
+    { "chapterTitle": "Tự quay siêu chậm", "title": "Ngăn tủ 1: Tự quay siêu chậm", "narration": "Ngăn tủ đầu tiên là tốc độ tự quay. Sao Kim tự quay một vòng mất khoảng hai trăm bốn mươi ba ngày Trái Đất. Không chỉ chậm, nó còn quay ngược chiều với đa số hành tinh khác, nên nếu đứng trên Sao Kim, bạn sẽ thấy Mặt Trời mọc ở hướng tây.", "bullets": ["≈ 243 ngày Trái Đất mỗi vòng", "Quay ngược chiều (nghịch hành)"], "claimIds": ["venus-rotation"], "kind": "evidence" },
+    { "chapterTitle": "Một năm ngắn hơn", "title": "Ngăn tủ 2: Một năm ngắn hơn một vòng tự quay", "narration": "Trong khi đó, một năm trên Sao Kim, tức thời gian đi hết một vòng quanh Mặt Trời, chỉ khoảng hai trăm hai mươi lăm ngày Trái Đất. Nghĩa là Sao Kim đi hết một năm trước khi kịp tự quay xong một vòng.", "bullets": ["Quỹ đạo ≈ 225 ngày", "Ngắn hơn chu kỳ tự quay"], "claimIds": ["venus-orbit"], "kind": "comparison" },
+    { "chapterTitle": "Chữ “ngày” cần cẩn thận", "title": "Đừng nhầm hai kiểu “ngày”", "narration": "Nhưng hãy cẩn thận với chữ ngày. Nếu tính từ lúc Mặt Trời mọc đến lần mọc tiếp theo, gọi là ngày mặt trời, thì một ngày trên Sao Kim chỉ khoảng một trăm mười bảy ngày Trái Đất. Câu nói chính xác là: thời gian tự quay của Sao Kim dài hơn một năm của nó.", "bullets": ["Ngày mặt trời ≈ 117 ngày", "Chu kỳ tự quay ≈ 243 ngày"], "claimIds": ["venus-solar-day"], "kind": "point" },
+    { "chapterTitle": "Lò nung áp suất cao", "title": "Ngăn tủ 3: Một lò nung áp suất cao", "narration": "Ngăn tủ cuối cùng là bề mặt. Nhiệt độ trung bình trên bề mặt Sao Kim khoảng bốn trăm sáu mươi tư độ C, nóng hơn cả Sao Thủy dù xa Mặt Trời hơn. Khí quyển dày đặc chủ yếu là khí cacbonic tạo ra hiệu ứng nhà kính cực mạnh, và áp suất ở bề mặt khoảng chín mươi hai bar.", "bullets": ["≈ 464 °C trung bình", "Áp suất ≈ 92 bar", "Khí quyển chủ yếu CO2"], "claimIds": ["venus-surface"], "kind": "evidence" }
+  ],
+  "cta": "Bạn muốn mở ngăn tủ nào tiếp theo?",
+  "ctaNarration": "Đó là ba ngăn tủ về Sao Kim. Nếu bạn muốn Tủ Tò Mò mở tiếp về hành tinh nào, hãy để lại bình luận và theo dõi kênh nhé.",
+  "disclosures": [],
+  "credits": ["NASA NSSDCA — Venus Fact Sheet", "Encyclopaedia Britannica — Venus"]
+}

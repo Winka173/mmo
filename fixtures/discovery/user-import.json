@@ -1,0 +1,34 @@
+[
+  {
+    "source": "douyin",
+    "originId": "fixture-dy-001",
+    "sourceUrl": "https://www.douyin.com/video/0000000000000000001?utm_source=copy&share_token=abc",
+    "title": "用冰箱里的三样东西做的小实验",
+    "description": "",
+    "creatorDisplayName": "fixture creator",
+    "observedFollowerCount": null,
+    "sourceLanguage": "zh",
+    "downloadPermission": "not_granted",
+    "userNotes": "Ý tưởng: thí nghiệm nhỏ về vì sao trứng chìm trong nước ngọt nhưng nổi trong nước muối đậm đặc — mật độ chất lỏng. Không có quyền dùng video gốc."
+  },
+  {
+    "source": "douyin",
+    "originId": "fixture-dy-002",
+    "sourceUrl": "https://douyin.com/video/0000000000000000001/?share_token=zzz",
+    "title": "同一个视频 (link khác tham số)",
+    "description": "",
+    "sourceLanguage": "zh",
+    "downloadPermission": "not_granted",
+    "userNotes": "Ý tưởng: trứng nổi trong nước muối, chìm trong nước ngọt — mật độ chất lỏng."
+  },
+  {
+    "source": "bilibili",
+    "originId": "fixture-bili-003",
+    "sourceUrl": "https://www.bilibili.com/video/BV1fixture003",
+    "title": "为什么猫总是四脚着地",
+    "description": "",
+    "sourceLanguage": "zh",
+    "downloadPermission": "unknown",
+    "userNotes": "Ý tưởng: phản xạ xoay người của mèo khi rơi (righting reflex) — cần tự nghiên cứu nguồn khoa học."
+  }
+]

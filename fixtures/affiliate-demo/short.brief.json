@@ -1,0 +1,15 @@
+{
+  "projectId": "fixture-affiliate-demo",
+  "title": "3 điều nên kiểm tra trước khi mua bình giữ nhiệt",
+  "hook": "Mua bình giữ nhiệt? Kiểm tra 3 điều này trước",
+  "hookNarration": "Trước khi bấm mua một chiếc bình giữ nhiệt, hãy dành mười giây kiểm tra ba điều này.",
+  "points": [
+    { "title": "1. Chất liệu ghi trên nhãn", "narration": "Thứ nhất, xem chất liệu được ghi rõ trên nhãn và trang sản phẩm. Thông tin không rõ ràng là một dấu hiệu nên cân nhắc.", "bullets": ["Thông tin chất liệu rõ ràng"], "kind": "point" },
+    { "title": "2. Nắp và gioăng", "narration": "Thứ hai, kiểm tra nắp có gioăng kín không và có dễ tháo ra để vệ sinh không.", "bullets": ["Gioăng kín", "Dễ vệ sinh"], "kind": "point" },
+    { "title": "3. Chính sách đổi trả", "narration": "Thứ ba, đọc kỹ chính sách đổi trả và bảo hành của người bán trước khi đặt hàng.", "bullets": ["Đọc chính sách đổi trả"], "kind": "point" }
+  ],
+  "cta": "Link sản phẩm đã kiểm chứng sẽ ở mô tả",
+  "ctaNarration": "Đây là video mẫu. Khi có sản phẩm thật, link tiếp thị liên kết đã kiểm chứng sẽ nằm trong phần mô tả.",
+  "disclosures": ["DEMO — sản phẩm giả lập, không phải quảng cáo thật"],
+  "credits": []
+}

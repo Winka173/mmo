@@ -1,0 +1,17 @@
+node_modules/
+.next/
+dist/
+coverage/
+.turbo/
+*.log
+.env
+.env.*
+!.env.example
+# runtime data is never committed (DATA_DIR defaults outside the repo)
+.data/
+data-local/
+secrets/
+*.token
+browser-profiles/
+apps/web/.next/
+apps/web/tsconfig.tsbuildinfo

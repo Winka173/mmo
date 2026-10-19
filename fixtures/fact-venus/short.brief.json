@@ -1,0 +1,15 @@
+{
+  "projectId": "fixture-fact-venus",
+  "title": "Sao Kim: tự quay một vòng còn lâu hơn đi hết một năm",
+  "hook": "Hành tinh tự quay chậm hơn cả một năm của nó?",
+  "hookNarration": "Có một hành tinh tự quay một vòng còn lâu hơn cả thời gian nó đi hết một năm. Đó là Sao Kim.",
+  "points": [
+    { "title": "Tự quay: khoảng 243 ngày", "narration": "Sao Kim tự quay một vòng mất khoảng hai trăm bốn mươi ba ngày Trái Đất, và quay ngược chiều với đa số hành tinh.", "bullets": ["≈ 243 ngày Trái Đất", "Quay ngược chiều"], "claimIds": ["venus-rotation"], "kind": "evidence" },
+    { "title": "Một năm: khoảng 225 ngày", "narration": "Trong khi đó, nó chỉ cần khoảng hai trăm hai mươi lăm ngày để đi hết một vòng quanh Mặt Trời.", "bullets": ["≈ 225 ngày Trái Đất"], "claimIds": ["venus-orbit"], "kind": "evidence" },
+    { "title": "Nhưng cẩn thận với chữ “ngày”", "narration": "Nếu tính từ lúc Mặt Trời mọc đến lần mọc tiếp theo, một ngày trên Sao Kim chỉ khoảng một trăm mười bảy ngày Trái Đất. Vậy nên câu đúng là: thời gian tự quay dài hơn một năm.", "bullets": ["Ngày mặt trời ≈ 117 ngày"], "claimIds": ["venus-solar-day"], "kind": "point" }
+  ],
+  "cta": "Theo dõi Tủ Tò Mò",
+  "ctaNarration": "Theo dõi Tủ Tò Mò để mở thêm một ngăn tủ tò mò mỗi ngày.",
+  "disclosures": [],
+  "credits": ["NASA NSSDCA — Venus Fact Sheet", "Encyclopaedia Britannica — Venus"]
+}

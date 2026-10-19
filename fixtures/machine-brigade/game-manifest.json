@@ -1,0 +1,26 @@
+{
+  "game": "Machine Brigade",
+  "buildId": "fixture-build-0.3.1",
+  "buildDate": "2026-10-01",
+  "version": "0.3.1-prototype",
+  "platforms": [
+    { "name": "Android", "status": "prototype" },
+    { "name": "iOS", "status": "planned" },
+    { "name": "PC", "status": "planned" }
+  ],
+  "vehicles": [
+    { "id": "scout", "name": "Xe trinh sát", "role": "tốc độ cao, phát hiện mục tiêu", "status": "implemented", "stats": { "speed": 8, "armor": 2 } },
+    { "id": "tank", "name": "Xe tăng hạng trung", "role": "chủ lực tuyến trước", "status": "implemented", "stats": { "speed": 4, "armor": 7 } },
+    { "id": "artillery", "name": "Pháo tự hành", "role": "hỏa lực tầm xa", "status": "prototype", "stats": { "speed": 3, "armor": 3 } }
+  ],
+  "features": [
+    { "id": "autobattle", "text": "Trận đấu tự động theo đội hình bạn xếp", "status": "implemented" },
+    { "id": "pvp", "text": "Chế độ đấu người với người", "status": "planned" }
+  ],
+  "assets": [
+    { "id": "render-scout", "file": "assets/render-scout.png", "kind": "render", "buildId": "fixture-build-0.3.1", "ownership": "OWNED", "publishAllowed": true },
+    { "id": "render-tank", "file": "assets/render-tank.png", "kind": "render", "buildId": "fixture-build-0.3.1", "ownership": "OWNED", "publishAllowed": true },
+    { "id": "logo", "file": "assets/logo.png", "kind": "logo", "buildId": null, "ownership": "OWNED", "publishAllowed": true }
+  ],
+  "officialLinks": []
+}

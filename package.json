@@ -1,0 +1,36 @@
+{
+  "name": "tu-to-mo-factory",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Tủ Tò Mò — nhà máy nội dung tự vận hành, lưu trữ file-only (không database).",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @ttm/web dev",
+    "build": "pnpm typecheck && pnpm --filter @ttm/web build",
+    "worker": "pnpm --filter @ttm/worker start",
+    "worker:once": "pnpm --filter @ttm/worker once",
+    "e2e:offline": "pnpm --filter @ttm/worker e2e",
+    "doctor": "pnpm --filter @ttm/worker doctor",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "server-only": "^0.0.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "esbuild",
+      "unrs-resolver",
+      "@tailwindcss/oxide"
+    ]
+  }
+}

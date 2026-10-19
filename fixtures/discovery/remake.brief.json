@@ -1,0 +1,14 @@
+{
+  "projectId": "fixture-remake-egg",
+  "title": "Vì sao trứng nổi trong nước muối?",
+  "hook": "Cùng một quả trứng: chìm hay nổi?",
+  "hookNarration": "Cùng một quả trứng, thả vào nước thường thì chìm, nhưng vào nước muối đậm đặc lại nổi. Vì sao vậy?",
+  "points": [
+    { "title": "Chìm hay nổi do khối lượng riêng", "narration": "Một vật nổi khi khối lượng riêng của nó nhỏ hơn chất lỏng xung quanh.", "bullets": ["So sánh khối lượng riêng"], "claimIds": ["egg-density"], "kind": "evidence" },
+    { "title": "Muối làm nước “nặng” hơn", "narration": "Khi hòa tan nhiều muối, khối lượng riêng của nước tăng lên, có thể vượt qua quả trứng.", "bullets": ["Nước muối đậm đặc"], "claimIds": ["egg-density"], "kind": "evidence" }
+  ],
+  "cta": "Bạn thử ở nhà chưa?",
+  "ctaNarration": "Bạn đã thử thí nghiệm này chưa? Theo dõi Tủ Tò Mò để xem thêm.",
+  "disclosures": [],
+  "credits": ["Ý tưởng tham khảo từ một video Douyin (không sử dụng hình ảnh/âm thanh gốc)", "Kịch bản và hình ảnh: Tủ Tò Mò"]
+}

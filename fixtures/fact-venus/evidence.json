@@ -1,0 +1,7 @@
+{
+  "_note": "Cụm từ bằng chứng mà bộ kiểm chứng sẽ tìm trong trang nguồn khi chạy `pnpm worker:cli factcheck <projectId>` trên máy có Internet. Nếu không tìm thấy => claim giữ nguyên trạng thái HOLD.",
+  "venus-rotation": { "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html": ["-5832.6"], "https://www.britannica.com/place/Venus-planet": ["243"] },
+  "venus-orbit": { "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html": ["224.701"], "https://www.britannica.com/place/Venus-planet": ["225"] },
+  "venus-solar-day": { "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html": ["2802.0"] },
+  "venus-surface": { "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html": ["464", "92 bars"] }
+}

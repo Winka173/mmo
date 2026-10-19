@@ -1,0 +1,56 @@
+[
+  {
+    "id": "venus-rotation",
+    "text": "Sao Kim tự quay một vòng (chu kỳ tự quay thiên văn) mất khoảng 243 ngày Trái Đất, theo chiều ngược với đa số hành tinh.",
+    "riskTier": "MEDIUM",
+    "status": "SOURCED_UNFETCHED",
+    "timeSensitive": false,
+    "checkedAt": null,
+    "contradictionNotes": [],
+    "categories": [],
+    "sources": [
+      { "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html", "title": "Venus Fact Sheet", "publisher": "NASA NSSDCA", "tier": "primary", "fetchedAt": null, "excerpt": null, "contentSha256": null },
+      { "url": "https://www.britannica.com/place/Venus-planet", "title": "Venus | Facts, Color, & Surface", "publisher": "Encyclopaedia Britannica", "tier": "tertiary", "fetchedAt": null, "excerpt": null, "contentSha256": null }
+    ]
+  },
+  {
+    "id": "venus-orbit",
+    "text": "Sao Kim quay quanh Mặt Trời một vòng mất khoảng 225 ngày Trái Đất.",
+    "riskTier": "MEDIUM",
+    "status": "SOURCED_UNFETCHED",
+    "timeSensitive": false,
+    "checkedAt": null,
+    "contradictionNotes": [],
+    "categories": [],
+    "sources": [
+      { "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html", "title": "Venus Fact Sheet", "publisher": "NASA NSSDCA", "tier": "primary", "fetchedAt": null, "excerpt": null, "contentSha256": null },
+      { "url": "https://www.britannica.com/place/Venus-planet", "title": "Venus | Facts, Color, & Surface", "publisher": "Encyclopaedia Britannica", "tier": "tertiary", "fetchedAt": null, "excerpt": null, "contentSha256": null }
+    ]
+  },
+  {
+    "id": "venus-solar-day",
+    "text": "Nếu tính từ lúc Mặt Trời mọc đến lần mọc tiếp theo (ngày mặt trời), một ngày trên Sao Kim dài khoảng 117 ngày Trái Đất.",
+    "riskTier": "LOW",
+    "status": "SOURCED_UNFETCHED",
+    "timeSensitive": false,
+    "checkedAt": null,
+    "contradictionNotes": [],
+    "categories": [],
+    "sources": [
+      { "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html", "title": "Venus Fact Sheet", "publisher": "NASA NSSDCA", "tier": "primary", "fetchedAt": null, "excerpt": null, "contentSha256": null }
+    ]
+  },
+  {
+    "id": "venus-surface",
+    "text": "Bề mặt Sao Kim nóng trung bình khoảng 464 độ C và áp suất khí quyển khoảng 92 bar, khí quyển chủ yếu là CO2.",
+    "riskTier": "LOW",
+    "status": "SOURCED_UNFETCHED",
+    "timeSensitive": false,
+    "checkedAt": null,
+    "contradictionNotes": [],
+    "categories": [],
+    "sources": [
+      { "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html", "title": "Venus Fact Sheet", "publisher": "NASA NSSDCA", "tier": "primary", "fetchedAt": null, "excerpt": null, "contentSha256": null }
+    ]
+  }
+]
