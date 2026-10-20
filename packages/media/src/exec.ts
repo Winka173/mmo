@@ -83,3 +83,53 @@ export async function audioDuration(file: string): Promise<number> {
   const r = await runProcess(FFPROBE, ["-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", file], { timeoutMs: 30_000 });
   return Number(r.stdout.trim()) || 0;
 }
+
+export type MediaProbe = ProbeInfo & {
+  hasVideo: boolean;
+  hasAudio: boolean;
+  /** variable frame rate suspected (r_frame_rate != avg_frame_rate) */
+  vfr: boolean;
+  bitDepth: number | null;
+  hdr: boolean;
+  audioSampleRate: number | null;
+  sizeBytes: number;
+  formatName: string;
+  frames: number | null;
+};
+
+/** Detailed probe for intake (gameplay uploads): codecs, VFR, HDR, bit depth, rotation, audio. */
+export async function probeMedia(file: string): Promise<MediaProbe> {
+  const r = await runProcess(FFPROBE, ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", file], { timeoutMs: 60_000 });
+  if (r.code !== 0) throw new FactoryError("MEDIA_UNREADABLE", "PERMANENT", `File media hỏng/không đọc được: ${r.stderr.trim().slice(-200) || "ffprobe lỗi"}`);
+  const j = JSON.parse(r.stdout);
+  const v = j.streams?.find((s: any) => s.codec_type === "video");
+  const a = j.streams?.find((s: any) => s.codec_type === "audio");
+  const frac = (x: string | undefined) => {
+    const [n, d] = String(x ?? "0/1").split("/").map(Number);
+    return d ? n / d : 0;
+  };
+  const rf = frac(v?.r_frame_rate);
+  const af = frac(v?.avg_frame_rate);
+  const rot = Number(v?.side_data_list?.find((s: any) => s.rotation !== undefined)?.rotation ?? v?.tags?.rotate ?? 0);
+  const pix: string | null = v?.pix_fmt ?? null;
+  const bitDepth = v ? (pix && /10|12/.test(pix) ? (/12/.test(pix) ? 12 : 10) : Number(v.bits_per_raw_sample) || 8) : null;
+  return {
+    durationSec: Number(j.format?.duration ?? v?.duration ?? 0),
+    width: v?.width ?? 0,
+    height: v?.height ?? 0,
+    fps: af || rf,
+    videoCodec: v?.codec_name ?? "none",
+    audioCodec: a?.codec_name ?? null,
+    rotation: rot,
+    pixFmt: pix,
+    hasVideo: !!v,
+    hasAudio: !!a,
+    vfr: !!v && rf > 0 && af > 0 && Math.abs(rf - af) / rf > 0.02,
+    bitDepth,
+    hdr: ["smpte2084", "arib-std-b67"].includes(v?.color_transfer),
+    audioSampleRate: a ? Number(a.sample_rate) : null,
+    sizeBytes: Number(j.format?.size ?? 0),
+    formatName: j.format?.format_name ?? "",
+    frames: v?.nb_frames ? Number(v.nb_frames) : null,
+  };
+}

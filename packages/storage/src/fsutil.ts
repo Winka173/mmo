@@ -100,8 +100,10 @@ export async function readJson<S extends ZodTypeAny, T = z.output<S>>(file: stri
   };
   const primary = await attempt(file);
   if (primary.ok) return primary.v;
+  // A missing primary means the file was deliberately removed (atomic rename never leaves it
+  // missing) — never resurrect it from a stale .bak (that produced "ghost" queue jobs).
+  if (primary.missing) return null;
   const bak = await attempt(`${file}.bak`);
-  if (primary.missing && !bak.ok) return null;
   if (bak.ok) {
     if (!primary.missing && opts.quarantineDir) await quarantine(file, opts.quarantineDir);
     await writeJsonAtomic(file, bak.v, { keepBackup: false });

@@ -44,6 +44,7 @@ async function createProject(
     schemaVersion: 1,
     id: p.id,
     brand: plan.brand === "machine-brigade" ? "machine-brigade" : "tutomo",
+    gameId: plan.brand === "machine-brigade" ? "machine-brigade" : null,
     contentType: p.type,
     title: p.title,
     mode: p.mode,

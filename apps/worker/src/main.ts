@@ -7,6 +7,8 @@ import { googleLoopbackAuth, YOUTUBE_SCOPES } from "@ttm/platforms";
 import { verifyClaim } from "@ttm/providers";
 import { benchmarkEncoders, probeGpu } from "@ttm/media";
 import { createBackup, freeDiskGb, listBackups, readDataVersion, restoreBackup, runMigrations, verifyDataDir } from "@ttm/storage";
+import { GameMediaIntake, GameRegistry, approveGameVideo, gameReadiness, seedGameFixtures } from "@ttm/games";
+import { MultiAccountManager } from "@ttm/governance";
 import { buildContext, FIXTURES, type Ctx } from "./context.js";
 import { runDaemon } from "./daemon.js";
 import { seedFixtures } from "./fixtures.js";
@@ -53,6 +55,14 @@ async function e2e(ctx: Ctx) {
   for (const id of seed.projects) {
     const p = (await ctx.store.getProject(id))!;
     await ctx.queue.enqueue({ kind: "PRODUCE", idempotencyKey: `produce:${p.id}:r${p.revision}`, payload: { projectId: p.id }, usesGpu: true, priority: 3 });
+  }
+  // V4 multi-game fixtures: two genres, each with its own gameplay, logo, thumbnail, brand kit, accounts
+  const gseed = await seedGameFixtures(ctx.store);
+  console.log("Game fixtures:", JSON.stringify(gseed.imports, null, 2));
+  for (const g of gseed.projects) {
+    const input = (await new GameRegistry(ctx.store).getVideo(g.gameId, g.projectId))!;
+    await ctx.queue.enqueue({ kind: "GAME_PRODUCE", idempotencyKey: `game-produce:${g.projectId}:r${input.revision}`, payload: { ...g, mode: "demo" }, usesGpu: true, priority: 3 });
+    seed.projects.push(g.projectId);
   }
   const n = await processUntilIdle(ctx);
   console.log(`Đã xử lý ${n} job`);
@@ -175,6 +185,52 @@ async function main() {
     }
     case "migrate":
       return console.log(JSON.stringify(await runMigrations(ctx.store, { dryRun: args.includes("--dry-run"), backup: (label) => createBackup(ctx.store, { label }) }), null, 2));
+    case "games": {
+      const reg = new GameRegistry(ctx.store);
+      for (const g of await reg.list()) {
+        const media = await reg.media(g.gameId);
+        console.log(`${g.gameId.padEnd(20)} ${g.publicTitle} · ${g.style ?? "?"} · ${g.status ?? "?"} · ${media.length} asset · kênh: ${g.destinationAllowlist.join(", ") || "(chưa có)"}`);
+        for (const v of await reg.listVideos(g.gameId)) console.log(`   └ ${v.projectId} [${v.status}] ${v.contentType} ${v.formats.join("+")} → ${v.targets.join(", ")}`);
+      }
+      return;
+    }
+    case "game-seed-fixtures":
+      return console.log(JSON.stringify(await seedGameFixtures(ctx.store), null, 2));
+    case "game-import": {
+      const [gameId, p] = args;
+      if (!gameId || !p) return console.log("Cú pháp: game-import <gameId> <file|folder|zip|manifest.json> [--kind=gameplay|thumbnail|logo|...]");
+      const kind = args.find((a) => a.startsWith("--kind="))?.slice(7) as any;
+      const intake = new GameMediaIntake(new GameRegistry(ctx.store));
+      const st = await fs.stat(p);
+      const res = st.isDirectory()
+        ? await intake.importFolder(gameId, p, { allowedRoots: [p], defaults: kind ? { kind } : undefined })
+        : p.toLowerCase().endsWith(".zip")
+          ? await intake.importZip(gameId, p, { defaults: kind ? { kind } : undefined })
+          : p.toLowerCase().endsWith(".json")
+            ? await intake.importJsonManifest(gameId, p)
+            : await intake.importFiles(gameId, [{ path: p, opts: kind ? { kind } : {} }]);
+      for (const i of res.manifest.items) console.log(`${i.result === "imported" ? "✅" : i.result === "duplicate" ? "♻️ " : "⛔"} ${i.originalName} ${i.assetId ?? ""} ${i.reason ?? ""}`);
+      return;
+    }
+    case "game-readiness": {
+      const r = await gameReadiness(ctx.store, args[0], args[1]);
+      return console.log(JSON.stringify(r.readiness, null, 2));
+    }
+    case "game-produce": {
+      const [gameId, projectId] = args;
+      const input = await new GameRegistry(ctx.store).getVideo(gameId, projectId);
+      if (!input) return console.log("Không tìm thấy dự án video game");
+      await ctx.queue.enqueue({ kind: "GAME_PRODUCE", idempotencyKey: `game-produce:${projectId}:r${input.revision}`, payload: { gameId, projectId, mode: args.includes("--demo") ? "demo" : "live" }, usesGpu: true, priority: 3 });
+      return console.log(`Đã xử lý ${await processUntilIdle(ctx, { maxJobs: 1 })} job — xem: game-readiness ${gameId} ${projectId}`);
+    }
+    case "game-approve":
+      return console.log(await approveGameVideo(ctx.store, args[0], args[1], "cli", { roadmapMention: args.includes("--roadmap") }));
+    case "accounts": {
+      const mam = new MultiAccountManager(ctx.store);
+      if (args[0] === "confirm" && args[1]) return console.log(await mam.confirm(args[1], "cli"));
+      for (const a of await mam.list()) console.log(`${a.id.padEnd(24)} ${a.platform.padEnd(15)} ${a.owner.kind}:${a.owner.id} · ${a.displayName} · ${a.confirmedAt ? "đã xác nhận" : "CHƯA xác nhận"}${a.enabled ? "" : " · TẮT"}`);
+      return;
+    }
     case "gpu": {
       const p = await probeGpu();
       console.log(JSON.stringify(p, null, 2));
@@ -215,6 +271,9 @@ async function main() {
           "  verify [--fix]          kiểm tra toàn vẹn JSON/JSONL/media (factory verify)",
           "  migrate [--dry-run]     nâng cấp schema thư mục dữ liệu",
           "  gpu                     đo GPU/VRAM/nhiệt độ + benchmark encoder thực tế",
+          "  games | game-seed-fixtures | game-import <gameId> <đường dẫn> [--kind=…]",
+          "  game-readiness|game-produce [--demo]|game-approve [--roadmap] <gameId> <projectId>",
+          "  accounts [confirm <accountId>]",
           "  factcheck <projectId>   truy xuất nguồn thật để kiểm chứng claim",
           "  secrets set <tên>       lưu secret (DPAPI trên Windows)",
           "  telegram-allow <chatId> | youtube-auth",

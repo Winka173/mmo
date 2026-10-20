@@ -40,9 +40,13 @@ export function applyLexicon(text: string, lexicon = DEFAULT_LEXICON): string {
  * it is the guaranteed-offline fallback, not the recommended production voice.
  */
 export class EspeakNgTts implements TtsProvider {
-  readonly id = "espeak-ng";
   readonly costPerCharUsd = 0;
-  constructor(private readonly opts: { bin?: string; voice?: string; speedWpm?: number; pitch?: number } = {}) {}
+  constructor(private readonly opts: { bin?: string; voice?: string; speedWpm?: number; pitch?: number; lexicon?: [RegExp, string][] } = {}) {}
+  /** id includes voice settings so cached narration never leaks between brands/narrators */
+  get id() {
+    const v = this.opts;
+    return v.voice || v.speedWpm || v.pitch ? `espeak-ng:${v.voice ?? "vi"}:${v.speedWpm ?? 165}:${v.pitch ?? 45}` : "espeak-ng";
+  }
   private get bin() {
     return this.opts.bin ?? process.env.ESPEAK_PATH ?? "espeak-ng";
   }
@@ -64,7 +68,7 @@ export class EspeakNgTts implements TtsProvider {
   }
   async synthesize(text: string, outWav: string): Promise<number> {
     const raw = `${outWav}.raw.wav`;
-    const r = await runProcess(this.bin, ["-v", this.opts.voice ?? "vi", "-s", String(this.opts.speedWpm ?? 165), "-p", String(this.opts.pitch ?? 45), "-w", raw, applyLexicon(text)], {
+    const r = await runProcess(this.bin, ["-v", this.opts.voice ?? "vi", "-s", String(this.opts.speedWpm ?? 165), "-p", String(this.opts.pitch ?? 45), "-w", raw, applyLexicon(text, [...(this.opts.lexicon ?? []), ...DEFAULT_LEXICON])], {
       timeoutMs: 120_000,
     });
     if (r.code !== 0) throw new FactoryError("TTS_FAILED", "RETRYABLE", `eSpeak NG lỗi: ${r.stderr.slice(-300)}`, { provider: this.id });

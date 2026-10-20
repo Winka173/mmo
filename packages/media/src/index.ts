@@ -7,3 +7,6 @@ export * from "./encoder.js";
 export * from "./render.js";
 export * from "./qa.js";
 export * from "./gpu.js";
+export * from "./brandkit.js";
+export * from "./gameplay.js";
+export * from "./thumbnails.js";

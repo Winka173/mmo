@@ -99,3 +99,14 @@ describe("secrets & backups", () => {
     expect((await listBackups(store)).length).toBe(2); // + safety backup
   });
 });
+
+describe("regression: deleted files are not resurrected from .bak", () => {
+  it("readJson returns null for a removed file even if a .bak remains", async () => {
+    const d = await tmpDir();
+    const f = path.join(d, "job.json");
+    await writeJsonAtomic(f, { schemaVersion: 1, killSwitch: true });
+    await writeJsonAtomic(f, { schemaVersion: 1, killSwitch: false });
+    await fs.rm(f);
+    expect(await readJson(f, Settings)).toBeNull();
+  });
+});

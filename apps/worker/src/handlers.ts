@@ -1,4 +1,5 @@
-import { FactoryError, nowIso, type Job } from "@ttm/core";
+import { FactoryError, idempotencyKey, nowIso, type Job } from "@ttm/core";
+import { GameRegistry, produceGameVideo } from "@ttm/games";
 import { planDay, type TopicCandidate } from "@ttm/automation";
 import { createBackup, freeDiskGb, pruneBackups, readJson } from "@ttm/storage";
 import { notify, type Ctx } from "./context.js";
@@ -18,7 +19,7 @@ async function handleDailyPlan(ctx: Ctx): Promise<Record<string, unknown>> {
   for (const p of projects) {
     const plan = await readJson(ctx.store.p("projects", p.id, "plan.json"), ProjectPlan);
     if (!plan) continue;
-    const family = plan.brand === "machine-brigade" ? "game" : plan.family === "FACT" ? (p.formats.includes("long_16x9") ? "longForm" : "knowledgeFact") : plan.family === "PRODUCT" ? "affiliate" : plan.family === "ADAPT" ? "adaptation" : "game";
+    const family = p.gameId || plan.family === "GAME" ? "game" : plan.family === "FACT" ? (p.formats.includes("long_16x9") ? "longForm" : "knowledgeFact") : plan.family === "PRODUCT" ? "affiliate" : plan.family === "ADAPT" ? "adaptation" : "game";
     if (p.status !== "CANDIDATE") {
       if (new Date(p.updatedAt).getTime() > horizon) recentFamilies.push(family);
       continue;
@@ -58,6 +59,25 @@ async function handleDailyPlan(ctx: Ctx): Promise<Record<string, unknown>> {
   return { chosen: decision.chosen.map((c) => ({ id: c.candidate.id, score: c.score, reason: c.reason })), rejected: decision.rejected, enqueued };
 }
 
+/** GAME_PRODUCE: render a game video project, then one PUBLISH job per target (gameId-scoped key). */
+export async function handleGameProduce(ctx: Ctx, job: Job): Promise<Record<string, unknown>> {
+  const { gameId, projectId, mode } = job.payload as { gameId: string; projectId: string; mode?: "demo" | "live" };
+  const r = await produceGameVideo({ store: ctx.store, log: ctx.log }, gameId, projectId, { mode });
+  const project = (await ctx.store.getProject(projectId))!;
+  const input = (await new GameRegistry(ctx.store).getVideo(gameId, projectId))!;
+  const jobs: string[] = [];
+  for (const platform of input.targets) {
+    const format = platform === "youtube_long" ? "long_16x9" : "short_9x16";
+    if (!input.formats.includes(format)) continue;
+    const key = idempotencyKey({ brand: gameId, contentId: projectId, revision: project.revision, destination: platform });
+    jobs.push((await ctx.queue.enqueue({ kind: "PUBLISH", idempotencyKey: key, payload: { projectId, platform, format, gameId }, priority: 4 })).job.id);
+  }
+  const lines = Object.entries(r.outputs).map(([f, o]: [string, any]) => `• ${f}: ${o.durationSec}s, QA ${o.qaPassed ? "đạt" : "LỖI"}, thumbnail ${o.thumbnail}`);
+  const hold = [...r.readiness.publishBlockers, ...r.readiness.requiresApproval].slice(0, 4).map((i) => `  ⛔ ${i.message}`);
+  await notify(ctx, [`🎮 Render game xong: ${input.title} (${gameId})`, ...lines, ...hold, mode === "demo" ? "FIXTURE/DEMO — không đăng thật." : "Duyệt trong Review Queue hoặc /review " + projectId].join("\n"), { dedupeKey: `game-render:${projectId}:r${project.revision}` });
+  return { ...r, publishJobs: jobs };
+}
+
 export async function runJob(ctx: Ctx, job: Job): Promise<void> {
   const settings = await ctx.settings();
   const hb = setInterval(() => void ctx.queue.heartbeat(job.id).catch(() => undefined), 15_000);
@@ -80,6 +100,9 @@ export async function runJob(ctx: Ctx, job: Job): Promise<void> {
         break;
       case "DAILY_PLAN":
         result = await handleDailyPlan(ctx);
+        break;
+      case "GAME_PRODUCE":
+        result = await handleGameProduce(ctx, job);
         break;
       case "DAILY_REPORT": {
         const slot = job.payload.slot ? new Intl.DateTimeFormat("en-CA", { timeZone: settings.timezone }).format(new Date(String(job.payload.slot))) : undefined;

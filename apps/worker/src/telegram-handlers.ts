@@ -3,6 +3,7 @@ import type { Scheduler } from "@ttm/automation";
 import type { CommandHandlers } from "@ttm/telegram";
 import { type Ctx } from "./context.js";
 import { buildDailyReport } from "./report.js";
+import { approveGameVideo } from "@ttm/games";
 
 export function buildTelegramHandlers(ctx: Ctx, scheduler?: Scheduler): CommandHandlers {
   return {
@@ -56,6 +57,9 @@ export function buildTelegramHandlers(ctx: Ctx, scheduler?: Scheduler): CommandH
       if (!j) return `Không tìm thấy job ${jobId}`;
       if (j.state !== "needs_review") return `Job ${jobId} đang ở trạng thái ${j.state}, không thể duyệt.`;
       await ctx.queue.transition(jobId, "queued", `approve by ${actor}`, (x) => ({ ...x, attempts: 0, payload: { ...x.payload, approvedBy: actor, approvedAt: new Date().toISOString() } }));
+      const proj = j.payload.projectId ? await ctx.store.getProject(String(j.payload.projectId)) : null;
+      // game videos: approval pins the exact input+asset fingerprint (later thumbnail swap invalidates it)
+      if (proj?.gameId) await approveGameVideo(ctx.store, proj.gameId, proj.id, actor);
       return `✅ Đã duyệt ${jobId}. Hệ thống sẽ kiểm tra lại toàn bộ cổng quyền/fact trước khi đăng.`;
     },
     async reject(jobId, actor) {

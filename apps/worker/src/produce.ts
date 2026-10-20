@@ -15,7 +15,7 @@ import {
   type RightsManifest,
   type Storyboard,
 } from "@ttm/core";
-import { FORMAT_SPECS, MACHINE_BRIGADE_BRAND, TU_TO_MO_BRAND, pickTts, qaVideo, renderStoryboard } from "@ttm/media";
+import { BrandIdentityEngine, FORMAT_SPECS, MACHINE_BRIGADE_BRAND, TU_TO_MO_BRAND, pickTts, qaVideo, renderStoryboard, toRenderKit } from "@ttm/media";
 import { TopicBrief, briefToStoryboard, platformMetadata } from "@ttm/providers";
 import { readJson, writeJsonAtomic } from "@ttm/storage";
 import { z } from "zod";
@@ -29,7 +29,8 @@ export const ProjectPlan = z.object({
   badges: z.array(z.string()).default([]),
   /** Sample renders may be shorter than the production minimum (e.g. long-form sample < 5 min). */
   minSecOverride: z.number().nullable().default(null),
-  brand: z.enum(["tutomo", "machine-brigade"]).default("tutomo"),
+  /** owner brand id ("tutomo") or a gameId (legacy alias "machine-brigade" kept) */
+  brand: z.string().default("tutomo"),
   signals: z.record(z.number()).default({}),
 });
 export type ProjectPlan = z.infer<typeof ProjectPlan>;
@@ -98,7 +99,11 @@ export async function produceProject(ctx: Ctx, projectId: string, onStage?: (s: 
   b.rights.voice = { engine: voice.engine, voice: voice.voice, license: voice.license, commercialUseOk: voice.commercialUseOk };
   await ctx.store.saveRights(b.rights);
 
-  const brand = plan.brand === "machine-brigade" ? MACHINE_BRIGADE_BRAND : TU_TO_MO_BRAND;
+  // each owner renders with ITS OWN versioned kit; never stamp Tủ Tò Mò on a game post
+  const owner = project.gameId ? ({ kind: "game", id: project.gameId } as const) : ({ kind: "brand", id: project.brand } as const);
+  const kitFile = await new BrandIdentityEngine(ctx.store).load(owner);
+  if (kitFile) BrandIdentityEngine.assertOwnKit(kitFile, owner);
+  const brand = kitFile ? toRenderKit(kitFile) : project.gameId === "machine-brigade" || plan.brand === "machine-brigade" ? MACHINE_BRIGADE_BRAND : TU_TO_MO_BRAND;
   const assetFiles: Record<string, string> = {};
   for (const a of b.rights.assets) {
     const local = ctx.store.p("projects", projectId, "assets", `${a.assetId}.png`);

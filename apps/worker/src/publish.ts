@@ -1,6 +1,9 @@
 import * as path from "node:path";
 import { FactoryError, autoSafeEligibility, canApprove, nowIso, type Format, type Job, type Platform, type Publication } from "@ttm/core";
 import { writeManualKit, type PublishPackage, type UploadState } from "@ttm/platforms";
+import * as fs from "node:fs/promises";
+import { gameReadiness, isApprovalValid, GameRegistry } from "@ttm/games";
+import { MultiAccountManager, assertDestination } from "@ttm/governance";
 import { readJson } from "@ttm/storage";
 import { z } from "zod";
 import { notify, type Ctx } from "./context.js";
@@ -70,11 +73,19 @@ export async function handlePublish(ctx: Ctx, job: Job): Promise<Record<string, 
 
   const publisher = ctx.publishers[platform];
   const caps = publisher ? await publisher.validateCapabilities() : null;
-  const approvedBy = (job.payload as any).approvedBy as string | undefined;
+  // Multi-game / multi-account: revalidate game truth + destination BEFORE any side effect.
+  let gameApprovedBy: string | undefined;
+  if (b.project.gameId) {
+    const g = await gamePublishGate(ctx, { projectId, gameId: b.project.gameId, platform, connectedRemoteId: caps?.accountId ?? null, base });
+    base.accountId = g.accountId;
+    gameApprovedBy = g.approvedBy;
+  } else base.accountId = await brandDestinationGate(ctx, { project: b.project, platform, connectedRemoteId: caps?.accountId ?? null, base });
+  // a still-valid game approval fingerprint counts as editorial approval for every destination
+  const approvedBy = ((job.payload as any).approvedBy as string | undefined) ?? gameApprovedBy;
   const auto = autoSafeEligibility({ project: b.project, settings, platform, gates: Object.values(gates), qaPassed: true, publisherAuthorized: !!caps?.canPublish });
   if (!approvedBy && !auto.ok) {
     await upsertPublication(ctx, projectId, { ...base, state: "NEEDS_REVIEW", lastError: "chờ duyệt" });
-    const thumb = ctx.store.p("projects", projectId, "renders", format, `${format}.thumbnail.png`);
+    const thumb = (await firstExisting([ctx.store.p("projects", projectId, "renders", format, `${format}.thumbnail.jpg`), ctx.store.p("projects", projectId, "renders", format, `${format}.thumbnail.png`)])) ?? undefined;
     await notify(ctx, `📝 Cần duyệt: ${b.project.title} → ${platform}\nJob: ${job.id}\nQuyền: ${gates.rights.ok ? "✅" : "⛔"} · Fact: ${gates.facts.ok ? "✅" : "⛔"}\nDuyệt: /approve ${job.id}  ·  Từ chối: /reject ${job.id}`, {
       dedupeKey: `review:${job.id}`,
       photo: thumb,
@@ -94,7 +105,7 @@ export async function handlePublish(ctx: Ctx, job: Job): Promise<Record<string, 
     idempotencyKey: job.idempotencyKey,
     videoFile: ctx.store.p("projects", projectId, "renders", format, `${format}.mp4`),
     videoSha256: qa.sha256,
-    thumbnailFile: ctx.store.p("projects", projectId, "renders", format, `${format}.thumbnail.png`),
+    thumbnailFile: await firstExisting([ctx.store.p("projects", projectId, "renders", format, `${format}.thumbnail.jpg`), ctx.store.p("projects", projectId, "renders", format, `${format}.thumbnail.png`)]),
     title: m.title ?? b.brief.title,
     description: m.description ?? m.caption ?? "",
     tags: b.plan.hashtags,
@@ -135,4 +146,40 @@ export async function handlePublish(ctx: Ctx, job: Job): Promise<Record<string, 
   const blocked = result as Extract<typeof result, { reason: string }>;
   await upsertPublication(ctx, projectId, { ...base, state: blocked.status === "NOT_CONFIGURED" ? "NOT_CONFIGURED" : "MANUAL_ACTION_REQUIRED", lastError: blocked.reason });
   throw new FactoryError(blocked.status, "HUMAN_REQUIRED", blocked.reason);
+}
+
+async function firstExisting(files: string[]): Promise<string | null> {
+  for (const f of files) if (await fs.stat(f).catch(() => null)) return f;
+  return null;
+}
+
+/**
+ * Game publish gate (spec Y1/Y3/Z4/AC): re-runs readiness (embargo, links, music licence, build
+ * truth), requires a still-valid approval fingerprint, and resolves the destination strictly to an
+ * account owned by THIS game. Any failure throws before upload — zero external side effects.
+ */
+async function gamePublishGate(ctx: Ctx, x: { projectId: string; gameId: string; platform: Platform; connectedRemoteId: string | null; base: Publication }): Promise<{ accountId: string; approvedBy: string }> {
+  const r = await gameReadiness(ctx.store, x.gameId, x.projectId);
+  const blockers = [...r.readiness.publishBlockers, ...r.readiness.missing, ...r.readiness.renderBlockers];
+  if (blockers.length) {
+    await upsertPublication(ctx, x.projectId, { ...x.base, state: blockers.some((b) => b.code === "MUSIC_LICENSE") ? "BLOCKED_RIGHTS" : "NEEDS_REVIEW", lastError: blockers.map((b) => b.message).join("; ") });
+    throw new FactoryError(blockers[0].code, "BLOCKED", `Không đăng ${x.platform}: ${blockers.slice(0, 4).map((b) => b.message).join("; ")}`);
+  }
+  const approval = await isApprovalValid(ctx.store, x.gameId, x.projectId);
+  if (!approval.ok) {
+    await upsertPublication(ctx, x.projectId, { ...x.base, state: "NEEDS_REVIEW", lastError: approval.reason });
+    throw new FactoryError("GAME_APPROVAL_REQUIRED", "BLOCKED", `Video game cần duyệt: ${approval.reason}${r.readiness.requiresApproval.length ? ` (${r.readiness.requiresApproval.map((i) => i.message).join("; ")})` : ""}`);
+  }
+  const game = (await new GameRegistry(ctx.store).get(x.gameId))!;
+  const check = await new MultiAccountManager(ctx.store).checkDestination({ project: { brand: x.gameId, gameId: x.gameId }, platform: x.platform, accountId: r.input.accounts[x.platform] ?? null, gameAllowlist: game.destinationAllowlist, connectedRemoteId: x.connectedRemoteId, approvedAt: r.review.approvedAt });
+  if (!check.ok) await upsertPublication(ctx, x.projectId, { ...x.base, state: "NEEDS_REVIEW", lastError: check.reason });
+  return { accountId: assertDestination(check).id, approvedBy: r.review.approvedBy ?? "editor" };
+}
+
+/** Brand projects: enforced only once accounts are configured for that brand+platform (V3 compatible). */
+async function brandDestinationGate(ctx: Ctx, x: { project: { brand: string; gameId: string | null }; platform: Platform; connectedRemoteId: string | null; base: Publication & { idempotencyKey: string } }): Promise<string | null> {
+  const mam = new MultiAccountManager(ctx.store);
+  if (!(await mam.candidates(x.project, x.platform, null)).length) return null;
+  const check = await mam.checkDestination({ project: x.project, platform: x.platform, accountId: null, gameAllowlist: null, connectedRemoteId: x.connectedRemoteId });
+  return assertDestination(check).id;
 }

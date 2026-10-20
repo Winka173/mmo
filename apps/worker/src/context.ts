@@ -14,7 +14,8 @@ export const FIXTURES = path.join(REPO_ROOT, "fixtures");
 /** channels.json: which account each destination must be, and routing for game vs main brand. */
 export const ChannelsConfig = z.object({
   youtube: z.object({ expectedChannelId: z.string().nullable().default(null) }).default({}),
-  routing: z.record(z.array(Platform)).default({ tutomo: ["youtube_shorts", "facebook", "instagram", "tiktok"], "machine-brigade": [] }),
+  /** Legacy per-brand routing. Game routing is per game: game.json destinationAllowlist + config/accounts.json. */
+  routing: z.record(z.array(Platform)).default({ tutomo: ["youtube_shorts", "facebook", "instagram", "tiktok"] }),
 });
 
 export type Ctx = {

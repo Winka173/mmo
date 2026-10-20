@@ -114,7 +114,10 @@ export class FileQueue {
     const t = nowIso(this.now());
     const next = Job.parse(mutate({ ...job, state: to, updatedAt: t, history: [...job.history, { at: t, from, to, note }] }));
     await writeJsonAtomic(this.file(to, job.id), next);
-    if (from !== to) await fs.rm(this.file(from, job.id), { force: true });
+    if (from !== to) {
+      await fs.rm(this.file(from, job.id), { force: true });
+      await fs.rm(`${this.file(from, job.id)}.bak`, { force: true });
+    }
     await this.store.audit({ actor: "queue", action: `job.${to}`, subject: job.id, detail: { from, note } });
     return next;
   }
