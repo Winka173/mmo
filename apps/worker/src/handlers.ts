@@ -1,6 +1,7 @@
 import { FactoryError, idempotencyKey, nowIso, type Job } from "@ttm/core";
 import { GameRegistry, produceGameVideo } from "@ttm/games";
 import { SourceLicenseRegistry } from "@ttm/governance";
+import { runIntelJob } from "./intel.js";
 import { planDay, type TopicCandidate } from "@ttm/automation";
 import { createBackup, freeDiskGb, pruneBackups, readJson } from "@ttm/storage";
 import { notify, type Ctx } from "./context.js";
@@ -136,6 +137,14 @@ export async function runJob(ctx: Ctx, job: Job): Promise<void> {
         result = st;
         break;
       }
+      case "LIFECYCLE_AUDIT":
+      case "METRICS_SNAPSHOT":
+      case "LEARNING_UPDATE":
+      case "TREND_SCAN":
+      case "AFFILIATE_RECHECK":
+      case "COMMENT_POLL":
+        result = await runIntelJob(ctx, job);
+        break;
       default:
         throw new FactoryError("UNSUPPORTED_JOB", "PERMANENT", `Loại job ${job.kind} chưa được hỗ trợ`);
     }

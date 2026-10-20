@@ -15,6 +15,14 @@ export type CommandHandlers = {
   reject(jobId: string, actor: string): Promise<string>;
   retry(jobId: string, actor: string): Promise<string>;
   posted(jobId: string, url: string, actor: string): Promise<string>;
+  // V4
+  emergencyStop?(actor: string): Promise<string>;
+  budget?(): Promise<string>;
+  games?(): Promise<string>;
+  game?(id: string): Promise<string>;
+  campaigns?(): Promise<string>;
+  review?(projectId: string): Promise<string>;
+  doctor?(): Promise<string>;
 };
 
 export const HELP = [
@@ -28,6 +36,12 @@ export const HELP = [
   "/pause, /resume — tạm dừng/tiếp tục (không bỏ qua kiểm tra an toàn)",
   "/approve JOB_ID, /reject JOB_ID, /retry JOB_ID — cần xác nhận 2 bước",
   "/posted JOB_ID URL — ghi nhận bài đã đăng thủ công",
+  "/emergency_stop — DỪNG KHẨN (kill switch + tạm dừng), không cần xác nhận",
+  "/budget — trần & chi tiêu ngày/tuần/tháng",
+  "/games, /game ID — danh sách game / chi tiết game",
+  "/campaigns — chiến dịch game",
+  "/review PROJECT_ID — lý do giữ/duyệt của một video",
+  "/doctor — kiểm tra sức khỏe hệ thống",
 ].join("\n");
 
 /** Actions with external consequences need a second confirmation message. */
@@ -81,6 +95,21 @@ export class CommandRouter {
         return this.h.channels();
       case "pause":
         return this.h.pause(actor);
+      case "emergency_stop":
+      case "stop":
+        return this.h.emergencyStop ? this.h.emergencyStop(actor) : "Không hỗ trợ";
+      case "budget":
+        return this.h.budget?.() ?? "Không hỗ trợ";
+      case "games":
+        return this.h.games?.() ?? "Không hỗ trợ";
+      case "game":
+        return jobArg ? (this.h.game?.(jobArg) ?? "Không hỗ trợ") : "Cú pháp: /game GAME_ID";
+      case "campaigns":
+        return this.h.campaigns?.() ?? "Không hỗ trợ";
+      case "review":
+        return jobArg ? (this.h.review?.(jobArg) ?? "Không hỗ trợ") : "Cú pháp: /review PROJECT_ID";
+      case "doctor":
+        return this.h.doctor?.() ?? "Không hỗ trợ";
       case "reject":
         return jobArg ? this.h.reject(jobArg, actor) : "Cú pháp: /reject JOB_ID";
       case "posted":

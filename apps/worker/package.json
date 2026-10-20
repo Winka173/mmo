@@ -23,7 +23,8 @@
     "zod": "^3.24.1",
     "@ttm/governance": "workspace:*",
     "@ttm/games": "workspace:*",
-    "@ttm/quality": "workspace:*"
+    "@ttm/quality": "workspace:*",
+    "@ttm/insights": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.19.0"

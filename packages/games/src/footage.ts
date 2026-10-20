@@ -36,9 +36,10 @@ export async function ocrAvailable(): Promise<boolean> {
   return tesseractOk;
 }
 
-async function ocr(png: string): Promise<string> {
-  const r = await runProcess(process.env.TESSERACT_PATH || "tesseract", [png, "stdout", "--psm", "11"], { timeoutMs: 60_000 });
-  return r.code === 0 ? r.stdout : "";
+/** Single-threaded OCR (OpenMP threads starve under load); a failure/timeout returns null, never throws. */
+async function ocr(png: string): Promise<string | null> {
+  const r = await runProcess(process.env.TESSERACT_PATH || "tesseract", [png, "stdout", "--psm", "11"], { timeoutMs: 120_000, env: { OMP_THREAD_LIMIT: "1" } }).catch(() => null);
+  return r && r.code === 0 ? r.stdout : null;
 }
 
 /** Laplacian-variance sharpness + RMS contrast on a greyscale thumbnail. */
@@ -114,6 +115,7 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
   const hero: FootageMap["heroCandidates"] = [];
   const leakMatches: { t: number; text: string }[] = [];
   let method: FootageMap["leak"]["method"] = "unavailable";
+  let ocrFailures = 0;
   try {
     await ffmpeg(["-i", file, "-vf", `fps=1/${every.toFixed(3)},scale=640:-2`, path.join(tmp, "f-%04d.png")], { timeoutMs: 20 * 60_000 });
     const frames = (await fs.readdir(tmp)).filter((f) => f.endsWith(".png")).sort();
@@ -132,9 +134,18 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
         const idx = Math.floor((k * frames.length) / n);
         const full = path.join(tmp, `ocr-${k}.png`);
         await ffmpeg(["-ss", (idx * every).toFixed(2), "-i", file, "-frames:v", "1", full]);
-        const text = (await ocr(full)).replace(/\s+/g, " ").trim();
+        const raw = await ocr(full);
+        if (raw === null) {
+          ocrFailures++;
+          continue;
+        }
+        const text = raw.replace(/\s+/g, " ").trim();
         const m = LEAK_RE.exec(text);
         if (m) leakMatches.push({ t: Math.round(idx * every * 10) / 10, text: text.slice(Math.max(0, m.index - 20), m.index + 40) });
+      }
+      if (ocrFailures) {
+        warnings.push(`OCR lỗi/quá thời gian ở ${ocrFailures} khung — cần người xem lại chữ debug`);
+        if (ocrFailures >= n) method = "unavailable";
       }
     } else warnings.push("Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại");
   } finally {

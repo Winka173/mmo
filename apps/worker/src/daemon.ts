@@ -34,6 +34,12 @@ export async function runDaemon(ctx: Ctx): Promise<void> {
       { name: "daily-report", cron: settings.schedules.dailyReportCron, run: enqueueSlot("DAILY_REPORT", "daily-report") },
       { name: "backup", cron: "30 3 * * *", run: enqueueSlot("BACKUP", "backup") },
       { name: "rights-audit", cron: "15 6 * * *", run: enqueueSlot("RIGHTS_AUDIT", "rights-audit") },
+      { name: "lifecycle-audit", cron: "25 6 * * *", run: enqueueSlot("LIFECYCLE_AUDIT", "lifecycle-audit") },
+      { name: "affiliate-recheck", cron: "35 6 * * *", run: enqueueSlot("AFFILIATE_RECHECK", "affiliate-recheck") },
+      { name: "metrics-snapshot", cron: "5 */6 * * *", run: enqueueSlot("METRICS_SNAPSHOT", "metrics-snapshot") },
+      { name: "comment-poll", cron: "50 * * * *", run: enqueueSlot("COMMENT_POLL", "comment-poll") },
+      { name: "learning-update", cron: "40 18 * * 0", run: enqueueSlot("LEARNING_UPDATE", "learning-update") },
+      { name: "trend-scan", cron: "20 7 * * *", run: enqueueSlot("TREND_SCAN", "trend-scan") },
     ],
     settings.timezone,
   );

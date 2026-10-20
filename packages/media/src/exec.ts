@@ -4,10 +4,10 @@ import { FactoryError } from "@ttm/core";
 export type RunResult = { code: number; stdout: string; stderr: string; ms: number };
 
 /** Run an isolated subprocess with timeout; stderr tail kept for actionable errors. */
-export function runProcess(cmd: string, args: string[], opts: { cwd?: string; timeoutMs?: number; input?: string } = {}): Promise<RunResult> {
+export function runProcess(cmd: string, args: string[], opts: { cwd?: string; timeoutMs?: number; input?: string; env?: Record<string, string> } = {}): Promise<RunResult> {
   const started = Date.now();
   return new Promise((resolve, reject) => {
-    const child = spawn(cmd, args, { cwd: opts.cwd, windowsHide: true, stdio: ["pipe", "pipe", "pipe"] });
+    const child = spawn(cmd, args, { cwd: opts.cwd, windowsHide: true, stdio: ["pipe", "pipe", "pipe"], env: opts.env ? { ...process.env, ...opts.env } : undefined });
     let stdout = "";
     let stderr = "";
     const cap = (s: string, add: string) => (s.length > 2_000_000 ? s : s + add);

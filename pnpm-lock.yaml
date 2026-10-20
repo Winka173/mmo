@@ -44,6 +44,9 @@ importers:
       '@ttm/governance':
         specifier: workspace:*
         version: link:../../packages/governance
+      '@ttm/insights':
+        specifier: workspace:*
+        version: link:../../packages/insights
       '@ttm/media':
         specifier: workspace:*
         version: link:../../packages/media
@@ -53,6 +56,9 @@ importers:
       '@ttm/providers':
         specifier: workspace:*
         version: link:../../packages/providers
+      '@ttm/quality':
+        specifier: workspace:*
+        version: link:../../packages/quality
       '@ttm/storage':
         specifier: workspace:*
         version: link:../../packages/storage
@@ -114,6 +120,9 @@ importers:
       '@ttm/governance':
         specifier: workspace:*
         version: link:../../packages/governance
+      '@ttm/insights':
+        specifier: workspace:*
+        version: link:../../packages/insights
       '@ttm/media':
         specifier: workspace:*
         version: link:../../packages/media
@@ -184,6 +193,9 @@ importers:
       '@ttm/governance':
         specifier: workspace:*
         version: link:../governance
+      '@ttm/insights':
+        specifier: workspace:*
+        version: link:../insights
       '@ttm/media':
         specifier: workspace:*
         version: link:../media
@@ -212,6 +224,18 @@ importers:
       '@ttm/automation':
         specifier: workspace:*
         version: link:../automation
+      '@ttm/core':
+        specifier: workspace:*
+        version: link:../core
+      '@ttm/storage':
+        specifier: workspace:*
+        version: link:../storage
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+
+  packages/insights:
+    dependencies:
       '@ttm/core':
         specifier: workspace:*
         version: link:../core

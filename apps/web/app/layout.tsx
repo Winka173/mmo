@@ -15,6 +15,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Link href="/games">Game</Link>
             <Link href="/review">Duyệt</Link>
             <Link href="/jobs">Hàng đợi</Link>
+            <Link href="/planner">Kế hoạch</Link>
+            <Link href="/analytics">Phân tích</Link>
+            <Link href="/experiments">A/B</Link>
+            <Link href="/budget">Ngân sách</Link>
+            <Link href="/ops">Vận hành</Link>
+            <Link href="/telegram">Telegram</Link>
             <Link href="/accounts">Tài khoản</Link>
             <Link href="/settings">Cài đặt</Link>
           </nav>

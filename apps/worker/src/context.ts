@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { FileQueue } from "@ttm/automation";
 import { Platform, type Settings } from "@ttm/core";
 import { EspeakNgTts, PiperTts, type TtsProvider } from "@ttm/media";
-import { ManualHandoffPublisher, YouTubePublisher, type PlatformPublisher } from "@ttm/platforms";
+import { ManualHandoffPublisher, MetaPublisher, TikTokPublisher, YouTubePublisher, type PlatformPublisher } from "@ttm/platforms";
 import { DataStore, SecretStore, readJson } from "@ttm/storage";
 import { TelegramClient, TelegramOutbox } from "@ttm/telegram";
 import { z } from "zod";
@@ -14,6 +14,8 @@ export const FIXTURES = path.join(REPO_ROOT, "fixtures");
 /** channels.json: which account each destination must be, and routing for game vs main brand. */
 export const ChannelsConfig = z.object({
   youtube: z.object({ expectedChannelId: z.string().nullable().default(null) }).default({}),
+  meta: z.object({ graphVersion: z.string().default("v21.0"), pageId: z.string().nullable().default(null), igUserId: z.string().nullable().default(null), publishState: z.enum(["PUBLISHED", "DRAFT"]).default("DRAFT") }).default({}),
+  tiktok: z.object({ audited: z.boolean().default(false), expectedUsername: z.string().nullable().default(null) }).default({}),
   /** Legacy per-brand routing. Game routing is per game: game.json destinationAllowlist + config/accounts.json. */
   routing: z.record(z.array(Platform)).default({ tutomo: ["youtube_shorts", "facebook", "instagram", "tiktok"] }),
 });
@@ -35,13 +37,21 @@ export async function buildPublishers(store: DataStore, secrets: SecretStore): P
   const channels = (await readJson(store.p("config", "channels.json"), ChannelsConfig)) ?? ChannelsConfig.parse({});
   const [clientId, clientSecret, refreshToken] = await Promise.all([secrets.get("youtube.clientId"), secrets.get("youtube.clientSecret"), secrets.get("youtube.refreshToken")]);
   const yt = clientId && clientSecret && refreshToken ? { clientId, clientSecret, refreshToken } : null;
-  const metaNote = "Meta Graph API (Page Reels / IG Reels) chưa được triển khai và kiểm chứng với tài khoản thật — Phase 4. Dùng gói đăng thủ công.";
+  const metaNote = "Meta Graph API chưa được cấu hình (Page ID/IG user + token) — dùng gói đăng thủ công.";
+  const metaToken = await secrets.get("meta.pageToken").catch(() => null);
+  const ttToken = await secrets.get("tiktok.accessToken").catch(() => null);
   return {
     youtube_shorts: new YouTubePublisher("youtube_shorts", yt, { expectedChannelId: channels.youtube.expectedChannelId }),
     youtube_long: new YouTubePublisher("youtube_long", yt, { expectedChannelId: channels.youtube.expectedChannelId }),
-    facebook: new ManualHandoffPublisher("facebook", kitRoot, metaNote, ["Link affiliate có thể đặt trong caption hoặc bình luận đầu tiên trên bài của chính Page."]),
-    instagram: new ManualHandoffPublisher("instagram", kitRoot, metaNote, ["Link trong caption Reels KHÔNG click được — cập nhật link bio hoặc Story link sticker."]),
-    tiktok: new ManualHandoffPublisher(
+    facebook:
+      metaToken && channels.meta.pageId
+        ? new MetaPublisher("facebook", { accessToken: metaToken, pageId: channels.meta.pageId, expectedId: channels.meta.pageId, graphVersion: channels.meta.graphVersion, publishState: channels.meta.publishState })
+        : new ManualHandoffPublisher("facebook", kitRoot, metaNote, ["Link affiliate có thể đặt trong caption hoặc bình luận đầu tiên trên bài của chính Page."]),
+    instagram:
+      metaToken && channels.meta.igUserId
+        ? new MetaPublisher("instagram", { accessToken: metaToken, igUserId: channels.meta.igUserId, expectedId: channels.meta.igUserId, graphVersion: channels.meta.graphVersion })
+        : new ManualHandoffPublisher("instagram", kitRoot, metaNote, ["Link trong caption Reels KHÔNG click được — cập nhật link bio hoặc Story link sticker."]),
+    tiktok: ttToken && channels.tiktok.audited ? new TikTokPublisher({ accessToken: ttToken, audited: true, expectedOpenId: channels.tiktok.expectedUsername }) : new ManualHandoffPublisher(
       "tiktok",
       kitRoot,
       "TikTok Content Posting API (Direct Post) yêu cầu app được audit; công cụ cá nhân có thể không đủ điều kiện. Không tự động hóa giao diện web/cookie — đăng thủ công.",

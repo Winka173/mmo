@@ -11,7 +11,10 @@ import { createBackup, freeDiskGb, listBackups, readDataVersion, restoreBackup, 
 import { GameMediaIntake, GameRegistry, approveGameVideo, gameReadiness, seedGameFixtures } from "@ttm/games";
 import { MultiAccountManager, SourceLicenseRegistry } from "@ttm/governance";
 import { OriginalityEngine } from "@ttm/discovery";
+import { AnalyticsStore, SelfLearningEngine, importMetricsCsv, importShopeeCsv } from "@ttm/insights";
 import { buildContext, FIXTURES, type Ctx } from "./context.js";
+import { handleAffiliate, handleLearning, handleLifecycle, handleTrends, schedulePreview } from "./intel.js";
+import { deriveShortsFromLong } from "./repurpose.js";
 import { runDaemon } from "./daemon.js";
 import { seedFixtures } from "./fixtures.js";
 import { processUntilIdle } from "./handlers.js";
@@ -250,6 +253,31 @@ async function main() {
       const [projectId, ...reason] = args;
       return console.log(await new OriginalityEngine(ctx.store).override(projectId, "cli", reason.join(" ")));
     }
+    case "analytics-import": {
+      const r = await importMetricsCsv(new AnalyticsStore(ctx.store), await fs.readFile(args[0], "utf8"));
+      return console.log(`Đã nhập ${r.imported} dòng; lỗi: ${r.errors.join("; ") || "không"}`);
+    }
+    case "revenue-import": {
+      const a = new AnalyticsStore(ctx.store);
+      const r = await importShopeeCsv(a, await fs.readFile(args[0], "utf8"));
+      return console.log(`Đã nhập ${r.imported} dòng; lỗi: ${r.errors.join("; ") || "không"}\n${JSON.stringify(await a.revenueSummary(), null, 2)}`);
+    }
+    case "learn":
+      if (args[0] === "undo") return console.log(await new SelfLearningEngine(ctx.store).undo("cli"));
+      return console.log(JSON.stringify(await handleLearning(ctx), null, 2));
+    case "schedule":
+      return console.log(JSON.stringify(await schedulePreview(ctx), null, 2));
+    case "trends":
+      return console.log(JSON.stringify(await handleTrends(ctx), null, 2));
+    case "lifecycle":
+      return console.log(JSON.stringify(await handleLifecycle(ctx), null, 2));
+    case "affiliate-recheck":
+      return console.log(JSON.stringify(await handleAffiliate(ctx), null, 2));
+    case "long2shorts": {
+      const r = await deriveShortsFromLong(ctx, args[0], Number(args[1] ?? 3));
+      for (const id of r.created) await ctx.queue.enqueue({ kind: "PRODUCE", idempotencyKey: `produce:${id}:r1`, payload: { projectId: id }, usesGpu: true, priority: 4 });
+      return console.log(JSON.stringify(r, null, 2));
+    }
     case "gpu": {
       const p = await probeGpu();
       console.log(JSON.stringify(p, null, 2));
@@ -295,6 +323,8 @@ async function main() {
           "  accounts [confirm <accountId>]",
           "  rights [audit] | rights revoke <assetKey> <lý do> | rights chain <assetKey>",
           "  originality-override <projectId> <lý do cụ thể>",
+          "  analytics-import <csv> | revenue-import <shopee.csv> | learn [undo] | schedule | trends | lifecycle | affiliate-recheck",
+          "  long2shorts <longProjectId> [k=3]   cắt Shorts độc lập từ video dài của chính bạn",
           "  factcheck <projectId>   truy xuất nguồn thật để kiểm chứng claim",
           "  secrets set <tên>       lưu secret (DPAPI trên Windows)",
           "  telegram-allow <chatId> | youtube-auth",
