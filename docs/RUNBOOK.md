@@ -37,3 +37,20 @@ Tạo task "TuToMoWorker" chạy khi đăng nhập, tự khởi động lại kh
 | Token hết hạn | Job → `manual_action` + Telegram; chạy lại `youtube-auth` |
 | Muốn dừng khẩn | `cli kill-switch on` hoặc nút trong Cài đặt |
 | Sao lưu/khôi phục | `cli backup`, `cli backups`, `cli restore <tên>` (tự tạo bản an toàn trước khi khôi phục) |
+
+## V4 — vận hành bổ sung
+| Việc | Lệnh |
+|---|---|
+| Kiểm tra toàn vẹn dữ liệu | `pnpm factory verify` (`--fix` chỉ xóa file tạm cũ) |
+| Nâng cấp schema dữ liệu | tự động khi khởi động (có backup); xem trước: `pnpm factory migrate --dry-run` |
+| Sao lưu kèm secrets | `pnpm factory backup nhan --with-secrets` (nhập mật khẩu; secrets được mã hóa scrypt + AES-GCM) |
+| Thử khôi phục | `pnpm factory restore <tên> --dry-run` (checksum, tương thích phiên bản, số file thêm/ghi đè) |
+| Đo GPU thực tế | `pnpm factory gpu` (nvidia-smi + benchmark encoder) |
+| Dừng khẩn | Telegram `/emergency_stop` hoặc `pnpm factory kill-switch on` |
+| Thu hồi quyền một asset | `pnpm factory rights revoke <assetKey> <lý do>` |
+| Soak 7 ngày (dry-run) | `pnpm factory soak 7 --out=docs/evidence/SOAK_REPORT.md` |
+| Ma trận edge case | `pnpm test:report` → `docs/EDGE_CASE_MATRIX.md` |
+| UI smoke (Playwright) | `pnpm --filter @ttm/web build && pnpm --filter @ttm/web start` rồi `pnpm test:ui` |
+
+### Diễn tập sự cố (đã có test tự động)
+Kill worker giữa job (`recover` + reconcile), mạng rớt sau upload (reconcile, không đăng trùng), OAuth bị thu hồi (OAUTH_REVOKED → thủ công), retry trùng (idempotency), license hết hạn (registry audit), phụ đề lỗi/clip lặng (Quality Judge + tự sửa), ZIP độc (zip-slip/symlink/.exe), header video sai (sniff + giải mã), JSON hàng đợi hỏng (quarantine), ổ đĩa đầy (`DISK_LOW`), GPU OOM/quá nhiệt (GPU manager → CPU), Telegram không gửi được (outbox bền vững), lịch chồng lấn (key theo slot), tắt máy đột ngột (atomic write + recover).

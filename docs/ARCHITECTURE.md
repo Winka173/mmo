@@ -1,29 +1,58 @@
-# Kiến trúc
+# Kiến trúc (V4)
 
 ## Nguyên tắc
-- **Không database.** Nguồn sự thật = file dưới `DATA_DIR` (mặc định `%LOCALAPPDATA%/TuToMoFactory/data`). `index/` chỉ là dữ liệu dẫn xuất, dựng lại được (`DataStore.rebuildIndex`).
-- **Mọi ghi đều atomic**: file tạm cùng thư mục → `fsync` → `rename` (thử lại khi antivirus khóa file trên Windows), giữ bản `.bak`. Đọc lỗi/hỏng → tự phục hồi từ `.bak`, chuyển bản hỏng vào `quarantine/`.
-- **Audit append-only** `audit/YYYY-MM-DD.jsonl`; dòng cuối bị cắt do crash được bỏ qua.
-- **Chế độ demo/live tách bạch**: dự án `demo` không bao giờ được đăng.
+- **Không database.** Nguồn sự thật = file JSON/JSONL dưới `DATA_DIR` (mặc định `%LOCALAPPDATA%/TuToMoFactory/data`). `index/`, `analytics/aggregates.json` chỉ là dữ liệu dẫn xuất, xóa được và dựng lại được.
+- **Ghi atomic**: file tạm → `fsync` → `rename` (thử lại khi antivirus khóa), giữ `.bak`. File hỏng → khôi phục từ `.bak`, bản hỏng vào `quarantine/`. File đã bị xóa **không bao giờ** được hồi sinh từ `.bak` (sửa lỗi V3: job "ma").
+- **Migration theo phiên bản dữ liệu** (`config/schema-version.json.dataVersion`, hiện tại 2): chạy tự động khi khởi động, có backup trước, không phá hủy (chỉ sao chép/bổ sung), từ chối dữ liệu mới hơn mã nguồn. `factory migrate --dry-run`.
+- **Demo/live tách bạch**; fixture luôn `mode=demo` và có nhãn "FIXTURE".
+- **Mọi cổng (quyền, fact, originality, game truth, tài khoản) được kiểm tra lại ngay lúc đăng.** Duyệt chỉ là quyết định biên tập.
 
-## Hàng đợi (packages/automation/src/queue.ts)
-Mỗi job là một file trong `jobs/{queued,running,succeeded,failed,needs_review,manual_action}/`. Mọi thao tác chạy dưới `locks/queue.lock` (khóa file PID + heartbeat + TTL, tự chiếm khóa khi chủ cũ chết).
-- Di chuyển = ghi đích trước, xóa nguồn sau → crash chỉ để lại bản trùng, `recover()` giữ bản mới hơn.
-- Job `running` mất heartbeat → đưa lại hàng đợi; job PUBLISH/OWN_COMMENT gắn `needsReconcile` để publisher **kiểm tra phía nền tảng trước khi thử lại**.
-- Idempotency key `brand:contentId:rN:destination` được ghi vào `state/idempotency.json` **trước** khi tạo job.
-- Lỗi phân loại: `RETRYABLE` (backoff mũ + jitter, tôn trọng `retryAfter`, giới hạn `maxAttempts`), `BLOCKED` → `needs_review`, `HUMAN_REQUIRED` → `manual_action`, `PERMANENT` → `failed`. Bản ghi lỗi có đủ trường của mục Q.
-- Giới hạn đồng thời + semaphore GPU + phụ thuộc giữa job.
+## Package
+| Package | Vai trò |
+|---|---|
+| `core` | Zod schema, state machine job, cổng quyền/fact/affiliate/AUTO_SAFE, TTL claim |
+| `storage` | Atomic file, khóa, audit JSONL, backup có checksum + secrets mã hóa (scrypt+AES-GCM), restore `--dry-run`, migrations, `factory verify` |
+| `automation` | Hàng đợi file bền vững, cron theo múi giờ, DailyTopicPlanner |
+| `media` | TTS, frame, renderer storyboard (cache theo cảnh), **renderer gameplay**, QA, BrandIdentityEngine (brand kit có phiên bản), GPU Resource Manager, thumbnail (khóa/ứng viên/chấm điểm), probe chi tiết |
+| `quality` | **Quality Judge** đa tín hiệu trên MP4 thật + vòng **tự sửa** giới hạn |
+| `games` | **Multi-game factory**: registry, intake (ZIP/thư mục/manifest/CSV), GameBuildIntelligence, FootageAnalyzer (OCR), readiness, producer, campaign manager, fixtures 2 thể loại, schedule preview |
+| `governance` | BudgetRouter, MultiAccountManager, SourceLicenseRegistry, affiliate recheck, Comment Assistant, LifecycleManager |
+| `insights` | Analytics (unknown ≠ 0), doanh thu theo giai đoạn, SelfLearning, A/B, SmartSchedule, OpportunityRadar |
+| `discovery` | Connector ladder, thu thập hợp pháp, chống trùng V3 + **CrossPlatformOriginalityEngine** |
+| `providers` | LLM (OpenAI-compatible/NEEDS_PROVIDER), kịch bản template, **FactVerificationAgent**, Long→Shorts, Multilingual |
+| `platforms` | YouTube Data API, **Meta (FB/IG Reels)**, **TikTok Content Posting**, gói thủ công, mock |
+| `telegram` | Bot API, outbox bền vững, lệnh có allowlist + xác nhận 2 bước |
+| `apps/worker` | Daemon (scheduler + hàng đợi + Telegram), CLI `factory …`, soak |
+| `apps/web` | Control Center Next.js (localhost) |
 
-## Scheduler
-Cron 5 trường đánh giá theo giờ tường của múi giờ IANA (`Asia/Ho_Chi_Minh`, an toàn DST). Slot đã chạy lưu ở `state/schedules.json`; khi máy ngủ/tắt, slot gần nhất bị lỡ chạy **đúng một lần**. Callback chỉ enqueue job có key theo slot ⇒ hai instance không chạy trùng; worker còn có khóa `locks/worker.lock`.
+## Dữ liệu (DATA_DIR)
+```
+config/{settings,channels,accounts,calendar,schema-version}.json, config/brand-kits/<brand>/brand-kit.json (+ brand-kit-versions/)
+games/<gameId>/{game.json, brand-kit.json, verified-features.json, roadmap.json}
+games/<gameId>/builds/<buildId>/{manifest.json, changelog.md, checksums.json}
+games/<gameId>/media/{<kind>/<sha256>.<ext>, proxy/, analysis/<sha256>.json, index.json}
+games/<gameId>/uploads/<uploadId>/import-manifest.json
+games/<gameId>/campaigns/<id>/{brief,schedule,kpis}.json
+games/<gameId>/projects/<projectId>/{input.json, history/, readiness.json, footage-map.json, render-plan.json, review.json, rights.json, storyboard.json}
+projects/<projectId>/… (dự án dùng chung pipeline đăng; video game có gameId)
+  renders/<format>/{<format>.mp4, .vi.srt, .thumbnail.jpg, thumbnails.json, judge-report.json, repair-log.json, render-proof.json, v1/, v2/}
+  originality-report.json, fact-check.json, citations.md, lifecycle.json, gates.json
+registry/{rights/<assetKey>.json, provenance.jsonl, originality/index.jsonl}
+analytics/{snapshots/YYYY-MM.jsonl, revenue.jsonl, aggregates.json}
+learning/{lessons,hypotheses,failed-experiments,learned-settings}.json, learning/history/
+experiments/<id>.json · comments/{inbox.jsonl, decisions.jsonl, faq.json}
+jobs/{queued,running,succeeded,failed,needs_review,manual_action}/ · audit/ · costs/ · reports/ · backups/ · quarantine/
+```
+Lý do giữ `projects/<id>` cho video game: hàng đợi, cổng và publisher dùng chung một đường đi; thông tin riêng của game nằm ở `games/<gameId>/projects/<id>` theo mục Y4.
 
-## Pipeline sản xuất (apps/worker/src/produce.ts)
-`brief.json` → storyboard (template xác định) → TTS từng cảnh (cache WAV) → khung hình Sharp/SVG → clip từng cảnh (pan + fade) → concat → loudnorm −14 LUFS → phụ đề ASS burn-in → MP4 H.264/AAC `+faststart` (ghi file `.partial` rồi rename) → poster/thumbnail → **QA** (kích thước, fps, codec, thời lượng, blackdetect, silencedetect, LUFS, peak, độ dài phụ đề, dấu tiếng Việt) → cổng quyền/fact/coverage/affiliate → `metadata.json` theo nền tảng → `sources-ledger.md` → job PUBLISH theo từng nền tảng.
+## Luồng video game
+`Create Game Video` (UI/CLI) → `input.json` (lưu nháp, hoàn tác) → `gameReadiness` (asset thuộc đúng game, gameplay thật, nhãn build, claim tính năng/ngày/số liệu, CTA chỉ link đã xác nhận, nhạc có license, embargo, tài khoản) → job `GAME_PRODUCE` → FootageAnalyzer (cache theo SHA) → `renderGameplayVideo` 9:16 và 16:9 (fill hoặc nền mờ, không crop gây hiểu nhầm; logo/tên game/nhãn build/chú thích; TTS theo brand kit game; CTA outro) → thumbnail (khóa người dùng ưu tiên tuyệt đối; nếu không thì ≥3 ứng viên từ khung thật + chấm điểm) → QA + Quality Judge → `Project` (gameId) + metadata riêng game (UTM nếu có) → job PUBLISH (key `gameId:projectId:rN:platform`) → **gamePublishGate**: kiểm tra lại readiness, dấu vân tay duyệt (đổi thumbnail ⇒ hủy duyệt), tài khoản thuộc game + allowlist + đã xác nhận + đúng remote id.
 
-Khác biệt so với đặc tả (có chủ ý, ghi rõ): bộ dựng hiện là **FFmpeg + Sharp** (CPU, chạy offline, không cần tải Chromium). Remotion Player/template cho preview tương tác là việc của Phase 3.
+## Luồng nội dung Tủ Tò Mò
+brief → storyboard → TTS (cache) → frame → segment (cache theo cảnh) → concat → loudnorm → phụ đề → MP4 → QA → **Judge + tự sửa ≤2 vòng** (chỉ cảnh/phụ đề bị lỗi) → cổng quyền/fact/coverage/affiliate/**originality** → registry nguồn gốc → metadata → PUBLISH.
 
-## Đăng bài (apps/worker/src/publish.ts)
-Thứ tự kiểm tra **ngay lúc đăng**: kill switch → demo → cổng quyền/fact/affiliate (tính lại) → QA → duyệt/AUTO_SAFE → `externalPostingEnabled` → kiểm tra tài khoản đích → giới hạn ngày → reconcile → upload. Chỉ kết quả API xác nhận mới thành `PUBLISHED`. Nếu nền tảng không cho phép → gói đăng thủ công + nhiệm vụ Telegram; người dùng xác nhận bằng `/posted <job> <url>`.
+## Đăng bài
+Thứ tự lúc đăng: kill switch → demo → cổng (gồm originality) → QA → game gate / tài khoản → duyệt/AUTO_SAFE → `externalPostingEnabled` → kiểm tra năng lực publisher (đúng tài khoản/scope) → giới hạn ngày → reconcile → upload. Chỉ khi API xác nhận mới `PUBLISHED`; mơ hồ ⇒ reconcile trước, không đăng lại. Không có quyền API ⇒ gói thủ công + Telegram, người dùng xác nhận bằng `/posted`.
 
-## Discovery
-`SourceConnector` (api/rss/webPublic/browserManualLogin/userImport/metadataOnly/unsupported) chạy theo ladder; nguồn chưa được duyệt điều khoản bị `SOURCE_SKIPPED`; CAPTCHA/đăng nhập → dừng, `USER_ACTION_REQUIRED`. `decideAcquisition` không có nhánh nào cho stream ripping/DRM/xóa watermark. Chống trùng: canonical URL, SHA256, dHash (kèm lật/crop), độ tương đồng văn bản, product key. Mỗi lượt chạy ghi `decision-trace.json`.
+## Lịch (worker)
+daily-plan 07:00 · trend-scan 07:20 · rights-audit 06:15 · lifecycle 06:25 · affiliate-recheck 06:35 · metrics mỗi 6 giờ · comment-poll mỗi giờ · learning CN 18:40 · daily-report 19:00 · backup 03:30. Slot bị lỡ chạy đúng 1 lần; key theo slot nên không chạy trùng.
