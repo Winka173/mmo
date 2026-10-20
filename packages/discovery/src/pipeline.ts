@@ -3,6 +3,7 @@ import { DataStore, writeJsonAtomic } from "@ttm/storage";
 import { decideAcquisition, type AcquisitionDecision } from "./acquire.js";
 import type { DiscoverEvent, DiscoveredItem, SourceConnector } from "./connectors.js";
 import { DuplicateScanner, type DupResult } from "./duplicates.js";
+import { OriginalityEngine } from "./originality.js";
 import { canonicalUrl } from "./similarity.js";
 
 export type Candidate = {
@@ -118,6 +119,8 @@ export async function runDiscovery(input: {
         createdAt: nowIso(now),
       };
       candidates.push(cand);
+      // every observed third-party item enters the originality registry as NOT owned (metadata only)
+      await new OriginalityEngine(input.store).add({ id: `source:${cand.item.source}:${cand.item.originId}`, kind: "source", projectId: null, lineageId: null, owner: cand.item.creatorDisplayName ?? cand.item.source, sha256: null, video: null, audio: null, title: item.title, hook: "", text: `${item.title} ${item.description}`, conceptVi: conceptVi || null, language: item.sourceLanguage, structure: [], productKeys: [], urls: [cu], ownedOrLicensed: item.downloadPermission === "owned", at: nowIso(now) });
       await writeJsonAtomic(input.store.p("discovery", "candidates", `${cand.id}.json`), cand);
       if (decision === "ACCEPT") {
         trace.accepted.push(cand.id);

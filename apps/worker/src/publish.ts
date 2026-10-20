@@ -1,5 +1,6 @@
 import * as path from "node:path";
-import { FactoryError, autoSafeEligibility, canApprove, nowIso, type Format, type Job, type Platform, type Publication } from "@ttm/core";
+import { FactoryError, autoSafeEligibility, canApprove, nowIso, type Format, type GateResult, type Job, type Platform, type Publication } from "@ttm/core";
+import { OriginalityEngine, originalityGate } from "@ttm/discovery";
 import { writeManualKit, type PublishPackage, type UploadState } from "@ttm/platforms";
 import * as fs from "node:fs/promises";
 import { gameReadiness, isApprovalValid, GameRegistry } from "@ttm/games";
@@ -59,11 +60,13 @@ export async function handlePublish(ctx: Ctx, job: Job): Promise<Record<string, 
   }
 
   const storyboards = (await Promise.all(b.project.formats.map((f) => ctx.store.getStoryboard(projectId, f, b.project.revision)))).filter((x): x is NonNullable<typeof x> => !!x);
-  const gates = evaluateGates({ ...b, storyboards });
+  const gates: Record<string, GateResult> = evaluateGates({ ...b, storyboards });
+  // originality is re-checked from its persisted report (override with reason is honoured)
+  gates.originality = originalityGate(await new OriginalityEngine(ctx.store).read(projectId));
   const qa = await ctx.store.getQa(projectId, format);
   const blocking = Object.values(gates).filter((g) => !g.ok);
   if (blocking.length) {
-    const rightsBlocked = !gates.rights.ok;
+    const rightsBlocked = !gates.rights.ok || gates.originality.hold === "HOLD_RIGHTS";
     await upsertPublication(ctx, projectId, { ...base, state: rightsBlocked ? "BLOCKED_RIGHTS" : "NEEDS_REVIEW", lastError: blocking.flatMap((g) => g.reasons).join("; ") });
     throw new FactoryError(rightsBlocked ? "BLOCKED_RIGHTS" : "GATE_HOLD", "BLOCKED", `Không đăng ${platform}: ${blocking.flatMap((g) => g.reasons).slice(0, 4).join("; ")}`, {
       nextAction: "Bổ sung bằng chứng/quyền rồi duyệt lại. Phê duyệt thủ công KHÔNG vượt qua cổng quyền/fact.",
@@ -138,6 +141,10 @@ export async function handlePublish(ctx: Ctx, job: Job): Promise<Record<string, 
   const result = await publisher.upload(pkg, persist, prior);
   if (result.status === "PUBLISHED" || result.status === "PROCESSING") {
     await upsertPublication(ctx, projectId, { ...base, state: result.status, remoteId: result.remoteId, url: result.url, confirmedAt: result.confirmedAt });
+    // register as an owned post so future drafts are compared against what is actually public
+    const eng = new OriginalityEngine(ctx.store);
+    const draft = (await eng.entries()).find((e) => e.id === `draft:${projectId}`);
+    if (draft) await eng.add({ ...draft, id: `post:${projectId}:${platform}`, kind: "owned_post", urls: [...draft.urls, result.url], at: nowIso() });
     await notify(ctx, `✅ ${result.status === "PUBLISHED" ? "Đã đăng" : "Đã tải lên, đang xử lý"} ${platform}: ${b.project.title}\n${result.url}`, { dedupeKey: `pub:${job.idempotencyKey}` });
     if (result.status === "PROCESSING")
       await ctx.queue.enqueue({ kind: "VERIFY_PUBLICATION", idempotencyKey: `verify:${job.idempotencyKey}`, payload: { projectId, platform, remoteId: result.remoteId }, notBefore: new Date(Date.now() + 10 * 60_000) });

@@ -17,6 +17,8 @@ import {
 } from "@ttm/core";
 import { BrandIdentityEngine, FORMAT_SPECS, MACHINE_BRIGADE_BRAND, TU_TO_MO_BRAND, pickTts, qaVideo, renderStoryboard, toRenderKit } from "@ttm/media";
 import { TopicBrief, briefToStoryboard, platformMetadata } from "@ttm/providers";
+import { OriginalityEngine, canonicalUrls, originalityGate, productKeysOf } from "@ttm/discovery";
+import { SourceLicenseRegistry } from "@ttm/governance";
 import { judgeAndRepair } from "@ttm/quality";
 import { readJson, writeJsonAtomic } from "@ttm/storage";
 import { z } from "zod";
@@ -171,7 +173,32 @@ export async function produceProject(ctx: Ctx, projectId: string, onStage?: (s: 
   }
 
   // Ledger + metadata
-  const gates = evaluateGates({ ...b, storyboards });
+  const gates: Record<string, GateResult> = evaluateGates({ ...b, storyboards });
+  if (settings.features.originalityGate) {
+    const eng = new OriginalityEngine(ctx.store);
+    const prov = await readJson(ctx.store.p("projects", projectId, "provenance.json"), z.object({ inspiredBy: z.object({ url: z.string() }).partial().optional() }).passthrough()).catch(() => null);
+    const firstFmt = project.formats[0];
+    const entry = await eng.fingerprint({
+      id: `draft:${projectId}`,
+      kind: "draft",
+      projectId,
+      lineageId: project.lineageId ?? projectId,
+      owner: project.gameId ?? project.brand,
+      title: brief.title,
+      hook: brief.hookNarration,
+      text: storyboards[0].scenes.map((s) => s.narration).join(" "),
+      conceptVi: null,
+      language: project.language,
+      structure: storyboards[0].scenes.map((s) => s.kind),
+      productKeys: b.product ? productKeysOf([b.product.title]) : [],
+      urls: canonicalUrls(prov?.inspiredBy?.url ? [prov.inspiredBy.url] : []),
+      ownedOrLicensed: true,
+      file: (outputs[firstFmt] as any)?.video ?? null,
+    });
+    const rep = await eng.check(entry);
+    await eng.add(entry);
+    gates.originality = originalityGate(rep);
+  }
   const usedClaims = b.claims.filter((c) => storyboards.some((sb) => sb.scenes.some((s) => s.claimIds.includes(c.id))));
   const sources = [...new Map(usedClaims.flatMap((c) => c.sources).map((s) => [s.url, { title: `${s.publisher} — ${s.title}`, url: s.url }])).values()];
   const longSb = storyboards.find((s) => s.format === "long_16x9");
@@ -188,6 +215,7 @@ export async function produceProject(ctx: Ctx, projectId: string, onStage?: (s: 
     aiVoice: true,
   });
   await writeJsonAtomic(ctx.store.p("projects", projectId, "metadata.json"), meta);
+  await new SourceLicenseRegistry(ctx.store).syncProject(projectId);
   await writeJsonAtomic(ctx.store.p("projects", projectId, "gates.json"), { evaluatedAt: nowIso(), gates });
   await fs.writeFile(ctx.store.p("projects", projectId, "sources-ledger.md"), ledgerMarkdown(project, usedClaims, b.rights, gates), "utf8");
 

@@ -11,6 +11,7 @@
   "dependencies": {
     "@ttm/core": "workspace:*",
     "@ttm/storage": "workspace:*",
-    "zod": "^3.24.1"
+    "zod": "^3.24.1",
+    "@ttm/automation": "workspace:*"
   }
 }

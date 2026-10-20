@@ -1,5 +1,6 @@
 import { FactoryError, idempotencyKey, nowIso, type Job } from "@ttm/core";
 import { GameRegistry, produceGameVideo } from "@ttm/games";
+import { SourceLicenseRegistry } from "@ttm/governance";
 import { planDay, type TopicCandidate } from "@ttm/automation";
 import { createBackup, freeDiskGb, pruneBackups, readJson } from "@ttm/storage";
 import { notify, type Ctx } from "./context.js";
@@ -104,6 +105,15 @@ export async function runJob(ctx: Ctx, job: Job): Promise<void> {
       case "GAME_PRODUCE":
         result = await handleGameProduce(ctx, job);
         break;
+      case "RIGHTS_AUDIT": {
+        const reg = new SourceLicenseRegistry(ctx.store, ctx.queue);
+        for (const p of await ctx.store.listProjects()) await reg.syncProject(p.id);
+        const a = await reg.audit(new Date(), Number(job.payload.warnDays ?? 14));
+        for (const x of a.expired) await notify(ctx, `⛔ Giấy phép hết hạn: ${x.assetKey}\nDự án bị giữ: ${x.projects.join(", ")}\nĐã hủy ${x.cancelledJobs.length} job đăng${x.publishedNeedingReview.length ? `\nBài đã đăng cần xem xét gỡ/sửa: ${x.publishedNeedingReview.map((p) => p.url ?? p.platform).join(", ")}` : ""}`, { dedupeKey: `rights-exp:${x.assetKey}` });
+        if (a.expiringSoon.length) await notify(ctx, `⚠️ ${a.expiringSoon.length} giấy phép sắp hết hạn: ${a.expiringSoon.map((r) => `${r.assetKey} (${r.expiresAt?.slice(0, 10)})`).join(", ")}`, { dedupeKey: `rights-soon:${ctx.store.today()}` });
+        result = { expired: a.expired.length, expiringSoon: a.expiringSoon.map((r) => r.assetKey) };
+        break;
+      }
       case "DAILY_REPORT": {
         const slot = job.payload.slot ? new Intl.DateTimeFormat("en-CA", { timeZone: settings.timezone }).format(new Date(String(job.payload.slot))) : undefined;
         const r = await sendDailyReport(ctx, (job.payload.date as string | undefined) ?? slot);

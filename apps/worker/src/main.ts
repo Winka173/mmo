@@ -4,11 +4,13 @@ import * as readline from "node:readline/promises";
 import { Claim } from "@ttm/core";
 import { detectEncoder, EspeakNgTts, ffprobe, FFMPEG, runProcess } from "@ttm/media";
 import { googleLoopbackAuth, YOUTUBE_SCOPES } from "@ttm/platforms";
-import { verifyClaim } from "@ttm/providers";
+import { exportCitations, verifyClaimAgent } from "@ttm/providers";
 import { benchmarkEncoders, probeGpu } from "@ttm/media";
+import { writeJsonAtomic } from "@ttm/storage";
 import { createBackup, freeDiskGb, listBackups, readDataVersion, restoreBackup, runMigrations, verifyDataDir } from "@ttm/storage";
 import { GameMediaIntake, GameRegistry, approveGameVideo, gameReadiness, seedGameFixtures } from "@ttm/games";
-import { MultiAccountManager } from "@ttm/governance";
+import { MultiAccountManager, SourceLicenseRegistry } from "@ttm/governance";
+import { OriginalityEngine } from "@ttm/discovery";
 import { buildContext, FIXTURES, type Ctx } from "./context.js";
 import { runDaemon } from "./daemon.js";
 import { seedFixtures } from "./fixtures.js";
@@ -103,13 +105,18 @@ async function factcheck(ctx: Ctx, projectId: string) {
   const claims = await ctx.store.getClaims(projectId);
   const evidence = JSON.parse(await fs.readFile(path.join(FIXTURES, "fact-venus", "evidence.json"), "utf8"));
   const out = [];
+  const report = [];
   for (const c of claims) {
-    const r = await verifyClaim(Claim.parse(c), evidence[c.id] ?? {});
+    const r = await verifyClaimAgent(Claim.parse(c), evidence[c.id] ?? {});
     out.push(r.claim);
-    console.log(`${c.id}: ${c.status} -> ${r.claim.status}`);
-    for (const l of r.log) console.log(`   ${l.ok ? "✅" : "⛔"} ${l.url} — ${l.detail}`);
+    report.push({ id: c.id, before: c.status, after: r.claim.status, outcome: r.outcome, reasons: r.reasons, independent: r.independent, log: r.log });
+    console.log(`${c.id}: ${c.status} -> ${r.claim.status} (${r.outcome}) ${r.reasons.join("; ")}`);
+    for (const l of r.log) console.log(`   ${l.ok ? "✅" : l.contradiction ? "⚠️ " : "⛔"} ${l.url} [${l.domain}] — ${l.detail}`);
   }
   await ctx.store.saveClaims(projectId, out);
+  const cit = exportCitations(out);
+  await writeJsonAtomic(ctx.store.p("projects", projectId, "fact-check.json"), { checkedAt: new Date().toISOString(), claims: report, citations: cit.json });
+  await fs.writeFile(ctx.store.p("projects", projectId, "citations.md"), cit.markdown + "\n", "utf8");
   await ctx.store.audit({ actor: "cli", action: "factcheck.run", subject: projectId, detail: { verified: out.filter((c) => c.status === "VERIFIED").length } });
 }
 
@@ -231,6 +238,18 @@ async function main() {
       for (const a of await mam.list()) console.log(`${a.id.padEnd(24)} ${a.platform.padEnd(15)} ${a.owner.kind}:${a.owner.id} · ${a.displayName} · ${a.confirmedAt ? "đã xác nhận" : "CHƯA xác nhận"}${a.enabled ? "" : " · TẮT"}`);
       return;
     }
+    case "rights": {
+      const reg = new SourceLicenseRegistry(ctx.store, ctx.queue);
+      if (args[0] === "revoke" && args[1]) return console.log(JSON.stringify(await reg.revoke(args[1], args.slice(2).join(" ") || "thu hồi thủ công", "cli"), null, 2));
+      if (args[0] === "chain" && args[1]) return console.log((await reg.events(args[1])).map((e) => `${e.at} ${e.type} ${e.projectId ?? ""} ${JSON.stringify(e.detail)}`).join("\n"));
+      for (const p of await ctx.store.listProjects()) await reg.syncProject(p.id);
+      const a = await reg.audit();
+      return console.log(`Hết hạn: ${a.expired.map((x) => x.assetKey).join(", ") || "không"} · Sắp hết hạn: ${a.expiringSoon.map((r) => r.assetKey).join(", ") || "không"}\n${(await reg.list()).map((r) => `${r.status.padEnd(8)} ${r.assetKey} ${r.licenseId ?? ""} ${r.expiresAt ?? ""}`).join("\n")}`);
+    }
+    case "originality-override": {
+      const [projectId, ...reason] = args;
+      return console.log(await new OriginalityEngine(ctx.store).override(projectId, "cli", reason.join(" ")));
+    }
     case "gpu": {
       const p = await probeGpu();
       console.log(JSON.stringify(p, null, 2));
@@ -274,6 +293,8 @@ async function main() {
           "  games | game-seed-fixtures | game-import <gameId> <đường dẫn> [--kind=…]",
           "  game-readiness|game-produce [--demo]|game-approve [--roadmap] <gameId> <projectId>",
           "  accounts [confirm <accountId>]",
+          "  rights [audit] | rights revoke <assetKey> <lý do> | rights chain <assetKey>",
+          "  originality-override <projectId> <lý do cụ thể>",
           "  factcheck <projectId>   truy xuất nguồn thật để kiểm chứng claim",
           "  secrets set <tên>       lưu secret (DPAPI trên Windows)",
           "  telegram-allow <chatId> | youtube-auth",

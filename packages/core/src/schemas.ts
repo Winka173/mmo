@@ -97,8 +97,15 @@ export const Claim = z.object({
   checkedAt: IsoDate.nullable().default(null),
   contradictionNotes: z.array(z.string()).default([]),
   categories: z.array(SensitiveCategory).default([]),
+  /** V4: freshness class for publish-time revalidation (FactVerificationAgent TTL) */
+  topic: z.enum(["general", "science", "spec", "price", "news", "game_feature"]).default("general"),
+  /** explicit TTL override in hours (null = topic default) */
+  ttlHours: z.number().positive().nullable().default(null),
 });
 export type Claim = z.infer<typeof Claim>;
+
+/** Default revalidation TTL per claim topic (hours). */
+export const CLAIM_TTL_HOURS: Record<Claim["topic"], number> = { news: 6, price: 24, game_feature: 168, spec: 720, general: 2160, science: 4320 };
 
 // ---------------------------------------------------------------- Rights
 

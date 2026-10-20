@@ -209,6 +209,9 @@ importers:
 
   packages/governance:
     dependencies:
+      '@ttm/automation':
+        specifier: workspace:*
+        version: link:../automation
       '@ttm/core':
         specifier: workspace:*
         version: link:../core

@@ -4,3 +4,4 @@ export * from "./acquire.js";
 export * from "./duplicates.js";
 export * from "./pipeline.js";
 export * from "./game.js";
+export * from "./originality.js";

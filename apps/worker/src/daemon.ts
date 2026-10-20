@@ -24,7 +24,7 @@ export async function runDaemon(ctx: Ctx): Promise<void> {
   await ctx.store.audit({ actor: "worker", action: "worker.start", subject: String(process.pid), detail: rec });
   const settings = await ctx.settings();
 
-  const enqueueSlot = (kind: "DAILY_PLAN" | "DAILY_REPORT" | "BACKUP", name: string) => async (slot: Date) => {
+  const enqueueSlot = (kind: "DAILY_PLAN" | "DAILY_REPORT" | "BACKUP" | "RIGHTS_AUDIT" | "LIFECYCLE_AUDIT" | "METRICS_SNAPSHOT" | "LEARNING_UPDATE" | "TREND_SCAN" | "AFFILIATE_RECHECK" | "COMMENT_POLL", name: string) => async (slot: Date) => {
     await ctx.queue.enqueue({ kind, idempotencyKey: `schedule:${name}:${slot.toISOString()}`, payload: { slot: slot.toISOString() }, priority: kind === "DAILY_REPORT" ? 1 : 5 });
   };
   const scheduler = new Scheduler(
@@ -33,6 +33,7 @@ export async function runDaemon(ctx: Ctx): Promise<void> {
       { name: "daily-plan", cron: settings.schedules.dailyPlanCron, run: enqueueSlot("DAILY_PLAN", "daily-plan") },
       { name: "daily-report", cron: settings.schedules.dailyReportCron, run: enqueueSlot("DAILY_REPORT", "daily-report") },
       { name: "backup", cron: "30 3 * * *", run: enqueueSlot("BACKUP", "backup") },
+      { name: "rights-audit", cron: "15 6 * * *", run: enqueueSlot("RIGHTS_AUDIT", "rights-audit") },
     ],
     settings.timezone,
   );

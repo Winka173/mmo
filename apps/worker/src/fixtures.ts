@@ -32,7 +32,7 @@ const generatedAsset = (assetId: string, notes = "Đồ họa do hệ thống t�
 
 async function createProject(
   ctx: Ctx,
-  p: { id: string; type: ContentType; title: string; mode: "demo" | "live"; formats: Format[]; productId?: string | null; originality?: Project["originalityChecklist"] },
+  p: { id: string; type: ContentType; title: string; mode: "demo" | "live"; formats: Format[]; productId?: string | null; originality?: Project["originalityChecklist"]; lineageId?: string },
   brief: unknown,
   plan: Partial<ProjectPlan> & Pick<ProjectPlan, "family" | "targets" | "summary">,
   claims: Claim[],
@@ -45,6 +45,7 @@ async function createProject(
     id: p.id,
     brand: plan.brand === "machine-brigade" ? "machine-brigade" : "tutomo",
     gameId: plan.brand === "machine-brigade" ? "machine-brigade" : null,
+    lineageId: p.lineageId ?? p.id,
     contentType: p.type,
     title: p.title,
     mode: p.mode,
@@ -186,7 +187,7 @@ export async function seedFixtures(ctx: Ctx): Promise<SeedResult> {
   const longBrief = TopicBrief.parse(await read("fact-venus/long.brief.json"));
   await createProject(
     ctx,
-    { id: "fixture-long-venus", type: "YOUTUBE_LONG", title: "Sao Kim — hành tinh kỳ lạ nhất ngay cạnh Trái Đất", mode: "live", formats: ["long_16x9"] },
+    { id: "fixture-long-venus", type: "YOUTUBE_LONG", title: "Sao Kim — hành tinh kỳ lạ nhất ngay cạnh Trái Đất", mode: "live", formats: ["long_16x9"], lineageId: "fixture-long-venus" },
     longBrief,
     { family: "FACT", targets: ["youtube_long"], summary: "Ba ngăn tủ về Sao Kim: tự quay siêu chậm, một năm ngắn hơn, và bề mặt như lò nung.", hashtags: ["TuToMo", "SaoKim", "ThienVan"], minSecOverride: 60 },
     venusClaims,
@@ -195,7 +196,7 @@ export async function seedFixtures(ctx: Ctx): Promise<SeedResult> {
   projects.push("fixture-long-venus");
   await createProject(
     ctx,
-    { id: "fixture-long-venus-cut1", type: "FACT_SHORT", title: "Sao Kim quay ngược chiều", mode: "live", formats: ["short_9x16"] },
+    { id: "fixture-long-venus-cut1", type: "FACT_SHORT", title: "Sao Kim quay ngược chiều", mode: "live", formats: ["short_9x16"], lineageId: "fixture-long-venus" },
     deriveCutdownBrief(longBrief, [0, 1], "fixture-long-venus-cut1", "Sao Kim tự quay ngược và siêu chậm"),
     { family: "FACT", targets: ["youtube_shorts"], summary: "Trích từ video dài về Sao Kim.", hashtags: ["TuToMo", "SaoKim"], signals: { recentRepeatPenalty: 0.3 } },
     venusClaims,

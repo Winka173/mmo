@@ -1,4 +1,4 @@
-import type { Claim, MediaRights, Platform, Product, Project, RightsManifest, Settings } from "./schemas.js";
+import { CLAIM_TTL_HOURS, type Claim, type MediaRights, type Platform, type Product, type Project, type RightsManifest, type Settings } from "./schemas.js";
 
 export type GateResult = { ok: boolean; hold: null | "HOLD_RIGHTS" | "HOLD_FACTS" | "HOLD_AFFILIATE" | "HOLD_POLICY"; reasons: string[] };
 
@@ -56,6 +56,10 @@ export function factGate(claims: Claim[], now: Date, opts: { maxAgeHoursTimeSens
     if (c.contradictionNotes.length) reasons.push(`claim ${c.id}: có mâu thuẫn giữa các nguồn`);
     if (c.timeSensitive && (!c.checkedAt || now.getTime() - new Date(c.checkedAt).getTime() > maxAge))
       reasons.push(`claim ${c.id}: thông tin theo thời gian cần kiểm tra lại`);
+    else if (c.checkedAt) {
+      const ttl = (c.ttlHours ?? CLAIM_TTL_HOURS[c.topic ?? "general"]) * 3600_000;
+      if (now.getTime() - new Date(c.checkedAt).getTime() > ttl) reasons.push(`claim ${c.id}: kiểm chứng đã quá hạn (${c.topic}) — cần kiểm tra lại trước khi đăng`);
+    }
   }
   return reasons.length ? { ok: false, hold: "HOLD_FACTS", reasons } : pass();
 }
