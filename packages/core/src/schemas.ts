@@ -2,6 +2,11 @@ import { z } from "zod";
 
 /** Bump when a persisted file shape changes; see packages/storage/src/migrations.ts. */
 export const SCHEMA_VERSION = 1;
+/**
+ * Data-directory layout version (config/schema-version.json). v2 = V4 multi-game layout
+ * (`games/<gameId>/`), accounts, registry. Migrations: packages/storage/src/migrations.ts.
+ */
+export const DATA_VERSION = 2;
 
 export const Id = z.string().regex(/^[A-Za-z0-9_-]{3,80}$/, "ID chỉ gồm chữ, số, '_' hoặc '-' (3–80 ký tự)");
 export const IsoDate = z.string().datetime({ offset: true });
@@ -21,6 +26,20 @@ export const ContentType = z.enum([
   "GAME_TRAILER",
   "GAME_PATCH_UPDATE",
   "YOUTUBE_LONG",
+  // V4 generic multi-game types (no unit/vehicle assumption)
+  "GAME_MECHANIC",
+  "GAME_CHARACTER",
+  "GAME_UNIT",
+  "GAME_VEHICLE",
+  "GAME_CRAFTING",
+  "GAME_ART_SHOWCASE",
+  "GAME_TEASER",
+  "GAME_ANNOUNCEMENT",
+  "GAME_TUTORIAL",
+  "GAME_COMPARISON",
+  "GAME_LAUNCH",
+  "GAME_SHORT",
+  "GAME_LONG",
 ]);
 export type ContentType = z.infer<typeof ContentType>;
 
@@ -189,6 +208,8 @@ export const Storyboard = z.object({
     "TopNWithProof",
     "DeepDive",
     "GameDevlog",
+    "GameplayHighlight",
+    "GameTrailer",
   ]),
   title: z.string().min(1),
   scenes: z.array(Scene).min(1),
@@ -225,6 +246,8 @@ export const Publication = z.object({
   lastError: z.string().nullable(),
   isDemo: z.boolean(),
   updatedAt: IsoDate,
+  /** MultiAccountManager account used (V4); null for legacy single-account publications. */
+  accountId: z.string().nullable().default(null),
 });
 export type Publication = z.infer<typeof Publication>;
 
@@ -257,6 +280,11 @@ export const Project = z.object({
   schemaVersion: z.literal(SCHEMA_VERSION),
   id: Id,
   brand: z.string().default("tutomo"),
+  /** Owning game project (V4 multi-game); null for Tủ Tò Mò brand content. */
+  gameId: z.string().nullable().default(null),
+  /** Shared provenance lineage (long video + derived Shorts share it). */
+  lineageId: z.string().nullable().default(null),
+  language: z.string().default("vi"),
   contentType: ContentType,
   title: z.string().min(1),
   /** demo = fixture/synthetic content, never eligible for live publish. */
@@ -335,5 +363,49 @@ export const Settings = z.object({
     .default({}),
   retentionDays: z.object({ audit: z.number().int().default(365), renders: z.number().int().default(90) }).default({}),
   minFreeDiskGb: z.number().default(10),
+  // ------------------------------------------------------------ V4 additions (all defaulted = safe)
+  /** Phase feature flags; risky automation defaults OFF. */
+  features: z
+    .object({
+      qualityJudge: z.boolean().default(true),
+      autoRepair: z.boolean().default(true),
+      originalityGate: z.boolean().default(true),
+      learningAutoAdjust: z.boolean().default(false),
+      abTesting: z.boolean().default(false),
+      commentAutoReply: z.boolean().default(false),
+      multilingual: z.boolean().default(false),
+      trendRadar: z.boolean().default(true),
+      lifecycleAudit: z.boolean().default(true),
+    })
+    .default({}),
+  quality: z
+    .object({
+      mode: z.enum(["FAST_QA", "STANDARD_QA", "PREMIUM_QA"]).default("FAST_QA"),
+      maxRepairIterations: z.number().int().min(0).max(5).default(2),
+      minEditorialScore: z.number().min(0).max(100).default(55),
+    })
+    .default({}),
+  /** BudgetRouter caps (USD). 0 = paid calls blocked. */
+  spend: z
+    .object({
+      dailyUsdCap: z.number().nonnegative().default(0),
+      weeklyUsdCap: z.number().nonnegative().default(0),
+      paidProviderAllowlist: z.array(z.string()).default([]),
+      electricityUsdPerKwh: z.number().nonnegative().nullable().default(null),
+    })
+    .default({}),
+  learning: z
+    .object({
+      explorationRatio: z.number().min(0).max(1).default(0.3),
+      minSamplePerArm: z.number().int().positive().default(5),
+      maxCadenceShiftPerWeek: z.number().min(0).max(1).default(0.2),
+      frozen: z.boolean().default(false),
+    })
+    .default({}),
+  languages: z.array(z.string()).default(["vi"]),
+  gpu: z
+    .object({ profile: z.enum(["auto", "cpu-only", "rtx-16gb"]).default("auto"), maxTempC: z.number().default(83), minFreeVramMb: z.number().default(1500) })
+    .default({}),
+  comments: z.object({ maxRepliesPerDay: z.number().int().nonnegative().default(10), cooldownMinutes: z.number().int().nonnegative().default(30) }).default({}),
 });
 export type Settings = z.infer<typeof Settings>;

@@ -44,6 +44,7 @@ export async function handlePublish(ctx: Ctx, job: Job): Promise<Record<string, 
     lastError: null,
     isDemo: b.project.mode === "demo",
     updatedAt: nowIso(),
+    accountId: null,
   };
   const existing = (await ctx.store.getPublications(projectId)).find((p) => p.idempotencyKey === job.idempotencyKey);
   if (existing?.state === "PUBLISHED") return { skipped: "đã đăng trước đó (idempotent)", url: existing.url };

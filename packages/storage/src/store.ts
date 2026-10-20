@@ -3,8 +3,10 @@ import * as os from "node:os";
 import * as path from "node:path";
 import {
   Claim,
+  DATA_VERSION,
   Product,
   Project,
+  Publication as PublicationSchema,
   QaReport,
   RightsManifest,
   SCHEMA_VERSION,
@@ -14,7 +16,9 @@ import {
   type Publication,
 } from "@ttm/core";
 import { z } from "zod";
+import { createBackup } from "./backup.js";
 import { appendJsonl, exists, readJson, readJsonl, safeJoin, writeJsonAtomic } from "./fsutil.js";
+import { runMigrations, type MigrationReport } from "./migrations.js";
 
 export function defaultDataDir(): string {
   if (process.env.DATA_DIR) return path.resolve(process.env.DATA_DIR);
@@ -61,9 +65,17 @@ const LAYOUT_DIRS = [
   "telegram/outbox",
   "telegram/sent",
   "state",
+  // V4
+  "games",
+  "registry",
+  "analytics/snapshots",
+  "learning",
+  "experiments",
+  "config/brand-kits",
+  "comments",
 ];
 
-const Publications = z.array(z.custom<Publication>());
+const Publications = z.array(PublicationSchema);
 const ClaimList = z.array(Claim);
 
 export type AuditEvent = { at?: string; actor: string; action: string; subject: string; detail?: Record<string, unknown> };
@@ -79,13 +91,21 @@ export class DataStore {
     return safeJoin(this.root, ...rel);
   }
 
+  /** Set by init() when an older data directory was migrated forward. */
+  lastMigration: MigrationReport | null = null;
+
   async init(): Promise<void> {
+    const fresh = !(await exists(this.p("config/schema-version.json")));
     for (const d of LAYOUT_DIRS) await fs.mkdir(this.p(d), { recursive: true });
     if (!(await exists(this.p("config/settings.json")))) {
       await writeJsonAtomic(this.p("config/settings.json"), Settings.parse({ schemaVersion: SCHEMA_VERSION }));
     }
-    if (!(await exists(this.p("config/schema-version.json")))) {
-      await writeJsonAtomic(this.p("config/schema-version.json"), { schemaVersion: SCHEMA_VERSION, createdAt: nowIso() });
+    if (fresh) {
+      await writeJsonAtomic(this.p("config/schema-version.json"), { schemaVersion: SCHEMA_VERSION, dataVersion: DATA_VERSION, createdAt: nowIso() });
+    } else {
+      // Additive, non-destructive migrations run automatically (backup first); newer data is refused.
+      const r = await runMigrations(this, { backup: (label) => createBackup(this, { label }) });
+      if (r.steps.length) this.lastMigration = r;
     }
   }
 
@@ -105,7 +125,7 @@ export class DataStore {
   }
 
   // ------------------------------------------------------------- projects
-  async saveProject(p: Project): Promise<void> {
+  async saveProject(p: z.input<typeof Project>): Promise<void> {
     await writeJsonAtomic(this.p("projects", p.id, "project.json"), Project.parse({ ...p, updatedAt: nowIso() }));
   }
   getProject(id: string) {
@@ -153,8 +173,8 @@ export class DataStore {
   async getPublications(projectId: string): Promise<Publication[]> {
     return ((await readJson(this.p("projects", projectId, "publications.json"), Publications, this.q())) ?? []) as Publication[];
   }
-  savePublications(projectId: string, pubs: Publication[]) {
-    return writeJsonAtomic(this.p("projects", projectId, "publications.json"), pubs);
+  savePublications(projectId: string, pubs: z.input<typeof PublicationSchema>[]) {
+    return writeJsonAtomic(this.p("projects", projectId, "publications.json"), pubs.map((x) => PublicationSchema.parse(x)));
   }
 
   // ------------------------------------------------------------- products
@@ -175,13 +195,27 @@ export class DataStore {
   async readAudit(day: string) {
     return readJsonl<AuditEvent & { at: string }>(this.p("audit", `${day}.jsonl`));
   }
-  async recordCost(entry: { provider: string; usd: number; projectId?: string; note?: string; estimated: boolean }): Promise<void> {
+  async recordCost(entry: {
+    provider: string;
+    usd: number;
+    projectId?: string;
+    note?: string;
+    estimated: boolean;
+    category?: string;
+    units?: number;
+    unit?: string;
+    /** original currency + rate source/timestamp when billed in another currency */
+    fx?: { currency: string; amount: number; rate: number; source: string; at: string } | null;
+    ticketId?: string;
+    kind?: "reservation" | "receipt";
+  }): Promise<void> {
     const month = this.day().slice(0, 7);
     await appendJsonl(this.p("costs", `${month}.jsonl`), { at: nowIso(), ...entry });
   }
   async monthCostUsd(month = this.day().slice(0, 7)): Promise<number> {
-    const { records } = await readJsonl<{ usd: number }>(this.p("costs", `${month}.jsonl`));
-    return records.reduce((a, r) => a + (Number(r.usd) || 0), 0);
+    const { records } = await readJsonl<{ usd: number; estimated?: boolean; kind?: string }>(this.p("costs", `${month}.jsonl`));
+    // estimate reservations are tracked separately by BudgetRouter; spend = receipts + legacy rows
+    return records.filter((r) => r.kind !== "reservation").reduce((a, r) => a + (Number(r.usd) || 0), 0);
   }
   today(tz?: string) {
     return this.day(new Date(), tz);

@@ -78,6 +78,9 @@ importers:
       '@ttm/discovery':
         specifier: workspace:*
         version: link:../../packages/discovery
+      '@ttm/governance':
+        specifier: workspace:*
+        version: link:../../packages/governance
       '@ttm/media':
         specifier: workspace:*
         version: link:../../packages/media
@@ -133,6 +136,18 @@ importers:
       sharp:
         specifier: ^0.34.0
         version: 0.34.5
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+
+  packages/governance:
+    dependencies:
+      '@ttm/core':
+        specifier: workspace:*
+        version: link:../core
+      '@ttm/storage':
+        specifier: workspace:*
+        version: link:../storage
       zod:
         specifier: ^3.24.1
         version: 3.25.76

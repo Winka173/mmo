@@ -2,7 +2,7 @@
   "name": "tu-to-mo-factory",
   "private": true,
   "version": "0.1.0",
-  "description": "Tủ Tò Mò — nhà máy nội dung tự vận hành, lưu trữ file-only (không database).",
+  "description": "T\u1ee7 T\u00f2 M\u00f2 \u2014 nh\u00e0 m\u00e1y n\u1ed9i dung t\u1ef1 v\u1eadn h\u00e0nh, l\u01b0u tr\u1eef file-only (kh\u00f4ng database).",
   "packageManager": "pnpm@10.28.0",
   "engines": {
     "node": ">=20"
@@ -16,7 +16,8 @@
     "doctor": "pnpm --filter @ttm/worker doctor",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "factory": "pnpm --silent --filter @ttm/worker cli"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

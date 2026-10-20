@@ -6,3 +6,4 @@ export * from "./subtitles.js";
 export * from "./encoder.js";
 export * from "./render.js";
 export * from "./qa.js";
+export * from "./gpu.js";

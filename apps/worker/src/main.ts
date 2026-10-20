@@ -5,7 +5,8 @@ import { Claim } from "@ttm/core";
 import { detectEncoder, EspeakNgTts, ffprobe, FFMPEG, runProcess } from "@ttm/media";
 import { googleLoopbackAuth, YOUTUBE_SCOPES } from "@ttm/platforms";
 import { verifyClaim } from "@ttm/providers";
-import { createBackup, freeDiskGb, listBackups, restoreBackup } from "@ttm/storage";
+import { benchmarkEncoders, probeGpu } from "@ttm/media";
+import { createBackup, freeDiskGb, listBackups, readDataVersion, restoreBackup, runMigrations, verifyDataDir } from "@ttm/storage";
 import { buildContext, FIXTURES, type Ctx } from "./context.js";
 import { runDaemon } from "./daemon.js";
 import { seedFixtures } from "./fixtures.js";
@@ -33,6 +34,11 @@ async function doctor(ctx: Ctx) {
   const free = await freeDiskGb(ctx.store.root);
   rows.push(["Dung lượng trống", free === null || free >= s.minFreeDiskGb, free === null ? "không đo được" : `${free.toFixed(1)} GB`]);
   rows.push(["DATA_DIR", true, ctx.store.root]);
+  rows.push(["Phiên bản dữ liệu", true, `v${await readDataVersion(ctx.store)}`]);
+  const gpu = await probeGpu({ verifyNvenc: false });
+  rows.push(["GPU (đo thực tế)", true, gpu.available ? `${gpu.name} · VRAM ${gpu.vramUsedMb}/${gpu.vramTotalMb} MB · ${gpu.temperatureC ?? "?"}°C · CUDA ${gpu.cuda ?? "?"}` : gpu.detail]);
+  const v = await verifyDataDir(ctx.store, { hashMedia: false });
+  rows.push(["Toàn vẹn dữ liệu", v.ok, `${v.scannedJson} JSON, ${v.issues.filter((i) => i.severity === "error").length} lỗi, ${v.issues.filter((i) => i.severity === "warn").length} cảnh báo (chi tiết: factory verify)`]);
   rows.push(["Secret backend", true, ctx.secrets.backend]);
   rows.push(["Đăng ra ngoài", true, s.externalPostingEnabled ? "BẬT" : "TẮT (mặc định an toàn)"]);
   for (const [name, ok, detail] of rows) console.log(`${ok ? "✅" : "⚠️ "} ${name.padEnd(28)} ${detail}`);
@@ -144,12 +150,36 @@ async function main() {
       await ctx.store.updateSettings((s) => ({ ...s, killSwitch: on }), "cli");
       return console.log(`Kill switch: ${on ? "BẬT" : "tắt"}`);
     }
-    case "backup":
-      return console.log(await createBackup(ctx.store, { label: args[0] }));
+    case "backup": {
+      const withSecrets = args.includes("--with-secrets");
+      const label = args.find((a) => !a.startsWith("--"));
+      const secretsPassphrase = withSecrets ? await readSecretFromStdin("Mật khẩu mã hóa bản sao lưu secrets: ") : undefined;
+      return console.log(await createBackup(ctx.store, { label, secretsPassphrase }));
+    }
     case "backups":
       return console.log((await listBackups(ctx.store)).join("\n"));
-    case "restore":
-      return console.log(await restoreBackup(ctx.store, args[0]));
+    case "restore": {
+      const dryRun = args.includes("--dry-run");
+      const name = args.find((a) => !a.startsWith("--"));
+      if (!name) return console.log("Cú pháp: restore <tên-bản-sao-lưu> [--dry-run] [--with-secrets]");
+      const secretsPassphrase = args.includes("--with-secrets") ? await readSecretFromStdin("Mật khẩu giải mã secrets: ") : undefined;
+      const r = await restoreBackup(ctx.store, name, { dryRun, secretsPassphrase });
+      return console.log(JSON.stringify(r, null, 2));
+    }
+    case "verify": {
+      const r = await verifyDataDir(ctx.store, { fix: args.includes("--fix") });
+      for (const i of r.issues) console.log(`${i.severity === "error" ? "⛔" : "⚠️ "} ${i.file}: ${i.problem}${i.fixed ? " (đã sửa)" : ""}`);
+      console.log(`Đã quét ${r.scannedJson} JSON, ${r.scannedJsonl} JSONL, ${r.mediaChecked} media — ${r.ok ? "KHÔNG có lỗi nghiêm trọng" : "CÓ lỗi"}`);
+      if (!r.ok) process.exitCode = 1;
+      return;
+    }
+    case "migrate":
+      return console.log(JSON.stringify(await runMigrations(ctx.store, { dryRun: args.includes("--dry-run"), backup: (label) => createBackup(ctx.store, { label }) }), null, 2));
+    case "gpu": {
+      const p = await probeGpu();
+      console.log(JSON.stringify(p, null, 2));
+      return console.log(JSON.stringify(await benchmarkEncoders({ includeNvenc: p.nvencVerified }), null, 2));
+    }
     case "factcheck":
       return factcheck(ctx, args[0]);
     case "probe":
@@ -181,7 +211,10 @@ async function main() {
           "  doctor         kiểm tra môi trường (FFmpeg, GPU, TTS, kênh)",
           "  status | queue | report [YYYY-MM-DD]",
           "  approve|reject|retry <jobId>, pause, resume, kill-switch [on|off]",
-          "  backup [nhãn] | backups | restore <tên>",
+          "  backup [nhãn] [--with-secrets] | backups | restore <tên> [--dry-run] [--with-secrets]",
+          "  verify [--fix]          kiểm tra toàn vẹn JSON/JSONL/media (factory verify)",
+          "  migrate [--dry-run]     nâng cấp schema thư mục dữ liệu",
+          "  gpu                     đo GPU/VRAM/nhiệt độ + benchmark encoder thực tế",
           "  factcheck <projectId>   truy xuất nguồn thật để kiểm chứng claim",
           "  secrets set <tên>       lưu secret (DPAPI trên Windows)",
           "  telegram-allow <chatId> | youtube-auth",
