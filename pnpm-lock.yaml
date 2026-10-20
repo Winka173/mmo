@@ -123,6 +123,9 @@ importers:
       '@ttm/providers':
         specifier: workspace:*
         version: link:../../packages/providers
+      '@ttm/quality':
+        specifier: workspace:*
+        version: link:../../packages/quality
       '@ttm/storage':
         specifier: workspace:*
         version: link:../../packages/storage
@@ -184,6 +187,9 @@ importers:
       '@ttm/media':
         specifier: workspace:*
         version: link:../media
+      '@ttm/quality':
+        specifier: workspace:*
+        version: link:../quality
       '@ttm/storage':
         specifier: workspace:*
         version: link:../storage
@@ -242,6 +248,27 @@ importers:
       '@ttm/core':
         specifier: workspace:*
         version: link:../core
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+
+  packages/quality:
+    dependencies:
+      '@ttm/core':
+        specifier: workspace:*
+        version: link:../core
+      '@ttm/governance':
+        specifier: workspace:*
+        version: link:../governance
+      '@ttm/media':
+        specifier: workspace:*
+        version: link:../media
+      '@ttm/storage':
+        specifier: workspace:*
+        version: link:../storage
+      sharp:
+        specifier: ^0.34.0
+        version: 0.34.5
       zod:
         specifier: ^3.24.1
         version: 3.25.76

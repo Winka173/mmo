@@ -19,6 +19,7 @@ import {
 } from "@ttm/media";
 import { writeJsonAtomic, type DataStore } from "@ttm/storage";
 import sharp from "sharp";
+import { judgeVideo } from "@ttm/quality";
 import { buildFeatureMap, phraseFeature } from "./build-intel.js";
 import { analyzeFootage, type FootageMap } from "./footage.js";
 import { validateGameVideo, type Readiness } from "./readiness.js";
@@ -228,6 +229,11 @@ export async function produceGameVideo(deps: ProduceDeps, gameId: string, projec
     const spec = FORMAT_SPECS[format];
     const qa = await qaVideo({ projectId, format, file: render.video, srt: render.srt, poster: render.poster, minSec: Math.min(spec.minSec, 5), maxSec: format === "short_9x16" ? 60 : spec.maxSec });
     if (render.chapters) qa.checks.push({ name: "chương YouTube hợp lệ", ok: render.chapters.ok, detail: render.chapters.ok ? render.chapters.text.replace(/\n/g, " | ") : render.chapters.reason! });
+    // Quality Judge on the real output (frames, audio, subtitles vs speech); hard failures hold
+    const judge = await judgeVideo({ file: render.video, srt: render.srt, format, sceneTimings: render.sceneTimings, mode: "FAST_QA", subtitleSyncCheck: false, minSec: Math.min(spec.minSec, 5), maxSec: format === "short_9x16" ? 60 : spec.maxSec, thumbnailScore: typeof (thumbInfo as any).candidates?.[0]?.score === "number" ? (thumbInfo as any).candidates[0].score : null });
+    await writeJsonAtomic(path.join(outDir, "judge-report.json"), judge);
+    const judgeHard = judge.hard.filter((h) => !h.ok && !["DURATION"].includes(h.code));
+    if (judgeHard.length) qa.checks.push({ name: "Quality Judge", ok: false, detail: judgeHard.map((h) => `${h.code}: ${h.detail}`).join("; ") });
     qa.passed = qa.checks.every((c) => c.ok);
     await store.saveQa(qa);
     qaOk[format] = qa.passed;

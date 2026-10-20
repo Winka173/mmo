@@ -20,6 +20,8 @@ export type RenderInput = {
   encoder?: EncoderChoice;
   thumbnailTitle?: string;
   onProgress?: (stage: string, detail: string) => void;
+  /** max characters per subtitle cue (auto-repair lowers it when cues are too long/fast) */
+  subtitleMaxChars?: number;
 };
 
 export type RenderOutput = {
@@ -32,6 +34,9 @@ export type RenderOutput = {
   sceneTimings: { sceneId: string; start: number; duration: number }[];
   chapters: ReturnType<typeof buildChapters> | null;
   encoder: string;
+  /** scene ids actually (re)rendered in this run — others came from cache */
+  scenesRendered: string[];
+  cues: Cue[];
 };
 
 const PAD_AFTER_NARRATION = 0.45;
@@ -55,7 +60,8 @@ export async function renderStoryboard(input: RenderInput): Promise<RenderOutput
   const segs: string[] = [];
   const auds: string[] = [];
   let t = 0;
-  const maxChars = sb.format === "short_9x16" ? 30 : 46;
+  const maxChars = input.subtitleMaxChars ?? (sb.format === "short_9x16" ? 30 : 46);
+  const segsRendered: string[] = [];
 
   for (const [i, scene] of sb.scenes.entries()) {
     const wav = path.join(input.workDir, `narr-${String(i).padStart(2, "0")}-${hash(scene.narration + input.tts.id)}.wav`);
@@ -73,6 +79,18 @@ export async function renderStoryboard(input: RenderInput): Promise<RenderOutput
     timings.push({ sceneId: scene.id, start: t, duration: dur });
     cues.push(...cuesForNarration(scene.narration, t + 0.05, narr, maxChars));
 
+    // per-scene cache: an unchanged scene is never re-rendered (scoped auto-repair / resume)
+    const segKey = hash(JSON.stringify([scene, dur.toFixed(3), sb.format, input.brand, scene.assetId ? input.assetFiles?.[scene.assetId] ?? null : null, i === 0 ? input.badges : [], i, sb.scenes.length]));
+    const seg = path.join(input.workDir, `seg-${String(i).padStart(2, "0")}-${segKey}.mp4`);
+    const pad = path.join(input.workDir, `aud-${String(i).padStart(2, "0")}.wav`);
+    if (await fs.stat(seg).catch(() => null)) {
+      segs.push(seg);
+      await ffmpeg(["-i", wav, "-af", `apad=whole_dur=${dur.toFixed(3)}`, "-t", dur.toFixed(3), "-ar", "48000", "-ac", "2", pad]);
+      auds.push(pad);
+      t += dur;
+      continue;
+    }
+    segsRendered.push(scene.id);
     const png = path.join(input.workDir, `frame-${String(i).padStart(2, "0")}.png`);
     log("FRAME", `cảnh ${i + 1}`);
     await renderSceneFrame(
@@ -87,7 +105,6 @@ export async function renderStoryboard(input: RenderInput): Promise<RenderOutput
       },
       png,
     );
-    const seg = path.join(input.workDir, `seg-${String(i).padStart(2, "0")}.mp4`);
     const fadeIn = scene.transition === "fade" ? `,fade=t=in:st=0:d=0.25` : "";
     const fadeOut = `,fade=t=out:st=${(dur - 0.25).toFixed(3)}:d=0.25`;
     const dir = i % 2 === 0 ? "" : "1-";
@@ -100,7 +117,6 @@ export async function renderStoryboard(input: RenderInput): Promise<RenderOutput
       { timeoutMs: 5 * 60_000 },
     );
     segs.push(seg);
-    const pad = path.join(input.workDir, `aud-${String(i).padStart(2, "0")}.wav`);
     await ffmpeg(["-i", wav, "-af", `apad=whole_dur=${dur.toFixed(3)}`, "-t", dur.toFixed(3), "-ar", "48000", "-ac", "2", pad]);
     auds.push(pad);
     t += dur;
@@ -152,7 +168,7 @@ export async function renderStoryboard(input: RenderInput): Promise<RenderOutput
     const marks = sb.scenes.flatMap((s, i) => (s.chapterTitle ? [{ start: timings[i].start, title: s.chapterTitle }] : []));
     chapters = buildChapters(marks);
   }
-  return { video: out, srt: srtPath, transcript, poster, thumbnail, durationSec: t, sceneTimings: timings, chapters, encoder: enc.reason };
+  return { video: out, srt: srtPath, transcript, poster, thumbnail, durationSec: t, sceneTimings: timings, chapters, encoder: enc.reason, scenesRendered: segsRendered, cues };
 }
 
 function hash(s: string) {

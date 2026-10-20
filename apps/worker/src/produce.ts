@@ -17,6 +17,7 @@ import {
 } from "@ttm/core";
 import { BrandIdentityEngine, FORMAT_SPECS, MACHINE_BRIGADE_BRAND, TU_TO_MO_BRAND, pickTts, qaVideo, renderStoryboard, toRenderKit } from "@ttm/media";
 import { TopicBrief, briefToStoryboard, platformMetadata } from "@ttm/providers";
+import { judgeAndRepair } from "@ttm/quality";
 import { readJson, writeJsonAtomic } from "@ttm/storage";
 import { z } from "zod";
 import { notify, type Ctx } from "./context.js";
@@ -112,26 +113,52 @@ export async function produceProject(ctx: Ctx, projectId: string, onStage?: (s: 
 
   const outputs: Record<string, unknown> = {};
   const qaResults: Record<string, boolean> = {};
-  for (const sb of storyboards) {
+  const settings = await ctx.settings();
+  const preGates = evaluateGates({ ...b, storyboards });
+  for (const [sbi, sb0] of storyboards.entries()) {
+    let sb = sb0;
     await setStatus("RENDER");
     ctx.log(`[${projectId}] dựng ${sb.format} (${sb.scenes.length} cảnh)`);
     const outDir = ctx.store.p("projects", projectId, "renders", sb.format);
-    const render = await renderStoryboard({
-      storyboard: sb,
-      brand,
-      tts,
-      workDir: ctx.store.p("projects", projectId, "work", sb.format),
-      outDir,
-      assetFiles,
-      badges: plan.badges,
-      onProgress: (stage, detail) => ctx.log(`[${projectId}/${sb.format}] ${stage} ${detail}`),
-    });
+    const workDir = ctx.store.p("projects", projectId, "work", sb.format);
+    const doRender = (s: Storyboard, subtitleMaxChars?: number) =>
+      renderStoryboard({ storyboard: s, brand, tts, workDir, outDir, assetFiles, badges: plan.badges, subtitleMaxChars, onProgress: (stage, detail) => ctx.log(`[${projectId}/${s.format}] ${stage} ${detail}`) });
+    let render = await doRender(sb);
     await setStatus("QA");
+    // Quality Judge on the real MP4 + bounded auto-repair (only affected scenes/subtitles re-rendered)
+    let judgeNote: string | null = null;
+    if (settings.features.qualityJudge) {
+      const spec0 = FORMAT_SPECS[sb.format as Format];
+      const rr = await judgeAndRepair({
+        storyboard: sb,
+        first: render,
+        outDir,
+        workDir,
+        maxIterations: settings.features.autoRepair ? settings.quality.maxRepairIterations : 0,
+        blockedByRightsOrFacts: !preGates.rights.ok || !preGates.facts.ok,
+        judge: { format: sb.format, mode: settings.quality.mode, minSec: plan.minSecOverride ?? spec0.minSec, gatesOk: Object.values(preGates).every((g) => g.ok), disclosure: { required: !!b.product, present: !!b.product?.disclosure } },
+        rerender: async (p) => {
+          const next = { ...p.storyboard };
+          await ctx.store.saveStoryboard(next);
+          return doRender(next, p.subtitleMaxChars);
+        },
+      });
+      render = rr.final;
+      sb = rr.reports.length > 1 ? ((await ctx.store.getStoryboard(projectId, sb.format, sb.revision)) ?? sb) : sb;
+      storyboards[sbi] = sb;
+      await writeJsonAtomic(path.join(outDir, "judge-report.json"), rr.reports.at(-1));
+      await writeJsonAtomic(path.join(outDir, "repair-log.json"), { status: rr.status, reason: rr.reason, log: rr.log });
+      const last = rr.reports.at(-1)!;
+      if (rr.status !== "PASS") judgeNote = `Quality Judge: ${rr.reason}`;
+      else if (last.editorialScore < settings.quality.minEditorialScore) judgeNote = `Điểm biên tập ${last.editorialScore} < ${settings.quality.minEditorialScore} (cần biên tập viên xem)`;
+    }
     const spec = FORMAT_SPECS[sb.format as Format];
     const qa = await qaVideo({ projectId, format: sb.format, file: render.video, srt: render.srt, poster: render.poster, minSec: plan.minSecOverride ?? spec.minSec });
     if (render.chapters) qa.checks.push({ name: "chương YouTube hợp lệ", ok: render.chapters.ok, detail: render.chapters.ok ? render.chapters.text.replace(/\n/g, " | ") : render.chapters.reason! });
+    if (judgeNote?.startsWith("Quality Judge")) qa.checks.push({ name: "Quality Judge (sau tự sửa)", ok: false, detail: judgeNote });
     qa.passed = qa.checks.every((c) => c.ok);
     await ctx.store.saveQa(qa);
+    if (judgeNote && qa.passed) await notify(ctx, `🧐 ${project.title} (${sb.format}): ${judgeNote}`, { dedupeKey: `judge:${projectId}:${sb.format}:r${project.revision}` });
     await writeJsonAtomic(path.join(outDir, "render-proof.json"), { ...render, ffprobe: qa.ffprobe, sha256: qa.sha256, renderedAt: nowIso(), tts: voice });
     qaResults[sb.format] = qa.passed;
     outputs[sb.format] = { video: render.video, durationSec: Math.round(render.durationSec * 10) / 10, qaPassed: qa.passed, encoder: render.encoder, chapters: render.chapters?.text ?? null };

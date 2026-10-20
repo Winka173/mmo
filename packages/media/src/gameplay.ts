@@ -179,7 +179,7 @@ export async function renderGameplayVideo(input: GameRenderInput): Promise<GameR
         ? `[0:v]fps=${fps},scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},setsar=1[base]`
         : mode === "still"
           ? `[0:v]scale=${W * 2}:${H * 2}:force_original_aspect_ratio=decrease,pad=${W * 2}:${H * 2}:(ow-iw)/2:(oh-ih)/2:color=black,zoompan=z='min(zoom+0.0008,1.08)':d=${Math.ceil(dur * fps)}:s=${W}x${H}:fps=${fps},setsar=1[base]`
-          : `[0:v]fps=${fps},split=2[bg][fg];[bg]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=28:2,eq=brightness=-0.18[bgb];[fg]scale=${W}:${H}:force_original_aspect_ratio=decrease,setsar=1[fgs];[bgb][fgs]overlay=(W-w)/2:(H-h)/2,setsar=1[base]`;
+          : `[0:v]fps=${fps},split=2[bg][fg];[bg]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=28:2,eq=brightness=-0.05:saturation=1.1[bgb];[fg]scale=${W}:${H}:force_original_aspect_ratio=decrease,setsar=1[fgs];[bgb][fgs]overlay=(W-w)/2:(H-h)/2,setsar=1[base]`;
     const pad = dur - srcDur > 0.02 ? `,tpad=stop_mode=clone:stop_duration=${r3(dur - srcDur + 0.05)}` : "";
     const hookOv = i === 0 ? `;[v1][2:v]overlay=0:0:enable='lt(t,2.8)'[v2]` : "";
     const vOut = i === 0 ? "v2" : "v1";
@@ -236,7 +236,7 @@ export async function renderGameplayVideo(input: GameRenderInput): Promise<GameR
   await fs.writeFile(transcript, [...input.segments.map((s) => s.narration ?? `[${s.caption}]`), input.cta.narration ?? input.cta.title].join("\n\n") + "\n", "utf8");
   const tmpOut = path.join(input.workDir, `${base}.partial.mp4`);
   const musicArgs = input.music ? ["-stream_loop", "-1", "-i", input.music.file] : [];
-  const af = input.music ? `[1:a]volume=${Math.pow(10, input.music.gainDb / 20).toFixed(3)},atrim=0:${r3(t)}[m];[0:a][m]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]` : `[0:a]loudnorm=I=-14:TP=-1.5:LRA=11[a]`;
+  const af = input.music ? `[1:a]volume=${Math.pow(10, input.music.gainDb / 20).toFixed(3)},atrim=0:${r3(t)}[m];[0:a][m]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.8:level=false[a]` : `[0:a]loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.8:level=false[a]`;
   log("MUX", "phụ đề + loudnorm");
   await ffmpeg(["-i", "joined.mp4", ...musicArgs, "-filter_complex", `[0:v]ass=subs.ass[v];${af}`, "-map", "[v]", "-map", "[a]", ...enc.args, "-pix_fmt", "yuv420p", "-r", String(fps), "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", "-t", r3(t), path.basename(tmpOut)], { cwd: input.workDir, timeoutMs: 30 * 60_000 });
   const out = path.join(input.outDir, `${base}.mp4`);

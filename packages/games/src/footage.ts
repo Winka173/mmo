@@ -89,8 +89,10 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
     FFMPEG,
     [
       "-hide_banner", "-nostats", "-loglevel", "info", "-i", file,
-      "-filter_complex", `[0:v]split=2[sa][sb];[sa]select='gt(scene,0.28)',metadata=print:key=lavfi.scene_score,nullsink;[sb]freezedetect=n=0.003:d=1.2,blackdetect=d=0.5:pix_th=0.08,nullsink` +
-        (probe.hasAudio ? `;[0:a]silencedetect=n=-45dB:d=1.5,asetnsamples=n=48000:p=0,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level,anullsink` : ""),
+      "-filter_complex",
+      `[0:v]split=2[sa][sb];[sa]select='gt(scene,0.28)',metadata=print:key=lavfi.scene_score[v1];[sb]freezedetect=n=0.003:d=1.2,blackdetect=d=0.5:pix_th=0.08[v2]` +
+        (probe.hasAudio ? `;[0:a]silencedetect=n=-45dB:d=1.5,asetnsamples=n=48000:p=0,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level[a1]` : ""),
+      "-map", "[v1]", "-map", "[v2]", ...(probe.hasAudio ? ["-map", "[a1]"] : []),
       "-f", "null", "-",
     ],
     { timeoutMs: 30 * 60_000 },
