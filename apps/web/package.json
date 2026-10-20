@@ -16,7 +16,16 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "server-only": "^0.0.1",
-    "zod": "^3.24.1"
+    "zod": "^3.24.1",
+    "@ttm/games": "workspace:*",
+    "@ttm/media": "workspace:*",
+    "@ttm/governance": "workspace:*",
+    "@ttm/discovery": "workspace:*",
+    "@ttm/providers": "workspace:*",
+    "@ttm/platforms": "workspace:*",
+    "@ttm/telegram": "workspace:*",
+    "sharp": "^0.34.0",
+    "yauzl": "^3.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.0",

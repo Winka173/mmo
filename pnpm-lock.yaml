@@ -11,6 +11,9 @@ importers:
       '@types/node':
         specifier: ^22.10.0
         version: 22.20.5
+      playwright-core:
+        specifier: 1.56.1
+        version: 1.56.1
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -32,9 +35,30 @@ importers:
       '@ttm/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@ttm/discovery':
+        specifier: workspace:*
+        version: link:../../packages/discovery
+      '@ttm/games':
+        specifier: workspace:*
+        version: link:../../packages/games
+      '@ttm/governance':
+        specifier: workspace:*
+        version: link:../../packages/governance
+      '@ttm/media':
+        specifier: workspace:*
+        version: link:../../packages/media
+      '@ttm/platforms':
+        specifier: workspace:*
+        version: link:../../packages/platforms
+      '@ttm/providers':
+        specifier: workspace:*
+        version: link:../../packages/providers
       '@ttm/storage':
         specifier: workspace:*
         version: link:../../packages/storage
+      '@ttm/telegram':
+        specifier: workspace:*
+        version: link:../../packages/telegram
       next:
         specifier: 16.0.10
         version: 16.0.10(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -47,6 +71,12 @@ importers:
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
+      sharp:
+        specifier: ^0.34.0
+        version: 0.34.5
+      yauzl:
+        specifier: ^3.2.0
+        version: 3.4.0
       zod:
         specifier: ^3.24.1
         version: 3.25.76
@@ -1087,6 +1117,11 @@ packages:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
 
+  playwright-core@1.56.1:
+    resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -1903,6 +1938,8 @@ snapshots:
   picocolors@1.1.1: {}
 
   picomatch@4.0.7: {}
+
+  playwright-core@1.56.1: {}
 
   postcss@8.4.31:
     dependencies:

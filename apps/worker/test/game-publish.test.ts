@@ -29,8 +29,10 @@ beforeAll(async () => {
   games = new GameRegistry(ctx.store);
   const input = (await games.getVideo("lantern-hollow", "game-lh-teaser"))!;
   await games.saveVideo({ ...input, formats: ["short_9x16"], targets: ["youtube_shorts"], clips: [{ ...input.clips[0], out: 6 }] }, "test");
-  await ctx.queue.enqueue({ kind: "GAME_PRODUCE", idempotencyKey: "gp:lh", payload: { gameId: "lantern-hollow", projectId: "game-lh-teaser", mode: "live" }, usesGpu: true });
+  const { job } = await ctx.queue.enqueue({ kind: "GAME_PRODUCE", idempotencyKey: "gp:lh", payload: { gameId: "lantern-hollow", projectId: "game-lh-teaser", mode: "live" }, usesGpu: true });
   await processUntilIdle(ctx, { maxJobs: 1 });
+  const done = await ctx.queue.get(job.id);
+  if (done?.state !== "succeeded") throw new Error(`GAME_PRODUCE không thành công: ${done?.state} ${done?.lastError?.errorCode} ${done?.lastError?.message}`);
 }, 600_000);
 
 describe("game publishing safety (Y1 / Z4 / AC)", () => {

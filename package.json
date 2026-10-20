@@ -17,10 +17,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "factory": "pnpm --silent --filter @ttm/worker cli"
+    "factory": "pnpm --silent --filter @ttm/worker cli",
+    "test:ui": "node apps/web/e2e/ui-smoke.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "playwright-core": "1.56.1",
     "server-only": "^0.0.1",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",

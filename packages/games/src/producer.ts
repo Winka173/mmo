@@ -39,7 +39,7 @@ export async function loadGameContext(games: GameRegistry, gameId: string) {
 }
 
 /** Footage analysis cached per asset content hash. */
-export async function footageFor(games: GameRegistry, gameId: string, assets: GameAsset[], ids: string[]): Promise<Record<string, FootageMap>> {
+export async function footageFor(games: GameRegistry, gameId: string, assets: GameAsset[], ids: string[], opts: { cachedOnly?: boolean } = {}): Promise<Record<string, FootageMap>> {
   const out: Record<string, FootageMap> = {};
   for (const id of [...new Set(ids)]) {
     const a = assets.find((x) => x.assetId === id);
@@ -50,6 +50,7 @@ export async function footageFor(games: GameRegistry, gameId: string, assets: Ga
       out[id] = hit;
       continue;
     }
+    if (opts.cachedOnly) continue;
     const fm = await analyzeFootage(a.assetId, games.store.p(a.proxyPath ?? a.path));
     await writeJsonAtomic(cache, fm, { keepBackup: false });
     out[id] = fm;
@@ -62,7 +63,8 @@ export async function gameReadiness(store: DataStore, gameId: string, projectId:
   const ctx = await loadGameContext(games, gameId);
   const input = await games.getVideo(ctx.game.gameId, projectId);
   if (!input) throw new FactoryError("GAME_VIDEO_MISSING", "HUMAN_REQUIRED", `Chưa có input.json cho ${gameId}/${projectId}`);
-  const footage = opts.analyze === false ? {} : await footageFor(games, ctx.game.gameId, ctx.assets, input.clips.map((c) => c.assetId));
+  // analyze:false => use cached analysis only (fast UI); default => analyse missing clips
+  const footage = await footageFor(games, ctx.game.gameId, ctx.assets, input.clips.map((c) => c.assetId), { cachedOnly: opts.analyze === false });
   const kit = await new BrandIdentityEngine(store).load({ kind: "game", id: ctx.game.gameId });
   const review = await games.getReview(ctx.game.gameId, projectId);
   const accountsByPlatform: Partial<Record<Platform, string[]>> = {};
