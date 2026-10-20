@@ -13,3 +13,6 @@ td { @apply border-t border-slate-100 py-2 align-top dark:border-slate-800; }
 .label { @apply text-xs font-medium text-slate-600 dark:text-slate-300; }
 .h2 { @apply mb-2 text-lg font-semibold; }
 .safe-zone { @apply pointer-events-none absolute border-2 border-dashed border-red-500/70 bg-red-500/10; }
+@media (max-width: 640px) {
+  table { display: block; overflow-x: auto; max-width: 100%; }
+}

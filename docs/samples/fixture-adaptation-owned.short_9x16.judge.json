@@ -1,0 +1,185 @@
+{
+  "file": "/tmp/claude-0/ttm-e2e/projects/fixture-adaptation-owned/renders/short_9x16/short_9x16.mp4",
+  "format": "short_9x16",
+  "mode": "FAST_QA",
+  "hard": [
+    {
+      "code": "DIMENSIONS",
+      "ok": true,
+      "detail": "1080x1920 xoay 0° (cần 1080x1920)",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "FPS_CFR",
+      "ok": true,
+      "detail": "30.00 fps",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "CODECS",
+      "ok": true,
+      "detail": "h264/aac/yuv420p",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "FRAME_COUNT",
+      "ok": true,
+      "detail": "894 khung / mong đợi ~894 (phát hiện đoạn hỏng/thiếu)",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "DURATION",
+      "ok": true,
+      "detail": "29.80s",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "NO_BLACK_FRAMES",
+      "ok": true,
+      "detail": "không có",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "NO_DEAD_AIR",
+      "ok": true,
+      "detail": "không có",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "LOUDNESS",
+      "ok": true,
+      "detail": "-15.4 LUFS (−18..−10)",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "PEAK",
+      "ok": true,
+      "detail": "-1.3 dBFS",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "SUBTITLES_PRESENT",
+      "ok": true,
+      "detail": "17 câu",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "SUBTITLE_FITS_SAFE_AREA",
+      "ok": true,
+      "detail": "vừa vùng an toàn",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "SUBTITLE_READING_SPEED",
+      "ok": true,
+      "detail": "≤ 22 ký tự/giây",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "SUBTITLE_AUDIO_SYNC",
+      "ok": true,
+      "detail": "0/17 câu không trùng lời nói",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "VIETNAMESE_FONT",
+      "ok": true,
+      "detail": "có font hỗ trợ dấu",
+      "evidence": [],
+      "repair": null
+    },
+    {
+      "code": "READABLE_FRAMES",
+      "ok": true,
+      "detail": "0 khung quá tối, 0 khung gần như trơn (mất nội dung)",
+      "evidence": [],
+      "repair": null
+    }
+  ],
+  "soft": [
+    {
+      "name": "Hook rõ trong 1–3 giây đầu",
+      "score": 80,
+      "weight": 3,
+      "explanation": "Lời đầu bắt đầu ở 0.05s; cảnh mở dài 6.1s; tiêu đề hook 32 ký tự",
+      "evidence": [
+        {
+          "t": 0.05,
+          "note": "Đây là bản biên dịch tiếng"
+        }
+      ]
+    },
+    {
+      "name": "Mật độ thông tin",
+      "score": 95,
+      "weight": 2,
+      "explanation": "3.52 từ/giây (dễ theo: 1.6–3.4 cho tiếng Việt)",
+      "evidence": []
+    },
+    {
+      "name": "Nhịp dựng",
+      "score": 90,
+      "weight": 2,
+      "explanation": "5.0 giây/cảnh (6 cảnh)",
+      "evidence": []
+    },
+    {
+      "name": "Đa dạng hình ảnh",
+      "score": 100,
+      "weight": 1,
+      "explanation": "0/15 cặp khung gần như giống hệt (B-roll lặp)",
+      "evidence": []
+    },
+    {
+      "name": "CTA phù hợp",
+      "score": 100,
+      "weight": 1,
+      "explanation": "CTA có; thời lượng CTA 4.1s (14%)",
+      "evidence": []
+    },
+    {
+      "name": "Độ chính xác (theo cổng fact/quyền)",
+      "score": 100,
+      "weight": 3,
+      "explanation": "mọi claim/quyền đã qua cổng",
+      "evidence": []
+    },
+    {
+      "name": "Công bố (quảng cáo/AI)",
+      "score": 100,
+      "weight": 2,
+      "explanation": "không bắt buộc",
+      "evidence": []
+    },
+    {
+      "name": "Khả năng tiếp cận",
+      "score": 100,
+      "weight": 1,
+      "explanation": "có phụ đề; 0 câu quá nhanh; 0 khung quá tối",
+      "evidence": []
+    }
+  ],
+  "editorialScore": 94,
+  "verdict": "PASS",
+  "repairPlan": [],
+  "premium": {
+    "used": false,
+    "note": "không dùng (FAST/STANDARD là kiểm tra local miễn phí)"
+  },
+  "sampledFrames": 6,
+  "judgedAt": "2026-10-20T10:54:31.059Z",
+  "disclaimer": "Điểm biên tập là heuristic có giải thích, không dự đoán viral. Lỗi cứng (hard) mới chặn đăng."
+}

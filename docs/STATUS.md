@@ -1,6 +1,6 @@
 # Trạng thái triển khai
 
-Cập nhật: 2026-10-19. Môi trường build/test: Linux container (Node 22, FFmpeg 6.1, eSpeak NG 1.51, **không GPU**, không truy cập Internet ngoài npm/Google API).
+Cập nhật: 2026-10-20 (V4–V7, xem cuối file). Môi trường build/test: Linux container (Node 22, FFmpeg 6.1, eSpeak NG 1.51, **không GPU**, không truy cập Internet ngoài npm/Google API).
 
 ## Đã hoàn thành & đã chạy thật
 | Hạng mục | Bằng chứng |
@@ -35,3 +35,7 @@ Kết quả `pnpm test`: 62/62 test pass (9 file).
 
 ## Phase tiếp theo đề xuất
 Phase 2 phần còn lại: chạy worker bằng Task Scheduler trên máy thật + bot Telegram thật. Phase 4 bước đầu: kết nối YouTube với kênh test, upload private, kiểm tra reconcile.
+
+## V4–V7 (2026-10-20)
+Đã triển khai: Multi-Game Factory (registry, intake ZIP/thư mục/manifest, build intel, FootageAnalyzer, readiness, wizard UI, chiến dịch, tài khoản riêng từng game), Quality Judge + tự sửa, Originality, Fact Verification Agent (TTL), Rights Registry, BudgetRouter, Multi-Account, Meta/TikTok adapter, Comment Assistant, Lifecycle, Analytics, Self-Learning (hoàn tác được), A/B Testing, SmartSchedule, Trend/Opportunity Radar, Multilingual, Long→Shorts, Thumbnail engine, GPU manager, migration dữ liệu v1→v2, verify/backup/restore.
+Kết quả: `pnpm test` 151/151, edge-case 39/39, build OK, 11 MP4 mẫu PASS, soak 7 ngày OK, UI smoke 9/9 — chi tiết `docs/TEST_RESULTS.md`. Tồn tại: `docs/KNOWN_LIMITATIONS.md`.

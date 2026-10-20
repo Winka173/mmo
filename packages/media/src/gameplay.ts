@@ -80,19 +80,23 @@ async function overlayPng(o: { W: number; H: number; format: Format; brand: Bran
   const pillW = Math.min(o.W - nameX - spec.safe.right, 40 + o.gameName.length * nameSize * 0.58);
   let svg = `<rect x="${nameX - 14}" y="${top + logoSize / 2 - nameSize * 0.85}" width="${pillW}" height="${nameSize * 1.5}" rx="${nameSize * 0.4}" fill="${c.bg2}" opacity="0.72"/>
     <text x="${nameX}" y="${top + logoSize / 2 + nameSize * 0.32}" font-size="${nameSize}" font-weight="800" fill="${c.text}" font-family="${font}">${esc(o.gameName)}</text>`;
+  let captionBottom = top + logoSize + 30;
   if (o.caption) {
     const size = v ? 54 : 44;
     const lines = wrap(o.caption, size, o.W - L - spec.safe.right - 40, v ? 3 : 2);
     const y0 = v ? top + logoSize + 60 : top + logoSize + 30;
     const boxH = lines.length * size * 1.25 + 34;
+    captionBottom = y0 + boxH;
     svg += `<rect x="${L - 8}" y="${y0}" width="${o.W - L - spec.safe.right + 16}" height="${boxH}" rx="22" fill="${c.bg2}" opacity="0.78"/>`;
     lines.forEach((ln, i) => (svg += `<text x="${L + 18}" y="${y0 + 22 + size * (i + 0.95) * 1.18}" font-size="${size}" font-weight="700" fill="${c.text}" font-family="${font}">${esc(ln)}</text>`));
   }
+  // 9:16: labels go under the caption box (top safe area) so burned subtitles never cover them;
+  // 16:9: bottom-left, above the subtitle band.
   const bottomY = o.H - spec.safe.bottom + (v ? -20 : -10);
   const tags = [...o.badges, ...(o.label ? [o.label] : [])];
   tags.forEach((t, i) => {
     const size = v ? 30 : 26;
-    const y = bottomY - i * (size * 1.9);
+    const y = v ? captionBottom + 50 + i * (size * 1.9) : bottomY - i * (size * 1.9);
     svg += `<rect x="${L - 6}" y="${y - size * 1.1}" width="${Math.min(o.W - L - spec.safe.right, 34 + t.length * size * 0.56)}" height="${size * 1.55}" rx="12" fill="${c.bg2}" opacity="0.8"/><text x="${L + 10}" y="${y}" font-size="${size}" fill="${c.badge}" font-family="${font}">${esc(t)}</text>`;
   });
   const base = sharp({ create: { width: o.W, height: o.H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } });
