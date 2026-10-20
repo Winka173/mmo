@@ -18,7 +18,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "factory": "pnpm --silent --filter @ttm/worker cli",
-    "test:ui": "node apps/web/e2e/ui-smoke.mjs"
+    "test:ui": "node apps/web/e2e/ui-smoke.mjs",
+    "test:report": "vitest run --reporter=default --reporter=json --outputFile=.test-results.json; tsx scripts/gen-edge-matrix.ts .test-results.json"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

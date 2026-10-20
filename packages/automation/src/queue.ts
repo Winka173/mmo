@@ -53,7 +53,9 @@ export class FileQueue {
         const j = await readJson(this.store.p("jobs", state, n), Job, { quarantineDir: this.store.p("quarantine") });
         if (j) jobs.push(j);
       } catch {
-        /* quarantined by readJson */
+        // readJson already copied it to quarantine/ — drop the unreadable original so counts/claims stay clean
+        await fs.rm(this.store.p("jobs", state, n), { force: true });
+        await this.store.audit({ actor: "queue", action: "job.quarantined", subject: n, detail: { state } });
       }
     }
     return jobs;

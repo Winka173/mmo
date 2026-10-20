@@ -15,3 +15,4 @@ secrets/
 browser-profiles/
 apps/web/.next/
 apps/web/tsconfig.tsbuildinfo
+.test-results.json

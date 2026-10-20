@@ -15,6 +15,7 @@ import { AnalyticsStore, SelfLearningEngine, importMetricsCsv, importShopeeCsv }
 import { buildContext, FIXTURES, type Ctx } from "./context.js";
 import { handleAffiliate, handleLearning, handleLifecycle, handleTrends, schedulePreview } from "./intel.js";
 import { deriveShortsFromLong } from "./repurpose.js";
+import { runSoak, soakMarkdown } from "./soak.js";
 import { runDaemon } from "./daemon.js";
 import { seedFixtures } from "./fixtures.js";
 import { processUntilIdle } from "./handlers.js";
@@ -277,6 +278,16 @@ async function main() {
       const r = await deriveShortsFromLong(ctx, args[0], Number(args[1] ?? 3));
       for (const id of r.created) await ctx.queue.enqueue({ kind: "PRODUCE", idempotencyKey: `produce:${id}:r1`, payload: { projectId: id }, usesGpu: true, priority: 4 });
       return console.log(JSON.stringify(r, null, 2));
+    }
+    case "soak": {
+      const dir = args.find((a) => a.startsWith("--data="))?.slice(7) ?? (await fs.mkdtemp(path.join((await import("node:os")).tmpdir(), "ttm-soak-")));
+      const r = await runSoak({ dataDir: dir, days: Number(args.find((a) => /^\d+$/.test(a)) ?? 7), log: (m) => console.log(m) });
+      const md = soakMarkdown(r);
+      const out = args.find((a) => a.startsWith("--out="))?.slice(6);
+      if (out) await fs.writeFile(out, md, "utf8");
+      console.log(md);
+      if (!Object.values(r.invariants).every(Boolean)) process.exitCode = 1;
+      return;
     }
     case "gpu": {
       const p = await probeGpu();

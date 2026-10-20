@@ -87,3 +87,17 @@ describe("TikTok publisher", () => {
     expect(calls).toContain("PUT /upload/x");
   });
 });
+
+describe("YouTube capability check (no live call)", () => {
+  it("missing youtube.upload scope or revoked OAuth => not publishable, manual action (never a false success)", async () => {
+    const { YouTubePublisher } = await import("../src/index.js");
+    const ok = (b: unknown) => new Response(JSON.stringify(b), { status: 200 });
+    const f = async (url: string) => (url.includes("oauth2.googleapis.com/token") && !url.includes("tokeninfo") ? ok({ access_token: "a", expires_in: 3600 }) : url.includes("tokeninfo") ? ok({ scope: "https://www.googleapis.com/auth/youtube.readonly" }) : ok({ items: [{ id: "UC1", snippet: { title: "Kênh" } }] }));
+    const c = await new YouTubePublisher("youtube_shorts", { clientId: "c", clientSecret: "s", refreshToken: "r" }, { fetchImpl: f as any }).validateCapabilities();
+    expect(c).toMatchObject({ canPublish: false, fallback: "MANUAL_ACTION_REQUIRED" });
+    expect(c.blockers.join()).toMatch(/youtube.upload/);
+    const revoked = async () => new Response(JSON.stringify({ error: "invalid_grant" }), { status: 400 });
+    const r = await new YouTubePublisher("youtube_shorts", { clientId: "c", clientSecret: "s", refreshToken: "r" }, { fetchImpl: revoked as any }).validateCapabilities();
+    expect(r.blockers.join()).toMatch(/thu hồi|hết hạn/);
+  });
+});
