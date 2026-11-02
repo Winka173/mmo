@@ -2,6 +2,17 @@ import { z } from "zod";
 import { Id, IsoDate, SCHEMA_VERSION } from "./schemas.js";
 
 export const JobKind = z.enum([
+  "STUDIO_RUN",
+  "STUDIO_MEDIA_VISION",
+  "STUDIO_VOICE",
+  "STUDIO_IMAGE",
+  "STUDIO_SETUP",
+  "STUDIO_PUBLISH",
+  "STUDIO_CHANNEL_CHECK",
+  "STUDIO_PUBLICATION_CHECK",
+  "STUDIO_WATCH_SCAN",
+  "STUDIO_DISCOVERY_SCAN",
+  "STUDIO_SEMANTIC",
   "DAILY_PLAN",
   "DISCOVER",
   "PRODUCE",

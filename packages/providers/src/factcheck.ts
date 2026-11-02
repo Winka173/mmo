@@ -9,6 +9,11 @@ export function htmlToText(html: string): string {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
+    .replace(/&#(x[0-9a-f]+|\d+);/gi, (original, value: string) => {
+      const code=value[0].toLowerCase()==="x"?parseInt(value.slice(1),16):Number(value);
+      return code>0&&code<=0x10ffff&&!(code>=0xd800&&code<=0xdfff)?String.fromCodePoint(code):original;
+    })
+    .replace(/&(quot|apos|ndash|mdash|lsquo|rsquo|ldquo|rdquo|lt|gt);/g, (_, name: string) => ({quot:'"',apos:"'",ndash:"–",mdash:"—",lsquo:"‘",rsquo:"’",ldquo:"“",rdquo:"”",lt:"<",gt:">"}[name]!))
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
     .replace(/\s+/g, " ")

@@ -2,12 +2,20 @@ import { FactoryError, idempotencyKey, nowIso, type Job } from "@ttm/core";
 import { GameRegistry, produceGameVideo } from "@ttm/games";
 import { SourceLicenseRegistry } from "@ttm/governance";
 import { runIntelJob } from "./intel.js";
-import { planDay, type TopicCandidate } from "@ttm/automation";
+import { planDay, StudioStore,SourceWatchStore,type TopicCandidate } from "@ttm/automation";
 import { createBackup, freeDiskGb, pruneBackups, readJson } from "@ttm/storage";
 import { notify, type Ctx } from "./context.js";
 import { ProjectPlan, produceProject } from "./produce.js";
 import { handlePublish } from "./publish.js";
 import { sendDailyReport } from "./report.js";
+import {executeStudioMediaVision} from "./studio-media-vision.js";
+import { executeStudio } from "./studio.js";
+import { executeVoiceSample } from "./voices.js";
+import {executeModelSetup} from "./model-setup.js";
+import {executeImage} from "./images.js";
+import {pollOpportunities} from "./opportunities.js";
+import {executeSemantic} from "./semantic.js";
+import {executeStudioPublication,checkStudioChannel,checkStudioPublication} from "./studio-publishing.js";
 
 const STAGE: Record<string, string> = { PRODUCE: "RENDER", PUBLISH: "PUBLISHING", DAILY_PLAN: "PLAN", DAILY_REPORT: "REPORT", BACKUP: "BACKUP", VERIFY_PUBLICATION: "VERIFYING" };
 
@@ -94,6 +102,21 @@ export async function runJob(ctx: Ctx, job: Job): Promise<void> {
     }
     let result: Record<string, unknown>;
     switch (job.kind) {
+      case "STUDIO_MEDIA_VISION":result=await executeStudioMediaVision(ctx,String(job.payload.taskId));break;
+      case "STUDIO_SEMANTIC":result=await executeSemantic(ctx,String(job.payload.taskId));break;
+        case "STUDIO_DISCOVERY_SCAN":{const a=await new StudioStore(ctx.store).autopilot(String(job.payload.autopilotId));if(!a)throw new FactoryError("SOURCE_NOT_FOUND","HUMAN_REQUIRED","Autopilot not found");result={opportunities:await pollOpportunities(ctx,a,new Date(),true)};break;}
+      case "STUDIO_WATCH_SCAN":{const a=await new StudioStore(ctx.store).autopilot(String(job.payload.autopilotId));if(!a)throw new FactoryError("SOURCE_NOT_FOUND","HUMAN_REQUIRED","Autopilot not found");result={watch:await new SourceWatchStore(ctx.store).poll(a,new Date(),true)};break;}
+      case "STUDIO_PUBLISH":result=await executeStudioPublication(ctx,String(job.payload.publicationId));break;
+      case "STUDIO_CHANNEL_CHECK":result=await checkStudioChannel(ctx,String(job.payload.channelId));break;
+      case "STUDIO_PUBLICATION_CHECK":result=await checkStudioPublication(ctx,String(job.payload.publicationId));break;
+      case "STUDIO_SETUP":result=await executeModelSetup(ctx,String(job.payload.setupId));break;
+      case "STUDIO_IMAGE":result=await executeImage(ctx,String(job.payload.imageId));break;
+      case "STUDIO_VOICE":
+        result = await executeVoiceSample(ctx, String(job.payload.sampleId));
+        break;
+      case "STUDIO_RUN":
+        result = await executeStudio(ctx, String(job.payload.runId));
+        break;
       case "PRODUCE":
         result = await produceProject(ctx, String(job.payload.projectId));
         break;

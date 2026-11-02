@@ -1,0 +1,6 @@
+"use client";
+import type {EngineHealth} from "@ttm/automation";
+export default function EngineHealthPanel({engines,en,busy,call}:{engines:EngineHealth[];en:boolean;busy:boolean;call:(body:Record<string,unknown>)=>Promise<any>}){
+ const t=(vi:string,english:string)=>en?english:vi;
+ return <section className="acs-panel"><h2>{t("Tình trạng engine & Chờ tài nguyên","Engine health & Resource waits")}</h2><p>{t("Lỗi lặp tạm dừng engine liên quan; tác vụ khác vẫn chạy. GPU bận không hao số lần thử.","Repeated failures pause the affected engine; unrelated work continues. GPU waits do not consume retries.")}</p>{engines.length?engines.map(e=><div className="acs-row" key={e.key}><div><b>{e.label}</b><p>{e.state} · {e.failures} {t("lỗi liên tiếp","consecutive failures")}</p>{e.lastError&&<small className="acs-muted">{e.lastError}</small>}{e.retryAt&&<p>{t("Thử lại sau","Next probe after")}: {new Date(e.retryAt).toLocaleString(en?"en-GB":"vi-VN")}</p>}</div>{e.state!=="closed"&&<button disabled={busy} onClick={()=>void call({action:"reset-engine",key:e.key}).catch(()=>{})}>{t("Đã sửa môi trường · thử lại","Environment repaired · retry")}</button>}</div>):<p>{t("Chưa có engine được chạy trong workspace này.","No engines have run in this workspace yet.")}</p>}</section>;
+}

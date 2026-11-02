@@ -1,0 +1,78 @@
+import {spawn} from 'node:child_process';
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
+import {randomUUID,createHash} from 'node:crypto';
+import {createServer} from 'node:net';
+import {chromium} from 'playwright-core';
+const root=process.cwd(),folder=process.env.ACS_CREATE_UI_RESUME?path.resolve(process.env.ACS_CREATE_UI_RESUME):path.join(root,'.local/create-ui',randomUUID()),token=randomUUID(),socket=createServer();if(!folder.startsWith(path.join(root,'.local','create-ui')+path.sep))throw new Error('Use an isolated Create fixture directory');await fs.mkdir(folder,{recursive:true});
+if(!process.env.ACS_CREATE_UI_RESUME)await new Promise((resolve,reject)=>{const child=spawn(process.execPath,[path.join(root,'node_modules/tsx/dist/cli.mjs'),'scripts/seed-create-ui.ts'],{cwd:root,windowsHide:true,env:{...process.env,ACS_CREATE_UI_ROOT:folder,NODE_PATH:path.join(root,'node_modules/.pnpm/node_modules')},stdio:['ignore','ignore','pipe']});let error='';child.stderr.on('data',b=>error+=b);child.once('close',code=>code===0?resolve():reject(new Error(error)));});
+const fixture=JSON.parse(await fs.readFile(path.join(folder,'fixture.json'),'utf8')),data=fixture.data;
+await new Promise(resolve=>socket.listen(0,'127.0.0.1',resolve));const port=socket.address().port;await new Promise(resolve=>socket.close(resolve));const base=`http://127.0.0.1:${port}`;
+const children=['server.js','worker.mjs'].map(script=>spawn(process.execPath,[path.join(root,'desktop/backend/apps/web',script),...(script==='worker.mjs'?['run']:[])],{cwd:root,windowsHide:true,env:{...process.env,NODE_ENV:'production',PORT:String(port),HOSTNAME:'127.0.0.1',DATA_DIR:data,ACS_SESSION_TOKEN:token,ACS_ENGINE_RUNNER:path.join(root,'engines/runner.py')},stdio:['ignore','pipe','pipe']}));
+let log='',browser,page,runId;const errors=[],checks=[];for(const child of children){child.stdout.on('data',b=>log+=b);child.stderr.on('data',b=>log+=b);}
+async function poll(fn,timeout=600000){const until=Date.now()+timeout;while(Date.now()<until){const value=await fn();if(value)return value;await new Promise(resolve=>setTimeout(resolve,750));}throw new Error('Create UI operation timed out; durable artifacts retained');}
+const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
+async function studioJobIds(){const ids=[];for(const state of ['queued','running','succeeded','failed','needs_review','manual_action'])for(const file of await fs.readdir(path.join(data,'jobs',state)).catch(()=>[])){if(!file.endsWith('.json'))continue;const row=await fs.readFile(path.join(data,'jobs',state,file),'utf8').then(JSON.parse,()=>null);if(row?.kind==='STUDIO_RUN')ids.push(row.id);}return ids.sort();}
+try{
+ await poll(()=>fetch(base+'/api/desktop/health',{headers:{'x-acs-token':token}}).then(response=>response.ok,()=>false),30000);
+ browser=await chromium.launch({channel:'chrome',headless:true});page=await browser.newPage({viewport:{width:1440,height:1100}});page.setDefaultTimeout(20000);page.on('pageerror',error=>errors.push(error.message));
+ await page.goto(base+`/api/desktop/pair?token=${token}`);await page.goto(base+'/studio/create');
+ const state=()=>page.evaluate(()=>fetch('/api/studio',{cache:'no-store'}).then(response=>response.json()));
+ let planned;
+ if(!process.env.ACS_CREATE_UI_RESUME){
+ await page.getByLabel('Tên video',{exact:true}).fill('Guided Create · NASA Venus · English');await page.getByLabel('Loại nội dung',{exact:false}).selectOption('facts');
+ await page.getByRole('checkbox',{name:'vi-VN',exact:true}).uncheck();await page.getByRole('checkbox',{name:'en-US',exact:true}).check();
+ await page.getByRole('button',{name:'Tiếp tục →',exact:true}).click();
+ await page.getByLabel('URL nguồn công khai · mỗi dòng một URL',{exact:true}).fill(fixture.source);
+ await page.getByLabel('Brief / thông tin có bằng chứng',{exact:true}).fill('Explain the atmosphere and surface temperature of Venus using NASA evidence. Keep to one coherent topic. Original educational narration, no invented facts or footage.');
+ await page.getByRole('button',{name:'Nghiên cứu và tạo kế hoạch thật',exact:true}).click();
+ planned=await poll(async()=>{const row=(await state()).runs[0];if(row?.error&&['failed','needs_input'].includes(row.state))throw new Error(row.error);if(row)runId=row.id;return row?.planning?.state==='ready'?row:false;});
+ if(!planned.shots.length||planned.outputs.includes('final.mp4')||planned.stages.find(stage=>stage.id==='voice').state!=='needs_input')throw new Error('Plan boundary falsely reports render or voice completion');
+ }else{const existing=await page.evaluate(()=>fetch('/api/studio').then(response=>response.json()));planned=existing.runs.find(row=>row.state==='ready'&&row.planning?.sha256);if(!planned)throw new Error('No previously rendered guided run to resume');runId=planned.id;await page.goto(base+'/studio/create?id='+planned.id);checks.push('Resumed the prior real GPU plan/render attempt; no model inference was repeated');}
+ const dir=path.join(data,'studio/artifacts',planned.id),planBytes=await fs.readFile(path.join(dir,'plan.json')),researchBytes=await fs.readFile(path.join(dir,'research.json'));
+ if(digest(planBytes)!==planned.planning.sha256)throw new Error('Saved plan hash changed');
+ if(!process.env.ACS_CREATE_UI_RESUME&&await fs.stat(path.join(dir,'final.mp4')).catch(()=>null))throw new Error('Plan-only work rendered prematurely');
+ await page.reload();await page.locator('.acs-steps button').nth(2).click();await page.getByRole('heading',{name:'Kịch bản và storyboard thực',exact:true}).waitFor();
+ if(await page.getByLabel('Phiên bản đang xem',{exact:false}).inputValue()!==planned.id)throw new Error('Selected plan did not persist after reload');
+ await page.screenshot({path:'docs/evidence/acs-create-plan-ui.png',fullPage:true});checks.push(process.env.ACS_CREATE_UI_RESUME?'Server-backed deep link restores the saved draft without browser cache; script, research and selected version survive reload':'Actual NASA retrieval and local Qwen script stop before narration; immutable storyboard, selected version and six-step draft survive reload');
+ await page.locator('.acs-steps button').nth(1).click();await page.getByRole('heading',{name:'Bằng chứng đã thu thập',exact:true}).waitFor();
+ await page.locator('.acs-steps button').nth(3).click();if(!process.env.ACS_CREATE_UI_RESUME)await page.getByRole('button',{name:'Dựng preview từ kế hoạch này',exact:true}).click();
+ const rendered=await poll(async()=>{const row=(await state()).runs.find(row=>row.id===planned.id);if(row?.error&&['failed','needs_input'].includes(row.state))throw new Error(row.error);return row?.state==='ready'?row:false;});
+ await page.locator('.acs-steps button').nth(4).click();await poll(()=>page.locator('video').evaluateAll(videos=>videos.some(video=>video.readyState>=1)),30000);
+ const qa=JSON.parse(await fs.readFile(path.join(dir,'qa.json'),'utf8'));
+ const voices=await Promise.all(planned.shots.map(async(_,i)=>{const value=JSON.parse(await fs.readFile(path.join(dir,`voice-${i}.json`),'utf8'));return{engine:value.engine,device:value.device,language:value.language,checkpointSha256:value.checkpoint_sha256,audioSha256:value.audioSha256};})),asr=JSON.parse(await fs.readFile(path.join(dir,'voice-review.json'),'utf8')).engine;
+ if(voices.some(voice=>voice.engine!=='kokoro'||voice.device!=='cuda')||asr.device!=='cuda')throw new Error('Requested GPU inference not evidenced by actual voice/ASR metadata');
+ if(!qa.technical||qa.publishEligibility!=='BLOCKED')throw new Error('Technical failure or false publication authorization');
+ if(digest(await fs.readFile(path.join(dir,'plan.json')))!==digest(planBytes)||digest(await fs.readFile(path.join(dir,'research.json')))!==digest(researchBytes))throw new Error('Continuation rewrote the saved plan or source research');
+ const counts=await studioJobIds();await page.reload();await page.locator('.acs-steps button').nth(5).click();await page.getByRole('heading',{name:'QA của đúng phiên bản',exact:false}).waitFor();
+ await page.getByRole('button',{name:'Tạo gói ZIP cho phiên bản này',exact:true}).click();const zip=page.getByRole('link',{name:/Tải gói nháp ZIP/});await zip.waitFor();
+ const download=await page.request.get(new URL(await zip.getAttribute('href'),base).href);if(download.status()!==200||!(await download.body()).subarray(0,2).equals(Buffer.from('PK')))throw new Error('Invalid private ZIP download');
+ const response=await page.evaluate(id=>fetch('/api/studio',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'continue-plan',id})}).then(response=>response.json()),planned.id);
+ if(response.id!==planned.id)throw new Error('Repeated continuation lost selected version');
+ const after=await studioJobIds();if(JSON.stringify(counts)!==JSON.stringify(after))throw new Error('Repeated continuation enqueued duplicate production');
+ await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.getByLabel('Language').selectOption('en')]);await page.getByRole('heading',{name:'QA for this exact version',exact:true}).waitFor();await page.screenshot({path:'docs/evidence/acs-create-preview-ui.png',fullPage:true});
+ const foreign=await browser.newContext();if((await foreign.request.get(base+'/api/studio')).status()!==401)throw new Error('Anonymous studio access allowed');await foreign.close();
+ if(errors.length)throw new Error(errors.join('\n'));checks.push('Continue uses pinned plan/research, actual Kokoro CUDA/ASR/FFmpeg produces preview, QA remains separate, private ZIP downloads, repeated continuation creates no duplicate job, VI/EN UI renders without errors');
+ const parentVideoSha=digest(await fs.readFile(path.join(dir,'final.mp4')));
+ await page.goto(base+'/studio/editor?id='+planned.id);await page.getByRole('tab',{name:'Timeline',exact:true}).click();
+ await page.getByPlaceholder(/Cut 00:05/).fill('Cut 00:05–00:08');await page.getByRole('button',{name:'Preview edit plan',exact:true}).click();
+ const submitted=page.waitForResponse(response=>response.url()===base+'/api/studio'&&response.request().method()==='POST'&&response.request().postDataJSON()?.action==='edit-timeline');
+ await page.getByRole('button',{name:'Apply as new version',exact:true}).click();const queuedResponse=await submitted,queuedCut=await queuedResponse.json();if(!queuedResponse.ok()||!queuedCut.id)throw new Error(queuedCut.error??'Cut was not queued');
+ const cut=await poll(async()=>{const row=(await state()).runs.find(row=>row.id===queuedCut.id);if(row?.error&&['failed','needs_input'].includes(row.state))throw new Error(row.error);return row?.state==='ready'?row:false;},180000);
+ const cutDir=path.join(data,'studio/artifacts',cut.id),cutQa=JSON.parse(await fs.readFile(path.join(cutDir,'qa.json'),'utf8')),cutFiles=await fs.readdir(cutDir),parentTimeline=JSON.parse(await fs.readFile(path.join(dir,'timeline.json'),'utf8')),cutTimeline=JSON.parse(await fs.readFile(path.join(cutDir,'timeline.json'),'utf8'));
+ if(!cutQa.technical||Math.abs(cutTimeline.duration-(parentTimeline.duration-3))>1e-6||Math.abs(cutQa.duration-cutTimeline.duration)>1/cutTimeline.fps+.02||cut.planning!==null)throw new Error('Cut failed timeline/frame-duration/technical/independent-version checks');
+ if(cutFiles.some(file=>/tts.*request|asr.*request|voice-environment.*request/.test(file)))throw new Error('Deterministic cut unexpectedly invoked AI');
+ if(digest(await fs.readFile(path.join(dir,'final.mp4')))!==parentVideoSha)throw new Error('Cut mutated the original video');
+ await page.screenshot({path:'docs/evidence/acs-create-cut-ui.png',fullPage:true});
+ await fs.writeFile('docs/evidence/acs-create-guided-cut-ui.json',JSON.stringify({status:'VERIFIED_REAL_GRAPHIC_DRAFT_TIMELINE_CUT_NO_AI',at:new Date().toISOString(),parentId:planned.id,cutId:cut.id,parentDuration:qa.duration,cutDuration:cutQa.duration,parentTimelineDuration:parentTimeline.duration,cutTimelineDuration:cutTimeline.duration,timelineSecondsRemoved:parentTimeline.duration-cutTimeline.duration,containerSecondsRemoved:qa.duration-cutQa.duration,scope:'Exactly 3 seconds removed from the editable timeline; the older parent encode has frame/AAC rounding drift from its timeline. Child duration checked against its own timeline within one frame plus 20 ms.',parentVideoSha256:parentVideoSha,cutVideoSha256:digest(await fs.readFile(path.join(cutDir,'final.mp4'))),final:path.join(cutDir,'final.mp4'),technical:cutQa.technical,planning:cut.planning,noAIRequestFiles:true,originalPreserved:true,publicPosting:false},null,2));
+ checks.push('Actual prompt Cut 00:05–00:08 removes exactly three timeline seconds and renders a decodable child without AI, keeps the parent bytes and clears inherited plan continuation; container rounding recorded separately');
+ const pilot=(await state()).autopilots.find(pilot=>pilot.id===planned.autopilotId);
+ const mutate=body=>page.evaluate(async body=>{const response=await fetch('/api/studio',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}),value=await response.json();if(!response.ok)throw new Error(value.error);return value;},body);
+ // An isolated future-dated fixture activation grants no content/posting approval.
+ const enabled=await mutate({action:'save-autopilot',value:{...pilot,enabled:true,nextRunAt:'2099-01-01T00:00:00.000Z'}}),enabledBytes=JSON.stringify(enabled),jobsBeforeGuard=await studioJobIds();
+ await page.goto(base+'/studio/create?id='+planned.id);await page.getByRole('heading',{name:'Preserve the enabled Autopilot',exact:true}).waitFor();await page.reload();await page.getByRole('heading',{name:'Preserve the enabled Autopilot',exact:true}).waitFor();
+ if(JSON.stringify((await state()).autopilots.find(pilot=>pilot.id===enabled.id))!==enabledBytes||JSON.stringify(await studioJobIds())!==JSON.stringify(jobsBeforeGuard)||await page.getByRole('button',{name:'Save draft',exact:true}).count())throw new Error('One-off deep link changed an enabled recurring Autopilot');
+ await mutate({action:'save-autopilot',value:{...enabled,enabled:false,nextRunAt:pilot.nextRunAt}});checks.push('Deep-linking an enabled future-dated fixture opens a read-only handoff, preserves its config bytes and queues no production; fixture activation is explicitly reverted');
+ await fs.writeFile('docs/evidence/acs-create-guided-ui.json',JSON.stringify({status:'VERIFIED_REAL_LOCAL_GUIDED_CREATE_DRAFT_NOT_PUBLISH_APPROVAL',at:new Date().toISOString(),data,resumedExistingReadyRun:!!process.env.ACS_CREATE_UI_RESUME,priorAttempt:process.env.ACS_CREATE_UI_RESUME?'acs-create-guided-render-attempt.json':null,runId:planned.id,language:rendered.language,planSha256:digest(planBytes),researchSha256:digest(researchBytes),shots:planned.shots,voices,asr:{engine:asr.engine,device:asr.device,modelSha256:asr.model_sha256},final:path.join(dir,'final.mp4'),qa,checks,zipBytes:(await download.body()).length,publicPosting:false,humanApproval:'NOT_CREATED',browserErrors:errors},null,2));console.log(JSON.stringify({status:'VERIFIED',runId:planned.id,checks}));
+}catch(error){if(page)await page.screenshot({path:'docs/evidence/acs-create-guided-failure.png',fullPage:true}).catch(()=>{});await fs.writeFile('docs/evidence/acs-create-guided-ui.json',JSON.stringify({status:'BLOCKED_OR_FAILED',at:new Date().toISOString(),data,runId,checks,error:String(error)},null,2));throw error;}
+finally{if(browser)await browser.close();for(const child of children)if(child.pid)await new Promise(resolve=>spawn('taskkill',['/PID',String(child.pid),'/T','/F'],{windowsHide:true,stdio:'ignore'}).on('close',resolve));await fs.writeFile('docs/evidence/acs-create-guided-ui.log',log);}

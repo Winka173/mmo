@@ -87,14 +87,14 @@ export class MetaPublisher implements PlatformPublisher {
   async upload(pkg: PublishPackage, persist: (s: UploadState) => Promise<void>, prior?: UploadState): Promise<UploadResult> {
     if (prior) {
       const r = await this.reconcile(prior, pkg);
-      if (r) return r;
+      if (r){if(r.status==="PUBLISHED"||r.status==="PROCESSING")await persist({...prior,remoteId:r.remoteId});return r;}
     }
     const caption = `${pkg.title}\n\n${pkg.description}`.slice(0, 2200);
     if (this.platform === "facebook") {
       const start = await this.graph(`${this.cfg.pageId}/video_reels`, { method: "POST", query: { upload_phase: "start" } });
       await persist({ remoteId: start.video_id, sessionUri: start.upload_url });
       await this.rupload(start.upload_url ?? `https://rupload.facebook.com/video-upload/${this.v}/${start.video_id}`, pkg.videoFile);
-      await this.graph(`${this.cfg.pageId}/video_reels`, { method: "POST", query: { upload_phase: "finish", video_id: start.video_id, video_state: this.cfg.publishState ?? "PUBLISHED", description: caption } });
+      await this.graph(`${this.cfg.pageId}/video_reels`, { method: "POST", query: { upload_phase: "finish", video_id: start.video_id, video_state: pkg.privacy === "private" ? "DRAFT" : (this.cfg.publishState ?? "PUBLISHED"), description: caption } });
       return this.confirm(start.video_id);
     }
     const c = await this.graph(`${this.cfg.igUserId}/media`, { method: "POST", query: { media_type: "REELS", upload_type: "resumable", caption, share_to_feed: "true" } });
@@ -118,9 +118,10 @@ export class MetaPublisher implements PlatformPublisher {
 
   private async confirm(id: string): Promise<UploadResult> {
     const fields = this.platform === "facebook" ? "status,permalink_url" : "permalink,id";
-    const info = await this.graph(id, { query: { fields } }).catch(() => ({}));
+    const info = await this.graph(id, { query: { fields } });
     const url = this.platform === "facebook" ? (info.permalink_url ? `https://www.facebook.com${String(info.permalink_url).replace(/^https:\/\/www\.facebook\.com/, "")}` : `https://www.facebook.com/reel/${id}`) : (info.permalink ?? `https://www.instagram.com/`);
-    const processing = this.platform === "facebook" && info.status && info.status.video_status && info.status.video_status !== "ready";
+    if(this.platform==="instagram"&&!info.id)throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Instagram chưa xác nhận media ID tồn tại; không đánh dấu đã đăng.");
+    const processing = this.platform === "facebook" && info.status?.video_status !== "ready";
     return { status: processing ? "PROCESSING" : "PUBLISHED", remoteId: id, url, confirmedAt: new Date().toISOString(), raw: info };
   }
 
@@ -128,15 +129,16 @@ export class MetaPublisher implements PlatformPublisher {
     if (this.platform === "instagram") {
       if (prior.remoteId) return this.confirm(prior.remoteId);
       const cid = prior.sessionUri?.startsWith("ig-container:") ? prior.sessionUri.slice(13) : null;
-      if (!cid) return null;
-      const st = await this.graph(cid, { query: { fields: "status_code" } }).catch(() => null);
+      if (!cid) {if(prior.sessionUri)throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Không xác định được Instagram container; kiểm tra tài khoản, không tạo bài mới.");return null;}
+      const st = await this.graph(cid, { query: { fields: "status_code" } });
       if (st?.status_code === "PUBLISHED") return { status: "MANUAL_ACTION_REQUIRED", reason: `Container ${cid} đã đăng nhưng chưa ghi media id — kiểm tra trên Instagram rồi xác nhận /posted (không đăng lại)` };
       if (st?.status_code === "FINISHED") return this.publishContainer(cid);
-      return null;
+      if(st?.status_code==="IN_PROGRESS")throw new FactoryError("META_PROCESSING","RETRYABLE","Container đang xử lý; chờ rồi kiểm tra lại cùng container",{retryAfter:new Date(Date.now()+30000).toISOString()});
+      throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED",`Instagram container ${cid} có trạng thái ${st?.status_code??"UNKNOWN"}; không tạo bài mới.`);
     }
-    if (!prior.remoteId) return null;
-    const v = await this.graph(prior.remoteId, { query: { fields: "status" } }).catch(() => null);
-    if (!v) return null;
+    if (!prior.remoteId) {if(prior.sessionUri)throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Thiếu Facebook video ID của phiên upload cũ; không tạo bài mới.");return null;}
+    const v = await this.graph(prior.remoteId, { query: { fields: "status" } });
+    if (!v) throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Không xác định video cũ trên Facebook; không tải lại.");
     if (v.status?.uploading_phase?.status === "complete" || v.status?.publishing_phase?.status === "complete" || v.status?.video_status === "ready") return this.confirm(prior.remoteId);
     if (v.status?.uploading_phase?.status === "not_started") return null; // safe to start over
     return { status: "MANUAL_ACTION_REQUIRED", reason: `Video ${prior.remoteId} đang ở trạng thái không rõ — kiểm tra trên Facebook, không tải lại` };

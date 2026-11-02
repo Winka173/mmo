@@ -16,3 +16,11 @@ browser-profiles/
 apps/web/.next/
 apps/web/tsconfig.tsbuildinfo
 .test-results.json
+.local/
+src-tauri/target/
+desktop/runtime/
+desktop/backend/
+desktop/engines/
+src-tauri/icons/
+__pycache__/
+*.pyc

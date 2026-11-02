@@ -40,12 +40,13 @@ async function mbGameplay(dir: string, out: string, opts: { portrait: boolean; d
   const f = (n: string) => path.join(dir, n);
   const scale = opts.portrait ? ",crop=608:1080:656:0,scale=1080:1920" : "";
   await ffmpeg([
+    "-filter_complex_threads", "1",
     "-loop", "1", "-i", f("bg.png"), "-loop", "1", "-i", f("tank.png"), "-loop", "1", "-i", f("scout.png"), "-loop", "1", "-i", f("boom.png"),
     "-f", "lavfi", "-i", `anoisesrc=color=brown:amplitude=0.12:d=${opts.dur}:r=48000`,
     "-f", "lavfi", "-i", `aevalsrc='0.9*sin(2*PI*55*t)*exp(-7*mod(t,3.2))*gte(mod(t,3.2),1.6)':s=48000:d=${opts.dur}`,
     "-filter_complex",
     `[0][1]overlay=x='-260+t*170':y=640[a];[a][2]overlay=x='1900-t*210':y='380+50*sin(t*1.7)'[b];[b][3]overlay=x='820+60*sin(t)':y=420:enable='between(mod(t,3.2),1.6,2.1)'[c];[c][3]overlay=x=1320:y=700:enable='between(mod(t,4.1),2.4,2.9)',fps=${opts.fps}${scale},format=yuv420p[v];[4][5]amix=inputs=2:normalize=0,volume=0.8[aout]`,
-    "-map", "[v]", "-map", "[aout]", "-t", String(opts.dur), "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-c:a", "aac", "-ar", "48000", out,
+    "-map", "[v]", "-map", "[aout]", "-t", String(opts.dur), "-c:v", "libx264", "-threads", "2", "-preset", "veryfast", "-crf", "23", "-c:a", "aac", "-ar", "48000", out,
   ], { timeoutMs: 10 * 60_000 });
 }
 
@@ -68,12 +69,13 @@ async function lhGameplay(dir: string, out: string, opts: { dur: number; debug: 
   const debugIn = opts.debug ? ["-loop", "1", "-i", f("debug.png")] : [];
   const tail = opts.debug ? `[e][5]overlay=0:0,fps=60,format=yuv420p[v]` : `[e]fps=60,format=yuv420p[v]`;
   await ffmpeg([
+    "-filter_complex_threads", "1",
     "-loop", "1", "-i", f("bg.png"), "-loop", "1", "-i", f("hero.png"), "-loop", "1", "-i", f("bat.png"), "-loop", "1", "-i", f("light.png"),
     "-f", "lavfi", "-i", `aevalsrc='0.35*sin(2*PI*880*t)*exp(-25*mod(t,0.9))+0.12*sin(2*PI*110*t)':s=48000:d=${opts.dur}`,
     ...debugIn,
     "-filter_complex",
     `[0][1]overlay=x='100+mod(t*160,1000)':y='360+70*sin(t*2.3)'[a];[a][2]overlay=x='1100-mod(t*120,900)':y='200+40*sin(t*5)'[b];[b][2]overlay=x='300+200*sin(t*0.8)':y='470+30*cos(t*4)'[c];[c][3]overlay=x='mod(t*160,1000)-540':y=0[d];[d]null[e];${tail}`,
-    "-map", "[v]", "-map", "4:a", "-t", String(opts.dur), "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-c:a", "aac", "-ar", "48000", out,
+    "-map", "[v]", "-map", "4:a", "-t", String(opts.dur), "-c:v", "libx264", "-threads", "2", "-preset", "veryfast", "-crf", "23", "-c:a", "aac", "-ar", "48000", out,
   ], { timeoutMs: 10 * 60_000 });
 }
 

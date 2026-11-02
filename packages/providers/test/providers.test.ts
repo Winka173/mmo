@@ -5,20 +5,34 @@ import { NotConfiguredLlm, OpenAiCompatibleLlm, verifyClaim, briefToStoryboard, 
 import { tmpDir } from "../../storage/test/helpers.js";
 
 describe("LLM providers", () => {
+  it("rejects cloud/remote endpoints before any fetch", async () => {
+    const cacheDir = await tmpDir(); let calls = 0;
+    for (const baseUrl of ["https://api.openai.com/v1", "http://llm.test/v1", "http://127.0.0.1@remote.test/v1", "https://127.0.0.1/v1"]) {
+      expect(() => new OpenAiCompatibleLlm({ baseUrl, model: "m", cacheDir, fetchImpl: (async () => { calls++; return new Response(); }) as any })).toThrow("Cloud AI disabled");
+    }
+    expect(calls).toBe(0);
+  });
+  it("local requests refuse redirects and report zero paid AI cost", async () => {
+    let options: RequestInit | undefined;
+    const llm = new OpenAiCompatibleLlm({ baseUrl: "http://127.0.0.1:11434/v1", model: "m", cacheDir: await tmpDir(), usdPer1kTokens: 100,
+      fetchImpl: (async (_url: string, init: RequestInit) => { options = init; return new Response(JSON.stringify({ choices: [{ message: { content: '{"ok":true}' } }] })); }) as any });
+    await llm.completeJson({ system: "s", user: "u" }, z.object({ ok: z.boolean() }));
+    expect(options?.redirect).toBe("error"); expect(llm.estimateUsd({ system: "s", user: "u" })).toBe(0);
+  });
   it("unconfigured runtime never fabricates output", async () => {
     await expect(new NotConfiguredLlm().completeJson({ system: "", user: "" }, z.object({}))).rejects.toMatchObject({ code: "NEEDS_PROVIDER" });
   });
   it("malformed JSON is retried a bounded number of times, then held; 429 is retryable", async () => {
     let calls = 0;
-    const llm = new OpenAiCompatibleLlm({ baseUrl: "http://llm.test/v1", model: "m", cacheDir: await tmpDir(), maxAttempts: 2, fetchImpl: (async () => { calls++; return new Response(JSON.stringify({ choices: [{ message: { content: "{not json" } }] })); }) as any });
+    const llm = new OpenAiCompatibleLlm({ baseUrl: "http://127.0.0.1:11434/v1", model: "m", cacheDir: await tmpDir(), maxAttempts: 2, fetchImpl: (async () => { calls++; return new Response(JSON.stringify({ choices: [{ message: { content: "{not json" } }] })); }) as any });
     await expect(llm.completeJson({ system: "s", user: "u" }, z.object({ a: z.string() }))).rejects.toMatchObject({ code: "LLM_MALFORMED", errorClass: "BLOCKED" });
     expect(calls).toBe(2);
-    const rl = new OpenAiCompatibleLlm({ baseUrl: "http://llm.test/v1", model: "m", cacheDir: await tmpDir(), fetchImpl: (async () => new Response("{}", { status: 429 })) as any });
+    const rl = new OpenAiCompatibleLlm({ baseUrl: "http://127.0.0.1:11434/v1", model: "m", cacheDir: await tmpDir(), fetchImpl: (async () => new Response("{}", { status: 429 })) as any });
     await expect(rl.completeJson({ system: "s", user: "u2" }, z.object({}))).rejects.toMatchObject({ code: "LLM_RATE_LIMIT", errorClass: "RETRYABLE" });
   });
   it("valid output is cached by request hash", async () => {
     let calls = 0;
-    const opts = { baseUrl: "http://llm.test/v1", model: "m", cacheDir: await tmpDir(), fetchImpl: (async () => { calls++; return new Response(JSON.stringify({ choices: [{ message: { content: '{"a":"x"}' } }] })); }) as any };
+    const opts = { baseUrl: "http://127.0.0.1:11434/v1", model: "m", cacheDir: await tmpDir(), fetchImpl: (async () => { calls++; return new Response(JSON.stringify({ choices: [{ message: { content: '{"a":"x"}' } }] })); }) as any };
     const llm = new OpenAiCompatibleLlm(opts);
     await llm.completeJson({ system: "s", user: "u" }, z.object({ a: z.string() }));
     await llm.completeJson({ system: "s", user: "u" }, z.object({ a: z.string() }));

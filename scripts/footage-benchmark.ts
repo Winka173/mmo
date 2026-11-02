@@ -1,0 +1,17 @@
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
+import {randomUUID,createHash} from 'node:crypto';
+import {StudioStore,StudioRun,hash} from '@ttm/automation';
+import {buildContext} from '../apps/worker/src/context.js';
+import {inspectStudioFootage} from '../apps/worker/src/studio-footage.js';
+import {runProcess} from '@ttm/media';
+async function main(){
+ const root=process.cwd(),ctx=await buildContext({dataDir:path.join(root,'.local/footage-benchmark',String(Date.now()),'data')}),studio=new StudioStore(ctx.store),id=randomUUID(),dir=ctx.store.p('studio','artifacts',id);await fs.mkdir(dir,{recursive:true});const file=path.join(dir,'source-0.mp4'),ffmpeg=path.join(root,'.local/tools/ffmpeg.exe'),ffprobe=path.join(root,'.local/tools/ffprobe.exe');await studio.saveConfig({ffmpeg,ffprobe});
+ const rendered=await runProcess(ffmpeg,['-y','-f','lavfi','-i','testsrc2=s=640x360:r=20:d=3','-f','lavfi','-i','color=c=black:s=640x360:r=20:d=1','-f','lavfi','-i','testsrc2=s=640x360:r=20:d=3','-filter_complex','[0:v][1:v][2:v]concat=n=3:v=1:a=0[v]','-map','[v]','-c:v','libx264','-pix_fmt','yuv420p',file]);if(rendered.code!==0)throw new Error('Owned synthetic source encode failed');
+ const now=new Date().toISOString(),pilot=await studio.saveAutopilot({id:randomUUID(),name:'Owned source analysis benchmark · NOT GAMEPLAY',family:'game',brief:'Source analysis diagnostics only. Original moving patterns are not game footage, feature evidence or a production video.',rights:'AUTHORIZED_REUSE',rightsEvidence:'Locally authored FFmpeg test patterns. Internal analysis permitted; no human content approval or publication authority.',createdAt:now,updatedAt:now}),config=await studio.config(),bytes=await fs.readFile(file),sourceSha256=createHash('sha256').update(bytes).digest('hex');
+ // A diagnostic record has no production job, narration or final-video claim.
+ const run=StudioRun.parse({id,autopilotId:pilot.id,title:pilot.name,language:'en-US',snapshot:pilot,config,snapshotHash:hash({a:pilot,config}),state:'needs_input',error:'Diagnostic source analysis only; no full video production requested.',sources:[{file,sha256:sourceSha256,size:bytes.length}],stages:[{id:'intake',state:'passed',note:'Owned synthetic pattern source'},{id:'media',state:'flagged',note:'Measured scene/motion/black signals; semantic and gameplay authenticity review remain unknown'}],createdAt:now,updatedAt:now});
+ const analysis=await inspectStudioFootage(run,dir);if(!analysis?.results[0].analysis?.blacks.length||!analysis.results[0].analysis.scenes.length)throw new Error('Expected synthetic scene/black signals were not detected');run.outputs=['source-analysis.json'];await studio.saveRun(run);if(createHash('sha256').update(await fs.readFile(file)).digest('hex')!==sourceSha256)throw new Error('Analysis changed original bytes');
+ const report={status:'VERIFIED_LOCAL_FOOTAGE_HEURISTICS_SYNTHETIC_SOURCE_ONLY',at:now,data:ctx.store.root,runId:id,source:file,sourceSha256,realGameplay:false,AIInference:false,fullVideoProduction:false,publicPosting:false,analysis};await fs.writeFile('docs/evidence/acs-footage-analysis.json',JSON.stringify(report,null,2));console.log(JSON.stringify({status:report.status,source:file,sceneCount:analysis.results[0].analysis.scenes.length,blacks:analysis.results[0].analysis.blacks}));
+}
+main().catch(error=>{console.error(String(error));process.exitCode=1;});

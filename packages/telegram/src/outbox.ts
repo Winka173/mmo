@@ -2,6 +2,8 @@ import * as fs from "node:fs/promises";
 import { FactoryError, newId, nowIso } from "@ttm/core";
 import { DataStore, readJson, writeJsonAtomic } from "@ttm/storage";
 import { redact } from "@ttm/storage";
+import {withLock} from "@ttm/storage";
+import {createHash} from "node:crypto";
 import { z } from "zod";
 import type { TelegramClient } from "./client.js";
 
@@ -29,6 +31,15 @@ export class TelegramOutbox {
     private readonly store: DataStore,
     private readonly opts: { debounceMs?: number; maxAttempts?: number } = {},
   ) {}
+
+  /** Permanent deterministic identity for a received command's reply/preview. */
+  async enqueueOnce(key:string,msg:{chatId:string;kind:"text"|"photo"|"video";text:string;file?:string|null}){
+    const id=`tg_once_${createHash("sha256").update(key).digest("hex")}`;
+    return withLock(this.store.p("locks",`${id}.lock`),async()=>{
+      for(const sub of["outbox","sent"] as const)for(const suffix of[".json",".failed.json"])if(await fs.stat(this.store.p("telegram",sub,`${id}${suffix}`)).catch(()=>null))return id;
+      const row=OutboxMessage.parse({...msg,id,text:redact(msg.text),createdAt:nowIso(),dedupeKey:key});await writeJsonAtomic(this.store.p("telegram","outbox",`${id}.json`),row,{keepBackup:false});return id;
+    });
+  }
 
   private dir(sub: "outbox" | "sent") {
     return this.store.p("telegram", sub);
@@ -67,12 +78,18 @@ export class TelegramOutbox {
     return out;
   }
 
-  async flush(client: TelegramClient | null): Promise<{ sent: number; failed: number; deferred: number }> {
+  async flush(client: TelegramClient | null,policy?:{allowedChatIds:string[]}): Promise<{ sent: number; failed: number; deferred: number }> {
+    return withLock(this.store.p("locks","telegram-flush.lock"),()=>this.flushUnlocked(client,policy),{waitMs:2000,ttlMs:60000,purpose:"Serialize notification delivery"});
+  }
+  private async flushUnlocked(client: TelegramClient | null,policy?:{allowedChatIds:string[]}): Promise<{ sent: number; failed: number; deferred: number }> {
     let sent = 0;
     let failed = 0;
     let deferred = 0;
     if (!client) return { sent, failed, deferred: (await this.pending()).length };
     for (const m of await this.pending()) {
+      if(policy&&!policy.allowedChatIds.includes(m.chatId)){
+        await writeJsonAtomic(this.store.p("telegram","sent",`${m.id}.failed.json`),{...m,lastError:"Recipient authorization revoked"},{keepBackup:false});await fs.rm(this.store.p("telegram","outbox",`${m.id}.json`),{force:true});failed++;continue;
+      }
       if (m.notBefore && new Date(m.notBefore).getTime() > Date.now()) {
         deferred++;
         continue;

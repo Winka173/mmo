@@ -22,14 +22,14 @@ export class NotConfiguredLlm implements LlmProvider {
     return 0;
   }
   async completeJson(_req?: LlmRequest, _schema?: unknown): Promise<never> {
-    throw new FactoryError("NEEDS_PROVIDER", "HUMAN_REQUIRED", "Chưa cấu hình LLM runtime (LLM_BASE_URL/LLM_MODEL). Dùng kịch bản template xác định hoặc cấu hình Ollama/API riêng.", {
+    throw new FactoryError("NEEDS_PROVIDER", "HUMAN_REQUIRED", "Chưa cấu hình LLM local (LLM_BASE_URL/LLM_MODEL). Dùng kịch bản template hoặc cấu hình Ollama trên máy.", {
       nextAction: "Cài Ollama và đặt LLM_BASE_URL=http://127.0.0.1:11434/v1, LLM_MODEL=<model>",
     });
   }
 }
 
 /**
- * OpenAI-compatible chat endpoint (Ollama, LM Studio, vLLM, or a paid API with its own key).
+ * Local OpenAI-compatible chat endpoint (Ollama, LM Studio or vLLM).
  * Claude Code / Claude Max subscriptions are a development tool, not this runtime.
  * Responses are cached by request hash; JSON is schema-validated with bounded retries.
  */
@@ -47,16 +47,19 @@ export class OpenAiCompatibleLlm implements LlmProvider {
       fetchImpl?: typeof fetch;
       maxAttempts?: number;
     },
-  ) {}
+  ) {
+    const endpoint = new URL(opts.baseUrl);
+    if (endpoint.protocol !== "http:" || !["127.0.0.1", "localhost", "[::1]"].includes(endpoint.hostname) || endpoint.username || endpoint.password)
+      throw new FactoryError("LOCAL_AI_ONLY", "HUMAN_REQUIRED", "AI cloud bị tắt. Chỉ cho phép HTTP loopback / Cloud AI disabled; use a local HTTP endpoint.");
+  }
   get id() {
     return this.opts.id ?? `openai-compatible:${this.opts.model}`;
   }
   estimateUsd(req: LlmRequest) {
-    const tokens = (req.system.length + req.user.length) / 3.5 + (req.maxTokens ?? 1200);
-    return ((this.opts.usdPer1kTokens ?? 0) * tokens) / 1000;
+    return 0;
   }
   async completeJson<S extends ZodTypeAny>(req: LlmRequest, schema: S): Promise<z.output<S>> {
-    const key = createHash("sha256").update(JSON.stringify([this.opts.model, req])).digest("hex");
+    const key = createHash("sha256").update(JSON.stringify([this.opts.baseUrl, this.opts.model, req])).digest("hex");
     const cacheFile = path.join(this.opts.cacheDir, `${key}.json`);
     try {
       const cached = schema.safeParse(JSON.parse(await fs.readFile(cacheFile, "utf8")));
@@ -71,6 +74,7 @@ export class OpenAiCompatibleLlm implements LlmProvider {
     for (let attempt = 1; attempt <= (this.opts.maxAttempts ?? 3); attempt++) {
       const res = await f(`${this.opts.baseUrl.replace(/\/$/, "")}/chat/completions`, {
         method: "POST",
+        redirect: "error",
         headers: { "content-type": "application/json", ...(this.opts.apiKey ? { authorization: `Bearer ${this.opts.apiKey}` } : {}) },
         body: JSON.stringify({
           model: this.opts.model,

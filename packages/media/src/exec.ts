@@ -98,8 +98,8 @@ export type MediaProbe = ProbeInfo & {
 };
 
 /** Detailed probe for intake (gameplay uploads): codecs, VFR, HDR, bit depth, rotation, audio. */
-export async function probeMedia(file: string): Promise<MediaProbe> {
-  const r = await runProcess(FFPROBE, ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", file], { timeoutMs: 60_000 });
+export async function probeMedia(file: string, ffprobeBinary = FFPROBE): Promise<MediaProbe> {
+  const r = await runProcess(ffprobeBinary, ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", file], { timeoutMs: 60_000 });
   if (r.code !== 0) throw new FactoryError("MEDIA_UNREADABLE", "PERMANENT", `File media hỏng/không đọc được: ${r.stderr.trim().slice(-200) || "ffprobe lỗi"}`);
   const j = JSON.parse(r.stdout);
   const v = j.streams?.find((s: any) => s.codec_type === "video");

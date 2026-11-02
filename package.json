@@ -1,15 +1,17 @@
 {
-  "name": "tu-to-mo-factory",
+  "name": "autonomous-creative-studio",
   "private": true,
   "version": "0.1.0",
-  "description": "T\u1ee7 T\u00f2 M\u00f2 \u2014 nh\u00e0 m\u00e1y n\u1ed9i dung t\u1ef1 v\u1eadn h\u00e0nh, l\u01b0u tr\u1eef file-only (kh\u00f4ng database).",
+  "description": "AUTONOMOUS CREATIVE STUDIO — local AI production and publishing",
   "packageManager": "pnpm@10.28.0",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
+    "desktop:build": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/desktop-build.ps1",
+    "desktop:smoke": "node desktop/smoke.mjs",
     "dev": "pnpm --filter @ttm/web dev",
-    "build": "pnpm typecheck && pnpm --filter @ttm/web build",
+    "build": "pnpm typecheck && node scripts/build-web.mjs",
     "worker": "pnpm --filter @ttm/worker start",
     "worker:once": "pnpm --filter @ttm/worker once",
     "e2e:offline": "pnpm --filter @ttm/worker e2e",
@@ -22,7 +24,9 @@
     "test:report": "vitest run --reporter=default --reporter=json --outputFile=.test-results.json; tsx scripts/gen-edge-matrix.ts .test-results.json"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "2.12.3",
     "@types/node": "^22.10.0",
+    "esbuild": "0.28.2",
     "playwright-core": "1.56.1",
     "server-only": "^0.0.1",
     "tsx": "^4.19.0",

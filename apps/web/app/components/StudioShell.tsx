@@ -1,0 +1,21 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {useEffect,useState} from "react";
+import "./ux-shell.css";
+import ResourceChips from "./ResourceChips";
+const items = [["/","Tổng quan","Overview","◈"],["/studio/projects","Dự án & Thương hiệu","Projects & Brands","▦"],["/studio/autopilots","Autopilot","Autopilots","↻"],["/studio/create","Tạo nội dung","Create","+"],["/studio/production","Sản xuất","Production","▷"],["/studio/editor","Biên tập","Editor","≋"],["/studio/library","Thư viện","Library","▧"],["/studio/review","Duyệt & Ngoại lệ","Review & Approvals","✓"],["/studio/planner","Kế hoạch","Planner","▤"],["/studio/channels","Kênh & Tài khoản","Channels & Accounts","◎"],["/studio/insights","Hiệu quả","Insights","↗"],["/studio/models","Model & Công cụ","Models & Tools","⬡"],["/studio/telegram","Telegram","Telegram","↗"],["/studio/settings","Cài đặt & Chẩn đoán","Settings & Diagnostics","⚙"]];
+export default function StudioShell({ children, initialLocale }: { children: React.ReactNode; initialLocale: string }) {
+ const pathname=usePathname(), en=initialLocale==="en";
+ const [collapsed,setCollapsed]=useState<Record<string,boolean>>({}),[restored,setRestored]=useState(false);
+ useEffect(()=>{let saved:Record<string,boolean>={};try{const value=JSON.parse(localStorage.getItem("acs-navigation-groups")??"{}");for(const group of groups)if(typeof value?.[group.id]==="boolean")saved[group.id]=value[group.id];}catch{}const active=groups.find(group=>group.paths.includes(pathname));if(active)saved[active.id]=false;setCollapsed(saved);setRestored(true);},[]);
+ useEffect(()=>{const active=groups.find(group=>group.paths.includes(pathname));if(active)setCollapsed(current=>current[active.id]?{...current,[active.id]:false}:current);},[pathname]);
+ useEffect(()=>{if(restored)try{localStorage.setItem("acs-navigation-groups",JSON.stringify(collapsed));}catch{}},[collapsed,restored]);
+ const destination=(href:string)=>{const item=items.find(row=>row[0]===href)!;return <Link key={href} href={href} aria-current={pathname===href?"page":undefined} className={pathname===href?"active":""}><span aria-hidden="true">{item[3]}</span>{item[en?2:1]}</Link>;};
+ return <div className="acs-shell"><a className="acs-skip-link" href="#acs-content">{en?"Skip to content":"Đi đến nội dung"}</a><aside className="acs-sidebar"><Link href="/" className="acs-brand"><span>A</span><b>AUTONOMOUS<br/>CREATIVE STUDIO</b></Link><div className="acs-local">● {en?"Local workspace":"Không gian làm việc local"}<small>{en?"AI on your machine":"AI chạy trên máy của bạn"}</small></div><nav aria-label={en?"Main navigation":"Điều hướng chính"}>{destination("/")}{groups.map(group=><section className="acs-nav-group" key={group.id}><button className="acs-nav-group-toggle" aria-expanded={!collapsed[group.id]} aria-controls={`acs-nav-${group.id}`} onClick={()=>setCollapsed(current=>({...current,[group.id]:!current[group.id]}))}><span>{en?group.en:group.vi}</span><span aria-hidden="true">{collapsed[group.id]?"+":"−"}</span></button><div id={`acs-nav-${group.id}`} hidden={!!collapsed[group.id]}>{group.paths.map(destination)}</div></section>)}</nav><footer>LOCAL AI · WINDOWS<br/><small>0.2 · Creative workspace</small></footer></aside><div className="acs-work"><header className="acs-topbar"><span>WORKSPACE / {items.find(i=>i[0]===(pathname==="/studio/overview"?"/":pathname))?.[en?2:1]??(en?"Project":"Dự án")}</span><ResourceChips en={en}/><select aria-label="Language" title={en?"Interface language":"Ngôn ngữ giao diện"} value={initialLocale} onChange={e=>{document.cookie=`acs_locale=${e.target.value}; Path=/; SameSite=Strict; Max-Age=31536000`;location.reload();}}><option value="vi">Tiếng Việt</option><option value="en">English</option></select></header><main id="acs-content" tabIndex={-1} className="acs-main">{children}</main></div></div>;
+}
+const groups=[
+ {id:"creative",vi:"Sáng tạo",en:"Create",paths:["/studio/projects","/studio/create","/studio/editor","/studio/library"]},
+ {id:"operations",vi:"Vận hành",en:"Operate",paths:["/studio/autopilots","/studio/production","/studio/review","/studio/planner","/studio/insights"]},
+ {id:"manage",vi:"Quản trị",en:"Manage",paths:["/studio/channels","/studio/models","/studio/telegram","/studio/settings"]}
+];

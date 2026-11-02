@@ -5,3 +5,4 @@ export * from "./backup.js";
 export * from "./secrets.js";
 export * from "./migrations.js";
 export * from "./verify.js";
+export * from "./studio-restore.js";

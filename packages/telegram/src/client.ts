@@ -27,19 +27,24 @@ export class TelegramClient {
   constructor(
     private readonly token: string,
     private readonly fetchImpl: FetchLike = fetch,
-  ) {}
+    /** Real Bot API by default; only a loopback HTTP server is accepted otherwise (local fake server for tests). */
+    private readonly apiBase = "https://api.telegram.org",
+  ) {
+    if (apiBase !== "https://api.telegram.org" && !/^http:\/\/127\.0\.0\.1:\d+$/.test(apiBase)) throw new Error("Telegram API base must be api.telegram.org or a loopback test server");
+  }
 
   private async call(method: string, body: Record<string, unknown> | FormData): Promise<any> {
     const isForm = body instanceof FormData;
     let res: Response;
     try {
-      res = await this.fetchImpl(`https://api.telegram.org/bot${this.token}/${method}`, {
+      res = await this.fetchImpl(`${this.apiBase}/bot${this.token}/${method}`, {
         method: "POST",
         headers: isForm ? undefined : { "content-type": "application/json" },
         body: isForm ? body : JSON.stringify(body),
+        signal:AbortSignal.timeout(method==="getUpdates"?35000:method==="sendVideo"||method==="sendDocument"?120000:30000),
       });
     } catch (e: any) {
-      throw new FactoryError("TG_NETWORK", "RETRYABLE", `Telegram không kết nối được: ${e?.message}`);
+      throw new FactoryError("TG_NETWORK", "RETRYABLE", `Telegram không kết nối được: ${String(e?.message??"network error").split(this.token).join("[redacted]")}`);
     }
     const j: any = await res.json().catch(() => ({}));
     if (j.ok) return j.result;
@@ -50,7 +55,7 @@ export class TelegramClient {
     if (res.status === 403) throw new FactoryError("TG_BLOCKED", "HUMAN_REQUIRED", "Bot bị chặn hoặc chat không tồn tại (403)");
     if (res.status === 401) throw new FactoryError("TG_UNAUTHORIZED", "HUMAN_REQUIRED", "Token Telegram không hợp lệ (401)");
     if (res.status === 413) throw new FactoryError("TG_TOO_LARGE", "PERMANENT", "File quá lớn cho Bot API (413)");
-    throw new FactoryError("TG_ERROR", res.status >= 500 ? "RETRYABLE" : "PERMANENT", `Telegram lỗi ${res.status}: ${j.description ?? ""}`);
+    throw new FactoryError("TG_ERROR", res.status >= 500 ? "RETRYABLE" : "PERMANENT", `Telegram lỗi ${res.status}: ${String(j.description??"").split(this.token).join("[redacted]")}`);
   }
 
   getMe() {

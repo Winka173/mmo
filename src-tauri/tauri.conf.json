@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "AUTONOMOUS CREATIVE STUDIO",
+  "version": "0.2.0",
+  "identifier": "com.autonomouscreativestudio.desktop",
+  "build": { "frontendDist": "../desktop/splash" },
+  "app": {
+    "windows": [{ "label": "main", "title": "AUTONOMOUS CREATIVE STUDIO", "width": 1440, "height": 980, "minWidth": 900, "minHeight": 650 }],
+    "security": { "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' http://127.0.0.1:*" }
+  },
+  "bundle": {
+    "active": true, "targets": ["nsis"],
+    "resources": { "../desktop/backend/": "backend/", "../desktop/runtime/": "runtime/", "../desktop/engines/": "engines/" },
+    "icon": ["icons/icon.ico"],
+    "windows": { "nsis": { "installMode": "currentUser", "compression": "zlib" } }
+  }
+}

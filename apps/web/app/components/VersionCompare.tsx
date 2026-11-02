@@ -1,0 +1,22 @@
+"use client";
+import {useEffect,useRef,useState} from "react";
+import type {StudioRun} from "@ttm/automation";
+export default function VersionCompare({run,runs,en}:{run:StudioRun;runs:StudioRun[];en:boolean}){
+ const t=(vi:string,eng:string)=>en?eng:vi,versions=runs.filter(r=>r.id!==run.id&&r.autopilotId===run.autopilotId),[chosen,setChosen]=useState(run.parentId??run.planRevision?.parentId??versions[0]?.id??""),[linked,setLinked]=useState(true),left=useRef<HTMLVideoElement>(null),right=useRef<HTMLVideoElement>(null),before=versions.find(r=>r.id===chosen);
+ useEffect(()=>{setChosen(run.parentId??run.planRevision?.parentId??versions[0]?.id??"");},[run.id]);
+ const changed=run.shots.map((shot,i)=>({i,before:before?.shots[i],after:shot})).filter(r=>!r.before||r.before.text!==r.after.text||r.before.asset!==r.after.asset||Math.abs(r.before.durationSec-r.after.durationSec)>.001);
+ const media=(r:StudioRun)=>`/api/studio/media/${r.id}/final.mp4`;
+ const [timings,setTimings]=useState<{before:number;after:number}|null>(null);
+ useEffect(()=>{let live=true;setTimings(null);if(before)void Promise.all([before,run].map(async row=>{const response=await fetch(`/api/studio/timeline/${row.id}`,{cache:"no-store"});return response.ok?response.json():null;})).then(([a,b])=>{if(live&&a&&b)setTimings({before:a.duration,after:b.duration});}).catch(()=>{});return()=>{live=false;};},[before?.id,run.id]);
+ return <section aria-label={t("So sánh phiên bản","Compare versions")}><h3>{t("Trước và sau chỉnh sửa","Before and after")}</h3>
+  <label className="acs-field">{t("So với phiên bản","Compare with version")}<select value={chosen} onChange={e=>setChosen(e.target.value)}><option value="">{t("Chọn phiên bản","Choose version")}</option>{versions.map(r=><option key={r.id} value={r.id}>{new Date(r.createdAt).toLocaleString(en?"en-US":"vi-VN")} · {r.language} · {r.title}</option>)}</select></label>
+  {before&&<><label className="acs-check"><input type="checkbox" checked={linked} onChange={e=>setLinked(e.target.checked)}/>{t("Đồng bộ vị trí phát · âm thanh chỉ phát bản đang điều khiển","Link playback position · listen to the controlled version")}</label>
+   <div className="acs-compare-grid">{[before,run].map((version,index)=><div key={version.id}><b>{index?t("Sau","After"):t("Trước","Before")}</b>{version.outputs.includes("final.mp4")?<video ref={index?right:left} controls preload="metadata" poster={version.outputs.includes("thumbnail.jpg")?`/api/studio/media/${version.id}/thumbnail.jpg`:undefined} src={media(version)} className="acs-video" onPlay={()=>{const other=index?left.current:right.current;if(other){other.pause();other.muted=true;}const active=index?right.current:left.current;if(active)active.muted=false;}} onSeeked={event=>{const other=index?left.current:right.current;if(linked&&other&&Math.abs(other.currentTime-event.currentTarget.currentTime)>.15)other.currentTime=Math.min(event.currentTarget.currentTime,Number.isFinite(other.duration)?other.duration:event.currentTarget.currentTime);}}/>:<p>{t("Phiên bản kế hoạch chưa dựng","Plan version has not been rendered")}</p>}</div>)}</div>
+   <p>{t("Lời đọc hoặc media cảnh thay đổi","Changed narration or source selections")}: {changed.length} · {t("Quyền duyệt không được kế thừa giữa các phiên bản","Approval does not carry between versions")}</p>
+   {timings&&<p>Timeline: {timings.before.toFixed(2)} → {timings.after.toFixed(2)}s</p>}
+   {(run.edit||before.edit)&&<p>{t("Thao tác đã áp dụng","Applied operation")}: {run.edit?.kind??before.edit?.kind} · {t("Chi tiết khoảng cắt, track và phạm vi sửa ở dưới","Cut ranges, tracks and repair scope are in the details below")}</p>}
+   {changed.map(row=><article className="acs-panel" key={row.i}><b>{t("Cảnh","Scene")} {row.i+1}</b><p><del>{row.before?.text??"—"}</del></p><p>{row.after.text}</p><small>{t("Thời lượng","Duration")}: {row.before?.durationSec.toFixed(2)??"—"} → {row.after.durationSec.toFixed(2)}s · {row.before?.asset===row.after.asset?t("Giữ media","Media retained"):t("Đổi media","Media changed")}</small></article>)}
+   <details><summary>{t("Chi tiết phiên bản và phạm vi dựng lại","Version and rerender details")}</summary><pre>{JSON.stringify({parentId:run.parentId,planRevision:run.planRevision,edit:run.edit,repair:run.repair,snapshotChanged:before.snapshotHash!==run.snapshotHash,sourceHashesRetained:run.sources.filter(s=>before.sources.some(b=>b.sha256===s.sha256)).length},null,2)}</pre></details>
+  </>}
+ </section>;
+}

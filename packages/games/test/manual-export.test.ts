@@ -1,0 +1,20 @@
+import {describe,it,expect} from 'vitest';
+import * as fs from 'node:fs/promises';
+import {randomUUID,createHash} from 'node:crypto';
+import {DataStore,writeJsonAtomic} from '@ttm/storage';
+import {StudioStore} from '../../automation/src/index.js';
+import {createManualExport,exportFileHash} from '../../../apps/web/app/lib/manual-export.js';
+import {tmpDir} from '../../storage/test/helpers.js';
+import {archiveEntries} from './zip-reader.js';
+async function fixture(){const store=new DataStore(await tmpDir('acs-manual-export-'));await store.init();const studio=new StudioStore(store),now=new Date().toISOString(),a=await studio.saveAutopilot({id:randomUUID(),name:'Manual export protocol fixture',brief:'Fixture only, no actual product or publication',createdAt:now,updatedAt:now}),{id}=await studio.enqueue(a,'en-US',randomUUID()),run=(await studio.run(id))!;const video=Buffer.from('Protocol byte fixture, not a real MP4'),hash=createHash('sha256').update(video).digest('hex');await fs.mkdir(store.p('studio','artifacts',id),{recursive:true});await fs.writeFile(store.p('studio','artifacts',id,'final.mp4'),video);await fs.writeFile(store.p('studio','artifacts',id,'captions.ass'),'UTF-8 phụ đề');await fs.writeFile(store.p('studio','artifacts',id,'engine.log'),'DO_NOT_INCLUDE_FAKE_SECRET');await writeJsonAtomic(store.p('studio','artifacts',id,'qa.json'),{technical:true,videoSha256:hash,fixture:'MOCK_TECHNICAL_STATUS_NOT_ACTUAL_DECODE'});await studio.saveRun({...run,state:'ready',outputs:['final.mp4','captions.ass','qa.json','engine.log']});return{store,studio,id,video};}
+describe('Manual export version/fingerprint boundary (protocol bytes, no actual encode)',()=>{
+ it('creates a private idempotent bundle, excludes logs and retains unknown review/permission states',async()=>{
+  const f=await fixture();await f.store.updateSettings(s=>({...s,paused:true}),'contract-test');const one=await createManualExport(f.store,f.id),two=await createManualExport(f.store,f.id);expect(one.id).toBe(two.id);expect(one.sha256).toBe(two.sha256);expect(one.publicationAuthorized).toBe(false);const entries=await archiveEntries(f.store.p('studio','export-files',`${one.id}.zip`));expect(entries['final.mp4'].bytes).toEqual(f.video);expect(entries['captions.ass'].bytes.toString()).toContain('phụ đề');expect(entries['engine.log']).toBeUndefined();const manifest=JSON.parse(entries['package-manifest.json'].bytes.toString());expect(manifest.publicationAuthorized).toBe(false);expect(manifest.scopedReviewsAtExport.every((g:any)=>g.status==='NEEDS_REVIEW')).toBe(true);expect(manifest).not.toHaveProperty('config');expect(JSON.stringify(manifest)).not.toContain(f.store.root);expect(entries['README.txt'].bytes.toString()).toContain('not permission to publish');
+ });
+ it('recovers an interrupted ready-file checkpoint and refuses to replace a tampered archive',async()=>{
+  const f=await fixture(),record=await createManualExport(f.store,f.id),file=f.store.p('studio','export-files',`${record.id}.zip`);await writeJsonAtomic(f.store.p('studio','exports',`${record.id}.json`),{...record,state:'building'});expect((await createManualExport(f.store,f.id)).state).toBe('ready');const tempName=record.id+'.zip.'+randomUUID()+'.tmp';await fs.rename(file,f.store.p('studio','export-files',tempName));await writeJsonAtomic(f.store.p('studio','exports',record.id+'.json'),{...record,state:'building',tempName});expect((await createManualExport(f.store,f.id)).state).toBe('ready');await fs.appendFile(file,'changed');const changed=await exportFileHash(file);await expect(createManualExport(f.store,f.id)).rejects.toThrow('integrity failed');expect(await exportFileHash(file)).toBe(changed);
+ });
+ it('rejects an incomplete or technically failed production rather than packaging it as ready',async()=>{
+  const f=await fixture(),run=(await f.studio.run(f.id))!;await f.studio.saveRun({...run,state:'needs_input'});await expect(createManualExport(f.store,f.id)).rejects.toThrow('completed technically valid');
+ });
+});

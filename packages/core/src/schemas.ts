@@ -366,7 +366,7 @@ export const Settings = z.object({
     .default({}),
   concurrency: z.object({ jobs: z.number().int().positive().default(2), gpu: z.number().int().nonnegative().default(1) }).default({}),
   telegram: z
-    .object({ allowedChatIds: z.array(z.string()).default([]), enabled: z.boolean().default(false), notify: z.record(z.boolean()).default({}) })
+    .object({ allowedChatIds: z.array(z.string()).default([]), allowedUserIds: z.array(z.string()).default([]), enabled: z.boolean().default(false), notify: z.record(z.boolean()).default({}) })
     .default({}),
   retentionDays: z.object({ audit: z.number().int().default(365), renders: z.number().int().default(90) }).default({}),
   minFreeDiskGb: z.number().default(10),

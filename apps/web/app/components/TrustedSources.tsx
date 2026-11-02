@@ -1,0 +1,6 @@
+"use client";
+import type{Autopilot}from"@ttm/automation";
+export default function TrustedSources({draft,en,update}:{draft:Partial<Autopilot>;en:boolean;update:(patch:Partial<Autopilot>)=>void}){
+ if(!["facts","product"].includes(draft.family??""))return null;
+ return <section className="acs-panel"><h3>{en?"Trusted research sources":"Nguồn nghiên cứu đáng tin cậy"}</h3><label className="acs-field">{en?"Public source URLs · one per line":"URL nguồn công khai · mỗi dòng một URL"}<textarea rows={4} value={(draft.researchUrls??[]).join("\n")} onChange={e=>update({researchUrls:e.target.value.split(/\n/).map(s=>s.trim()).filter(Boolean)})} placeholder="https://science.nasa.gov/venus/venus-facts/"/></label><p className="acs-muted">{en?"The worker retrieves actual text, checks quoted evidence and exports citations. No third-party footage is downloaded. If no media folder is selected, original font graphics are created locally. Research and prices need their own review before posting.":"Worker tải văn bản thật, kiểm tra trích dẫn và xuất nguồn tham khảo. Không tải footage bên thứ ba. Nếu không chọn thư mục media, app tự tạo đồ họa chữ gốc trên máy. Nội dung và giá cần được duyệt riêng trước khi đăng."}</p></section>;
+}

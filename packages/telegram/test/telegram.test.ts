@@ -11,6 +11,10 @@ const handlers = (): CommandHandlers => {
 };
 
 describe("CommandRouter", () => {
+  it("requires an explicit user allowlist even inside an approved group",async()=>{
+    const h=handlers(),router=new CommandRouter({chatIds:["1"]},h,async()=>{});
+    expect(await router.handle({chatId:"1",userId:"u",text:"/approve job_X"})).toMatch(/chưa được cấp quyền/);expect(h.approve).not.toHaveBeenCalled();
+  });
   it("rejects unauthorized chats (and /start grants nothing)", async () => {
     const audit = vi.fn(async () => undefined);
     const r = new CommandRouter({ chatIds: ["1"] }, handlers(), audit);
@@ -20,7 +24,7 @@ describe("CommandRouter", () => {
   it("requires double confirmation for /approve, bound to the same user and expiring", async () => {
     let now = 0;
     const h = handlers();
-    const r = new CommandRouter({ chatIds: ["1"] }, h, async () => undefined, () => now);
+    const r = new CommandRouter({ chatIds: ["1"],userIds:["u","other"] }, h, async () => undefined, () => now);
     const reply = (await r.handle({ chatId: "1", userId: "u", text: "/approve job_X" }))!;
     const code = /confirm (\d+)/.exec(reply)![1];
     expect(h.approve).not.toHaveBeenCalled();

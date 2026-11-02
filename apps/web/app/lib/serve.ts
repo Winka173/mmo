@@ -5,6 +5,7 @@ import * as path from "node:path";
 import { Readable } from "node:stream";
 
 export const MIME: Record<string, string> = {
+  ".zip":"application/zip", ".ass":"text/plain; charset=utf-8",
   ".mp4": "video/mp4", ".mov": "video/quicktime", ".webm": "video/webm", ".srt": "text/plain; charset=utf-8", ".txt": "text/plain; charset=utf-8",
   ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".json": "application/json; charset=utf-8", ".md": "text/markdown; charset=utf-8",
   ".wav": "audio/wav", ".mp3": "audio/mpeg",

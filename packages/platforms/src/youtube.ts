@@ -13,8 +13,7 @@ export const YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
 /**
  * YouTube Data API v3. Shorts and long videos use the same `videos.insert` endpoint; YouTube
  * decides Shorts classification from the video itself — we never claim a Shorts classification.
- * Note: uploads from unverified API projects may be locked to private by YouTube; we report the
- * real `privacyStatus` returned, never the requested one.
+ * Visibility comes from the actual API response, never from the requested privacy setting.
  */
 export class YouTubePublisher implements PlatformPublisher {
   private accessToken: { token: string; exp: number } | null = null;
@@ -86,7 +85,7 @@ export class YouTubePublisher implements PlatformPublisher {
       const channel = ch.items?.[0];
       const blockers: string[] = [];
       if (!channel) blockers.push("Tài khoản không có kênh YouTube");
-      if (!scopes.includes(YOUTUBE_SCOPES[0])) blockers.push("Thiếu scope youtube.upload");
+      if (!scopes.some(s=>[YOUTUBE_SCOPES[0],YOUTUBE_SCOPES[1],"https://www.googleapis.com/auth/youtube","https://www.googleapis.com/auth/youtubepartner"].includes(s))) blockers.push("Thiếu scope youtube.upload hoặc quyền upload tương đương");
       if (this.opts.expectedChannelId && channel && channel.id !== this.opts.expectedChannelId)
         blockers.push(`SAI TÀI KHOẢN: đang kết nối kênh ${channel.id}, cấu hình yêu cầu ${this.opts.expectedChannelId}`);
       return {
@@ -119,11 +118,11 @@ export class YouTubePublisher implements PlatformPublisher {
     if (!this.creds) return { status: "NOT_CONFIGURED", reason: "Chưa kết nối YouTube" };
     if (prior?.sessionUri || prior?.remoteId) {
       const r = await this.reconcile(prior, pkg);
-      if (r) return r;
+      if (r){if(r.status==="PUBLISHED"||r.status==="PROCESSING")await persist({...prior,remoteId:r.remoteId});return r;}
     }
     const stat = await fs.stat(pkg.videoFile);
     const meta = {
-      snippet: { title: pkg.title, description: pkg.description, tags: pkg.tags, categoryId: pkg.categoryId ?? "27", defaultLanguage: "vi", defaultAudioLanguage: "vi" },
+      snippet: { title: pkg.title, description: pkg.description, tags: pkg.tags, categoryId: pkg.categoryId ?? "27", defaultLanguage: pkg.language??"vi", defaultAudioLanguage: pkg.language??"vi" },
       status: {
         privacyStatus: pkg.publishAt ? "private" : pkg.privacy,
         ...(pkg.publishAt ? { publishAt: pkg.publishAt } : {}),
@@ -162,6 +161,8 @@ export class YouTubePublisher implements PlatformPublisher {
   }
 
   private confirmed(video: any): UploadResult {
+    if(typeof video?.id!=="string"||!video.id)throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","YouTube response has no confirmed video ID; reconcile the saved session before retrying.");
+    if(!["processed","uploaded"].includes(video?.status?.uploadStatus)&&video?.processingDetails?.processingStatus!=="processing")throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","YouTube returned a failed or unknown processing state; inspect the confirmed ID/session before another upload.");
     const processing = video?.status?.uploadStatus === "uploaded" || video?.processingDetails?.processingStatus === "processing";
     return { status: processing ? "PROCESSING" : "PUBLISHED", remoteId: video.id, url: this.getUrl(video.id), confirmedAt: new Date().toISOString(), raw: { privacyStatus: video?.status?.privacyStatus, uploadStatus: video?.status?.uploadStatus } };
   }
@@ -170,6 +171,7 @@ export class YouTubePublisher implements PlatformPublisher {
     if (prior.remoteId) {
       const r = await this.api(`/videos?part=status,processingDetails&id=${encodeURIComponent(prior.remoteId)}`);
       if (r.items?.[0]) return this.confirmed(r.items[0]);
+      throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Video ID đã lưu không còn được API trả về. Kiểm tra quyền/trạng thái; không tự tải lại.");
     }
     if (prior.sessionUri) {
       const stat = await fs.stat(pkg.videoFile);
@@ -178,9 +180,13 @@ export class YouTubePublisher implements PlatformPublisher {
       if (res.status === 308) {
         const range = res.headers.get("range");
         const next = range ? Number(range.split("-")[1]) + 1 : 0;
+        if(!Number.isSafeInteger(next)||next<0||next>=stat.size)throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","YouTube trả offset không rõ; cần đối soát trước khi gửi lại dữ liệu.");
         return this.sendBytes(prior.sessionUri, pkg, next, stat.size, async () => undefined);
       }
-      // 404/410: session expired without completing -> safe to start a new upload
+      // A lost final response plus an expired session cannot prove that no video was created.
+      if(res.status===404||res.status===410)throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Resumable session hết hạn/không còn tồn tại; chưa xác định video đã được tạo hay chưa. Kiểm tra kênh, không tự tạo upload mới.");
+      if(!res.ok)await this.handle(res);
+      throw new FactoryError("PUBLISH_RECONCILIATION","HUMAN_REQUIRED","Trạng thái resumable session không xác định; không tự tải lại.");
     }
     return null;
   }
@@ -189,9 +195,10 @@ export class YouTubePublisher implements PlatformPublisher {
     const r = await this.api(`/videos?part=status,processingDetails&id=${encodeURIComponent(remoteId)}`);
     const v = r.items?.[0];
     if (!v) return { state: "UNKNOWN" as const, detail: "Không tìm thấy video" };
-    if (v.status?.uploadStatus === "processed") return { state: "PUBLISHED" as const, detail: `privacy=${v.status.privacyStatus}` };
-    if (["failed", "rejected", "deleted"].includes(v.status?.uploadStatus)) return { state: "FAILED" as const, detail: `${v.status.uploadStatus}: ${v.status.failureReason ?? v.status.rejectionReason ?? ""}` };
-    return { state: "PROCESSING" as const, detail: v.processingDetails?.processingStatus ?? v.status?.uploadStatus };
+    const privacy=["private","unlisted","public"].includes(v.status?.privacyStatus)?v.status.privacyStatus as "private"|"unlisted"|"public":null;
+    if (v.status?.uploadStatus === "processed") return { state: "PUBLISHED" as const, detail: `privacy=${v.status.privacyStatus}`,privacy };
+    if (["failed", "rejected", "deleted"].includes(v.status?.uploadStatus)) return { state: "FAILED" as const, detail: `${v.status.uploadStatus}: ${v.status.failureReason ?? v.status.rejectionReason ?? ""}`,privacy };
+    return { state: "PROCESSING" as const, detail: v.processingDetails?.processingStatus ?? v.status?.uploadStatus,privacy };
   }
 
   getUrl(remoteId: string) {

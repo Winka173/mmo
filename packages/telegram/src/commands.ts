@@ -26,7 +26,7 @@ export type CommandHandlers = {
 };
 
 export const HELP = [
-  "Lệnh Tủ Tò Mò:",
+  "AUTONOMOUS CREATIVE STUDIO:",
   "/status — trạng thái worker",
   "/today — việc hôm nay",
   "/queue — hàng đợi",
@@ -41,6 +41,8 @@ export const HELP = [
   "/games, /game ID — danh sách game / chi tiết game",
   "/campaigns — chiến dịch game",
   "/review PROJECT_ID — lý do giữ/duyệt của một video",
+  "/preview RUN_ID, /review RUN_ID, /publish_status RUN_ID — phiên bản Studio",
+  "/approve RUN_ID SCOPE HASH GHI_CHU — duyệt một phạm vi, cần /studio_confirm",
   "/doctor — kiểm tra sức khỏe hệ thống",
 ].join("\n");
 
@@ -62,7 +64,7 @@ export class CommandRouter {
 
   isAuthorized(ctx: CommandContext) {
     const chatOk = this.allowed.chatIds.includes(ctx.chatId);
-    const userOk = !this.allowed.userIds?.length || this.allowed.userIds.includes(ctx.userId);
+    const userOk = !!this.allowed.userIds?.length && this.allowed.userIds.includes(ctx.userId);
     return chatOk && userOk;
   }
 

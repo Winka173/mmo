@@ -1,5 +1,6 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
+import { spawn } from "node:child_process";
 import { Settings } from "@ttm/core";
 import { describe, expect, it } from "vitest";
 import { DataStore, FileLock, SecretStore, createBackup, listBackups, readJson, readJsonl, appendJsonl, redact, restoreBackup, safeJoin, writeJsonAtomic } from "../src/index.js";
@@ -54,6 +55,55 @@ describe("atomic file storage", () => {
 });
 
 describe("FileLock", () => {
+  it("keeps ownership through a heartbeat write failure and releases without an unhandled rejection or resurrected record", async () => {
+    const f=path.join(await tmpDir(),"heartbeat-failure.lock"),lock=new FileLock(f,{ttlMs:1000,heartbeatMs:15});
+    const temp=`${f}.${process.pid}.hb`;await fs.mkdir(temp);
+    try{
+      expect(await lock.tryAcquire()).toBe(true);
+      await new Promise(resolve=>setTimeout(resolve,80));
+      expect(lock.isHeld).toBe(true);expect((await lock.read())?.pid).toBe(process.pid);
+      await fs.rmdir(temp);
+      await new Promise(resolve=>setTimeout(resolve,50));
+      await lock.release();await new Promise(resolve=>setTimeout(resolve,30));
+      await expect(fs.access(f)).rejects.toMatchObject({code:"ENOENT"});
+      await expect(fs.access(temp)).rejects.toMatchObject({code:"ENOENT"});
+    }finally{await lock.release();await fs.rmdir(temp).catch(()=>{});}
+  });
+  it("reclaims an expired record whose PID now belongs to a process born after acquisition", async () => {
+    const f=path.join(await tmpDir(),"reused-pid.lock"),lock=new FileLock(f,{ttlMs:1000});
+    await fs.writeFile(f,JSON.stringify({pid:process.pid,host:(await import("node:os")).hostname(),acquiredAt:"2020-01-01T00:00:00Z",heartbeatAt:"2020-01-01T00:00:00Z",purpose:"crashed-worker"}));
+    expect(await lock.tryAcquire()).toBe(true);
+    expect((await lock.read())?.ownerId).toBeTruthy();
+    await lock.release();
+  });
+  it.runIf(process.platform === "win32")("checks an independent Windows process birth without stopping that process", async () => {
+    const child=spawn(process.execPath,["-e","console.log('ready');setInterval(()=>{},1000)"],{windowsHide:true,stdio:["ignore","pipe","ignore"]});
+    const f=path.join(await tmpDir(),"foreign-reused-pid.lock"),lock=new FileLock(f,{ttlMs:1000});
+    try{
+      await new Promise<void>((resolve,reject)=>{child.stdout!.once("data",()=>resolve());child.once("error",reject);});
+      await fs.writeFile(f,JSON.stringify({pid:child.pid,host:(await import("node:os")).hostname(),acquiredAt:"2020-01-01T00:00:00Z",heartbeatAt:"2020-01-01T00:00:00Z",purpose:"simulated-reused-pid"}));
+      expect(await lock.tryAcquire()).toBe(true);expect(()=>process.kill(child.pid!,0)).not.toThrow();
+      await lock.release();
+      await fs.writeFile(f,JSON.stringify({pid:child.pid,host:(await import("node:os")).hostname(),acquiredAt:new Date().toISOString(),heartbeatAt:"2020-01-01T00:00:00Z",purpose:"suspended-live-owner"}));
+      expect(await lock.tryAcquire()).toBe(false);expect(()=>process.kill(child.pid!,0)).not.toThrow();
+    }finally{await lock.release();child.kill();}
+  },12000);
+  it("retains a suspended owner and never heartbeats or releases a replacement identity with the same PID", async () => {
+    const f=path.join(await tmpDir(),"identity.lock"),lock=new FileLock(f,{ttlMs:1000}),contender=new FileLock(f,{ttlMs:1000});
+    expect(await lock.tryAcquire()).toBe(true);
+    const owner=(await lock.read())!;
+    await fs.writeFile(f,JSON.stringify({...owner,heartbeatAt:"2020-01-01T00:00:00Z"}));
+    expect(await contender.tryAcquire()).toBe(false);
+    const replacement={...owner,ownerId:"another-instance",heartbeatAt:"2020-01-01T00:00:00Z"};
+    await fs.writeFile(f,JSON.stringify(replacement));
+    await lock.beat();expect(lock.isHeld).toBe(false);
+    await lock.release();expect(await lock.read()).toEqual(replacement);
+  });
+  it("does not steal a newly created empty record or a live local owner with an old heartbeat", async () => {
+    const f=path.join(await tmpDir(),"creating.lock"),lock=new FileLock(f,{ttlMs:1000});
+    await fs.writeFile(f,"");expect(await lock.tryAcquire()).toBe(false);
+    await fs.writeFile(f,JSON.stringify({pid:process.pid,host:(await import("node:os")).hostname(),heartbeatAt:"2020-01-01T00:00:00Z"}));expect(await lock.tryAcquire()).toBe(false);
+  });
   it("is exclusive and takes over a stale lock (dead pid)", async () => {
     const f = path.join(await tmpDir(), "w.lock");
     const a = new FileLock(f, { ttlMs: 60_000 });

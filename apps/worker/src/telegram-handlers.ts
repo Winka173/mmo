@@ -7,16 +7,19 @@ import { GameRegistry, approveGameVideo, gameReadiness } from "@ttm/games";
 import { BudgetRouter } from "@ttm/governance";
 import { freeDiskGb, readJson, verifyDataDir } from "@ttm/storage";
 import { z } from "zod";
+import {StudioStore} from "@ttm/automation";
 
 export function buildTelegramHandlers(ctx: Ctx, scheduler?: Scheduler): CommandHandlers {
   return {
     async status() {
       const s = await ctx.settings();
       const c = await ctx.queue.counts();
+      const productions=(await new StudioStore(ctx.store).runs()).sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt)).slice(0,3);
       return [
         `🟢 Worker pid ${process.pid} @ ${os.hostname()}`,
         `Kill switch: ${s.killSwitch ? "BẬT" : "tắt"} · Tạm dừng: ${s.paused ? "có" : "không"} · Đăng ngoài: ${s.externalPostingEnabled ? "BẬT" : "tắt"}`,
         `Hàng đợi: ${Object.entries(c).map(([k, v]) => `${k}=${v}`).join(", ")}`,
+        ...productions.map(r=>`ACS ${r.id} · ${r.language} · ${r.state} · ${r.title}`),
         scheduler ? `Lịch: ${scheduler.nextRuns().map((r) => `${r.name} ${r.next}`).join("; ")}` : "",
       ].filter(Boolean).join("\n");
     },
@@ -28,7 +31,7 @@ export function buildTelegramHandlers(ctx: Ctx, scheduler?: Scheduler): CommandH
       for (const st of ["running", "queued", "needs_review", "manual_action"] as const) {
         const jobs = await ctx.queue.list(st);
         lines.push(`${st} (${jobs.length})`);
-        for (const j of jobs.slice(0, 8)) lines.push(`  • ${j.id} ${j.kind} ${j.payload.projectId ?? ""} ${j.payload.platform ?? ""}`);
+        for (const j of jobs.slice(0, 8)) lines.push(`  • ${j.id} ${j.kind} ${j.payload.runId??j.payload.sampleId??j.payload.projectId ?? ""} ${j.payload.platform ?? ""}`);
       }
       return lines.join("\n");
     },

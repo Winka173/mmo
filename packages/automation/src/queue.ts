@@ -3,6 +3,7 @@ import * as os from "node:os";
 import { FactoryError, JOB_TRANSITIONS, Job, JobState, backoffMs, newId, nowIso, type JobError, type JobKind } from "@ttm/core";
 import { DataStore, readJson, withLock, writeJsonAtomic } from "@ttm/storage";
 import { z } from "zod";
+import { EngineHealthStore, GPU_ENGINE_KEY } from "./engine-health.js";
 
 const STATES = JobState.options;
 const IdemIndex = z.record(z.string());
@@ -132,11 +133,13 @@ export class FileQueue {
       const gpuBusy = running.filter((j) => j.usesGpu).length;
       const succeeded = new Set((await this.list("succeeded")).map((j) => j.id));
       const now = this.now().getTime();
+      const blocked = await new EngineHealthStore(this.store,()=>this.now()).blockedKeys();
       const candidates = (await this.list("queued"))
         .filter((j) => !opts.kinds || opts.kinds.includes(j.kind))
         .filter((j) => !j.notBefore || new Date(j.notBefore).getTime() <= now)
         .filter((j) => j.dependsOn.every((d) => succeeded.has(d)))
         .filter((j) => !j.usesGpu || gpuBusy < opts.gpuSlots)
+        .filter((j) => ![...(Array.isArray(j.payload.engineKeys)?j.payload.engineKeys.filter((k):k is string=>typeof k==="string"):[]),...(j.usesGpu?[GPU_ENGINE_KEY]:[])].some(key=>blocked.has(key)))
         .sort((a, b) => a.priority - b.priority || a.createdAt.localeCompare(b.createdAt));
       const job = candidates[0];
       if (!job) return null;
@@ -181,7 +184,8 @@ export class FileQueue {
       const fe = err instanceof FactoryError ? err : new FactoryError("UNEXPECTED", "RETRYABLE", (err as Error)?.message ?? String(err));
       const now = this.now();
       const retryAt = fe.extra.retryAfter ? new Date(fe.extra.retryAfter) : new Date(now.getTime() + backoffMs(j.attempts));
-      const retryable = fe.errorClass === "RETRYABLE" && j.attempts < j.maxAttempts;
+      const waiting = ["GPU_BUSY", "RAM_BUSY", "ENGINE_COOLDOWN", "PAUSED", "STUDIO_PAUSED"].includes(fe.code);
+      const retryable = fe.errorClass === "RETRYABLE" && (waiting || j.attempts < j.maxAttempts);
       const jobError: JobError = {
         errorCode: fe.code,
         errorClass: fe.errorClass,
@@ -208,6 +212,7 @@ export class FileQueue {
             : "failed";
       return this.moveUnlocked(j, to, `${fe.code}: ${fe.message}`.slice(0, 300), (x) => ({
         ...x,
+        attempts: waiting ? Math.max(0,x.attempts-1) : x.attempts,
         lastError: jobError,
         notBefore: retryable ? retryAt.toISOString() : x.notBefore,
         owner: null,

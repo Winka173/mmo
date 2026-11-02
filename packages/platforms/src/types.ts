@@ -32,6 +32,7 @@ export type PublishPackage = {
   privacy: "private" | "unlisted" | "public";
   publishAt: string | null;
   containsSyntheticMedia: boolean;
+  language?:string;
   madeForKids: false;
   categoryId?: string;
 };
@@ -53,7 +54,7 @@ export interface PlatformPublisher {
   authenticate(): Promise<{ ok: boolean; detail: string }>;
   /** `persist` must durably store UploadState before network side effects. */
   upload(pkg: PublishPackage, persist: (s: UploadState) => Promise<void>, prior?: UploadState): Promise<UploadResult>;
-  pollStatus(remoteId: string): Promise<{ state: "PROCESSING" | "PUBLISHED" | "FAILED" | "UNKNOWN"; detail: string }>;
+  pollStatus(remoteId: string): Promise<{ state: "PROCESSING" | "PUBLISHED" | "FAILED" | "UNKNOWN"; detail: string;privacy?:"private"|"unlisted"|"public"|null }>;
   getUrl(remoteId: string): string;
   tryOwnComment(remoteId: string, text: string): Promise<{ ok: boolean; commentId?: string; reason?: string }>;
   fetchMetrics(remoteId: string): Promise<Record<string, number | null> | null>;

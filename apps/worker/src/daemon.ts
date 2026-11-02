@@ -1,10 +1,13 @@
 import * as os from "node:os";
-import { Scheduler } from "@ttm/automation";
-import { FileLock } from "@ttm/storage";
-import { CommandRouter } from "@ttm/telegram";
+import { Scheduler, StudioStore,SourceWatchStore,SemanticStore,StudioPublishingStore } from "@ttm/automation";
+import { FileLock, readJson, writeJsonAtomic } from "@ttm/storage";
+import { z } from "zod";
 import { type Ctx } from "./context.js";
 import { runJob } from "./handlers.js";
 import { buildTelegramHandlers } from "./telegram-handlers.js";
+import {createTelegramLoop} from "./telegram-loop.js";
+import {dispatchStudioDeliveries} from "./studio-publishing.js";
+import {pollOpportunities} from "./opportunities.js";
 
 /**
  * Persistent worker: single instance (lock with heartbeat), crash recovery on start, persistent
@@ -60,39 +63,34 @@ export async function runDaemon(ctx: Ctx): Promise<void> {
   process.on("SIGINT", stop);
   process.on("SIGTERM", stop);
 
-  let tgOffset = 0;
-  const router = ctx.telegram
-    ? new CommandRouter({ chatIds: settings.telegram.allowedChatIds }, buildTelegramHandlers(ctx, scheduler), (e) => ctx.store.audit({ actor: "telegram", ...e }))
-    : null;
+  const telegram=createTelegramLoop(ctx,ctx.telegram,settings.telegram.enabled&&settings.telegram.allowedUserIds.length?buildTelegramHandlers(ctx, scheduler):null);
   if (!ctx.telegram) ctx.log("Telegram chưa cấu hình — thông báo được giữ trong outbox (data/telegram/outbox).");
-
   const pollTelegram = async () => {
-    while (!stopping && ctx.telegram && router) {
-      try {
-        const updates = await ctx.telegram.getUpdates(tgOffset, 25);
-        for (const u of updates) {
-          tgOffset = u.update_id + 1;
-          const msg = u.message;
-          if (!msg?.text) continue;
-          const reply = await router.handle({ chatId: String(msg.chat.id), userId: String(msg.from?.id ?? ""), text: msg.text });
-          if (reply) await ctx.telegram.sendMessage(String(msg.chat.id), reply).catch(() => undefined);
-        }
-      } catch (e: any) {
-        ctx.log(`Telegram polling lỗi: ${e.message}`);
-        await new Promise((r) => setTimeout(r, 30_000));
-      }
+    while (!stopping && telegram.active) {
+      try { await telegram.pollOnce(25); }
+      catch (e: any) { ctx.log(`Telegram polling lỗi: ${e.message}`); await new Promise((r) => setTimeout(r, 30_000)); }
     }
   };
   void pollTelegram();
 
   let lastFlush = 0;
+  let lastStudioTick = 0;
+  let sourcePoll:Promise<void>|null=null;
   while (!stopping) {
     const s = await ctx.settings();
+    if (Date.now() - lastStudioTick > 30_000) {
+      lastStudioTick = Date.now();
+      if(!sourcePoll&&!s.paused&&!s.killSwitch)sourcePoll=(async()=>{for(const a of(await new StudioStore(ctx.store).autopilots()).filter(a=>a.enabled&&(a.sourceWatch.enabled||a.discovery.enabled))){if(a.discovery.enabled)await pollOpportunities(ctx,a);else await new SourceWatchStore(ctx.store).poll(a);}})().catch(e=>ctx.log(`Source watch: ${e.message}`)).finally(()=>{sourcePoll=null;});
+      await new StudioStore(ctx.store).tick().catch(e => ctx.log(`Autopilot: ${e.message}`));
+      await dispatchStudioDeliveries(ctx).catch(e=>ctx.log(`Reviewed delivery: ${e.message}`));
+      if(!s.paused&&!s.killSwitch)await new StudioPublishingStore(ctx.store).scheduleMetricChecks().catch(e=>ctx.log(`Metrics schedule: ${e.message}`));
+      if(!s.paused&&!s.killSwitch)await new SemanticStore(ctx.store).refreshIfStale().catch(e=>ctx.log(`Semantic refresh: ${e.message}`));
+    }
     if (Date.now() - lastFlush > 15_000) {
       lastFlush = Date.now();
-      await ctx.outbox.flush(ctx.telegram).catch((e) => ctx.log(`Outbox lỗi: ${e.message}`));
+      if (s.telegram.enabled) await ctx.outbox.flush(ctx.telegram,{allowedChatIds:s.telegram.allowedChatIds}).catch((e) => ctx.log(`Outbox lỗi: ${e.message}`));
     }
-    if (!s.killSwitch && running.size < s.concurrency.jobs) {
+    if (!s.killSwitch && !s.paused && running.size < s.concurrency.jobs) {
       const job = await ctx.queue.claim({ maxConcurrent: s.concurrency.jobs, gpuSlots: Math.max(1, s.concurrency.gpu) }).catch(() => null);
       if (job) {
         const p = runJob(ctx, job).finally(() => running.delete(p));

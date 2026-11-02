@@ -3,12 +3,14 @@ import * as os from "node:os";
 import * as path from "node:path";
 import { FFMPEG, ffmpeg, probeMedia, runProcess } from "@ttm/media";
 import sharp from "sharp";
+import {FactoryError} from "@ttm/core";
 
 export type Interval = { start: number; end: number };
 
 export type FootageMap = {
   assetId: string;
   durationSec: number;
+  coverage: {scannedSeconds:number;fullClip:boolean};
   scenes: number[];
   freezes: Interval[];
   blacks: Interval[];
@@ -80,32 +82,39 @@ const overlaps = (t: number, ivs: Interval[]) => ivs.some((i) => t >= i.start &&
  * highlights with confidence; when confidence is low it asks for a human annotation instead of
  * inventing what happens in the clip.
  */
-export async function analyzeFootage(assetId: string, file: string, opts: { sampleEverySec?: number; ocrFrames?: number } = {}): Promise<FootageMap> {
-  const probe = await probeMedia(file);
+export async function analyzeFootage(assetId: string, file: string, opts: { sampleEverySec?: number; ocrFrames?: number; ffmpeg?:string; ffprobe?:string; maxAnalyzeSec?:number } = {}): Promise<FootageMap> {
+  const probe = await probeMedia(file,opts.ffprobe);
   const dur = probe.durationSec;
-  const every = opts.sampleEverySec ?? Math.max(0.5, Math.min(2, dur / 20));
+  if(!probe.hasVideo||!Number.isFinite(dur)||dur<=0)throw new FactoryError("MEDIA_UNREADABLE","HUMAN_REQUIRED","Footage analysis needs a decodable video with finite duration");
+  const scanDuration=Math.min(dur,Math.max(1,Math.min(600,opts.maxAnalyzeSec??600)));
+  const every = opts.sampleEverySec ?? Math.max(0.5, Math.min(2, scanDuration / 20));
+  if(!Number.isFinite(every)||every<.25)throw new Error("Footage sampling interval must be finite and at least 0.25 seconds");
   const warnings: string[] = [];
+  if(scanDuration<dur)warnings.push(`Partial scan: first ${scanDuration}s of ${dur}s; remaining footage was not analyzed`);
+  const extract=opts.ffmpeg?async(args:string[],options:{timeoutMs?:number}={})=>{const result=await runProcess(opts.ffmpeg!,["-hide_banner","-loglevel","error","-y",...args],options);if(result.code!==0)throw new FactoryError("FOOTAGE_DECODE_FAILED","HUMAN_REQUIRED","Footage frame extraction failed; no visual analysis accepted");return result;}:ffmpeg;
 
   const r = await runProcess(
-    FFMPEG,
+    opts.ffmpeg??FFMPEG,
     [
-      "-hide_banner", "-nostats", "-loglevel", "info", "-i", file,
+      "-hide_banner", "-nostats", "-loglevel", "info", "-i", file,"-t",String(scanDuration),
       "-filter_complex",
       `[0:v]split=2[sa][sb];[sa]select='gt(scene,0.28)',metadata=print:key=lavfi.scene_score[v1];[sb]freezedetect=n=0.003:d=1.2,blackdetect=d=0.5:pix_th=0.08[v2]` +
-        (probe.hasAudio ? `;[0:a]silencedetect=n=-45dB:d=1.5,asetnsamples=n=48000:p=0,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level[a1]` : ""),
+        (probe.hasAudio ? `;[0:a]aresample=48000,silencedetect=n=-45dB:d=1.5,asetnsamples=n=48000:p=0,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level[a1]` : ""),
       "-map", "[v1]", "-map", "[v2]", ...(probe.hasAudio ? ["-map", "[a1]"] : []),
       "-f", "null", "-",
     ],
     { timeoutMs: 30 * 60_000 },
   );
+  if(r.code!==0)throw new FactoryError("FOOTAGE_DECODE_FAILED","HUMAN_REQUIRED","FFmpeg source analysis failed; no scene/highlight result accepted");
+  if(r.stderr.length>1_950_000)warnings.push("Analysis log reached its size bound; metrics may be incomplete and need review");
   const err = r.stderr;
   const scenes = [...err.matchAll(/pts_time:([\d.]+)[^\n]*\n[^\n]*lavfi\.scene_score=([\d.]+)/g)].map((m) => +m[1]);
   const freezes: Interval[] = [];
-  for (const m of err.matchAll(/freeze_start: ([\d.]+)/g)) freezes.push({ start: +m[1], end: dur });
+  for (const m of err.matchAll(/freeze_start: ([\d.]+)/g)) freezes.push({ start: +m[1], end: scanDuration });
   [...err.matchAll(/freeze_end: ([\d.]+)/g)].forEach((m, i) => freezes[i] && (freezes[i].end = +m[1]));
   const blacks = [...err.matchAll(/black_start:([\d.]+) black_end:([\d.]+)/g)].map((m) => ({ start: +m[1], end: +m[2] }));
   const silences: Interval[] = [];
-  for (const m of err.matchAll(/silence_start: (-?[\d.]+)/g)) silences.push({ start: Math.max(0, +m[1]), end: dur });
+  for (const m of err.matchAll(/silence_start: (-?[\d.]+)/g)) silences.push({ start: Math.max(0, +m[1]), end: scanDuration });
   [...err.matchAll(/silence_end: ([\d.]+)/g)].forEach((m, i) => silences[i] && (silences[i].end = +m[1]));
   const audioRms: (number | null)[] = probe.hasAudio ? [...err.matchAll(/lavfi\.astats\.Overall\.RMS_level=(-?[\d.]+|-inf)/g)].map((m) => (m[1] === "-inf" ? -120 : +m[1])) : [];
 
@@ -117,23 +126,23 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
   let method: FootageMap["leak"]["method"] = "unavailable";
   let ocrFailures = 0;
   try {
-    await ffmpeg(["-i", file, "-vf", `fps=1/${every.toFixed(3)},scale=640:-2`, path.join(tmp, "f-%04d.png")], { timeoutMs: 20 * 60_000 });
+    await extract(["-i", file,"-t",String(scanDuration), "-vf", `fps=1/${every.toFixed(3)},scale=640:-2`, path.join(tmp, "f-%04d.png")], { timeoutMs: 20 * 60_000 });
     const frames = (await fs.readdir(tmp)).filter((f) => f.endsWith(".png")).sort();
     let prev: bigint | null = null;
     for (const [i, f] of frames.entries()) {
-      const t = Math.min(dur, i * every);
+      const t = Math.min(scanDuration, i * every);
       const st = await frameStats(path.join(tmp, f));
       if (prev !== null) motion.push({ t, v: Math.round((ham(prev, st.hash) / 64) * 1000) / 1000 });
       prev = st.hash;
       if (!overlaps(t, blacks) && !overlaps(t, freezes)) hero.push({ t, sharpness: Math.round(st.sharpness), contrast: Math.round(st.contrast * 10) / 10, score: 0 });
     }
-    if (await ocrAvailable()) {
+    if (opts.ocrFrames!==0&&await ocrAvailable()) {
       method = "ocr";
       const n = Math.min(frames.length, opts.ocrFrames ?? 4);
       for (let k = 0; k < n; k++) {
         const idx = Math.floor((k * frames.length) / n);
         const full = path.join(tmp, `ocr-${k}.png`);
-        await ffmpeg(["-ss", (idx * every).toFixed(2), "-i", file, "-frames:v", "1", full]);
+        await extract(["-ss", (idx * every).toFixed(2), "-i", file, "-frames:v", "1", full]);
         const raw = await ocr(full);
         if (raw === null) {
           ocrFailures++;
@@ -149,7 +158,9 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
       }
     } else warnings.push("Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại");
   } finally {
-    await fs.rm(tmp, { recursive: true, force: true });
+    const target=path.resolve(tmp),parent=path.resolve(os.tmpdir());
+    if(path.dirname(target)!==parent||!path.basename(target).startsWith("ttm-footage-"))throw new Error("Refusing unexpected footage scratch cleanup path");
+    await fs.rm(target, { recursive: true, force: true });
   }
   const maxSharp = Math.max(1, ...hero.map((h) => h.sharpness));
   const maxContrast = Math.max(1, ...hero.map((h) => h.contrast));
@@ -157,12 +168,12 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
   hero.sort((a, b) => b.score - a.score);
 
   // highlight windows (3 s): scene density + audio energy + motion, excluding frozen/black time
-  const win = Math.min(3, Math.max(1, dur / 3));
+  const win = Math.min(3, Math.max(1, scanDuration / 3));
   const rmsVals = audioRms.filter((x): x is number => x !== null && x > -100);
   const medRms = rmsVals.length ? [...rmsVals].sort((a, b) => a - b)[Math.floor(rmsVals.length / 2)] : null;
   const candidates: FootageMap["highlights"] = [];
-  for (let s = 0; s + win <= dur + 0.01; s += win / 2) {
-    const e = Math.min(dur, s + win);
+  for (let s = 0; s + win <= scanDuration + 0.01; s += win / 2) {
+    const e = Math.min(scanDuration, s + win);
     const reasons: string[] = [];
     const sc = scenes.filter((t) => t >= s && t < e).length;
     const mo = motion.filter((m) => m.t >= s && m.t < e);
@@ -193,10 +204,11 @@ export async function analyzeFootage(assetId: string, file: string, opts: { samp
   candidates.sort((a, b) => b.score - a.score);
   const highlights: FootageMap["highlights"] = [];
   for (const c of candidates) if (!highlights.some((h) => c.in < h.out && c.out > h.in)) highlights.push(c);
-  const boring = [...freezes, ...blacks].reduce((a, iv) => a + Math.max(0, iv.end - iv.start), 0);
-  const boringRatio = dur ? Math.min(1, Math.round((boring / dur) * 1000) / 1000) : 0;
+  const union:Interval[]=[];for(const iv of [...freezes,...blacks].sort((a,b)=>a.start-b.start)){const last=union.at(-1);if(last&&iv.start<=last.end)last.end=Math.max(last.end,iv.end);else union.push({...iv});}
+  const boring=union.reduce((sum,iv)=>sum+Math.max(0,Math.min(scanDuration,iv.end)-iv.start),0);
+  const boringRatio=scanDuration?Math.min(1,Math.round(boring/scanDuration*1000)/1000):0;
   if (boringRatio > 0.4) warnings.push(`${Math.round(boringRatio * 100)}% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt`);
   if (!highlights.length || highlights.every((h) => h.confidence === "low")) warnings.push("Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng");
   if (!probe.hasAudio) warnings.push("Clip không có âm thanh");
-  return { assetId, durationSec: dur, scenes, freezes, blacks, silences, audioRms, motion, highlights: highlights.slice(0, 8), heroCandidates: hero.slice(0, 6), boringRatio, leak: { method, suspicious: leakMatches.length > 0, matches: leakMatches }, warnings, analyzedAt: new Date().toISOString() };
+  return { assetId, durationSec: dur,coverage:{scannedSeconds:scanDuration,fullClip:scanDuration>=dur}, scenes, freezes, blacks, silences, audioRms, motion, highlights: highlights.slice(0, 8), heroCandidates: hero.slice(0, 6), boringRatio, leak: { method, suspicious: leakMatches.length > 0, matches: leakMatches }, warnings, analyzedAt: new Date().toISOString() };
 }
