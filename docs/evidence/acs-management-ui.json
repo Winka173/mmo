@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED_MANAGEMENT_UI_CONTRACTS",
+  "at": "2026-10-23T07:05:48.995Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\management-ui\\8a50e89c-b91e-4c42-922d-9e09d87fc8a2\\data",
+  "checks": [
+    "Settings hides advanced fields, preserves typed config and rejects cloud AI endpoints",
+    "Image UI queues frozen portrait preset with synthetic/unreviewed state, respects pause and exposes selected installation/verification profile",
+    "Insights distinguishes zero/null, rejects mismatched account metrics and filters content locale; bilingual UI uses isolated contract records only"
+  ],
+  "imageId": "0d082abd-5b7a-4c2a-a024-7af1c6f611a8",
+  "publications": [
+    "ae1f6998-f3a4-4d73-9610-0c8e313943d3",
+    "e3070003-1117-400c-9de8-b29549298cb8"
+  ],
+  "imageInference": "NOT_EXECUTED",
+  "remoteProviders": "NOT_CALLED_CONTRACT_RECORDS_ONLY",
+  "browserErrors": []
+}

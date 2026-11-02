@@ -1,0 +1,31 @@
+{
+  "status": "VERIFIED_LOCAL_WATCH_EXCERPT_FIXTURE_REVIEW_REQUIRED",
+  "at": "2026-10-23T04:24:50.017Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\source-watch-e2e\\1792729489963\\data",
+  "fixture": true,
+  "genuineHumanSpeaker": false,
+  "realGameplay": false,
+  "publicPosting": false,
+  "runId": "205cf69c-2f5c-47ed-a705-d4b8f2050502",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\source-watch-e2e\\1792729489963\\data\\studio\\artifacts\\205cf69c-2f5c-47ed-a705-d4b8f2050502\\final.mp4",
+  "duration": 30,
+  "sourceItem": {
+    "id": "129bd984face4a3fb0244b3e61ce32d690f4263d18087e8bdb8641e82dd8d038",
+    "originalFile": "C:\\Users\\Winka\\Projects\\mmo\\.local\\source-watch-e2e\\1792729489963\\creator-exports\\b-same-bytes-renamed.mp4",
+    "sha256": "129bd984face4a3fb0244b3e61ce32d690f4263d18087e8bdb8641e82dd8d038",
+    "size": 984366,
+    "observedAt": "2026-10-23T04:24:50.017Z"
+  },
+  "noNewSyntheticSpeech": true,
+  "checks": [
+    "actual owned video files observed through local folder watcher",
+    "same bytes under two names deduplicated",
+    "concurrent recurring schedulers produce one pinned source identity",
+    "actual local ASR and local LLM excerpt selection",
+    "source SHA matches frozen observation",
+    "original video/dialogue retained without TTS",
+    "technical full decode passed",
+    "no filler when source identities exhausted",
+    "no platform or human approval created"
+  ]
+}

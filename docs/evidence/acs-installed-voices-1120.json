@@ -1,0 +1,44 @@
+{
+  "product": "AUTONOMOUS CREATIVE STUDIO",
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\.local\\installed-smoke\\Ứng dụng ACS\\autonomous-creative-studio.exe",
+  "exeSha256": "0395c5aeeecd20488964334b9b54792db9879e586017108d1597e3fb8cc595a8",
+  "timestamp": "2026-10-23T04:20:45.376Z",
+  "status": "VERIFIED_NATIVE_WEBVIEW_AND_AUTH",
+  "desktopPid": 36572,
+  "webPid": 24392,
+  "workerPid": 26636,
+  "port": 53393,
+  "unauthenticated": 401,
+  "authenticated": 200,
+  "visualReview": "SCREENSHOT_CAPTURED",
+  "installer": "INSTALLED_EXE_VERIFIED",
+  "voices": [
+    {
+      "id": "0ee67920-deda-4dec-9562-149b3125ba33",
+      "language": "en-GB",
+      "voice": "bf_emma",
+      "device": "cuda",
+      "seconds": 5.75,
+      "audioSha256": "23fa40a4e16d0772df28afdac552c27c7fdb0798fe806d3726af9ca42fda31bf",
+      "asr": "pass",
+      "review": "NOT_REVIEWED"
+    },
+    {
+      "id": "1cfb5407-24f6-4fc2-9771-cc26f85e8367",
+      "language": "vi-VN",
+      "voice": "Minh Quân",
+      "device": "cuda",
+      "seconds": 4,
+      "audioSha256": "8551b47a84e835ceb84e3ed8e6756454f146ee03a2b09f42bf67de3cab64e39b",
+      "asr": "pass",
+      "review": "NOT_REVIEWED"
+    }
+  ],
+  "closePolicy": {
+    "hideKeepsBackground": true,
+    "quitStopsOwnedProcessTree": true,
+    "autostartEnabled": false,
+    "autostartRegistryModified": false
+  },
+  "processTreeStopped": true
+}

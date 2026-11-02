@@ -1,0 +1,102 @@
+{
+  "status": "VERIFIED_ACTUAL_RESTORE_PROCESS_KILL_AND_JOURNAL_RECOVERY",
+  "at": "2026-10-23T17:02:15.394Z",
+  "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\restore-crash\\57ef5b64-00f3-4c6a-b16c-60b0e2d72d7f",
+  "id": "886e579e-ab31-423c-862e-f032efcee3c9",
+  "killedPid": 27380,
+  "interruptedPhase": "applying",
+  "rollback": {
+    "status": "ROLLED_BACK",
+    "id": "886e579e-ab31-423c-862e-f032efcee3c9",
+    "backup": "2026-10-23T17-02-14-575Z-2359907b",
+    "productionHeld": true
+  },
+  "originalProjectSha256": "c26143411cd0e4649534026eecbb903b135eb87fb862c905f4004e71ae8045b3",
+  "settings": {
+    "schemaVersion": 1,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "killSwitch": true,
+    "paused": true,
+    "externalPostingEnabled": false,
+    "defaultMode": "REVIEW_REQUIRED",
+    "autoSafeOptIns": [],
+    "dailyCaps": {
+      "shorts": 1,
+      "longPerWeek": 1,
+      "commentsPerDay": 5
+    },
+    "budgets": {
+      "monthlyUsdCap": 0,
+      "perVideoUsdCap": 0,
+      "alertAtRatio": 0.8
+    },
+    "ratios": {
+      "knowledgeFact": 0.4,
+      "affiliate": 0.3,
+      "adaptation": 0.2,
+      "longForm": 0.1
+    },
+    "schedules": {
+      "dailyPlanCron": "0 7 * * *",
+      "dailyReportCron": "0 19 * * *",
+      "weeklyLongCron": "0 9 * * 6"
+    },
+    "concurrency": {
+      "jobs": 2,
+      "gpu": 1
+    },
+    "telegram": {
+      "allowedChatIds": [],
+      "allowedUserIds": [],
+      "enabled": false,
+      "notify": {}
+    },
+    "retentionDays": {
+      "audit": 365,
+      "renders": 90
+    },
+    "minFreeDiskGb": 10,
+    "features": {
+      "qualityJudge": true,
+      "autoRepair": true,
+      "originalityGate": true,
+      "learningAutoAdjust": false,
+      "abTesting": false,
+      "commentAutoReply": false,
+      "multilingual": false,
+      "trendRadar": true,
+      "lifecycleAudit": true
+    },
+    "quality": {
+      "mode": "FAST_QA",
+      "maxRepairIterations": 2,
+      "minEditorialScore": 55
+    },
+    "spend": {
+      "dailyUsdCap": 0,
+      "weeklyUsdCap": 0,
+      "paidProviderAllowlist": [],
+      "electricityUsdPerKwh": null
+    },
+    "learning": {
+      "explorationRatio": 0.3,
+      "minSamplePerArm": 5,
+      "maxCadenceShiftPerWeek": 0.2,
+      "frozen": false
+    },
+    "languages": [
+      "vi"
+    ],
+    "gpu": {
+      "profile": "auto",
+      "maxTempC": 83,
+      "minFreeVramMb": 1500
+    },
+    "comments": {
+      "maxRepliesPerDay": 10,
+      "cooldownMinutes": 30
+    }
+  },
+  "AIInference": false,
+  "publicPosting": false
+}

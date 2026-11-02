@@ -1,0 +1,704 @@
+{
+  "status": "PASS",
+  "runId": "ce1ff632-8d67-4ce3-ae34-0a1cf8948d03",
+  "state": "ready",
+  "error": null,
+  "switchedToFastCpu": true,
+  "inLibrary": true,
+  "outputs": [
+    "final.mp4",
+    "thumbnail.jpg",
+    "qa.json",
+    "manifest.json",
+    "metadata.txt",
+    "caption-quality.json",
+    "speech-activity.json",
+    "voice-review.json",
+    "voice-repair.json",
+    "captions.srt",
+    "captions.ass",
+    "timeline.json",
+    "source-analysis.json",
+    "source-matching.json",
+    "source-intake.json",
+    "pacing.json"
+  ],
+  "copied": [
+    "final.mp4",
+    "thumbnail.jpg",
+    "qa.json",
+    "manifest.json",
+    "metadata.txt",
+    "caption-quality.json",
+    "speech-activity.json",
+    "voice-review.json",
+    "voice-repair.json",
+    "captions.srt",
+    "captions.ass",
+    "timeline.json",
+    "source-analysis.json",
+    "source-matching.json",
+    "source-intake.json",
+    "pacing.json"
+  ],
+  "stages": [
+    {
+      "id": "intake",
+      "state": "passed",
+      "note": "3 pinned source files; owner rights declaration recorded",
+      "startedAt": "2026-11-02T07:40:10.305Z",
+      "finishedAt": "2026-11-02T07:40:10.486Z"
+    },
+    {
+      "id": "research",
+      "state": "flagged",
+      "note": "Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocked.",
+      "startedAt": null,
+      "finishedAt": "2026-11-02T07:40:15.844Z"
+    },
+    {
+      "id": "script",
+      "state": "flagged",
+      "note": "Fast model used because the quality model is not installed (script_final wanted the quality model but none is installed: result is flagged for human review); editorial review required",
+      "startedAt": "2026-11-02T07:40:15.861Z",
+      "finishedAt": "2026-11-02T07:40:49.038Z"
+    },
+    {
+      "id": "storyboard",
+      "state": "passed",
+      "note": "5 text/media segments",
+      "startedAt": null,
+      "finishedAt": "2026-11-02T07:40:49.192Z"
+    },
+    {
+      "id": "media",
+      "state": "flagged",
+      "note": "DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+      "startedAt": "2026-11-02T07:40:49.087Z",
+      "finishedAt": "2026-11-02T07:40:49.176Z"
+    },
+    {
+      "id": "voice",
+      "state": "flagged",
+      "note": "ASR found a language/text mismatch; inspect Voice QA and revise affected narration",
+      "startedAt": "2026-11-02T07:40:50.317Z",
+      "finishedAt": "2026-11-02T07:44:53.898Z"
+    },
+    {
+      "id": "captions",
+      "state": "flagged",
+      "note": "9 deterministic caption readability/bounds findings; inspect caption-quality.json",
+      "startedAt": "2026-11-02T07:45:00.374Z",
+      "finishedAt": "2026-11-02T07:45:08.575Z"
+    },
+    {
+      "id": "preview",
+      "state": "passed",
+      "note": "Final MP4 available for review",
+      "startedAt": null,
+      "finishedAt": "2026-11-02T07:45:07.658Z"
+    },
+    {
+      "id": "quality",
+      "state": "flagged",
+      "note": "Technical checks passed; review required: caption readability (caption-quality.json), freeze_candidates",
+      "startedAt": "2026-11-02T07:45:07.668Z",
+      "finishedAt": "2026-11-02T07:45:08.650Z"
+    },
+    {
+      "id": "repair",
+      "state": "flagged",
+      "note": "Same-text retry budget exhausted; inspect failed line instead of generating indefinitely",
+      "startedAt": "2026-11-02T07:43:56.219Z",
+      "finishedAt": "2026-11-02T07:44:53.880Z"
+    },
+    {
+      "id": "render",
+      "state": "passed",
+      "note": "FFmpeg render; source media preserved without deceptive crop",
+      "startedAt": "2026-11-02T07:45:00.452Z",
+      "finishedAt": "2026-11-02T07:45:07.647Z"
+    },
+    {
+      "id": "eligibility",
+      "state": "blocked",
+      "note": "Publication requires verified facts, rights, account and authorized policy; no automatic publish",
+      "startedAt": null,
+      "finishedAt": "2026-11-02T07:45:08.945Z"
+    },
+    {
+      "id": "delivery",
+      "state": "passed",
+      "note": "Local export complete; publication not authorized",
+      "startedAt": null,
+      "finishedAt": "2026-11-02T07:45:08.966Z"
+    },
+    {
+      "id": "analytics",
+      "state": "skipped",
+      "note": "No remote publication ID",
+      "startedAt": null,
+      "finishedAt": "2026-11-02T07:45:08.992Z"
+    }
+  ],
+  "config": {
+    "llmModel": "qwen3.5:9b",
+    "llmDevice": "cpu",
+    "llmQualityModel": "",
+    "ttsViModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\vieneu",
+    "voiceVi": "Minh Quân",
+    "asrModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-asr",
+    "ffmpeg": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe"
+  },
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\AUTONOMOUS CREATIVE STUDIO.exe",
+  "trialDataDir": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z",
+  "fixture": "Synthetic FFmpeg clips labelled NOT REAL GAMEPLAY; no owner gameplay exists",
+  "log": [
+    {
+      "at": "2026-11-02T07:23:05.812Z",
+      "m": "app ready",
+      "extra": {
+        "base": "http://127.0.0.1:53488",
+        "freeRamGb": 16.5
+      }
+    },
+    {
+      "at": "2026-11-02T07:23:06.491Z",
+      "m": "setup folder",
+      "extra": {
+        "folder": "C:\\Users\\Winka\\Projects\\mmo"
+      }
+    },
+    {
+      "at": "2026-11-02T07:23:06.555Z",
+      "m": "clicked one-click install"
+    },
+    {
+      "at": "2026-11-02T07:23:06.639Z",
+      "m": "setup progress",
+      "extra": {
+        "missing": [
+          "llmModel",
+          "llmQualityModel",
+          "ttsViModel",
+          "ttsEnModel",
+          "asrModel",
+          "vadModel",
+          "embeddingModel"
+        ],
+        "setups": "qwen3.5-9b:queued"
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:07.031Z",
+      "m": "setup progress",
+      "extra": {
+        "missing": [
+          "asrModel",
+          "vadModel",
+          "embeddingModel"
+        ],
+        "setups": "vieneu:installed qwen-asr:running qwen3.5-9b:installed kokoro:installed qwen-quality:installed"
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:37.246Z",
+      "m": "all selected AI parts installed and applied",
+      "extra": {
+        "setups": "vieneu:installed qwen-asr:installed qwen-embedding:installed qwen3.5-9b:installed silero-vad:installed kokoro:installed qwen-quality:installed"
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:37.299Z",
+      "m": "discover-tools",
+      "extra": {
+        "config": {
+          "alignmentModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\wav2vec2-en-align",
+          "pythonEmbedding": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+          "embeddingModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-embedding-0.6b",
+          "embeddingDevice": "cuda",
+          "pythonImage": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\image\\Scripts\\python.exe",
+          "imageModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\flux2-klein-4b",
+          "imageDevice": "cuda_cpu_offload",
+          "vadModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+          "vadSha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+          "pythonVad": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+          "locale": "vi",
+          "llmUrl": "http://127.0.0.1:11435/v1",
+          "llmModel": "qwen3.5:9b",
+          "llmManaged": true,
+          "llmBinary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ollama\\ollama.exe",
+          "llmModelStore": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\ollama",
+          "llmPort": 11435,
+          "llmDevice": "cuda",
+          "llmModelDigest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "llmQualityModel": "gemma4:31b",
+          "llmQualityModelDigest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+          "llmQualityDevice": "cpu",
+          "llmQualityMinFreeRamGb": 26,
+          "llmQualityRamGraceMs": 45000,
+          "vramGuard": {
+            "enabled": true,
+            "marginMb": 1500
+          },
+          "python": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\speech\\Scripts\\python.exe",
+          "pythonVi": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\vieneu\\Scripts\\python.exe",
+          "pythonAsr": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+          "ffmpeg": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe",
+          "ffprobe": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffprobe.exe",
+          "ttsViModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\vieneu",
+          "ttsEnModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro",
+          "ttsViCodec": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\moss-nano",
+          "asrModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-asr",
+          "asrDevice": "auto",
+          "voiceVi": "Minh Quân",
+          "voiceEn": "af_heart",
+          "voiceEnGb": "bf_emma",
+          "ttsDevice": "auto",
+          "gpuLock": "",
+          "maxContext": 8192,
+          "localOnly": true,
+          "uv": "\\\\?\\C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\runtime\\uv.exe"
+        },
+        "found": [
+          "python",
+          "pythonVi",
+          "pythonAsr",
+          "pythonImage",
+          "imageModel",
+          "asrModel",
+          "alignmentModel",
+          "ttsEnModel",
+          "ttsViModel",
+          "ttsViCodec",
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "root": "C:\\Users\\Winka\\Projects\\mmo",
+        "note": "Detected paths only. Run diagnostics and audition before use."
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:37.368Z",
+      "m": "save-config ffmpeg paths",
+      "extra": 200
+    },
+    {
+      "at": "2026-11-02T07:24:37.404Z",
+      "m": "autopilot saved",
+      "extra": {
+        "id": "13fc278f-9892-45ac-921b-21912e8b9292"
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:37.728Z",
+      "m": "clicked Test run"
+    },
+    {
+      "at": "2026-11-02T07:24:38.950Z",
+      "m": "run queued",
+      "extra": {
+        "id": "2bd4bafd-a751-49bd-a47f-91f8c6e32ae0"
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:39.115Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "media:running"
+        ],
+        "error": null,
+        "freeRamGb": 17.5
+      }
+    },
+    {
+      "at": "2026-11-02T07:24:54.338Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 18.3
+      }
+    },
+    {
+      "at": "2026-11-02T07:25:41.756Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 17.0 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 15
+      }
+    },
+    {
+      "at": "2026-11-02T07:26:46.787Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 16.1
+      }
+    },
+    {
+      "at": "2026-11-02T07:27:33.781Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 15.4 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 15.1
+      }
+    },
+    {
+      "at": "2026-11-02T07:28:34.793Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 15.4
+      }
+    },
+    {
+      "at": "2026-11-02T07:29:20.810Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 17.4 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 17.3
+      }
+    },
+    {
+      "at": "2026-11-02T07:30:22.662Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 16.8
+      }
+    },
+    {
+      "at": "2026-11-02T07:31:11.028Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 16.2 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 16.4
+      }
+    },
+    {
+      "at": "2026-11-02T07:32:14.291Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 17
+      }
+    },
+    {
+      "at": "2026-11-02T07:33:00.597Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 17.1 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 16.4
+      }
+    },
+    {
+      "at": "2026-11-02T07:34:01.021Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 17.8
+      }
+    },
+    {
+      "at": "2026-11-02T07:34:46.266Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 17.9 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 17.4
+      }
+    },
+    {
+      "at": "2026-11-02T07:35:46.692Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 18.3
+      }
+    },
+    {
+      "at": "2026-11-02T07:36:31.919Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 18.1 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 17.8
+      }
+    },
+    {
+      "at": "2026-11-02T07:37:32.926Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 13.6
+      }
+    },
+    {
+      "at": "2026-11-02T07:38:19.935Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 14.5 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 12.9
+      }
+    },
+    {
+      "at": "2026-11-02T07:39:22.744Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 11.1
+      }
+    },
+    {
+      "at": "2026-11-02T07:40:08.137Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": "RAM_BUSY: free RAM 10.8 GB < 26 GB needed for the quality model on CPU. Waiting; the model was not loaded.",
+        "freeRamGb": 11.2
+      }
+    },
+    {
+      "at": "2026-11-02T07:40:08.289Z",
+      "m": "cancel waiting run",
+      "extra": {
+        "status": 200
+      }
+    },
+    {
+      "at": "2026-11-02T07:40:08.317Z",
+      "m": "quality model still waiting for RAM/GPU; trial switches to fast model on CPU (router flags reviewRequired)",
+      "extra": {
+        "status": 200,
+        "jobs": {
+          "queued": 1,
+          "running": 0,
+          "succeeded": 17,
+          "failed": 0,
+          "needs_review": 0,
+          "manual_action": 0
+        },
+        "freeRamGb": 11.3
+      }
+    },
+    {
+      "at": "2026-11-02T07:40:09.850Z",
+      "m": "new run queued with fast CPU config",
+      "extra": {
+        "id": "ce1ff632-8d67-4ce3-ae34-0a1cf8948d03"
+      }
+    },
+    {
+      "at": "2026-11-02T07:40:24.936Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 10
+      }
+    },
+    {
+      "at": "2026-11-02T07:41:01.619Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:flagged — Fast model used because the quality model is not installed (script_final wanted the quality model but none is installed:",
+          "storyboard:passed — 5 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:running"
+        ],
+        "error": null,
+        "freeRamGb": 12.7
+      }
+    },
+    {
+      "at": "2026-11-02T07:44:03.150Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:flagged — Fast model used because the quality model is not installed (script_final wanted the quality model but none is installed:",
+          "storyboard:passed — 5 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:running",
+          "repair:running — Retry failed narration line 1 once with the exact same spoken text; preserve other lines"
+        ],
+        "error": null,
+        "freeRamGb": 14
+      }
+    },
+    {
+      "at": "2026-11-02T07:45:03.667Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:flagged — Fast model used because the quality model is not installed (script_final wanted the quality model but none is installed:",
+          "storyboard:passed — 5 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:flagged — ASR found a language/text mismatch; inspect Voice QA and revise affected narration",
+          "captions:flagged — estimated; 5/5 lines use speech-bound estimates. 9 readability findings; listening review remains required. See caption-",
+          "repair:flagged — Same-text retry budget exhausted; inspect failed line instead of generating indefinitely",
+          "render:running"
+        ],
+        "error": null,
+        "freeRamGb": 13.6
+      }
+    },
+    {
+      "at": "2026-11-02T07:45:18.768Z",
+      "m": "run",
+      "extra": {
+        "state": "ready",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:flagged — Fast model used because the quality model is not installed (script_final wanted the quality model but none is installed:",
+          "storyboard:passed — 5 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:flagged — ASR found a language/text mismatch; inspect Voice QA and revise affected narration",
+          "captions:flagged — 9 deterministic caption readability/bounds findings; inspect caption-quality.json",
+          "preview:passed — Final MP4 available for review",
+          "quality:flagged — Technical checks passed; review required: caption readability (caption-quality.json), freeze_candidates",
+          "repair:flagged — Same-text retry budget exhausted; inspect failed line instead of generating indefinitely",
+          "render:passed — FFmpeg render; source media preserved without deceptive crop",
+          "eligibility:blocked — Publication requires verified facts, rights, account and authorized policy; no automatic publish",
+          "delivery:passed — Local export complete; publication not authorized",
+          "analytics:skipped — No remote publication ID"
+        ],
+        "error": null,
+        "freeRamGb": 14.2
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "product": "AUTONOMOUS CREATIVE STUDIO",
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\.local\\installed-smoke\\Ứng dụng ACS-364f1d03\\autonomous-creative-studio.exe",
+  "exeSha256": "c0a3cc9aeafd36132b1f5aefab71bd8cac1cae3460e51ab863627d61b931e21d",
+  "timestamp": "2026-10-23T18:03:59.530Z",
+  "status": "VERIFIED_NATIVE_WEBVIEW_AND_AUTH",
+  "desktopPid": 12444,
+  "webPid": 8320,
+  "workerPid": 19876,
+  "port": 59576,
+  "unauthenticated": 401,
+  "authenticated": 200,
+  "workspaceScreens": [
+    "projects",
+    "channels",
+    "insights"
+  ],
+  "wizards": {
+    "status": "VERIFIED_NATIVE_DRAFT_WIZARDS_ONLY",
+    "autopilot": [
+      {
+        "locale": "vi",
+        "autopilotId": "a5c85566-ce48-441f-9f80-8cdbd99dc64f",
+        "sevenSteps": true,
+        "reloadPersistence": true,
+        "failedSaveRetainsDraft": true,
+        "serverDraftInactive": true
+      },
+      {
+        "locale": "en",
+        "autopilotId": "3c6b42c0-0d96-4505-a4b9-070da1329c03",
+        "sevenSteps": true,
+        "reloadPersistence": true,
+        "failedSaveRetainsDraft": true,
+        "serverDraftInactive": true
+      }
+    ],
+    "oneOffSixSteps": true,
+    "oneOffScriptPersisted": true,
+    "missingSourcesBlockProduction": true,
+    "queuedJobs": 0,
+    "publicationActions": 0,
+    "humanApproval": "NOT_CREATED"
+  },
+  "visualReview": "SCREENSHOT_CAPTURED",
+  "installer": "INSTALLED_EXE_VERIFIED",
+  "voices": [],
+  "closePolicy": {
+    "hideKeepsBackground": true,
+    "quitStopsOwnedProcessTree": true,
+    "autostartEnabled": false,
+    "autostartRegistryModified": false
+  },
+  "processTreeStopped": true
+}

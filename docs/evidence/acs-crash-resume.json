@@ -1,0 +1,30 @@
+{
+  "status": "VERIFIED",
+  "scope": "controlled real worker process killed during FFmpeg rendering",
+  "fixture": true,
+  "genuineGameplay": false,
+  "runId": "5b8b9e78-8a19-4774-a127-c8f2365ce7ca",
+  "jobId": "job_01M5JBCRRE2B505D3TZ5SJE4BT",
+  "recovery": {
+    "deduped": 0,
+    "requeued": 1,
+    "failed": 0
+  },
+  "reusedByteIdentical": [
+    "voice-0.wav",
+    "voice-1.wav",
+    "source-0.mp4",
+    "voice-model-pin.json"
+  ],
+  "hashes": {
+    "voice-0.wav": "d4189419279191edcf625709403651599da79b72ad7fc9be8497889b2416d422",
+    "voice-1.wav": "d33fce92a9464548c8225b5a65972e5d5091771bf3cd1e78012c1589b310cd39",
+    "source-0.mp4": "30dd99152b6dcc55d6857f36c5c3a6f262aeb9d55c88298b9de4169561915013",
+    "voice-model-pin.json": "3ee21d199154e6921572985af1d1ba9090911261e0946ab64cf3516a08c98604"
+  },
+  "attempts": 2,
+  "outputs": "C:\\Users\\Winka\\Projects\\mmo\\.local\\crash-resume\\d86a35e1-f299-4cb2-945a-e2f411358d21\\studio\\artifacts\\5b8b9e78-8a19-4774-a127-c8f2365ce7ca",
+  "humanReview": "NOT_REVIEWED",
+  "publication": "BLOCKED",
+  "at": "2026-10-22T17:44:23.826Z"
+}

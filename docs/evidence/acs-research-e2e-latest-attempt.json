@@ -1,0 +1,218 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T04:03:44.649Z",
+  "source": [
+    "https://science.nasa.gov/venus/venus-facts/"
+  ],
+  "realGameplay": false,
+  "publicPosting": false,
+  "runs": [
+    {
+      "id": "38730039-9152-403e-a596-09703d67b28a",
+      "language": "vi-VN",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4",
+      "duration": 28.096,
+      "technical": true,
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "actualSources": [
+        {
+          "url": "https://science.nasa.gov/venus/venus-facts/",
+          "sha256": "f3df536ae95a54248693ffca52f1d7799630ce1875763e444a376797726613d8",
+          "fetchedAt": "2026-10-23T04:03:45.078Z"
+        }
+      ],
+      "humanReview": "NOT_REVIEWED",
+      "contentApproved": false,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 28.096
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 28.096,
+            "expected": 27.980000000000004
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 1.589648
+              },
+              {
+                "start": 13.256315
+              },
+              {
+                "start": 15.822982
+              },
+              {
+                "start": 20.456315
+              },
+              {
+                "start": 23.656315
+              },
+              {
+                "start": 25.822982
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.36",
+            "input_tp": "-1.17",
+            "input_lra": "1.90",
+            "input_thresh": "-26.77",
+            "output_i": "-16.08",
+            "output_tp": "-1.50",
+            "output_lra": "1.40",
+            "output_thresh": "-26.50",
+            "normalization_type": "dynamic",
+            "target_offset": "0.08"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        }
+      ],
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "research.json",
+        "citations.md",
+        "voice-review.json",
+        "voice-repair.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json"
+      ]
+    }
+  ],
+  "error": "en-US: GPU_BUSY: another application holds the GPU lease; retry later"
+}

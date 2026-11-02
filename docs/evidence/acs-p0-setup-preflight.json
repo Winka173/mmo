@@ -1,0 +1,612 @@
+{
+  "status": "VERIFIED_READ_ONLY_PREFLIGHT_ON_EXISTING_WINDOWS_MACHINE",
+  "checkedAt": "2026-10-23T13:07:31.502Z",
+  "dataDir": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\data",
+  "freshTarget": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup",
+  "targetCreated": false,
+  "modelsLoaded": false,
+  "gpuLeaseAcquired": false,
+  "downloadsPerformed": false,
+  "cleanWindowsVmTested": false,
+  "results": [
+    {
+      "id": "02340981-64df-44dd-81ce-69c1cc350e74",
+      "profile": "qwen3.5-9b",
+      "state": "checked",
+      "preflight": {
+        "version": 1,
+        "checkedAt": "2026-10-23T13:07:30.885Z",
+        "profile": "qwen3.5-9b",
+        "root": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup",
+        "readyToInstall": true,
+        "checks": [
+          {
+            "id": "folder",
+            "label": {
+              "vi": "Thư mục ACS có thể ghi",
+              "en": "Writable ACS folder"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "nearestExistingParent": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "canonical": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "folderCreated": false
+            },
+            "action": null
+          },
+          {
+            "id": "disk",
+            "label": {
+              "vi": "Dung lượng trống",
+              "en": "Free disk space"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "freeBytes": 156381556736,
+              "reservedBytes": 17179869184,
+              "reservationIncludes": "checkpoint + environment/cache + headroom; conservative, not a measured download size"
+            },
+            "action": null
+          },
+          {
+            "id": "ram",
+            "label": {
+              "vi": "RAM khả dụng",
+              "en": "Available RAM"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "availableBytes": 19212423168,
+              "totalBytes": 66154397696,
+              "notAnInferenceGuarantee": true
+            },
+            "action": null
+          },
+          {
+            "id": "ollama",
+            "label": {
+              "vi": "Runtime Ollama local",
+              "en": "Local Ollama runtime"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ollama\\ollama.exe",
+              "version": "ollama version is 0.40.8"
+            },
+            "action": null
+          },
+          {
+            "id": "ffmpeg",
+            "label": {
+              "vi": "FFmpeg dựng video",
+              "en": "FFmpeg rendering"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe",
+              "version": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers\r\nbuilt with gcc 14.2.0 (Rev1, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable"
+            },
+            "action": null
+          },
+          {
+            "id": "ffprobe",
+            "label": {
+              "vi": "FFprobe kiểm tra media",
+              "en": "FFprobe media checks"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffprobe.exe",
+              "version": "ffprobe version 6.1-full_build-www.gyan.dev Copyright (c) 2007-2023 the FFmpeg developers\r\nbuilt with gcc 12.2.0 (Rev10, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --e"
+            },
+            "action": null
+          },
+          {
+            "id": "gpu",
+            "label": {
+              "vi": "GPU / driver NVIDIA",
+              "en": "NVIDIA GPU / driver"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "devices": [
+                {
+                  "name": "NVIDIA GeForce RTX 5070 Ti",
+                  "driver": "610.88",
+                  "totalMiB": 16303,
+                  "freeMiB": 11497
+                }
+              ],
+              "cudaRequested": true,
+              "modelNotLoaded": true,
+              "leaseAcquired": false,
+              "freeMemoryNotReserved": true
+            },
+            "action": null
+          },
+          {
+            "id": "checkpoint",
+            "label": {
+              "vi": "Checkpoint và tính toàn vẹn",
+              "en": "Checkpoint and integrity"
+            },
+            "status": "warn",
+            "blocking": false,
+            "evidence": {
+              "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup\\.local\\models\\ollama",
+              "manifestFound": false,
+              "revision": null,
+              "files": null,
+              "hashValidation": "PERFORMED_DURING_INSTALL_AND_ENGINE_LOAD_NOT_BY_THIS_PREFLIGHT",
+              "inferenceVerified": false
+            },
+            "action": {
+              "vi": "Install tải riêng profile này, tiếp tục phần tải dở khi downloader hỗ trợ và kiểm checksum. Sau đó Apply rồi chạy mẫu thật.",
+              "en": "Install downloads only this profile, resumes partial files where supported and checks hashes. Then Apply and run a real sample."
+            }
+          }
+        ],
+        "inferenceVerified": false,
+        "diskEstimateKind": "CONSERVATIVE_RESERVATION_NOT_BENCHMARK"
+      }
+    },
+    {
+      "id": "2019c714-c4df-4666-992a-7628424d60c2",
+      "profile": "kokoro",
+      "state": "checked",
+      "preflight": {
+        "version": 1,
+        "checkedAt": "2026-10-23T13:07:31.073Z",
+        "profile": "kokoro",
+        "root": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup",
+        "readyToInstall": true,
+        "checks": [
+          {
+            "id": "folder",
+            "label": {
+              "vi": "Thư mục ACS có thể ghi",
+              "en": "Writable ACS folder"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "nearestExistingParent": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "canonical": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "folderCreated": false
+            },
+            "action": null
+          },
+          {
+            "id": "disk",
+            "label": {
+              "vi": "Dung lượng trống",
+              "en": "Free disk space"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "freeBytes": 156379815936,
+              "reservedBytes": 10737418240,
+              "reservationIncludes": "checkpoint + environment/cache + headroom; conservative, not a measured download size"
+            },
+            "action": null
+          },
+          {
+            "id": "ram",
+            "label": {
+              "vi": "RAM khả dụng",
+              "en": "Available RAM"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "availableBytes": 19059458048,
+              "totalBytes": 66154397696,
+              "notAnInferenceGuarantee": true
+            },
+            "action": null
+          },
+          {
+            "id": "uv",
+            "label": {
+              "vi": "Runtime uv / Python quản lý",
+              "en": "uv / managed Python runtime"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "uv",
+              "version": "uv 0.13.4 (7456b60bc 2026-10-20 x86_64-pc-windows-msvc)"
+            },
+            "action": null
+          },
+          {
+            "id": "ffmpeg",
+            "label": {
+              "vi": "FFmpeg dựng video",
+              "en": "FFmpeg rendering"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe",
+              "version": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers\r\nbuilt with gcc 14.2.0 (Rev1, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable"
+            },
+            "action": null
+          },
+          {
+            "id": "ffprobe",
+            "label": {
+              "vi": "FFprobe kiểm tra media",
+              "en": "FFprobe media checks"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffprobe.exe",
+              "version": "ffprobe version 6.1-full_build-www.gyan.dev Copyright (c) 2007-2023 the FFmpeg developers\r\nbuilt with gcc 12.2.0 (Rev10, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --e"
+            },
+            "action": null
+          },
+          {
+            "id": "gpu",
+            "label": {
+              "vi": "GPU / driver NVIDIA",
+              "en": "NVIDIA GPU / driver"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "devices": [
+                {
+                  "name": "NVIDIA GeForce RTX 5070 Ti",
+                  "driver": "610.88",
+                  "totalMiB": 16303,
+                  "freeMiB": 11482
+                }
+              ],
+              "cudaRequested": true,
+              "modelNotLoaded": true,
+              "leaseAcquired": false,
+              "freeMemoryNotReserved": true
+            },
+            "action": null
+          },
+          {
+            "id": "checkpoint",
+            "label": {
+              "vi": "Checkpoint và tính toàn vẹn",
+              "en": "Checkpoint and integrity"
+            },
+            "status": "warn",
+            "blocking": false,
+            "evidence": {
+              "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup\\.local\\models\\kokoro",
+              "manifestFound": false,
+              "revision": null,
+              "files": null,
+              "hashValidation": "PERFORMED_DURING_INSTALL_AND_ENGINE_LOAD_NOT_BY_THIS_PREFLIGHT",
+              "inferenceVerified": false
+            },
+            "action": {
+              "vi": "Install tải riêng profile này, tiếp tục phần tải dở khi downloader hỗ trợ và kiểm checksum. Sau đó Apply rồi chạy mẫu thật.",
+              "en": "Install downloads only this profile, resumes partial files where supported and checks hashes. Then Apply and run a real sample."
+            }
+          }
+        ],
+        "inferenceVerified": false,
+        "diskEstimateKind": "CONSERVATIVE_RESERVATION_NOT_BENCHMARK"
+      }
+    },
+    {
+      "id": "8145a611-bbb8-4e87-94e6-20fceca1886e",
+      "profile": "vieneu",
+      "state": "checked",
+      "preflight": {
+        "version": 1,
+        "checkedAt": "2026-10-23T13:07:31.304Z",
+        "profile": "vieneu",
+        "root": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup",
+        "readyToInstall": true,
+        "checks": [
+          {
+            "id": "folder",
+            "label": {
+              "vi": "Thư mục ACS có thể ghi",
+              "en": "Writable ACS folder"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "nearestExistingParent": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "canonical": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "folderCreated": false
+            },
+            "action": null
+          },
+          {
+            "id": "disk",
+            "label": {
+              "vi": "Dung lượng trống",
+              "en": "Free disk space"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "freeBytes": 156379283456,
+              "reservedBytes": 19327352832,
+              "reservationIncludes": "checkpoint + environment/cache + headroom; conservative, not a measured download size"
+            },
+            "action": null
+          },
+          {
+            "id": "ram",
+            "label": {
+              "vi": "RAM khả dụng",
+              "en": "Available RAM"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "availableBytes": 18984009728,
+              "totalBytes": 66154397696,
+              "notAnInferenceGuarantee": true
+            },
+            "action": null
+          },
+          {
+            "id": "uv",
+            "label": {
+              "vi": "Runtime uv / Python quản lý",
+              "en": "uv / managed Python runtime"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "uv",
+              "version": "uv 0.13.4 (7456b60bc 2026-10-20 x86_64-pc-windows-msvc)"
+            },
+            "action": null
+          },
+          {
+            "id": "ffmpeg",
+            "label": {
+              "vi": "FFmpeg dựng video",
+              "en": "FFmpeg rendering"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe",
+              "version": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers\r\nbuilt with gcc 14.2.0 (Rev1, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable"
+            },
+            "action": null
+          },
+          {
+            "id": "ffprobe",
+            "label": {
+              "vi": "FFprobe kiểm tra media",
+              "en": "FFprobe media checks"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffprobe.exe",
+              "version": "ffprobe version 6.1-full_build-www.gyan.dev Copyright (c) 2007-2023 the FFmpeg developers\r\nbuilt with gcc 12.2.0 (Rev10, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --e"
+            },
+            "action": null
+          },
+          {
+            "id": "gpu",
+            "label": {
+              "vi": "GPU / driver NVIDIA",
+              "en": "NVIDIA GPU / driver"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "devices": [
+                {
+                  "name": "NVIDIA GeForce RTX 5070 Ti",
+                  "driver": "610.88",
+                  "totalMiB": 16303,
+                  "freeMiB": 11353
+                }
+              ],
+              "cudaRequested": true,
+              "modelNotLoaded": true,
+              "leaseAcquired": false,
+              "freeMemoryNotReserved": true
+            },
+            "action": null
+          },
+          {
+            "id": "checkpoint",
+            "label": {
+              "vi": "Checkpoint và tính toàn vẹn",
+              "en": "Checkpoint and integrity"
+            },
+            "status": "warn",
+            "blocking": false,
+            "evidence": {
+              "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup\\.local\\models\\vieneu",
+              "manifestFound": false,
+              "revision": null,
+              "files": null,
+              "hashValidation": "PERFORMED_DURING_INSTALL_AND_ENGINE_LOAD_NOT_BY_THIS_PREFLIGHT",
+              "inferenceVerified": false
+            },
+            "action": {
+              "vi": "Install tải riêng profile này, tiếp tục phần tải dở khi downloader hỗ trợ và kiểm checksum. Sau đó Apply rồi chạy mẫu thật.",
+              "en": "Install downloads only this profile, resumes partial files where supported and checks hashes. Then Apply and run a real sample."
+            }
+          }
+        ],
+        "inferenceVerified": false,
+        "diskEstimateKind": "CONSERVATIVE_RESERVATION_NOT_BENCHMARK"
+      }
+    },
+    {
+      "id": "bfcaeced-9b03-42c0-8165-59f273a86e28",
+      "profile": "qwen-asr",
+      "state": "checked",
+      "preflight": {
+        "version": 1,
+        "checkedAt": "2026-10-23T13:07:31.491Z",
+        "profile": "qwen-asr",
+        "root": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup",
+        "readyToInstall": true,
+        "checks": [
+          {
+            "id": "folder",
+            "label": {
+              "vi": "Thư mục ACS có thể ghi",
+              "en": "Writable ACS folder"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "nearestExistingParent": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "canonical": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949",
+              "folderCreated": false
+            },
+            "action": null
+          },
+          {
+            "id": "disk",
+            "label": {
+              "vi": "Dung lượng trống",
+              "en": "Free disk space"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "freeBytes": 156378996736,
+              "reservedBytes": 15032385536,
+              "reservationIncludes": "checkpoint + environment/cache + headroom; conservative, not a measured download size"
+            },
+            "action": null
+          },
+          {
+            "id": "ram",
+            "label": {
+              "vi": "RAM khả dụng",
+              "en": "Available RAM"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "availableBytes": 18956398592,
+              "totalBytes": 66154397696,
+              "notAnInferenceGuarantee": true
+            },
+            "action": null
+          },
+          {
+            "id": "uv",
+            "label": {
+              "vi": "Runtime uv / Python quản lý",
+              "en": "uv / managed Python runtime"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "uv",
+              "version": "uv 0.13.4 (7456b60bc 2026-10-20 x86_64-pc-windows-msvc)"
+            },
+            "action": null
+          },
+          {
+            "id": "ffmpeg",
+            "label": {
+              "vi": "FFmpeg dựng video",
+              "en": "FFmpeg rendering"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe",
+              "version": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers\r\nbuilt with gcc 14.2.0 (Rev1, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable"
+            },
+            "action": null
+          },
+          {
+            "id": "ffprobe",
+            "label": {
+              "vi": "FFprobe kiểm tra media",
+              "en": "FFprobe media checks"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "binary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffprobe.exe",
+              "version": "ffprobe version 6.1-full_build-www.gyan.dev Copyright (c) 2007-2023 the FFmpeg developers\r\nbuilt with gcc 12.2.0 (Rev10, Built by MSYS2 project)\r\nconfiguration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --e"
+            },
+            "action": null
+          },
+          {
+            "id": "gpu",
+            "label": {
+              "vi": "GPU / driver NVIDIA",
+              "en": "NVIDIA GPU / driver"
+            },
+            "status": "pass",
+            "blocking": false,
+            "evidence": {
+              "devices": [
+                {
+                  "name": "NVIDIA GeForce RTX 5070 Ti",
+                  "driver": "610.88",
+                  "totalMiB": 16303,
+                  "freeMiB": 11353
+                }
+              ],
+              "cudaRequested": true,
+              "modelNotLoaded": true,
+              "leaseAcquired": false,
+              "freeMemoryNotReserved": true
+            },
+            "action": null
+          },
+          {
+            "id": "checkpoint",
+            "label": {
+              "vi": "Checkpoint và tính toàn vẹn",
+              "en": "Checkpoint and integrity"
+            },
+            "status": "warn",
+            "blocking": false,
+            "evidence": {
+              "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-setup-preflight\\b87138c4-7f53-41c6-a453-1dccf6570949\\Fresh ACS setup\\.local\\models\\qwen3-asr",
+              "manifestFound": false,
+              "revision": null,
+              "files": null,
+              "hashValidation": "PERFORMED_DURING_INSTALL_AND_ENGINE_LOAD_NOT_BY_THIS_PREFLIGHT",
+              "inferenceVerified": false
+            },
+            "action": {
+              "vi": "Install tải riêng profile này, tiếp tục phần tải dở khi downloader hỗ trợ và kiểm checksum. Sau đó Apply rồi chạy mẫu thật.",
+              "en": "Install downloads only this profile, resumes partial files where supported and checks hashes. Then Apply and run a real sample."
+            }
+          }
+        ],
+        "inferenceVerified": false,
+        "diskEstimateKind": "CONSERVATIVE_RESERVATION_NOT_BENCHMARK"
+      }
+    }
+  ],
+  "runtimeBootstrap": {
+    "status": "IMPLEMENTED_UNVERIFIED_UPSTREAM_DOWNLOAD",
+    "contractAndWindowsExtractionTests": "docs/evidence/acs-p0-setup-tests.json",
+    "officialSource": "https://api.github.com/repos/ollama/ollama/releases/tags/v0.40.8",
+    "sha256": "04d1d43ac62c2deb0393307bb49fed7caf6b192de41bdd497aaa9488089d5552",
+    "archiveBytes": 1582537058
+  }
+}

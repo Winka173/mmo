@@ -1,0 +1,12 @@
+{
+  "status": "FAILED_OR_BLOCKED_WORKER_HEALTH_ATTEMPT",
+  "at": "2026-10-23T11:50:25.422Z",
+  "exeSha256": "2ed93f0d48eeb7893dd11163abb0e52885b862d0e243758f3b2cc18b619297bc",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\worker-health-ui\\ff8dd4f7-78aa-4053-b58c-8634025f8eb0\\data",
+  "config": "C:\\Users\\Winka\\Projects\\mmo\\.local\\worker-health-ui\\ff8dd4f7-78aa-4053-b58c-8634025f8eb0",
+  "error": "Error: Native shell exited before startup (101)",
+  "childExitCode": 101,
+  "nativeLog": "\nthread 'main' (31220) panicked at C:\\Users\\Winka\\Projects\\Asset-Forge-Studio\\.local\\desktop-tools\\cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tauri-2.12.5\\src\\app.rs:1444:11:\nFailed to setup app: runtime error: failed to create webview: WebView2 error: WindowsError(Error { code: HRESULT(0x800700AA), message: \"The requested resource is in use.\" })\nstack backtrace:\nnote: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.\n",
+  "classifiedCause": "WEBVIEW2_PROFILE_IN_USE_0x800700AA",
+  "accepted": false
+}

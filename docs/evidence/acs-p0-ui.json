@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED_UI_CONTRACTS_WITH_ISOLATED_FIXTURES_NO_NEW_INFERENCE",
+  "at": "2026-10-23T15:54:39.130Z",
+  "serverEntry": "C:\\Users\\Winka\\Projects\\mmo\\desktop\\backend\\apps\\web\\server.js",
+  "serverSha256": "77ed26c75f3e41067621def7107521786f1a77f878074d317df4471354b45da8",
+  "firstAttemptEvidence": "acs-p0-ui-first-attempt.json",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\dd91af9e-5b05-4627-bd77-4af97d9fcbc3\\data",
+  "planId": "ea4f3338-81a0-4438-a1e7-11a63387ca8c",
+  "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+  "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+  "inference": "NOT_PERFORMED",
+  "publicPosting": false,
+  "childPlanId": "01c3e57d-a225-4762-8c2a-e81e8b2f11a2",
+  "repairId": "31ea96fa-9716-4291-a392-c9015e7014cc",
+  "auditionId": "36f7b5ed-dbd0-42fc-a970-a9966b444e0a",
+  "checks": [
+    "Actual UI edits narration into immutable child; reload retains text; audition queues only the selected line with frozen config (no inference worker launched)",
+    "QA-directed repair queues immutable child from an injected UI loudness proposal; actual FFmpeg repair is tested separately",
+    "Four-step setup UI queues read-only preflight and retains selected folder after reload",
+    "VI/EN setup UI and authenticated session render without browser exceptions"
+  ],
+  "browserErrors": [],
+  "scope": "No worker or live publishing started. Owned calibration plan; prior byte-identical real-speech draft imported with injected loudness proposal. Independent worker/FFmpeg and real model evidence retained separately."
+}

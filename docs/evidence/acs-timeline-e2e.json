@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "fixture": true,
+  "genuineGameplay": false,
+  "parentId": "88d88c16-b641-4030-a096-e26de0fddbf5",
+  "cutId": "b1e1eaff-1359-49e2-bf24-d0b7a5f90a9c",
+  "editId": "0ce7b53f-6846-4a5c-af32-2321a012dc1c",
+  "restoreId": "0598c1f3-0a2b-4786-b1a7-acda6778c62a",
+  "outputs": "C:\\Users\\Winka\\Projects\\mmo\\.local\\timeline-e2e\\dde225fe-21b5-4c36-b709-49bfe8b6a81e\\data\\studio\\artifacts\\0ce7b53f-6846-4a5c-af32-2321a012dc1c",
+  "checks": [
+    "separate video/dialogue/music/caption/title tracks",
+    "ripple 3s cut",
+    "caption editing after cut",
+    "range zoom",
+    "music gain",
+    "Unicode titles/captions",
+    "restore previous timeline as new version",
+    "no AI inference",
+    "immutable parent"
+  ],
+  "at": "2026-10-23T02:33:26.266Z"
+}

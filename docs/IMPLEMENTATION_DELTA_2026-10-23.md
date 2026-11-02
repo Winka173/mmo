@@ -1,0 +1,21 @@
+# Delta tiếp tục — 23/10/2026, 11:08 Asia/Saigon
+
+Source/tests dưới đây đã đóng gói lúc 11:11, portable smoke 11:12, bản cài Unicode/spaces 11:13; hash/resource đối chiếu đạt. Đây vẫn chưa phải hoàn tất master prompt.
+
+Bộ cài 88,51 MiB: `dist/windows/AUTONOMOUS CREATIVE STUDIO_0.2.0_x64-setup.exe`, SHA256 `5C155979D6BAD63A106E44DA604B12752AAE69BB17F44413A83EA34FA36CA297`. Portable SHA256 `5962908E5AC3380E80D887F7C714DA3DA445ACCF1F5D04C38DDE600EAFCC92BC`. WebView/session 200/401, native đóng-hide giữ worker và đóng-quit dọn process tree đều đạt, cả portable và installed. Autostart false, không ghi registry. Không chạy lại voice trên bộ cài này vì GPU đang bận; voice bộ cài trước giữ tại `acs-installed-voices-previous.json`, không gán cho hash EXE mới. Build wrapper lần này exit 0.
+
+92 test chọn lọc/23 files đạt; browser baseline 12 checks và workflow mới 4 nhóm đạt. Không tuyên bố full legacy suite đạt.
+
+- Kênh Studio riêng cho YouTube: credential theo channel/revision mã hóa DPAPI, expected Channel ID, bật/tắt kênh, capability check qua worker. UI chưa có OAuth sign-in tích hợp; nhập client ID/secret/refresh token của OAuth app đã được cấp quyền. Không có account/token thật để nghiệm thu.
+- Đăng **một phiên bản đã duyệt**, với lệnh cho phép riêng đúng kênh và visibility. Bốn phạm vi review + technical QA, expiry, embargo, đúng account/revision/hash được kiểm tra trước gửi. File upload đóng băng; lưu resumable state trước bytes, retry dùng session/remote ID cũ. `available` không đồng nghĩa public; actual privacy hiển thị riêng. Posting policy Studio tách khỏi legacy. Auto-publish policy liên tục vẫn chưa triển khai.
+- Đối soát remote ID, lấy views/likes/comments qua adapter; watch time/revenue/wishlists thiếu là null/unknown. 4 worker publication + 3 YouTube resumable tests đạt bằng mock transport; không gọi account hay đăng thật. Product publication vẫn giữ lại chờ price/link/disclosure revalidation.
+- `acs-workflow-ui.json`: 4 nhóm kiểm tra đạt: quyền cut/translate/dub/redistribute + expiry và dictionary lưu qua wizard; calendar window lưu, simulation không tạo jobs; credential giả lưu bằng **DPAPI thật** và không trả về API, kênh/posting mặc định tắt, bản chưa duyệt bị chặn; màn hình mới VI/EN, web mode không đổi startup. Dữ liệu riêng, không chạy worker với credential giả.
+- Long-to-Shorts chạy lại sau pin ASR environment/quyền mới: `a324fc12-73b6-49c5-a1a1-a7c1c80e9f1d`, 19,9s, giữ source speech/video, không TTS mới. Đây là fixture ACS tạo, không phải người nói/gameplay thật.
+- Localization EN → VI: `2f14f425-7609-4234-a943-127bfcc2ed71`, 18,106s, ASR ngôn ngữ đúng; một câu sai khác 6,06% token, chưa nghe duyệt. Lần đầu ASR gắn nhãn English cho transcript VI, giữ báo cáo lỗi riêng. VI → EN fixture trước vẫn có evidence. Mandarin → VI/EN và watcher feed thật chưa nghiệm thu.
+- Mandarin ASR: `acs-mandarin-asr.json`, official demo WAV, CUDA 6,736s, transcript khớp một câu mẫu. Không phải corpus WER, forced alignment, quyền đăng lại hoặc nghiệm thu localization Mandarin.
+- Repair giọng: tối đa một lần tạo lại **đúng lời đọc**, chỉ câu lỗi; lưu WAV/manifest/evidence cũ, giữ câu khác, cập nhật ASR/timing/caption phụ thuộc. Contract AI mock + FFmpeg thật đạt, không gọi là model benchmark. Research thực mới đã thử repair nhưng còn câu gắn cờ, cần nghe duyệt.
+- Research mới cải thiện font graphics 9:16/16:9, title không cắt giữa từ, layout thoáng; budget từ dựa trên mẫu nhỏ. VI `38730039-9152-403e-a596-09703d67b28a` đạt 28,096s nhưng Voice QA flagged; EN đang chờ lease GPU của ứng dụng khác. Báo cáo benchmark cũ đã phục hồi từ artifact gốc sau lỗi ghi đè; video không mất. Lỗi/resource wait lưu riêng `acs-research-e2e-latest-attempt.json`.
+- EXE có chọn đóng để chạy nền hoặc quit, đã kiểm tra WM_CLOSE thực và cleanup trên portable + installed. Autostart opt-in qua UI có source nhưng chưa bật/nghiệm thu; web mode không cho thay startup.
+- Review fingerprint bổ sung timeline/localization/shorts/manifests; timestamp tăng trong lock tránh hai quyết định cùng mili giây. Child không tự thừa hưởng approval.
+
+Tiếp tục: bộ cài mới + native close/session/cleanup, UI regression và chứng cứ build; sau đó watcher, full repair/transcript editor, product/policy automation, analytics và bản địa hóa legacy. Không đánh dấu hoàn tất master prompt.

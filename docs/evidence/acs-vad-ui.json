@@ -1,0 +1,70 @@
+{
+  "status": "VERIFIED_UI_LOCAL_CPU_INFERENCE",
+  "at": "2026-10-23T05:06:37.354Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-ui\\597ca3f6-712b-413f-ad73-45ba76f0a69b\\data",
+  "checks": [
+    "selected Silero profile installed through UI/packaged worker, hash pinned; explicit apply preserves unrelated config",
+    "UI verification executes real local CPU model on an actual audition and known silence; no word-timing claim"
+  ],
+  "setupId": "06965ef7-a849-4fd5-9fa8-88b8102a72c5",
+  "verification": {
+    "status": "VERIFIED_ONE_SPEECH_SAMPLE_AND_SILENCE",
+    "voiceSampleId": "1cfb5407-24f6-4fc2-9771-cc26f85e8367",
+    "evidence": {
+      "engine": "silero-vad",
+      "device": "cpu",
+      "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+      "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+      "runner_sha256": "61e69135e57e5558631021332d08eb329a9afd58db776e95e120d9c7fe95be52",
+      "versions": {
+        "torch": "2.8.0+cu128",
+        "scipy": "1.17.1",
+        "numpy": "2.4.6",
+        "soundfile": "0.14.0"
+      },
+      "seconds": 0.28487396240234375,
+      "results": [
+        {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-ui\\597ca3f6-712b-413f-ad73-45ba76f0a69b\\data\\studio\\voice-audio\\1cfb5407-24f6-4fc2-9771-cc26f85e8367.wav",
+          "duration": 4,
+          "speech": [
+            {
+              "start": 0.066,
+              "end": 1.374
+            },
+            {
+              "start": 1.762,
+              "end": 3.966
+            }
+          ],
+          "speech_ratio": 0.8779999999999999,
+          "max_probability": 0.9999990463256836,
+          "leading_silence": 0.066,
+          "trailing_silence": 0.03400000000000025
+        },
+        {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-ui\\597ca3f6-712b-413f-ad73-45ba76f0a69b\\data\\studio\\setup\\69f2c00a-4cef-4de0-a11c-ec925d871ccf-silence.wav",
+          "duration": 1,
+          "speech": [],
+          "speech_ratio": 0,
+          "max_probability": 0.008910579606890678,
+          "leading_silence": 1,
+          "trailing_silence": 1
+        }
+      ],
+      "parameters": {
+        "onset": 0.5,
+        "offset": 0.35,
+        "min_speech_seconds": 0.25,
+        "end_silence_seconds": 0.2,
+        "padding_seconds": 0.03
+      },
+      "word_timing": "NOT_PROVIDED",
+      "human_review": "NOT_REVIEWED"
+    },
+    "wordTiming": "NOT_PROVIDED",
+    "humanReview": "NOT_REVIEWED"
+  },
+  "humanReview": "NOT_REVIEWED",
+  "browserErrors": []
+}

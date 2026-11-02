@@ -1,0 +1,89 @@
+{
+ "qwen3.6:35b": [
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 19.5
+  },
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 0.5
+  },
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 0.5
+  }
+ ],
+ "qwen3.8:27b": [
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 14.3
+  },
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 2.0
+  },
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 2.1
+  }
+ ],
+ "gemma4:31b": [
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 18.1
+  },
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 2.4
+  },
+  {
+   "answer": {
+    "circleColor": "blue",
+    "rectangleColor": "orange",
+    "visibleText": "ACS 42"
+   },
+   "ok": true,
+   "wall_s": 2.4
+  }
+ ]
+}

@@ -1,0 +1,1342 @@
+{
+  "status": "VERIFIED_REAL_SOURCE_LOCAL_VI_EN_TECHNICAL_DRAFT_NOT_PUBLISH_APPROVAL",
+  "at": "2026-10-23T09:40:04.385Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data",
+  "source": "https://www.adafruit.com/product/4201",
+  "targetDuration": 30,
+  "publicPosting": false,
+  "affiliateEnabled": false,
+  "humanApproval": "NOT_REVIEWED",
+  "runs": [
+    {
+      "id": "64b9dea9-0d71-457a-a5e3-da1cf41a321c",
+      "language": "vi-VN",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4",
+      "duration": 28.073333,
+      "technical": true,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 28.073333
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 28.073333,
+            "expected": 27.97
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 1.856315
+              },
+              {
+                "start": 4.656315
+              },
+              {
+                "start": 6.889648
+              },
+              {
+                "start": 13.922982
+              },
+              {
+                "start": 16.222982
+              },
+              {
+                "start": 18.889648
+              },
+              {
+                "start": 21.389648
+              },
+              {
+                "start": 25.322982
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.30",
+            "input_tp": "-1.20",
+            "input_lra": "1.60",
+            "input_thresh": "-26.61",
+            "output_i": "-16.03",
+            "output_tp": "-1.50",
+            "output_lra": "1.40",
+            "output_thresh": "-26.31",
+            "normalization_type": "dynamic",
+            "target_offset": "0.03"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T09:31:47.379Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "creative_duration_target",
+          "status": "pass",
+          "evidence": {
+            "targetSeconds": 30,
+            "actualSeconds": 28.073333,
+            "tolerance": "30 percent creative-target heuristic; encode duration checked separately",
+            "noAutomaticFiller": true
+          },
+          "severity": "warning",
+          "recommendedFix": "Review pacing or create a revised script; preserve required disclosures and never pad with invented facts",
+          "timestamp": "2026-10-23T09:31:48.651Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\final.mp4"
+          ]
+        }
+      ],
+      "heuristicsRequireReview": true,
+      "product": {
+        "name": "Adafruit AirLift – ESP32 WiFi Co-Processor Breakout Board",
+        "price": "9.9500",
+        "currency": "USD",
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.adafruit.com/product/4201",
+        "retrievedAt": "2026-10-23T07:05:16.177Z"
+      },
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c4",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c5",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "description": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.\n\nhttps://www.adafruit.com/product/4201",
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.058823529411764705,
+          "expected": "Adafruit AirLift giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+          "transcription": "Adafruit Elf giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Adafruit AirLift giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+          "spokenText": "Adafruit AirLift giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-0.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.05555555555555555,
+          "expected": "Chip ESP32 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+          "transcription": "chip A532 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Chip ESP32 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+          "spokenText": "Chip ESP32 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-1.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.05555555555555555,
+          "expected": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ đệm phức tạp.",
+          "transcription": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ điện phức tạp.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ đệm phức tạp.",
+          "spokenText": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ đệm phức tạp.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-2.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.058823529411764705,
+          "expected": "Chỉ cần bus SPI, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+          "transcription": "chỉ cần bus SVE, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Chỉ cần bus SPI, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+          "spokenText": "Chỉ cần bus SPI, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-3.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.030303030303030304,
+          "expected": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "transcription": "Thông tin được tra cứu ngày 23 tháng 10, 2022. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "spokenText": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-4.wav"
+        }
+      ],
+      "captionQuality": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-0.wav",
+            "offset": 0,
+            "segmentDuration": 4.54,
+            "audioDuration": 4.24,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.034,
+                "end": 4.19
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 1,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-1.wav",
+            "offset": 4.54,
+            "segmentDuration": 5.18,
+            "audioDuration": 4.88,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.098,
+                "end": 4.798
+              }
+            ],
+            "cueStartIndex": 2,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 2,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-2.wav",
+            "offset": 9.719999999999999,
+            "segmentDuration": 4.14,
+            "audioDuration": 3.84,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 3.742
+              }
+            ],
+            "cueStartIndex": 4,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 3,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-3.wav",
+            "offset": 13.86,
+            "segmentDuration": 4.9399999999999995,
+            "audioDuration": 4.64,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 1.374
+              },
+              {
+                "start": 1.634,
+                "end": 4.606
+              }
+            ],
+            "cueStartIndex": 6,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 4,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-4.wav",
+            "offset": 18.799999999999997,
+            "segmentDuration": 9.17,
+            "audioDuration": 8.87,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 3.454
+              },
+              {
+                "start": 3.842,
+                "end": 6.91
+              },
+              {
+                "start": 7.138,
+                "end": 8.862
+              }
+            ],
+            "cueStartIndex": 8,
+            "cueCount": 4
+          }
+        ],
+        "readability": {
+          "status": "review_required",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.034,
+              "end": 1.8522500000000002,
+              "duration": 1.8182500000000001,
+              "characters": 35,
+              "charactersPerSecond": 19.249278152069294,
+              "lines": [
+                "Adafruit AirLift",
+                "giúp dự án vi điều"
+              ],
+              "lineLengths": [
+                16,
+                18
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 1.8522500000000002,
+              "end": 4.19,
+              "duration": 2.33775,
+              "characters": 45,
+              "charactersPerSecond": 19.249278152069294,
+              "lines": [
+                "khiển của bạn bay bổng",
+                "với kết nối không dây."
+              ],
+              "lineLengths": [
+                22,
+                22
+              ]
+            },
+            {
+              "cueIndex": 2,
+              "start": 4.638,
+              "end": 6.8705,
+              "duration": 2.2325,
+              "characters": 38,
+              "charactersPerSecond": 17.02127659574468,
+              "lines": [
+                "Chip ESP32 đảm nhận",
+                "mọi công việc nặng"
+              ],
+              "lineLengths": [
+                19,
+                18
+              ]
+            },
+            {
+              "cueIndex": 3,
+              "start": 6.8705,
+              "end": 9.338000000000001,
+              "duration": 2.467500000000001,
+              "characters": 42,
+              "charactersPerSecond": 17.021276595744673,
+              "lines": [
+                "nề kết nối mạng và",
+                "truyền dữ liệu an toàn."
+              ],
+              "lineLengths": [
+                18,
+                23
+              ]
+            },
+            {
+              "cueIndex": 4,
+              "start": 9.786,
+              "end": 11.576871794871796,
+              "duration": 1.790871794871796,
+              "characters": 38,
+              "charactersPerSecond": 21.21871599564743,
+              "lines": [
+                "Phần cứng đã sẵn",
+                "sàng với mã nguồn đơn"
+              ],
+              "lineLengths": [
+                16,
+                21
+              ]
+            },
+            {
+              "cueIndex": 5,
+              "start": 11.576871794871796,
+              "end": 13.462,
+              "duration": 1.8851282051282041,
+              "characters": 40,
+              "charactersPerSecond": 21.218715995647454,
+              "lines": [
+                "giản, không cần lưu",
+                "bộ nhớ đệm phức tạp."
+              ],
+              "lineLengths": [
+                19,
+                20
+              ]
+            },
+            {
+              "cueIndex": 6,
+              "start": 13.926,
+              "end": 16.2404,
+              "duration": 2.314400000000001,
+              "characters": 36,
+              "charactersPerSecond": 15.554787417905283,
+              "lines": [
+                "Chỉ cần bus SPI,",
+                "hai chân điều khiển"
+              ],
+              "lineLengths": [
+                16,
+                19
+              ]
+            },
+            {
+              "cueIndex": 7,
+              "start": 16.2404,
+              "end": 18.466,
+              "duration": 2.2256,
+              "characters": 39,
+              "charactersPerSecond": 17.523364485981308,
+              "lines": [
+                "và nguồn 250mA để",
+                "bắt đầu ngay lập tức."
+              ],
+              "lineLengths": [
+                17,
+                21
+              ]
+            },
+            {
+              "cueIndex": 8,
+              "start": 18.865999999999996,
+              "end": 21.35792052980132,
+              "duration": 2.491920529801323,
+              "characters": 46,
+              "charactersPerSecond": 18.4596577017115,
+              "lines": [
+                "Thông tin được tra cứu",
+                "ngày 23 tháng 10, 2026."
+              ],
+              "lineLengths": [
+                22,
+                23
+              ]
+            },
+            {
+              "cueIndex": 9,
+              "start": 21.35792052980132,
+              "end": 23.696119205298007,
+              "duration": 2.338198675496688,
+              "characters": 36,
+              "charactersPerSecond": 15.396467535998735,
+              "lines": [
+                "Đây là tổng hợp từ",
+                "nguồn, không phải"
+              ],
+              "lineLengths": [
+                18,
+                17
+              ]
+            },
+            {
+              "cueIndex": 10,
+              "start": 23.696119205298007,
+              "end": 25.321284768211918,
+              "duration": 1.6251655629139101,
+              "characters": 30,
+              "charactersPerSecond": 18.45965770171146,
+              "lines": [
+                "trải nghiệm sử",
+                "dụng trực tiếp."
+              ],
+              "lineLengths": [
+                14,
+                15
+              ]
+            },
+            {
+              "cueIndex": 11,
+              "start": 25.321284768211918,
+              "end": 27.661999999999995,
+              "duration": 2.340715231788078,
+              "characters": 39,
+              "charactersPerSecond": 16.66157397976507,
+              "lines": [
+                "Giá và tình trạng",
+                "hàng có thể thay đổi."
+              ],
+              "lineLengths": [
+                17,
+                21
+              ]
+            }
+          ],
+          "findings": [
+            {
+              "criterion": "caption.reading_speed",
+              "status": "unknown",
+              "cueIndex": 4,
+              "evidence": {
+                "characters": 38,
+                "duration": 1.790871794871796,
+                "charactersPerSecond": 21.21871599564743,
+                "maximumCharactersPerSecond": 20
+              },
+              "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+            },
+            {
+              "criterion": "caption.reading_speed",
+              "status": "unknown",
+              "cueIndex": 5,
+              "evidence": {
+                "characters": 40,
+                "duration": 1.8851282051282041,
+                "charactersPerSecond": 21.218715995647454,
+                "maximumCharactersPerSecond": 20
+              },
+              "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+            }
+          ],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Cues can span internal pauses. No audio was trimmed."
+      },
+      "preflight": {
+        "checkedAt": "2026-10-23T09:40:05.432Z",
+        "approvedEvidenceHash": "c5c5e78b4cb8702d0b0fdb2a0c693c771cc21b169bf5098c7f977b8ef70a6de8",
+        "checks": [
+          {
+            "url": "https://www.adafruit.com/product/4201",
+            "fetchedAt": "2026-10-23T09:40:07.157Z",
+            "sha256": "3d7a6fcafd424780069990a18cd2d0c79913e1d7122ec219bbe55cb965445c09"
+          }
+        ],
+        "affiliate": null,
+        "status": "UNCHANGED_RETRIEVED_EVIDENCE"
+      },
+      "contentApproved": false,
+      "humanReview": "NOT_REVIEWED",
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "caption-quality.json",
+        "research.json",
+        "citations.md",
+        "speech-activity.json",
+        "voice-review.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json",
+        "product-evidence.json",
+        "product-publication-description.txt"
+      ]
+    },
+    {
+      "id": "e1bc5c12-67fe-4159-adb5-00972e42f138",
+      "language": "en-US",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4",
+      "duration": 40.003,
+      "technical": true,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 40.003
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 40.003,
+            "expected": 39.925000000000004
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 0.322982
+              },
+              {
+                "start": 2.689648
+              },
+              {
+                "start": 4.856315
+              },
+              {
+                "start": 7.622982
+              },
+              {
+                "start": 12.022982
+              },
+              {
+                "start": 14.222982
+              },
+              {
+                "start": 16.289648
+              },
+              {
+                "start": 20.889648
+              },
+              {
+                "start": 23.389648
+              },
+              {
+                "start": 26.122982
+              },
+              {
+                "start": 29.222982
+              },
+              {
+                "start": 32.256315
+              },
+              {
+                "start": 36.389648
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "unknown",
+          "evidence": [
+            {
+              "start": 10.919042
+            },
+            {
+              "start": 19.776083
+            },
+            {
+              "start": 28.145198
+            }
+          ],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.07",
+            "input_tp": "-1.38",
+            "input_lra": "2.60",
+            "input_thresh": "-26.48",
+            "output_i": "-15.99",
+            "output_tp": "-1.50",
+            "output_lra": "2.70",
+            "output_thresh": "-26.36",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.01"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T09:33:42.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "creative_duration_target",
+          "status": "unknown",
+          "evidence": {
+            "targetSeconds": 30,
+            "actualSeconds": 40.003,
+            "tolerance": "30 percent creative-target heuristic; encode duration checked separately",
+            "noAutomaticFiller": true
+          },
+          "severity": "warning",
+          "recommendedFix": "Review pacing or create a revised script; preserve required disclosures and never pad with invented facts",
+          "timestamp": "2026-10-23T09:33:43.605Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\final.mp4"
+          ]
+        }
+      ],
+      "heuristicsRequireReview": true,
+      "product": {
+        "name": "Adafruit AirLift – ESP32 WiFi Co-Processor Breakout Board",
+        "price": "9.9500",
+        "currency": "USD",
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.adafruit.com/product/4201",
+        "retrievedAt": "2026-10-23T09:31:51.246Z"
+      },
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c4",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "description": "Information retrieved on October 23, 2026. This is source-based research, not firsthand testing. Prices and availability may change.\n\nhttps://www.adafruit.com/product/4201",
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.1111111111111111,
+          "expected": "Give your plain ol' microcontroller project a lift with the Adafruit AirLift - a breakout board that lets you use the powerful ESP32 as a WiFi co-processor.",
+          "transcription": "Give your plain all microcontroller project a lift with the Adafruit AirLift a breakout board that lets you use the powerful ESP32 as a Wi-Fi co-processor.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Give your plain ol' microcontroller project a lift with the Adafruit AirLift - a breakout board that lets you use the powerful ESP32 as a WiFi co-processor.",
+          "spokenText": "Give your plain ol' microcontroller project a lift with the Adafruit AirLift - a breakout board that lets you use the powerful ESP32 as a WiFi co-processor.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-0.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0,
+          "expected": "This chip handles heavy lifting for networks and TLS/SSL encryption, keeping your code simpler without complex libraries.",
+          "transcription": "This chip handles heavy lifting for networks and TLS/SSL encryption, keeping your code simpler without complex libraries.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "This chip handles heavy lifting for networks and TLS/SSL encryption, keeping your code simpler without complex libraries.",
+          "spokenText": "This chip handles heavy lifting for networks and TLS/SSL encryption, keeping your code simpler without complex libraries.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-1.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.1111111111111111,
+          "expected": "Send basic but powerful socket-based commands over 8MHz SPI for high speed data transfer with this board.",
+          "transcription": "Send basic but powerful socket-based commands over 8 MHz SPI for high-speed data transfer with this board.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Send basic but powerful socket-based commands over 8MHz SPI for high speed data transfer with this board.",
+          "spokenText": "Send basic but powerful socket-based commands over 8MHz SPI for high speed data transfer with this board.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-2.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0,
+          "expected": "Information retrieved on October 23, 2026. This is source-based research, not firsthand testing. Prices and availability may change.",
+          "transcription": "Information retrieved on October 23, 2026. This is source-based research, not firsthand testing. Prices and availability may change.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Information retrieved on October 23, 2026. This is source-based research, not firsthand testing. Prices and availability may change.",
+          "spokenText": "Information retrieved on October 23, 2026. This is source-based research, not firsthand testing. Prices and availability may change.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-3.wav"
+        }
+      ],
+      "captionQuality": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-0.wav",
+            "offset": 0,
+            "segmentDuration": 11.700000000000001,
+            "audioDuration": 11.4,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 5.95
+              },
+              {
+                "start": 6.274,
+                "end": 11.006
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 4
+          },
+          {
+            "lineIndex": 1,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-1.wav",
+            "offset": 11.700000000000001,
+            "segmentDuration": 8.850000000000001,
+            "audioDuration": 8.55,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 4.798
+              },
+              {
+                "start": 5.154,
+                "end": 8.158
+              }
+            ],
+            "cueStartIndex": 4,
+            "cueCount": 4
+          },
+          {
+            "lineIndex": 2,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-2.wav",
+            "offset": 20.550000000000004,
+            "segmentDuration": 8.375,
+            "audioDuration": 8.075,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.322,
+                "end": 5.214
+              },
+              {
+                "start": 5.378,
+                "end": 7.646
+              }
+            ],
+            "cueStartIndex": 8,
+            "cueCount": 3
+          },
+          {
+            "lineIndex": 3,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\e1bc5c12-67fe-4159-adb5-00972e42f138\\voice-3.wav",
+            "offset": 28.925000000000004,
+            "segmentDuration": 11,
+            "audioDuration": 10.7,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 4.126
+              },
+              {
+                "start": 4.482,
+                "end": 7.774
+              },
+              {
+                "start": 8.098,
+                "end": 10.334
+              }
+            ],
+            "cueStartIndex": 11,
+            "cueCount": 4
+          }
+        ],
+        "readability": {
+          "status": "pass",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.29,
+              "end": 2.667254901960784,
+              "duration": 2.377254901960784,
+              "characters": 35,
+              "charactersPerSecond": 14.722863741339493,
+              "lines": [
+                "Give your plain",
+                "ol' microcontroller"
+              ],
+              "lineLengths": [
+                15,
+                19
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 2.667254901960784,
+              "end": 4.840745098039215,
+              "duration": 2.173490196078431,
+              "characters": 32,
+              "charactersPerSecond": 14.722863741339495,
+              "lines": [
+                "project a lift",
+                "with the Adafruit"
+              ],
+              "lineLengths": [
+                14,
+                17
+              ]
+            },
+            {
+              "cueIndex": 2,
+              "start": 4.840745098039215,
+              "end": 7.60992156862745,
+              "duration": 2.769176470588235,
+              "characters": 36,
+              "charactersPerSecond": 13.000254906958961,
+              "lines": [
+                "AirLift - a breakout",
+                "board that lets"
+              ],
+              "lineLengths": [
+                20,
+                15
+              ]
+            },
+            {
+              "cueIndex": 3,
+              "start": 7.60992156862745,
+              "end": 11.006,
+              "duration": 3.3960784313725503,
+              "characters": 50,
+              "charactersPerSecond": 14.722863741339486,
+              "lines": [
+                "you use the powerful ESP32",
+                "as a WiFi co-processor."
+              ],
+              "lineLengths": [
+                26,
+                23
+              ]
+            },
+            {
+              "cueIndex": 4,
+              "start": 11.99,
+              "end": 14.218135593220339,
+              "duration": 2.2281355932203386,
+              "characters": 35,
+              "charactersPerSecond": 15.708200212992548,
+              "lines": [
+                "This chip handles",
+                "heavy lifting for"
+              ],
+              "lineLengths": [
+                17,
+                17
+              ]
+            },
+            {
+              "cueIndex": 5,
+              "start": 14.218135593220339,
+              "end": 16.25528813559322,
+              "duration": 2.03715254237288,
+              "characters": 32,
+              "charactersPerSecond": 15.708200212992557,
+              "lines": [
+                "networks and",
+                "TLS/SSL encryption,"
+              ],
+              "lineLengths": [
+                12,
+                19
+              ]
+            },
+            {
+              "cueIndex": 6,
+              "start": 16.25528813559322,
+              "end": 18.712101694915255,
+              "duration": 2.456813559322036,
+              "characters": 33,
+              "charactersPerSecond": 13.432032672884805,
+              "lines": [
+                "keeping your code",
+                "simpler without"
+              ],
+              "lineLengths": [
+                17,
+                15
+              ]
+            },
+            {
+              "cueIndex": 7,
+              "start": 18.712101694915255,
+              "end": 19.857999999999997,
+              "duration": 1.1458983050847422,
+              "characters": 18,
+              "charactersPerSecond": 15.708200212992594,
+              "lines": [
+                "complex libraries."
+              ],
+              "lineLengths": [
+                18
+              ]
+            },
+            {
+              "cueIndex": 8,
+              "start": 20.872000000000003,
+              "end": 23.374524271844663,
+              "duration": 2.50252427184466,
+              "characters": 36,
+              "charactersPerSecond": 14.385474860335197,
+              "lines": [
+                "Send basic but",
+                "powerful socket-based"
+              ],
+              "lineLengths": [
+                14,
+                21
+              ]
+            },
+            {
+              "cueIndex": 9,
+              "start": 23.374524271844663,
+              "end": 26.11056310679612,
+              "duration": 2.736038834951458,
+              "characters": 37,
+              "charactersPerSecond": 13.523199863738938,
+              "lines": [
+                "commands over 8MHz",
+                "SPI for high speed"
+              ],
+              "lineLengths": [
+                18,
+                18
+              ]
+            },
+            {
+              "cueIndex": 10,
+              "start": 26.11056310679612,
+              "end": 28.196000000000005,
+              "duration": 2.085436893203884,
+              "characters": 30,
+              "charactersPerSecond": 14.385474860335194,
+              "lines": [
+                "data transfer",
+                "with this board."
+              ],
+              "lineLengths": [
+                13,
+                16
+              ]
+            },
+            {
+              "cueIndex": 11,
+              "start": 29.215000000000003,
+              "end": 32.263744186046516,
+              "duration": 3.0487441860465125,
+              "characters": 42,
+              "charactersPerSecond": 13.776164032464754,
+              "lines": [
+                "Information retrieved",
+                "on October 23, 2026."
+              ],
+              "lineLengths": [
+                21,
+                20
+              ]
+            },
+            {
+              "cueIndex": 12,
+              "start": 32.263744186046516,
+              "end": 35.08777519379845,
+              "duration": 2.824031007751934,
+              "characters": 34,
+              "charactersPerSecond": 12.039527861652502,
+              "lines": [
+                "This is source-based",
+                "research, not"
+              ],
+              "lineLengths": [
+                20,
+                13
+              ]
+            },
+            {
+              "cueIndex": 13,
+              "start": 35.08777519379845,
+              "end": 36.39437984496124,
+              "duration": 1.3066046511627931,
+              "characters": 18,
+              "charactersPerSecond": 13.776164032464733,
+              "lines": [
+                "firsthand testing."
+              ],
+              "lineLengths": [
+                18
+              ]
+            },
+            {
+              "cueIndex": 14,
+              "start": 36.39437984496124,
+              "end": 39.259,
+              "duration": 2.8646201550387573,
+              "characters": 35,
+              "charactersPerSecond": 12.21802476619329,
+              "lines": [
+                "Prices and availability",
+                "may change."
+              ],
+              "lineLengths": [
+                23,
+                11
+              ]
+            }
+          ],
+          "findings": [],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Cues can span internal pauses. No audio was trimmed."
+      },
+      "preflight": {
+        "checkedAt": "2026-10-23T09:40:07.178Z",
+        "approvedEvidenceHash": "730306c4069c470482f0906fcb4455ffdaf4993d227aa145c79829c35e1ba549",
+        "checks": [
+          {
+            "url": "https://www.adafruit.com/product/4201",
+            "fetchedAt": "2026-10-23T09:40:07.585Z",
+            "sha256": "a418ad32104dcd983ceb7dc6da007f4cf6a9c30b0a7da73be29a2757de9e6603"
+          }
+        ],
+        "affiliate": null,
+        "status": "UNCHANGED_RETRIEVED_EVIDENCE"
+      },
+      "contentApproved": false,
+      "humanReview": "NOT_REVIEWED",
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "caption-quality.json",
+        "research.json",
+        "citations.md",
+        "speech-activity.json",
+        "voice-review.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json",
+        "product-evidence.json",
+        "product-publication-description.txt"
+      ]
+    }
+  ]
+}

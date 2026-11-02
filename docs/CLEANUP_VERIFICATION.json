@@ -1,0 +1,9 @@
+{
+  "status": "VERIFIED_PRESERVED_SOURCE_MODELS_RELEASE",
+  "sourceFiles": 585,
+  "modelManifests": 7,
+  "releaseResourceFiles": 9858,
+  "errors": [],
+  "resourceErrors": [],
+  "fluxMissingOrWrongSize": []
+}

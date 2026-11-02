@@ -1,0 +1,50 @@
+{
+  "product": "AUTONOMOUS CREATIVE STUDIO",
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\AUTONOMOUS CREATIVE STUDIO.exe",
+  "exeSha256": "587e47d790146c9e10c8e45b9bdaa336305bc270c228a25a8bd78c57b04a7ba9",
+  "timestamp": "2026-10-27T01:57:25.294Z",
+  "status": "VERIFIED_NATIVE_WEBVIEW_AND_AUTH",
+  "desktopPid": 16440,
+  "webPid": 46536,
+  "workerPid": 43896,
+  "port": 52824,
+  "unauthenticated": 401,
+  "authenticated": 200,
+  "workspaceScreens": [
+    "projects",
+    "channels",
+    "insights"
+  ],
+  "wizards": {
+    "status": "VERIFIED_NATIVE_DRAFT_WIZARDS_ONLY",
+    "autopilot": [
+      {
+        "locale": "vi",
+        "autopilotId": "69184552-a7ac-4e9e-8d64-c2d621d9fce0",
+        "sevenSteps": true,
+        "reloadPersistence": true,
+        "failedSaveRetainsDraft": true,
+        "serverDraftInactive": true
+      },
+      {
+        "locale": "en",
+        "autopilotId": "48d0661b-15dd-44b0-b90a-1f10969a37b4",
+        "sevenSteps": true,
+        "reloadPersistence": true,
+        "failedSaveRetainsDraft": true,
+        "serverDraftInactive": true
+      }
+    ],
+    "oneOffSixSteps": true,
+    "oneOffScriptPersisted": true,
+    "missingSourcesBlockProduction": true,
+    "queuedJobs": 0,
+    "publicationActions": 0,
+    "humanApproval": "NOT_CREATED"
+  },
+  "visualReview": "SCREENSHOT_CAPTURED",
+  "installer": "NOT_VERIFIED",
+  "voices": [],
+  "closePolicy": null,
+  "processTreeStopped": true
+}

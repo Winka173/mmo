@@ -1,0 +1,261 @@
+{
+  "status": "VERIFIED_SELECTED_TESTS_NOT_FULL_BASELINE",
+  "tests": 235,
+  "passed": 235,
+  "failed": 0,
+  "files": 50,
+  "startedUtc": "2026-10-23T11:06:20.334000+00:00",
+  "scope": "Selected contracts and actual FFmpeg fixtures; mock AI/provider transports do not certify inference or real accounts",
+  "suites": [
+    {
+      "file": "apps/worker/test/images.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "apps/worker/test/model-setup-ownership.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "apps/worker/test/opportunities.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "apps/worker/test/product-research.test.ts",
+      "status": "passed",
+      "tests": 17
+    },
+    {
+      "file": "apps/worker/test/research-opportunity.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "apps/worker/test/semantic.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "apps/worker/test/studio-caption-evidence.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "apps/worker/test/studio-caption-pipeline.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "apps/worker/test/studio-footage-pipeline.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "apps/worker/test/studio-plan.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "apps/worker/test/studio-publishing.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "apps/worker/test/studio-source-rights.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "apps/worker/test/studio-telegram.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "apps/worker/test/studio-voice-repair.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "packages/automation/test/engine-health.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "packages/automation/test/images.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/automation/test/product-eligibility.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/automation/test/pronunciation.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "packages/automation/test/queue.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "packages/automation/test/review.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/automation/test/scheduler.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "packages/automation/test/setup.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "packages/automation/test/source-watch.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "packages/automation/test/studio-delivery-policy.test.ts",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "packages/automation/test/studio-oauth.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "packages/automation/test/studio-projects-api.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "packages/automation/test/studio-projects.test.ts",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "packages/automation/test/studio-schedule.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/automation/test/studio.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "packages/automation/test/voices.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/core/test/research.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/core/test/timeline.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/core/test/transcript-edit.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "packages/games/test/footage-analysis.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "packages/games/test/manual-export.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/games/test/media-archive.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "packages/platforms/test/meta-tiktok.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "packages/platforms/test/youtube-resume.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/media/test/caption-quality.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "packages/media/test/still-timeline.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "packages/quality/test/voice.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/storage/test/migrations.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "packages/storage/test/storage.test.ts",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "file": "packages/storage/test/studio-backup.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "packages/storage/test/worker-health.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "packages/telegram/test/inbox.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "packages/telegram/test/telegram.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "packages/providers/test/providers.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "packages/providers/test/public-feed.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "packages/providers/test/public-source.test.ts",
+      "status": "passed",
+      "tests": 3
+    }
+  ]
+}

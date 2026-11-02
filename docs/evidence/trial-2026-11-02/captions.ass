@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,56,&H00ffffff,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,3,14,0,2,60,60,230,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.84,Default,,0,0,0,,Giới thiệu 'Lane\NKeeper', tựa game thủ
+Dialogue: 0,0:00:01.84,0:00:03.23,Default,,0,0,0,,thành 3 làn đường\Ndo nhóm tự làm.
+Dialogue: 0,0:00:03.63,0:00:05.20,Default,,0,0,0,,Người chơi đặt\Ntháp trên ba làn để
+Dialogue: 0,0:00:05.20,0:00:06.45,Default,,0,0,0,,chặn đứng các đợt quái vật.
+Dialogue: 0,0:00:06.87,0:00:07.80,Default,,0,0,0,,Hai loại tháp chính:
+Dialogue: 0,0:00:07.80,0:00:09.93,Default,,0,0,0,,tháp cung bắn nhanh\Nvà tháp phép làm chậm.
+Dialogue: 0,0:00:10.40,0:00:12.28,Default,,0,0,0,,Mỗi màn gồm năm\Nđợt, với trùm xuất
+Dialogue: 0,0:00:12.28,0:00:13.31,Default,,0,0,0,,hiện ở màn cuối cùng.
+Dialogue: 0,0:00:13.70,0:00:15.09,Default,,0,0,0,,Tựa game đang\Ntrong giai đoạn thử
+Dialogue: 0,0:00:15.09,0:00:17.09,Default,,0,0,0,,nghiệm nội bộ, chưa\Nxác định ngày phát
+Dialogue: 0,0:00:17.09,0:00:17.76,Default,,0,0,0,,hành hay giá cả.

@@ -1,0 +1,79 @@
+{
+  "status": "VERIFIED_INTERNAL_DUB_FIXTURE_MEANING_REVIEW_REQUIRED",
+  "fixture": true,
+  "sourceLanguage": "en-US",
+  "targetLanguage": "vi-VN",
+  "mandarinWorkflowVerified": false,
+  "publicPosting": false,
+  "runId": "2f14f425-7609-4234-a943-127bfcc2ed71",
+  "at": "2026-10-23T03:49:38.257Z",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792727378213\\data\\studio\\artifacts\\2f14f425-7609-4234-a943-127bfcc2ed71\\final.mp4",
+  "duration": 18.106,
+  "translation": [
+    {
+      "index": 0,
+      "text": "Venus nằm gần Mặt Trời của chúng ta, đóng vai là hành tinh láng giềng gần nhất trong không gian. Tuy nhiên, bầu khí quyển dày đặc của nó giữ nhiệt trong một hiệu ứng nhà kính mất kiểm soát."
+    },
+    {
+      "index": 1,
+      "text": "Điều này khiến nó trở thành hành tinh nóng nhất; bầu khí quyển chủ yếu là carbon dioxide, thúc đẩy nhiệt độ gay gắt này nhờ những đám mây axit sunfuric dày đặc."
+    }
+  ],
+  "retiming": [
+    {
+      "sourceSeconds": 10,
+      "outputSeconds": 9.510000000000002,
+      "ratio": 0.9510000000000002
+    },
+    {
+      "sourceSeconds": 9.907,
+      "outputSeconds": 8.57,
+      "ratio": 0.865044917734935
+    }
+  ],
+  "voiceReview": [
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Venus nằm gần Mặt Trời của chúng ta, đóng vai là hành tinh láng giềng gần nhất trong không gian. Tuy nhiên, bầu khí quyển dày đặc của nó giữ nhiệt trong một hiệu ứng nhà kính mất kiểm soát.",
+      "transcription": "Venus nằm gần mặt trời của chúng ta, đóng vai là hành tinh láng giềng gần nhất trong không gian. Tuy nhiên, bầu khí quyển dày đặc của nó giữ nhiệt trong một hiệu ứng nhà kính mất kiểm soát.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Venus nằm gần Mặt Trời của chúng ta, đóng vai là hành tinh láng giềng gần nhất trong không gian. Tuy nhiên, bầu khí quyển dày đặc của nó giữ nhiệt trong một hiệu ứng nhà kính mất kiểm soát.",
+      "spokenText": "Venus nằm gần Mặt Trời của chúng ta, đóng vai là hành tinh láng giềng gần nhất trong không gian. Tuy nhiên, bầu khí quyển dày đặc của nó giữ nhiệt trong một hiệu ứng nhà kính mất kiểm soát.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792727378213\\data\\studio\\artifacts\\2f14f425-7609-4234-a943-127bfcc2ed71\\voice-0.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0.06060606060606061,
+      "expected": "Điều này khiến nó trở thành hành tinh nóng nhất; bầu khí quyển chủ yếu là carbon dioxide, thúc đẩy nhiệt độ gay gắt này nhờ những đám mây axit sunfuric dày đặc.",
+      "transcription": "điều này khiến nó trở thành hành tinh nóng nhất. Bầu khí quyển chủ yếu là carbon dioxide. thúc đẩy nhiệt độ gay gắt này nhờ những đám mây acid sulfur dày đặc.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Điều này khiến nó trở thành hành tinh nóng nhất; bầu khí quyển chủ yếu là carbon dioxide, thúc đẩy nhiệt độ gay gắt này nhờ những đám mây axit sunfuric dày đặc.",
+      "spokenText": "Điều này khiến nó trở thành hành tinh nóng nhất; bầu khí quyển chủ yếu là carbon dioxide, thúc đẩy nhiệt độ gay gắt này nhờ những đám mây axit sunfuric dày đặc.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792727378213\\data\\studio\\artifacts\\2f14f425-7609-4234-a943-127bfcc2ed71\\voice-1.wav"
+    }
+  ],
+  "originalSources": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792727378213\\data\\studio\\artifacts\\2f14f425-7609-4234-a943-127bfcc2ed71\\authorized-original.mp4",
+      "sha256": "357044f13654a9898ddd3b6d2549ccd2f79cf54640d437eedb9797a3393e9603",
+      "size": 676214
+    }
+  ],
+  "checks": [
+    "actual source ASR without expected transcript",
+    "independent local translation",
+    "local target-language voice replacing source dialogue, no speaker cloning",
+    "timed source excerpts retimed to target narration",
+    "editable target captions",
+    "source/translation/rights manifests retained",
+    "technical QA and ASR target language",
+    "public posting remains blocked"
+  ]
+}

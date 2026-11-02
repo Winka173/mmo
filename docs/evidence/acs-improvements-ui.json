@@ -1,0 +1,63 @@
+{
+  "status": "VERIFIED_ACTUAL_BROWSER_FIXTURE_WORKFLOWS",
+  "at": "2026-10-23T18:04:00.194Z",
+  "serverEntry": "C:\\Users\\Winka\\Projects\\mmo\\desktop\\backend\\apps\\web\\server.js",
+  "fixture": {
+    "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\improvements-ec612183-9a04-42ee-bd01-dfbfa72bb0df\\data",
+    "planId": "d6d54b35-545c-4cd5-a13b-c1f0fe86ff8d",
+    "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+    "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+    "inference": "NOT_PERFORMED",
+    "publicPosting": false,
+    "compareId": "921e94a8-fab2-4c11-b1c7-4ca15fbbac9d",
+    "mediaRunId": "8ddc6a7d-cb8c-4da1-903c-d63d9a9ee00b",
+    "mediaSourceSha": "f7e1c6c08453fb561862274e34d2f25890f54372be6e2bfdd02ea7d49d9e18b0",
+    "visionTaskId": "9fbe8851-c2fc-45c3-b474-453e53a55167",
+    "visionScope": "Reuse prior actual flagged vision suggestion; no new inference or owner acceptance"
+  },
+  "checks": [
+    "Three-region editor seeks selected scene; narration draft survives reload; comparison workspace exists and grants no approval",
+    "Cut version scene navigation follows actual saved split video clips and shifted timeline positions, not original narration duration",
+    "Actual browser decodes existing speech waveform locally; caption boundary edit queues a new version without changing speech or the original",
+    "Pre-render plan-line working draft restores after reload before immutable save",
+    "Brand kit renders a live Vietnamese typography/CTA preview and saves a reusable preset through UI; existing plans are not rewritten",
+    "Thumbnail/source catalog saves SHA-bound description/name revisions and displays prior real flagged vision suggestion without automatic acceptance",
+    "Content repetition and evidence-based planning panel is accessible; absent remote metrics remain unknown",
+    "Fixed six-case English evaluation enqueues six durable local auditions without starting a worker, inference or human approval",
+    "Editor responsive layouts at 1600/1280/960/640/480 CSS pixels avoid page overflow; physical Windows DPI not certified",
+    "English editor/caption controls render without browser exceptions"
+  ],
+  "sizes": [
+    {
+      "width": 1600,
+      "scroll": 1600,
+      "client": 1600
+    },
+    {
+      "width": 1280,
+      "scroll": 1280,
+      "client": 1280
+    },
+    {
+      "width": 960,
+      "scroll": 960,
+      "client": 960
+    },
+    {
+      "width": 640,
+      "scroll": 640,
+      "client": 640
+    },
+    {
+      "width": 480,
+      "scroll": 480,
+      "client": 480
+    }
+  ],
+  "timingChildId": "ff10d1cd-ca0b-4e2a-a666-76bf38aadec6",
+  "browserErrors": [],
+  "modelInference": "NOT_STARTED_BY_THIS_UI_HARNESS",
+  "publicPosting": false,
+  "ownerApproval": "NOT_CREATED",
+  "sourceScope": "Owned fixture plans and copied real speech; prior vision inference reused with its original quality flag"
+}

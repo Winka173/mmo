@@ -1,0 +1,229 @@
+{
+  "engine": "silero-vad",
+  "device": "cpu",
+  "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+  "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+  "runner_sha256": "e54778291bd7a5617f0705b518cadf066d6ea39b46f6ee9cfc01b86458f5be45",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "scipy": "1.17.1",
+    "numpy": "2.4.6",
+    "soundfile": "0.14.0"
+  },
+  "seconds": 0.6663703918457031,
+  "results": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+      "duration": 3.28,
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 1.15
+        },
+        {
+          "start": 1.314,
+          "end": 3.23
+        }
+      ],
+      "speech_ratio": 0.9146341463414634,
+      "max_probability": 0.9999985694885254,
+      "leading_silence": 0.066,
+      "trailing_silence": 0.04999999999999982
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+      "duration": 2.88,
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 2.846
+        }
+      ],
+      "speech_ratio": 0.9763888888888889,
+      "max_probability": 0.9999996423721313,
+      "leading_silence": 0.034,
+      "trailing_silence": 0.03400000000000025
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+      "duration": 3.2,
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 1.022
+        },
+        {
+          "start": 1.186,
+          "end": 3.134
+        }
+      ],
+      "speech_ratio": 0.9075,
+      "max_probability": 0.9999986886978149,
+      "leading_silence": 0.066,
+      "trailing_silence": 0.06600000000000028
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+      "duration": 3.04,
+      "speech": [
+        {
+          "start": 0.098,
+          "end": 1.214
+        },
+        {
+          "start": 1.442,
+          "end": 3.006
+        }
+      ],
+      "speech_ratio": 0.8815789473684209,
+      "max_probability": 0.9999995231628418,
+      "leading_silence": 0.098,
+      "trailing_silence": 0.03400000000000025
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+      "duration": 4.16,
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 1.982
+        },
+        {
+          "start": 2.37,
+          "end": 4.094
+        }
+      ],
+      "speech_ratio": 0.8826923076923077,
+      "max_probability": 0.9999992847442627,
+      "leading_silence": 0.034,
+      "trailing_silence": 0.06599999999999984
+    }
+  ],
+  "parameters": {
+    "onset": 0.5,
+    "offset": 0.35,
+    "min_speech_seconds": 0.25,
+    "end_silence_seconds": 0.2,
+    "padding_seconds": 0.03
+  },
+  "word_timing": "NOT_PROVIDED",
+  "human_review": "NOT_REVIEWED",
+  "checks": [
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+        "duration": 3.28,
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 1.15
+          },
+          {
+            "start": 1.314,
+            "end": 3.23
+          }
+        ],
+        "speech_ratio": 0.9146341463414634,
+        "max_probability": 0.9999985694885254,
+        "leading_silence": 0.066,
+        "trailing_silence": 0.04999999999999982
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+        "duration": 2.88,
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 2.846
+          }
+        ],
+        "speech_ratio": 0.9763888888888889,
+        "max_probability": 0.9999996423721313,
+        "leading_silence": 0.034,
+        "trailing_silence": 0.03400000000000025
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+        "duration": 3.2,
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 1.022
+          },
+          {
+            "start": 1.186,
+            "end": 3.134
+          }
+        ],
+        "speech_ratio": 0.9075,
+        "max_probability": 0.9999986886978149,
+        "leading_silence": 0.066,
+        "trailing_silence": 0.06600000000000028
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+        "duration": 3.04,
+        "speech": [
+          {
+            "start": 0.098,
+            "end": 1.214
+          },
+          {
+            "start": 1.442,
+            "end": 3.006
+          }
+        ],
+        "speech_ratio": 0.8815789473684209,
+        "max_probability": 0.9999995231628418,
+        "leading_silence": 0.098,
+        "trailing_silence": 0.03400000000000025
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+        "duration": 4.16,
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 1.982
+          },
+          {
+            "start": 2.37,
+            "end": 4.094
+          }
+        ],
+        "speech_ratio": 0.8826923076923077,
+        "max_probability": 0.9999992847442627,
+        "leading_silence": 0.034,
+        "trailing_silence": 0.06599999999999984
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    }
+  ]
+}

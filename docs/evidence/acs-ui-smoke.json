@@ -1,0 +1,6 @@
+{
+  "status": "FAILED",
+  "error": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Tên video', { exact: true })\u001b[22m\n",
+  "url": "http://127.0.0.1:3467/studio/create",
+  "timestamp": "2026-10-27T01:50:06.424Z"
+}

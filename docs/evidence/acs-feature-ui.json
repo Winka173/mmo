@@ -1,0 +1,160 @@
+{
+  "status": "VERIFIED_FIXTURE_UI_NO_HUMAN_OR_PUBLICATION_APPROVAL",
+  "at": "2026-10-23T02:48:18.727Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\features-ui\\0d14b2d0-0d86-4515-8bae-f1dedb489f64\\data",
+  "sourceRun": "a72ae97e-3a34-466d-a966-e4f3b40cb5b1",
+  "edited": "ad92a163-fc52-4c6a-8345-15519a553b48",
+  "mixed": "a6ef4ea6-41f7-4399-86c5-0042ed25ffea",
+  "checks": [
+    "caption edit through UI renders a new immutable version",
+    "audio upload, rights record and separate music track render through UI",
+    "citations survive timeline edits; scope can be deferred; no fabricated human approval",
+    "VI/EN managed CUDA LLM test launched in UI and executed by packaged worker"
+  ],
+  "browserErrors": [],
+  "llmEvidence": {
+    "status": "VERIFIED_TEXT_INFERENCE_ONLY",
+    "visionStatus": "FLAGGED_REQUIRES_REVIEW",
+    "evidence": [
+      {
+        "script": {
+          "shots": [
+            {
+              "text": "Thư viện địa phương là nơi lưu giữ và cung cấp các loại sách báo phong phú cho cộng đồng."
+            },
+            {
+              "text": "Đây cũng là không gian học tập và giao lưu văn hóa thuận tiện cho mọi người dân sử dụng."
+            },
+            {
+              "text": "Thư viện địa phương đóng vai trò quan trọng trong việc nâng cao dân trí và bảo tồn di sản văn hóa."
+            },
+            {
+              "text": "Người dân có thể đến đây mượn sách miễn phí và tham gia các hoạt động cộng đồng đa dạng."
+            }
+          ]
+        },
+        "model": "qwen3.5:9b",
+        "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+        "seconds": 6.041067838668823,
+        "usage": {
+          "input_tokens": 55,
+          "output_tokens": 153
+        },
+        "mode": "local",
+        "device": "cuda",
+        "requested_device": "cuda",
+        "execution": {
+          "name": "qwen3.5:9b",
+          "model": "qwen3.5:9b",
+          "size": 5862210928,
+          "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "9.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-23T09:48:04.3319323+07:00",
+          "size_vram": 5862210928,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      },
+      {
+        "script": {
+          "shots": [
+            {
+              "text": "Our local library is a welcoming hub for community learning and resources."
+            },
+            {
+              "text": "Visitors can find books, computers, and quiet study spaces within our building."
+            },
+            {
+              "text": "The staff are always happy to assist you with your reading needs."
+            }
+          ]
+        },
+        "model": "qwen3.5:9b",
+        "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+        "seconds": 6.49698805809021,
+        "usage": {
+          "input_tokens": 49,
+          "output_tokens": 94
+        },
+        "mode": "local",
+        "device": "cuda",
+        "requested_device": "cuda",
+        "execution": {
+          "name": "qwen3.5:9b",
+          "model": "qwen3.5:9b",
+          "size": 5862210928,
+          "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "9.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-23T09:48:12.0004091+07:00",
+          "size_vram": 5862210928,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      },
+      {
+        "script": {
+          "circleColor": "blue",
+          "rectangleColor": "orange",
+          "visibleText": "AI"
+        },
+        "model": "qwen3.5:9b",
+        "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+        "seconds": 5.043882131576538,
+        "usage": {
+          "input_tokens": 318,
+          "output_tokens": 22
+        },
+        "mode": "local",
+        "device": "cuda",
+        "requested_device": "cuda",
+        "execution": {
+          "name": "qwen3.5:9b",
+          "model": "qwen3.5:9b",
+          "size": 5862210928,
+          "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "9.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-23T09:48:17.8776516+07:00",
+          "size_vram": 5862210928,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        },
+        "capability": "vision",
+        "sample": "controlled colors / visible text",
+        "expected": {
+          "circleColor": "blue",
+          "rectangleColor": "orange",
+          "visibleText": "ACS 42"
+        },
+        "validation": "FLAGGED_REQUIRES_REVIEW"
+      }
+    ],
+    "humanReview": "NOT_REVIEWED"
+  }
+}

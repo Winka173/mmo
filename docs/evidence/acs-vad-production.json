@@ -1,0 +1,199 @@
+{
+  "status": "VERIFIED_TECHNICAL_VI_EN_VOICE_VAD_AND_PRONUNCIATION_FIXTURE",
+  "at": "2026-10-23T04:42:55.727Z",
+  "fixture": true,
+  "realGameplay": false,
+  "publicPosting": false,
+  "runs": [
+    {
+      "id": "cb357b2f-7141-412e-a322-abe29ea33563",
+      "language": "vi-VN",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\cb357b2f-7141-412e-a322-abe29ea33563\\final.mp4",
+      "duration": 9.310667,
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0,
+          "expected": "Đây là video kiểm thử nội bộ của ứng dụng sáng tạo. Toàn bộ hình ảnh và giọng đọc trong ví dụ này được tạo để kiểm tra quy trình trên máy. Video chưa được duyệt để đăng công khai.",
+          "transcription": "Đây là video kiểm thử nội bộ của ứng dụng sáng tạo. Toàn bộ hình ảnh và giọng đọc trong ví dụ này được tạo để kiểm tra quy trình trên máy. Video chưa được duyệt để đăng công khai.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Đây là video kiểm thử nội bộ của ứng dụng sáng tạo. Toàn bộ hình ảnh và giọng đọc trong ví dụ này được tạo để kiểm tra quy trình trên máy. Video chưa được duyệt để đăng công khai.",
+          "spokenText": "Đây là video kiểm thử nội bộ của ứng dụng sáng tạo. Toàn bộ hình ảnh và giọng đọc trong ví dụ này được tạo để kiểm tra quy trình trên máy. Video chưa được duyệt để đăng công khai.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\cb357b2f-7141-412e-a322-abe29ea33563\\voice-0.wav"
+        }
+      ],
+      "speechActivity": {
+        "engine": "silero-vad",
+        "device": "cpu",
+        "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+        "seconds": 0.14038634300231934,
+        "results": [
+          {
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\cb357b2f-7141-412e-a322-abe29ea33563\\voice-0.wav",
+            "duration": 8.98,
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 2.494
+              },
+              {
+                "start": 2.85,
+                "end": 6.558
+              },
+              {
+                "start": 6.882,
+                "end": 8.926
+              }
+            ],
+            "speech_ratio": 0.9109131403118039,
+            "max_probability": 0.9999996423721313,
+            "leading_silence": 0.066,
+            "trailing_silence": 0.05400000000000027
+          }
+        ],
+        "parameters": {
+          "onset": 0.5,
+          "offset": 0.35,
+          "min_speech_seconds": 0.25,
+          "end_silence_seconds": 0.2,
+          "padding_seconds": 0.03
+        },
+        "word_timing": "NOT_PROVIDED",
+        "human_review": "NOT_REVIEWED",
+        "checks": [
+          {
+            "criterion": "voice.speech_activity",
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\cb357b2f-7141-412e-a322-abe29ea33563\\voice-0.wav",
+            "status": "pass",
+            "evidence": {
+              "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\cb357b2f-7141-412e-a322-abe29ea33563\\voice-0.wav",
+              "duration": 8.98,
+              "speech": [
+                {
+                  "start": 0.066,
+                  "end": 2.494
+                },
+                {
+                  "start": 2.85,
+                  "end": 6.558
+                },
+                {
+                  "start": 6.882,
+                  "end": 8.926
+                }
+              ],
+              "speech_ratio": 0.9109131403118039,
+              "max_probability": 0.9999996423721313,
+              "leading_silence": 0.066,
+              "trailing_silence": 0.05400000000000027
+            },
+            "recommendedFix": "Review pauses before trimming; VAD does not align words"
+          }
+        ]
+      },
+      "sourceText": "Đây là video kiểm thử nội bộ của ứng dụng sáng tạo. Toàn bộ hình ảnh và giọng đọc trong ví dụ này được tạo để kiểm tra quy trình trên máy. Video chưa được duyệt để đăng công khai.",
+      "spokenText": "Đây là video kiểm thử nội bộ của ứng dụng sáng tạo. Toàn bộ hình ảnh và giọng đọc trong ví dụ này được tạo để kiểm tra quy trình trên máy. Video chưa được duyệt để đăng công khai.",
+      "voiceDevice": "cuda",
+      "humanReview": "NOT_REVIEWED",
+      "wordTiming": "ESTIMATED_NOT_ALIGNED"
+    },
+    {
+      "id": "e1e6b6d3-2dd4-414c-ae16-539316dcd017",
+      "language": "en-US",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\e1e6b6d3-2dd4-414c-ae16-539316dcd017\\final.mp4",
+      "duration": 14.810667,
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.09090909090909091,
+          "expected": "The A C S workspace prepares an internal test video from locally supplied materials. This sample checks narration, captions, speech activity, and editing. It is a development fixture and has no publication approval.",
+          "transcription": "The CS workspace prepares an internal test video from locally supplied materials. This sample checks narration, captions, speech activity, and editing. It is a development fixture and has no publication approval.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "The ACS workspace prepares an internal test video from locally supplied materials. This sample checks narration, captions, speech activity, and editing. It is a development fixture and has no publication approval.",
+          "spokenText": "The A C S workspace prepares an internal test video from locally supplied materials. This sample checks narration, captions, speech activity, and editing. It is a development fixture and has no publication approval.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\e1e6b6d3-2dd4-414c-ae16-539316dcd017\\voice-0.wav"
+        }
+      ],
+      "speechActivity": {
+        "engine": "silero-vad",
+        "device": "cpu",
+        "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+        "seconds": 0.17238950729370117,
+        "results": [
+          {
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\e1e6b6d3-2dd4-414c-ae16-539316dcd017\\voice-0.wav",
+            "duration": 14.425,
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 5.214
+              },
+              {
+                "start": 5.698,
+                "end": 10.238
+              },
+              {
+                "start": 10.658,
+                "end": 14.046
+              }
+            ],
+            "speech_ratio": 0.890953206239168,
+            "max_probability": 0.9999996423721313,
+            "leading_silence": 0.29000000000000004,
+            "trailing_silence": 0.37900000000000134
+          }
+        ],
+        "parameters": {
+          "onset": 0.5,
+          "offset": 0.35,
+          "min_speech_seconds": 0.25,
+          "end_silence_seconds": 0.2,
+          "padding_seconds": 0.03
+        },
+        "word_timing": "NOT_PROVIDED",
+        "human_review": "NOT_REVIEWED",
+        "checks": [
+          {
+            "criterion": "voice.speech_activity",
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\e1e6b6d3-2dd4-414c-ae16-539316dcd017\\voice-0.wav",
+            "status": "pass",
+            "evidence": {
+              "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\vad-production\\1792730575624\\data\\studio\\artifacts\\e1e6b6d3-2dd4-414c-ae16-539316dcd017\\voice-0.wav",
+              "duration": 14.425,
+              "speech": [
+                {
+                  "start": 0.29,
+                  "end": 5.214
+                },
+                {
+                  "start": 5.698,
+                  "end": 10.238
+                },
+                {
+                  "start": 10.658,
+                  "end": 14.046
+                }
+              ],
+              "speech_ratio": 0.890953206239168,
+              "max_probability": 0.9999996423721313,
+              "leading_silence": 0.29000000000000004,
+              "trailing_silence": 0.37900000000000134
+            },
+            "recommendedFix": "Review pauses before trimming; VAD does not align words"
+          }
+        ]
+      },
+      "sourceText": "The ACS workspace prepares an internal test video from locally supplied materials. This sample checks narration, captions, speech activity, and editing. It is a development fixture and has no publication approval.",
+      "spokenText": "The A C S workspace prepares an internal test video from locally supplied materials. This sample checks narration, captions, speech activity, and editing. It is a development fixture and has no publication approval.",
+      "voiceDevice": "cuda",
+      "humanReview": "NOT_REVIEWED",
+      "wordTiming": "ESTIMATED_NOT_ALIGNED"
+    }
+  ]
+}

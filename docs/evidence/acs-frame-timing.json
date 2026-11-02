@@ -1,0 +1,43 @@
+{
+  "status": "VERIFIED_ACTUAL_FFMPEG_WITH_MOCK_TONE_NOT_SPEECH",
+  "parentId": "feaab3c8-a8f6-4501-a3b9-d3db3f757671",
+  "childId": "16405083-6ff6-4715-8f06-f95d56170107",
+  "parent": "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-pZPir3\\studio\\artifacts\\feaab3c8-a8f6-4501-a3b9-d3db3f757671\\final.mp4",
+  "child": "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-pZPir3\\studio\\artifacts\\16405083-6ff6-4715-8f06-f95d56170107\\final.mp4",
+  "timelineDuration": 4.7,
+  "parentRenderTiming": {
+    "version": 2,
+    "frameTimedNarration": true,
+    "plannedFrames": 141,
+    "measuredVideoFrames": 141,
+    "measuredVideoDuration": 4.7,
+    "measuredContainerDuration": 4.7
+  },
+  "childRenderTiming": {
+    "version": 2,
+    "frameTimedNarration": true,
+    "plannedFrames": 141,
+    "measuredVideoFrames": 141,
+    "measuredVideoDuration": 4.7,
+    "measuredContainerDuration": 4.7
+  },
+  "ttsCalls": 4,
+  "unchangedSegments": [
+    0,
+    2
+  ],
+  "originalPreserved": true,
+  "at": "2026-10-23T11:06:30.320661+00:00",
+  "persistentCopies": [
+    {
+      "kind": "parent",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\frame-timing\\20261023T110630Z\\parent.mp4",
+      "sha256": "f333b665be5360fd4f6c1d1f6a57c475ffeedf8332eadc2008751f7708737b5c"
+    },
+    {
+      "kind": "child",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\frame-timing\\20261023T110630Z\\child.mp4",
+      "sha256": "b028310282e388916a8f210a482cbf7f1cf5035edcb58393d99dd03a8e94bccb"
+    }
+  ]
+}

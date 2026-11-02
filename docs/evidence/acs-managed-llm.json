@@ -1,0 +1,168 @@
+{
+  "id": "b4d82936-3ffc-459f-906c-4f3a2ed79508",
+  "profile": "qwen3.5-9b",
+  "mode": "verify",
+  "root": "C:\\Users\\Winka\\Projects\\mmo",
+  "config": {
+    "locale": "vi",
+    "llmUrl": "http://127.0.0.1:11435/v1",
+    "llmModel": "qwen3.5:9b",
+    "llmManaged": true,
+    "llmBinary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ollama\\ollama.exe",
+    "llmModelStore": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\ollama",
+    "llmPort": 11435,
+    "llmDevice": "cuda",
+    "llmModelDigest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+    "python": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\speech\\Scripts\\python.exe",
+    "pythonVi": "",
+    "pythonAsr": "",
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe",
+    "ttsViModel": "",
+    "ttsEnModel": "",
+    "ttsViCodec": "",
+    "asrModel": "",
+    "asrDevice": "auto",
+    "voiceVi": "",
+    "voiceEn": "af_heart",
+    "voiceEnGb": "bf_emma",
+    "ttsDevice": "auto",
+    "gpuLock": "",
+    "maxContext": 8192,
+    "localOnly": true,
+    "uv": "uv"
+  },
+  "configHash": "07ca6ec7b34cbefce287c6abfee3101a343f4093c9ee666f99470772c5e578a8",
+  "state": "verified",
+  "progress": {
+    "status": "VERIFIED_INFERENCE_ONLY",
+    "evidence": [
+      {
+        "script": {
+          "shots": [
+            {
+              "text": "Thư viện địa phương là nơi lưu giữ và cung cấp tài liệu cho cộng đồng."
+            },
+            {
+              "text": "Đây là không gian lý tưởng để người dân tiếp cận tri thức và tham gia các hoạt động văn hóa."
+            },
+            {
+              "text": "Thư viện địa phương hỗ trợ giáo dục và nâng cao nhận thức cho mọi thành viên trong xã hội."
+            },
+            {
+              "text": "Nơi đây tổ chức nhiều sự kiện độc đáo nhằm khuyến khích đọc sách và sáng tạo."
+            }
+          ]
+        },
+        "model": "qwen3.5:9b",
+        "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+        "seconds": 50.70533037185669,
+        "usage": {
+          "input_tokens": 55,
+          "output_tokens": 147
+        },
+        "mode": "local",
+        "device": "cuda",
+        "requested_device": "cuda",
+        "execution": {
+          "name": "qwen3.5:9b",
+          "model": "qwen3.5:9b",
+          "size": 5862210928,
+          "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "9.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-23T09:22:39.5898537+07:00",
+          "size_vram": 5862210928,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      },
+      {
+        "script": {
+          "shots": [
+            {
+              "text": "The local library is a quiet place filled with books."
+            },
+            {
+              "text": "It serves as a community hub for learning and events."
+            },
+            {
+              "text": "Visitors can borrow materials and use computers here."
+            }
+          ]
+        },
+        "model": "qwen3.5:9b",
+        "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+        "seconds": 2.942467451095581,
+        "usage": {
+          "input_tokens": 49,
+          "output_tokens": 54
+        },
+        "mode": "local",
+        "device": "cuda",
+        "requested_device": "cuda",
+        "execution": {
+          "name": "qwen3.5:9b",
+          "model": "qwen3.5:9b",
+          "size": 5862210928,
+          "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "9.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-23T09:23:02.9041631+07:00",
+          "size_vram": 5862210928,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      }
+    ],
+    "humanReview": "NOT_REVIEWED"
+  },
+  "resultConfig": {
+    "locale": "vi",
+    "llmUrl": "http://127.0.0.1:11435/v1",
+    "llmModel": "qwen3.5:9b",
+    "llmManaged": true,
+    "llmBinary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ollama\\ollama.exe",
+    "llmModelStore": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\ollama",
+    "llmPort": 11435,
+    "llmDevice": "cuda",
+    "llmModelDigest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+    "python": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\speech\\Scripts\\python.exe",
+    "pythonVi": "",
+    "pythonAsr": "",
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe",
+    "ttsViModel": "",
+    "ttsEnModel": "",
+    "ttsViCodec": "",
+    "asrModel": "",
+    "asrDevice": "auto",
+    "voiceVi": "",
+    "voiceEn": "af_heart",
+    "voiceEnGb": "bf_emma",
+    "ttsDevice": "auto",
+    "gpuLock": "",
+    "maxContext": 8192,
+    "localOnly": true,
+    "uv": "uv"
+  },
+  "error": null,
+  "createdAt": "2026-10-23T02:22:04.797Z",
+  "updatedAt": "2026-10-23T02:23:03.350Z"
+}

@@ -1,0 +1,166 @@
+{
+  "status": "VERIFIED_LOCAL_FOOTAGE_HEURISTICS_SYNTHETIC_SOURCE_ONLY",
+  "at": "2026-10-23T07:39:40.251Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\footage-benchmark\\1792741176466\\data",
+  "runId": "406826f1-4f5e-4fcd-81e4-3bfdb6f13899",
+  "source": "C:\\Users\\Winka\\Projects\\mmo\\.local\\footage-benchmark\\1792741176466\\data\\studio\\artifacts\\406826f1-4f5e-4fcd-81e4-3bfdb6f13899\\source-0.mp4",
+  "sourceSha256": "1c673e81c9da310fa7ea58772e6e699de33dd15bc4b45e2a5de4a2c933494659",
+  "realGameplay": false,
+  "AIInference": false,
+  "fullVideoProduction": false,
+  "publicPosting": false,
+  "analysis": {
+    "schemaVersion": 1,
+    "key": "0f54515283d71b3a7ae74145d84716424dcafb91032e8f6dca0f0c1a40c83e59",
+    "at": "2026-10-23T07:39:41.668Z",
+    "method": "Existing local FFmpeg scene/black/freeze/audio signals and sampled frame statistics",
+    "semanticReview": "UNKNOWN",
+    "rightsReview": "REQUIRED",
+    "authenticGameplay": "OWNER_SOURCE_REQUIRES_REVIEW",
+    "OCR": "DISABLED_NOT_VERIFIED",
+    "automaticShotReplacement": false,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\footage-benchmark\\1792741176466\\data\\studio\\artifacts\\406826f1-4f5e-4fcd-81e4-3bfdb6f13899\\source-0.mp4",
+        "sha256": "1c673e81c9da310fa7ea58772e6e699de33dd15bc4b45e2a5de4a2c933494659",
+        "status": "MEASURED_LOCAL_HEURISTICS",
+        "analysis": {
+          "assetId": "1c673e81c9da310fa7ea58772e6e699de33dd15bc4b45e2a5de4a2c933494659",
+          "durationSec": 7,
+          "coverage": {
+            "scannedSeconds": 7,
+            "fullClip": true
+          },
+          "scenes": [
+            3,
+            4
+          ],
+          "freezes": [],
+          "blacks": [
+            {
+              "start": 3,
+              "end": 4
+            }
+          ],
+          "silences": [],
+          "audioRms": [],
+          "motion": [
+            {
+              "t": 0.5,
+              "v": 0
+            },
+            {
+              "t": 1,
+              "v": 0
+            },
+            {
+              "t": 1.5,
+              "v": 0
+            },
+            {
+              "t": 2,
+              "v": 0
+            },
+            {
+              "t": 2.5,
+              "v": 0.016
+            },
+            {
+              "t": 3,
+              "v": 0.266
+            },
+            {
+              "t": 3.5,
+              "v": 0
+            },
+            {
+              "t": 4,
+              "v": 0.25
+            },
+            {
+              "t": 4.5,
+              "v": 0
+            },
+            {
+              "t": 5,
+              "v": 0
+            },
+            {
+              "t": 5.5,
+              "v": 0
+            },
+            {
+              "t": 6,
+              "v": 0
+            },
+            {
+              "t": 6.5,
+              "v": 0.016
+            }
+          ],
+          "highlights": [
+            {
+              "in": 2.33,
+              "out": 4.67,
+              "score": 0.474,
+              "confidence": "medium",
+              "reasons": [
+                "2 lần chuyển cảnh",
+                "chuyển động 11%"
+              ]
+            }
+          ],
+          "heroCandidates": [
+            {
+              "t": 6.5,
+              "sharpness": 365,
+              "contrast": 63.1,
+              "score": 0.999
+            },
+            {
+              "t": 2.5,
+              "sharpness": 364,
+              "contrast": 63.1,
+              "score": 0.998
+            },
+            {
+              "t": 5.5,
+              "sharpness": 349,
+              "contrast": 63.2,
+              "score": 0.974
+            },
+            {
+              "t": 6,
+              "sharpness": 349,
+              "contrast": 63.1,
+              "score": 0.973
+            },
+            {
+              "t": 1.5,
+              "sharpness": 348,
+              "contrast": 63.2,
+              "score": 0.972
+            },
+            {
+              "t": 2,
+              "sharpness": 348,
+              "contrast": 63.1,
+              "score": 0.971
+            }
+          ],
+          "boringRatio": 0.143,
+          "leak": {
+            "method": "unavailable",
+            "suspicious": false,
+            "matches": []
+          },
+          "warnings": [
+            "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+            "Clip không có âm thanh"
+          ],
+          "analyzedAt": "2026-10-23T07:39:41.662Z"
+        }
+      }
+    ]
+  }
+}

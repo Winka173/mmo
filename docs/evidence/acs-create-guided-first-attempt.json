@@ -1,0 +1,7 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T10:31:45.237Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\3d3a8b9e-6d95-445e-92ab-344942993ce5\\data",
+  "checks": [],
+  "error": "TimeoutError: locator.selectOption: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Loại nội dung', { exact: true })\u001b[22m\n"
+}

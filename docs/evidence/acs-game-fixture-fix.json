@@ -1,0 +1,79 @@
+{
+  "status": "VERIFIED_TARGETED_FIXTURE_TESTS_NOT_FULL_GAME_SUITE",
+  "at": "2026-10-23T10:28:34.378926+00:00",
+  "passed": 2,
+  "failed": 0,
+  "skipped": 15,
+  "change": "Limit FFmpeg complex-filter threads to 1 and x264 threads to 2 in synthetic game fixtures; preserve resolution, FPS and preset. Seed no longer times out.",
+  "scope": "Two existing real FFmpeg checks: mixed-FPS proxy preservation and debug-overlay hold. Fifteen game assertions deliberately not selected.",
+  "tests": [
+    {
+      "name": "multi-game registry & intake (Y1/Y2) onboards two different games with no code change; distinct brand kits and accounts",
+      "status": "skipped"
+    },
+    {
+      "name": "multi-game registry & intake (Y1/Y2) rejects zero-byte and truncated uploads with a preserved reason (ask re-upload)",
+      "status": "skipped"
+    },
+    {
+      "name": "multi-game registry & intake (Y1/Y2) probes mixed FPS once into a normalised proxy, preserving the source",
+      "status": "passed"
+    },
+    {
+      "name": "multi-game registry & intake (Y1/Y2) same file in two games gets two independent, game-scoped records (no cross-game upload)",
+      "status": "skipped"
+    },
+    {
+      "name": "multi-game registry & intake (Y1/Y2) ZIP import blocks zip-slip, symlinks and executables; imports the rest",
+      "status": "skipped"
+    },
+    {
+      "name": "multi-game registry & intake (Y1/Y2) disguised files are refused by content sniffing",
+      "status": "skipped"
+    },
+    {
+      "name": "multi-game registry & intake (Y1/Y2) CSV shot list maps to validated clip refs",
+      "status": "skipped"
+    },
+    {
+      "name": "GameBuildIntelligence (Y3) parses EN/VI changelog sections and inline tags",
+      "status": "skipped"
+    },
+    {
+      "name": "GameBuildIntelligence (Y3) planned feature is never claimed playable; roadmap mention needs approval + 'đang phát triển' wording",
+      "status": "skipped"
+    },
+    {
+      "name": "GameBuildIntelligence (Y3) no confirmed release date => no countdown/date; no invented player metrics",
+      "status": "skipped"
+    },
+    {
+      "name": "game video readiness (AC game rows) no gameplay footage => WAITING_FOR_CAPTURE for gameplay types; devlog from art is allowed",
+      "status": "skipped"
+    },
+    {
+      "name": "game video readiness (AC game rows) AI cinematics presented as gameplay are blocked",
+      "status": "skipped"
+    },
+    {
+      "name": "game video readiness (AC game rows) debug overlay in gameplay is detected (OCR when available) and held for review",
+      "status": "passed"
+    },
+    {
+      "name": "game video readiness (AC game rows) embargo and missing destination block publishing (render still allowed for preview)",
+      "status": "skipped"
+    },
+    {
+      "name": "game video readiness (AC game rows) wishlist CTA without a store page is blocked (no invented links)",
+      "status": "skipped"
+    },
+    {
+      "name": "game video production — both fixtures, both formats (AF) renders 9:16 Short AND 16:9 long for each game with correct brand, logo, thumbnail and CTA",
+      "status": "skipped"
+    },
+    {
+      "name": "game video production — both fixtures, both formats (AF) approval is invalidated when the user changes the thumbnail after approval",
+      "status": "skipped"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "status": "VERIFIED_SELECTED_TESTS",
+  "at": "2026-10-23T15:20:11.172Z",
+  "total": 19,
+  "passed": 19,
+  "failed": 0,
+  "tests": [
+    {
+      "file": "C:/Users/Winka/Projects/mmo/apps/worker/test/studio-matching.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double uses app-owned SHA metadata for new runs and keeps previous matching input immutable",
+          "status": "passed"
+        },
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double replaces round-robin using exact-SHA descriptions, pins original annotations and never approves meaning or rights",
+          "status": "passed"
+        },
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double validates embedding output text identities, uses pinned vectors and does not silently downgrade configured inference failures",
+          "status": "passed"
+        },
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double keeps missing descriptions unknown and deduplicates identical source content",
+          "status": "passed"
+        },
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double rejects stale metadata, redirected basenames, duplicate hashes and impossible scene annotations",
+          "status": "passed"
+        },
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double skips measured unusable intervals and caps consecutive source repetition when an alternative exists",
+          "status": "passed"
+        },
+        {
+          "name": "Grounded shot matching, owned PNG fixtures and explicit embedding test double probes actual video bounds before accepting an owner-declared timed scene",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:/Users/Winka/Projects/mmo/apps/worker/test/studio-media-vision.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "name": "Durable image suggestion executor with explicit model test double validates structured output, records source/frame hashes and does not accept annotations automatically",
+          "status": "passed"
+        },
+        {
+          "name": "Durable image suggestion executor with explicit model test double rejects malformed model output and preserves the original source",
+          "status": "passed"
+        },
+        {
+          "name": "Durable image suggestion executor with explicit model test double requeues GPU contention instead of presenting it as completed inference",
+          "status": "passed"
+        },
+        {
+          "name": "Durable image suggestion executor with explicit model test double detects source changes during the model call and fails without applying any description",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:/Users/Winka/Projects/mmo/packages/automation/test/studio-content-insights.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "name": "Evidence-driven repetition checks and conservative suggestions reports exact wording and overlapping source intervals without double-counting repeated shots",
+          "status": "passed"
+        },
+        {
+          "name": "Evidence-driven repetition checks and conservative suggestions does not invent reuse for different byte hashes or similar-looking filenames",
+          "status": "passed"
+        },
+        {
+          "name": "Evidence-driven repetition checks and conservative suggestions excludes revisions of the current content and preserves missing metrics as unknown",
+          "status": "passed"
+        },
+        {
+          "name": "Evidence-driven repetition checks and conservative suggestions requires matching remote identity, mature observations and five samples per hook group on the same channel",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:/Users/Winka/Projects/mmo/packages/automation/test/studio-media-catalog.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "name": "SHA catalog revisions and explicit owner acceptance keeps immutable revisions, checks stale writes and exports a pinned manifest without changing source bytes",
+          "status": "passed"
+        },
+        {
+          "name": "SHA catalog revisions and explicit owner acceptance rejects tampering, source changes, foreign sources and timed still-image scenes",
+          "status": "passed"
+        },
+        {
+          "name": "SHA catalog revisions and explicit owner acceptance rejects a source outside the artifact library even when its path/hash were written into a run",
+          "status": "passed"
+        },
+        {
+          "name": "SHA catalog revisions and explicit owner acceptance requires the actual local image-capable provider, deduplicates pending vision jobs and does not accept unreviewed model text",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "scope": "Contract tests include explicit inference test doubles; separate real Qwen CUDA evidence is acs-media-vision.json",
+  "raw": ".local/acs-media-intelligence-tests.json"
+}

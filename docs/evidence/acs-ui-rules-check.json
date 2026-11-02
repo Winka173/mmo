@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\AUTONOMOUS CREATIVE STUDIO.exe",
+  "at": "2026-11-02T07:59:05.244Z",
+  "checks": [
+    {
+      "name": "Overview shows the readiness card with a single install-or-create action",
+      "ok": true,
+      "detail": "TÌNH TRẠNG Cần cài AI trước khi sản xuất Cài đặt AI tự động → 0/5 thành phần AI sẵn sàng Còn thiếu: Viết kịch bản · Chất"
+    },
+    {
+      "name": "RAM, Disk and VRAM chips are present",
+      "ok": true,
+      "detail": "3 chips"
+    },
+    {
+      "name": "VRAM popover is on top (nothing covers it) and shows live numbers",
+      "ok": true,
+      "detail": "RTX 5070 Ti 8.3 / 15.9 GB VRAM GPU 5% · 48°C Đo cả thiết bị: game hoặc app khác đang dùng VRAM cũng "
+    },
+    {
+      "name": "RAM chip opens its own popover",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Models: automatic setup with an automatic folder (no typing needed)",
+      "ok": true,
+      "detail": "C:\\Users\\Winka\\Projects\\mmo\\.local\\ui-rules-check\\975e56a9-cd30-474c-beb0-c5fd8bf5437d"
+    },
+    {
+      "name": "Models: one install button, quality model and voices listed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Support report is created and downloads as a zip",
+      "ok": true,
+      "detail": "{\"status\":200,\"bytes\":2040,\"magic\":\"PK\"}"
+    },
+    {
+      "name": "Create: video title is filled automatically from the media folder",
+      "ok": true,
+      "detail": "Tower Defense Guide"
+    },
+    {
+      "name": "Seed: fixture autopilot and queued run created through the API",
+      "ok": true,
+      "detail": "{\"autopilot\":200,\"run\":200}"
+    },
+    {
+      "name": "Autopilots: card states and actions are in Vietnamese",
+      "ok": true,
+      "detail": "elled fixture brief: a tower defense game with three lanes. Chỉnh sửa Kích hoạt Chạy thử"
+    },
+    {
+      "name": "Production: all eight tabs visible at the 900 px minimum window width",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Production: run state, stage names and controls are translated",
+      "ok": true,
+      "detail": "AUTONOMOUS CREATIVE STUDIO Theo dõi từng bước sản xuất Ý tưởng, nguồn và phiên bản trong một quy trình rõ ràng. Worker đang hoạt động · PID 42240 Số lần phục hồ"
+    },
+    {
+      "name": "Production: tab switch works",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Review: empty inbox explains where queued work is",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Planner: changing the window re-simulates and labels are translated",
+      "ok": true,
+      "detail": "status 200, no-active message true"
+    },
+    {
+      "name": "Channels: no raw field names or contradictory sign-in text",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Channels: a Facebook Page Reels channel can be added and shows \"needs account\"",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Channel building: strategy, weekly plan from the backlog, owner approval creates a disabled draft Autopilot",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "No credential inputs outside Settings › Accounts & Keys",
+      "ok": true,
+      "detail": "{\"channels\":0,\"telegram\":0,\"production\":0,\"models\":0}"
+    },
+    {
+      "name": "Accounts & Keys lists YouTube, Meta, TikTok, Telegram and affiliate with a status each, all \"needs account\" at first",
+      "ok": true,
+      "detail": "YouTube, Facebook & Instagram (Meta), TikTok, Telegram, Affiliate | not_set,not_set,not_set,not_set,not_set,not_set,not_set"
+    },
+    {
+      "name": "Saving a key stores it write-only: status \"saved, not tested\", the value is never shown again",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Remove returns the entry to \"needs account\"; Test connection is offered only when a value exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "The Facebook channel appears under Meta with its Page token field",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Library: index button gives visible feedback (status or error)",
+      "ok": true,
+      "detail": "Hãy cài và áp dụng model embedding local (Qwen Embedding) trong Model & Công cụ trước."
+    },
+    {
+      "name": "English: the six operating pages show no Vietnamese text",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Legacy A/B, budget and planner pages render from stored data (HTTP 200)",
+      "ok": true,
+      "detail": "{\"/experiments\":\"200 ok\",\"/budget\":\"200 ok\",\"/planner\":200}"
+    },
+    {
+      "name": "No page errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "VERIFIED",
+  "fixture": true,
+  "genuineGameplay": false,
+  "language": "vi-VN",
+  "humanListening": "NOT_REVIEWED",
+  "asr": [
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Đây là video kiểm thử phần mềm, sử dụng hình ảnh hiệu chuẩn do chương trình tạo ra. Đây không phải cảnh chơi game thật.",
+      "transcription": "Đây là video kiểm thử phần mềm sử dụng hình ảnh hiệu chuẩn do chương trình tạo ra. Đây không phải cảnh chơi game thật.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\7aff17c6-80f2-41d3-ae5c-6539acd50194\\voice-0.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0.034482758620689655,
+      "expected": "Ứng dụng giữ lại nguồn gốc và các phiên bản trước. Giọng đọc và phụ đề được tạo trên máy để kiểm tra, chưa được duyệt đăng công khai.",
+      "transcription": "ứng dụng giữ lại nguồn gốc và các phiên bản trước, dòng đọc và phụ đề được tạo trên máy để kiểm tra, chưa được duyệt đăng công khai.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\7aff17c6-80f2-41d3-ae5c-6539acd50194\\voice-1.wav"
+    }
+  ],
+  "runId": "7aff17c6-80f2-41d3-ae5c-6539acd50194",
+  "cutId": "d5c3db3a-1fb5-405c-a69c-ca2071befb5f",
+  "narrationRevisionId": "5bc7833d-aa2b-44f0-9e0c-689c8b39ca6c",
+  "originalSeconds": 12.923008,
+  "cutSeconds": 9.92,
+  "outputs": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\7aff17c6-80f2-41d3-ae5c-6539acd50194",
+  "checks": [
+    "real local VieNeu CUDA inference",
+    "FFmpeg render",
+    "SRT",
+    "thumbnail",
+    "decode QA",
+    "3-second deterministic cut",
+    "parent preserved",
+    "publication blocked",
+    "one narration segment revised",
+    "unrelated voice and rendered segment bytes preserved"
+  ],
+  "at": "2026-10-22T17:49:04.197Z"
+}

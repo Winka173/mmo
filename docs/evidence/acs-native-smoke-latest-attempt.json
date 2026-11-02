@@ -1,0 +1,8 @@
+{
+  "status": "FAILED_OR_BLOCKED_NATIVE_ATTEMPT",
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\AUTONOMOUS CREATIVE STUDIO.exe",
+  "timestamp": "2026-10-27T01:56:50.945Z",
+  "error": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Không gian sáng tạo của bạn' }) to be visible\u001b[22m\n",
+  "voicesRequested": false,
+  "exeSha256": "587e47d790146c9e10c8e45b9bdaa336305bc270c228a25a8bd78c57b04a7ba9"
+}

@@ -1,0 +1,89 @@
+{
+  "status": "VERIFIED_LOCAL_INFERENCE_FIXTURE_ONLY",
+  "at": "2026-10-23T15:15:30.955Z",
+  "base": "C:\\Users\\Winka\\Projects\\mmo\\.local\\media-intelligence\\9f6b9db1-0936-4784-b287-1aaba98d2436",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\media-intelligence\\9f6b9db1-0936-4784-b287-1aaba98d2436\\data",
+  "runId": "8ddc6a7d-cb8c-4da1-903c-d63d9a9ee00b",
+  "taskId": "9fbe8851-c2fc-45c3-b474-453e53a55167",
+  "source": {
+    "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\media-intelligence\\9f6b9db1-0936-4784-b287-1aaba98d2436\\data\\studio\\artifacts\\8ddc6a7d-cb8c-4da1-903c-d63d9a9ee00b\\source-0.png",
+    "sha256": "f7e1c6c08453fb561862274e34d2f25890f54372be6e2bfdd02ea7d49d9e18b0",
+    "size": 12157
+  },
+  "seconds": 13.122,
+  "expected": {
+    "circle": "blue",
+    "rectangle": "orange",
+    "scope": "Owned static shape fixture, not gameplay/OCR calibration"
+  },
+  "fixtureMatch": false,
+  "taskState": "ready",
+  "result": {
+    "frames": [
+      {
+        "index": 0,
+        "positionSec": 0,
+        "file": "frame-0.jpg",
+        "sha256": "90b3d287f12c92a9bd2a91d1373f04b335f030061ebb27dd6d1fec2b11a33769",
+        "suggestion": {
+          "description": "A simple graphic with a solid blue circle on the left and a solid orange square on the right, both centered horizontally. Below them is black text reading 'ACS OWNED FIXTURE' in uppercase.",
+          "subjects": [
+            "blue circle",
+            "orange square",
+            "text: ACS OWNED FIXTURE"
+          ],
+          "possibleIssues": [
+            "unclear_subject"
+          ]
+        },
+        "execution": {
+          "model": "qwen3.5:9b",
+          "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "seconds": 7.666382074356079,
+          "usage": {
+            "input_tokens": 383,
+            "output_tokens": 100
+          },
+          "mode": "local",
+          "device": "cuda",
+          "requested_device": "cuda",
+          "execution": {
+            "name": "qwen3.5:9b",
+            "model": "qwen3.5:9b",
+            "size": 5862210928,
+            "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "9.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T22:15:29.3494386+07:00",
+            "size_vram": 5862210928,
+            "context_length": 8192,
+            "runner": "llamacpp"
+          }
+        },
+        "review": "OWNER_REVIEW_REQUIRED",
+        "ocr": "NOT_PERFORMED",
+        "truthRightsVerified": false
+      }
+    ],
+    "sourceSha256": "f7e1c6c08453fb561862274e34d2f25890f54372be6e2bfdd02ea7d49d9e18b0",
+    "scope": "KEYFRAMES_ONLY_NOT_WHOLE_VIDEO",
+    "automaticAnnotation": false,
+    "publicationApproval": false
+  },
+  "error": null,
+  "annotationsAutomaticallyApplied": false,
+  "ownerReview": "NOT_PERFORMED",
+  "realGameplay": "NOT_AVAILABLE",
+  "cloudInference": false,
+  "publishing": false,
+  "visualValidation": "FLAGGED_FIXTURE_SHAPE_MISMATCH_REVIEW_REQUIRED",
+  "managedProcessCleanup": "OWNED_PID_AND_EXECUTABLE_VERIFIED_THEN_TERMINATED"
+}

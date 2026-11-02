@@ -1,0 +1,12 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T10:50:31.713Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data",
+  "runId": "87b45d16-eef2-431c-aac2-cc830eab0652",
+  "checks": [
+    "Resumed the prior real GPU plan/render attempt; no model inference was repeated",
+    "Server-backed deep link restores the saved draft without browser cache; script, research and selected version survive reload",
+    "Continue uses pinned plan/research, actual Kokoro CUDA/ASR/FFmpeg produces preview, QA remains separate, private ZIP downloads, repeated continuation creates no duplicate job, VI/EN UI renders without errors"
+  ],
+  "error": "Error: Cut failed duration/technical/independent-version checks"
+}

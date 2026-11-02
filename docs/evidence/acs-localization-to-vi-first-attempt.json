@@ -1,0 +1,11 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "fixture": true,
+  "sourceLanguage": "en-US",
+  "targetLanguage": "vi-VN",
+  "mandarinWorkflowVerified": false,
+  "publicPosting": false,
+  "runId": "1930dcf7-6c60-48f9-abcb-5f8542f0ea27",
+  "at": "2026-10-23T03:46:53.592Z",
+  "error": "Localization output / target speech language failed"
+}

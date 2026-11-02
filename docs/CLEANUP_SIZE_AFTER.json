@@ -1,0 +1,29 @@
+{
+  "totalBytes": 64845382579,
+  "totalGiB": 60.392,
+  "files": 137130,
+  "seconds": 1.79,
+  "top": {
+    ".local": 63930360543,
+    "dist": 430769908,
+    "node_modules": 415220687,
+    ".git": 40704719,
+    "docs": 25220101,
+    "packages": 1128725,
+    "apps": 1004440,
+    "src-tauri": 430387,
+    "scripts": 191058,
+    "desktop": 175066,
+    "engines": 77931,
+    "pnpm-lock.yaml": 73378,
+    "fixtures": 17057,
+    "README.md": 4914,
+    "package.json": 1468,
+    ".env.example": 520,
+    "vitest.config.ts": 482,
+    "tsconfig.base.json": 444,
+    ".gitignore": 406,
+    "tsconfig.json": 209,
+    "pnpm-workspace.yaml": 136
+  }
+}

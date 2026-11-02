@@ -1,0 +1,108 @@
+{
+  "status": "FAILED_FRAME_COUNT_GATE_BEFORE_FINAL_PTS_FIX",
+  "scope": "Synthetic tone / actual FFmpeg; this failed attempt is not acceptance",
+  "qualityFile": "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-VtYyc0\\studio\\artifacts\\89283dab-2a1c-4cde-a225-1e3b7932ef73\\qa.json",
+  "renderTiming": {
+    "version": 2,
+    "frameTimedNarration": true,
+    "plannedFrames": 141,
+    "measuredVideoFrames": 140,
+    "measuredVideoDuration": 4.666667,
+    "measuredContainerDuration": 4.693333
+  },
+  "technical": false,
+  "errors": [
+    {
+      "criterion": "container_and_codec",
+      "status": "pass",
+      "evidence": {
+        "probeExit": 0,
+        "video": "h264",
+        "audio": "aac",
+        "duration": 4.693333
+      },
+      "severity": "error",
+      "recommendedFix": "Re-encode the existing timeline",
+      "timestamp": "2026-10-23T11:05:09.155Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-VtYyc0\\studio\\artifacts\\89283dab-2a1c-4cde-a225-1e3b7932ef73\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "resolution",
+      "status": "pass",
+      "evidence": {
+        "actual": [
+          1080,
+          1920
+        ],
+        "expected": [
+          1080,
+          1920
+        ]
+      },
+      "severity": "error",
+      "recommendedFix": "Reframe / encode only",
+      "timestamp": "2026-10-23T11:05:09.155Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-VtYyc0\\studio\\artifacts\\89283dab-2a1c-4cde-a225-1e3b7932ef73\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "duration",
+      "status": "pass",
+      "evidence": {
+        "actual": 4.693333,
+        "expected": 4.7
+      },
+      "severity": "error",
+      "recommendedFix": "Check timeline boundaries and encode only",
+      "timestamp": "2026-10-23T11:05:09.155Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-VtYyc0\\studio\\artifacts\\89283dab-2a1c-4cde-a225-1e3b7932ef73\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "full_decode",
+      "status": "pass",
+      "evidence": {
+        "exitCode": 0,
+        "errorTail": null
+      },
+      "severity": "error",
+      "recommendedFix": "Re-encode the existing timeline; preserve original files",
+      "timestamp": "2026-10-23T11:05:09.155Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-VtYyc0\\studio\\artifacts\\89283dab-2a1c-4cde-a225-1e3b7932ef73\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "frame_timing",
+      "status": "fail",
+      "evidence": {
+        "version": 2,
+        "frameTimedNarration": true,
+        "plannedFrames": 141,
+        "measuredVideoFrames": 140,
+        "measuredVideoDuration": 4.666667,
+        "measuredContainerDuration": 4.693333
+      },
+      "severity": "error",
+      "recommendedFix": "Re-encode pinned segments using explicit frame durations; preserve the voice and original version",
+      "timestamp": "2026-10-23T11:05:09.357Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\AppData\\Local\\Temp\\acs-frame-timing-VtYyc0\\studio\\artifacts\\89283dab-2a1c-4cde-a225-1e3b7932ef73\\final.mp4"
+      ]
+    }
+  ]
+}

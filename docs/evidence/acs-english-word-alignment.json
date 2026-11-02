@@ -1,0 +1,149 @@
+{
+  "status": "VERIFIED_ACTUAL_ENGLISH_CPU_CTC_INFERENCE_NOT_HUMAN_WORD_BOUNDARY_BENCHMARK",
+  "at": "2026-10-23T15:19:37Z",
+  "wallSeconds": 11.563704490661621,
+  "request": "C:\\Users\\Winka\\Projects\\mmo\\.local\\alignment-benchmark-request.json",
+  "requestSha256": "2d02fe44fb2c5e5f3a8193c3f4968b090ad9f6581cec831729b3c2f99af659be",
+  "python": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+  "engineSha256": "2cf39b07e663f775eb66c170238ccf272c1462f2ee372fb5f4119a95a140bea9",
+  "sourceAudioHashes": {
+    "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-0.wav": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d",
+    "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-1.wav": "f122b90551b2e410b848b6257b46445b8d190a7f2a18348e39ec168f213488f0",
+    "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-2.wav": "8bcde4fa0286c762b12cbf68c6ab124ccdb2ff89fc3b73e93fd3fc3f5e91d957"
+  },
+  "originalAudioPreserved": true,
+  "inference": {
+    "schemaVersion": 1,
+    "engine": "wav2vec2-ctc-en",
+    "device": "cpu",
+    "language": "en-US",
+    "modelRevision": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+    "modelSha256": "8aa76ab2243c81747a1f832954586bc566090c83a0ac167df6f31f0fa917d74a",
+    "runnerSha256": "2cf39b07e663f775eb66c170238ccf272c1462f2ee372fb5f4119a95a140bea9",
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "torchaudio": "2.8.0+cu128",
+      "transformers": "4.57.6",
+      "soundfile": "0.14.0",
+      "scipy": "1.17.1"
+    },
+    "seconds": 10.27638030052185,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-0.wav",
+        "audioSha256": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d",
+        "text": "Venus looks peaceful but hides intense heat and crushing pressure.",
+        "duration": 4.425,
+        "words": [
+          {
+            "text": "Venus",
+            "start": 0.38043,
+            "end": 0.64072,
+            "score": 0.950937831401825
+          },
+          {
+            "text": "looks",
+            "start": 0.70079,
+            "end": 0.90102,
+            "score": 0.9966087222099305
+          },
+          {
+            "text": "peaceful",
+            "start": 0.96109,
+            "end": 1.32149,
+            "score": 0.9759836196899414
+          },
+          {
+            "text": "but",
+            "start": 1.66188,
+            "end": 1.76199,
+            "score": 0.9999314943949381
+          },
+          {
+            "text": "hides",
+            "start": 1.80204,
+            "end": 2.04231,
+            "score": 0.9922518730163574
+          },
+          {
+            "text": "intense",
+            "start": 2.1224,
+            "end": 2.50283,
+            "score": 0.9956017647470746
+          },
+          {
+            "text": "heat",
+            "start": 2.5629,
+            "end": 2.78314,
+            "score": 0.9948752075433731
+          },
+          {
+            "text": "and",
+            "start": 2.98337,
+            "end": 3.06346,
+            "score": 0.9279793898264567
+          },
+          {
+            "text": "crushing",
+            "start": 3.12353,
+            "end": 3.46391,
+            "score": 0.9932326376438141
+          },
+          {
+            "text": "pressure.",
+            "start": 3.544,
+            "end": 3.92443,
+            "score": 0.9138926155865192
+          }
+        ],
+        "status": "aligned",
+        "humanReview": "REQUIRED",
+        "acousticTranscript": "VENUS LOOKS PEACEFUL BUT HIDES INTENSE HEAT AND CRUSHING PRESSURE",
+        "acousticWordErrorRate": 0.0,
+        "reason": "English CTC acoustic word alignment; boundaries still require listening"
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-1.wav",
+        "audioSha256": "f122b90551b2e410b848b6257b46445b8d190a7f2a18348e39ec168f213488f0",
+        "text": "Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead â€” about 872 degrees Fahrenheit (467 Celsius).",
+        "duration": 15.425,
+        "words": [],
+        "status": "unknown",
+        "humanReview": "REQUIRED",
+        "reason": "ALIGNMENT_UNSUPPORTED_TEXT: use spelled English words; digits and unsupported characters need manual caption timing"
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-2.wav",
+        "audioSha256": "8bcde4fa0286c762b12cbf68c6ab124ccdb2ff89fc3b73e93fd3fc3f5e91d957",
+        "text": "The atmospheric pressure at the surface is about 93 times what it is at sea level on Earth.",
+        "duration": 6.525,
+        "words": [],
+        "status": "unknown",
+        "humanReview": "REQUIRED",
+        "reason": "ALIGNMENT_UNSUPPORTED_TEXT: use spelled English words; digits and unsupported characters need manual caption timing"
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\voice-0.wav",
+        "audioSha256": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d",
+        "text": "This bicycle repair workshop replaces worn tires and broken brakes.",
+        "duration": 4.425,
+        "words": [],
+        "status": "unknown",
+        "humanReview": "REQUIRED",
+        "acousticTranscript": "VENUS LOOKS PEACEFUL BUT HIDES INTENSE HEAT AND CRUSHING PRESSURE",
+        "acousticWordErrorRate": 0.9,
+        "reason": "ACOUSTIC_TRANSCRIPT_MISMATCH: English decoder disagrees with supplied words; alignment withheld"
+      }
+    ],
+    "humanReview": "REQUIRED",
+    "limitations": "English only. Not calibrated against human word boundaries. Unsupported text, mismatch or weak scores remain unknown. Never proves claims, rights or editorial quality."
+  },
+  "unsupportedVietnamese": {
+    "error": "ALIGNMENT_UNSUPPORTED_LANGUAGE: selected checkpoint supports English only; Vietnamese requires manual phrase timing"
+  },
+  "stderr": "Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\wav2vec2-en-align and are newly initialized: ['wav2vec2.masked_spec_embed']\nYou should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\nC:\\Users\\Winka\\Projects\\mmo\\engines\\alignment_engine.py:132: UserWarning: torchaudio.functional._alignment.forced_align has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. \n  path, scores = functional.forced_align(log_probs, target, blank=blank)\n",
+  "voiceInference": "NOT_RERUN; byte-identical actual Kokoro audio supplied explicitly",
+  "humanListening": "NOT_PERFORMED",
+  "wordBoundaryGroundTruth": "NOT_AVAILABLE",
+  "publication": "NONE"
+}

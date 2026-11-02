@@ -1,0 +1,1504 @@
+{
+  "renderTiming": {
+    "version": 2,
+    "frameTimedNarration": true,
+    "plannedFrames": 544,
+    "measuredVideoFrames": 544,
+    "measuredVideoDuration": 18.133333,
+    "measuredContainerDuration": 18.133333
+  },
+  "videoSha256": "ff6d2c1e6998e3e5da353ac7caa4a2c132cf8125bd471280250d9e63b463018f",
+  "sourceAnalysis": {
+    "schemaVersion": 1,
+    "key": "8fa1bd33be89f3c5ecbfdcedf39926904cf33ef1d7e6a9be6e317c63618dc161",
+    "at": "2026-11-02T07:40:15.782Z",
+    "method": "Existing local FFmpeg scene/black/freeze/audio signals and sampled frame statistics",
+    "semanticReview": "UNKNOWN",
+    "rightsReview": "REQUIRED",
+    "authenticGameplay": "OWNER_SOURCE_REQUIRES_REVIEW",
+    "OCR": "DISABLED_NOT_VERIFIED",
+    "automaticShotReplacement": false,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-0.mp4",
+        "sha256": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+        "status": "MEASURED_LOCAL_HEURISTICS",
+        "analysis": {
+          "assetId": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+          "durationSec": 10,
+          "coverage": {
+            "scannedSeconds": 10,
+            "fullClip": true
+          },
+          "scenes": [],
+          "freezes": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "blacks": [],
+          "silences": [],
+          "audioRms": [
+            -49.094998,
+            -48.24315,
+            -48.753525,
+            -48.262422,
+            -48.20455,
+            -48.414572,
+            -47.885086,
+            -48.493708,
+            -48.058735,
+            -48.232486,
+            -66.034671
+          ],
+          "motion": [
+            {
+              "t": 0.5,
+              "v": 0
+            },
+            {
+              "t": 1,
+              "v": 0
+            },
+            {
+              "t": 1.5,
+              "v": 0
+            },
+            {
+              "t": 2,
+              "v": 0
+            },
+            {
+              "t": 2.5,
+              "v": 0
+            },
+            {
+              "t": 3,
+              "v": 0
+            },
+            {
+              "t": 3.5,
+              "v": 0
+            },
+            {
+              "t": 4,
+              "v": 0
+            },
+            {
+              "t": 4.5,
+              "v": 0
+            },
+            {
+              "t": 5,
+              "v": 0
+            },
+            {
+              "t": 5.5,
+              "v": 0
+            },
+            {
+              "t": 6,
+              "v": 0
+            },
+            {
+              "t": 6.5,
+              "v": 0
+            },
+            {
+              "t": 7,
+              "v": 0
+            },
+            {
+              "t": 7.5,
+              "v": 0
+            },
+            {
+              "t": 8,
+              "v": 0
+            },
+            {
+              "t": 8.5,
+              "v": 0
+            },
+            {
+              "t": 9,
+              "v": 0
+            },
+            {
+              "t": 9.5,
+              "v": 0
+            }
+          ],
+          "highlights": [],
+          "heroCandidates": [],
+          "boringRatio": 1,
+          "leak": {
+            "method": "unavailable",
+            "suspicious": false,
+            "matches": []
+          },
+          "warnings": [
+            "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+            "100% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt",
+            "Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng"
+          ],
+          "analyzedAt": "2026-11-02T07:40:12.202Z"
+        }
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-1.mp4",
+        "sha256": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+        "status": "MEASURED_LOCAL_HEURISTICS",
+        "analysis": {
+          "assetId": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+          "durationSec": 10,
+          "coverage": {
+            "scannedSeconds": 10,
+            "fullClip": true
+          },
+          "scenes": [],
+          "freezes": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "blacks": [],
+          "silences": [],
+          "audioRms": [
+            -48.062962,
+            -48.28902,
+            -48.044555,
+            -48.334238,
+            -48.334587,
+            -47.840471,
+            -48.3134,
+            -48.414592,
+            -48.035648,
+            -47.898758,
+            -67.435266
+          ],
+          "motion": [
+            {
+              "t": 0.5,
+              "v": 0
+            },
+            {
+              "t": 1,
+              "v": 0
+            },
+            {
+              "t": 1.5,
+              "v": 0
+            },
+            {
+              "t": 2,
+              "v": 0
+            },
+            {
+              "t": 2.5,
+              "v": 0
+            },
+            {
+              "t": 3,
+              "v": 0
+            },
+            {
+              "t": 3.5,
+              "v": 0
+            },
+            {
+              "t": 4,
+              "v": 0
+            },
+            {
+              "t": 4.5,
+              "v": 0
+            },
+            {
+              "t": 5,
+              "v": 0
+            },
+            {
+              "t": 5.5,
+              "v": 0
+            },
+            {
+              "t": 6,
+              "v": 0
+            },
+            {
+              "t": 6.5,
+              "v": 0
+            },
+            {
+              "t": 7,
+              "v": 0
+            },
+            {
+              "t": 7.5,
+              "v": 0
+            },
+            {
+              "t": 8,
+              "v": 0
+            },
+            {
+              "t": 8.5,
+              "v": 0
+            },
+            {
+              "t": 9,
+              "v": 0
+            },
+            {
+              "t": 9.5,
+              "v": 0
+            }
+          ],
+          "highlights": [],
+          "heroCandidates": [],
+          "boringRatio": 1,
+          "leak": {
+            "method": "unavailable",
+            "suspicious": false,
+            "matches": []
+          },
+          "warnings": [
+            "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+            "100% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt",
+            "Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng"
+          ],
+          "analyzedAt": "2026-11-02T07:40:13.833Z"
+        }
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-2.mp4",
+        "sha256": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+        "status": "MEASURED_LOCAL_HEURISTICS",
+        "analysis": {
+          "assetId": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+          "durationSec": 10,
+          "coverage": {
+            "scannedSeconds": 10,
+            "fullClip": true
+          },
+          "scenes": [],
+          "freezes": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "blacks": [],
+          "silences": [],
+          "audioRms": [
+            -48.253419,
+            -48.616832,
+            -48.337135,
+            -47.649156,
+            -47.897655,
+            -48.304114,
+            -48.197751,
+            -48.295573,
+            -48.115551,
+            -48.796077,
+            -66.949299
+          ],
+          "motion": [
+            {
+              "t": 0.5,
+              "v": 0
+            },
+            {
+              "t": 1,
+              "v": 0
+            },
+            {
+              "t": 1.5,
+              "v": 0
+            },
+            {
+              "t": 2,
+              "v": 0
+            },
+            {
+              "t": 2.5,
+              "v": 0
+            },
+            {
+              "t": 3,
+              "v": 0
+            },
+            {
+              "t": 3.5,
+              "v": 0
+            },
+            {
+              "t": 4,
+              "v": 0
+            },
+            {
+              "t": 4.5,
+              "v": 0
+            },
+            {
+              "t": 5,
+              "v": 0
+            },
+            {
+              "t": 5.5,
+              "v": 0
+            },
+            {
+              "t": 6,
+              "v": 0
+            },
+            {
+              "t": 6.5,
+              "v": 0
+            },
+            {
+              "t": 7,
+              "v": 0
+            },
+            {
+              "t": 7.5,
+              "v": 0
+            },
+            {
+              "t": 8,
+              "v": 0
+            },
+            {
+              "t": 8.5,
+              "v": 0
+            },
+            {
+              "t": 9,
+              "v": 0
+            },
+            {
+              "t": 9.5,
+              "v": 0
+            }
+          ],
+          "highlights": [],
+          "heroCandidates": [],
+          "boringRatio": 1,
+          "leak": {
+            "method": "unavailable",
+            "suspicious": false,
+            "matches": []
+          },
+          "warnings": [
+            "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+            "100% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt",
+            "Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng"
+          ],
+          "analyzedAt": "2026-11-02T07:40:15.780Z"
+        }
+      }
+    ]
+  },
+  "captionQuality": {
+    "schemaVersion": 1,
+    "captionTiming": "estimated",
+    "wordAlignment": "UNVERIFIED",
+    "alignedLines": 0,
+    "grouping": {
+      "version": 2,
+      "shortCueTargetSeconds": 0.8,
+      "characterMeasure": "Unicode code points",
+      "audioChanged": false
+    },
+    "timing": [
+      {
+        "lineIndex": 0,
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+        "offset": 0,
+        "segmentDuration": 3.6,
+        "audioDuration": 3.28,
+        "method": "SPEECH_BOUND_ESTIMATE",
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 1.15
+          },
+          {
+            "start": 1.314,
+            "end": 3.23
+          }
+        ],
+        "words": null,
+        "alignmentModelSha256": null,
+        "cueStartIndex": 0,
+        "cueCount": 2
+      },
+      {
+        "lineIndex": 1,
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+        "offset": 3.6,
+        "segmentDuration": 3.2,
+        "audioDuration": 2.88,
+        "method": "SPEECH_BOUND_ESTIMATE",
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 2.846
+          }
+        ],
+        "words": null,
+        "alignmentModelSha256": null,
+        "cueStartIndex": 2,
+        "cueCount": 2
+      },
+      {
+        "lineIndex": 2,
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+        "offset": 6.800000000000001,
+        "segmentDuration": 3.5,
+        "audioDuration": 3.2,
+        "method": "SPEECH_BOUND_ESTIMATE",
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 1.022
+          },
+          {
+            "start": 1.186,
+            "end": 3.134
+          }
+        ],
+        "words": null,
+        "alignmentModelSha256": null,
+        "cueStartIndex": 4,
+        "cueCount": 2
+      },
+      {
+        "lineIndex": 3,
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+        "offset": 10.3,
+        "segmentDuration": 3.3666666666666667,
+        "audioDuration": 3.04,
+        "method": "SPEECH_BOUND_ESTIMATE",
+        "speech": [
+          {
+            "start": 0.098,
+            "end": 1.214
+          },
+          {
+            "start": 1.442,
+            "end": 3.006
+          }
+        ],
+        "words": null,
+        "alignmentModelSha256": null,
+        "cueStartIndex": 6,
+        "cueCount": 2
+      },
+      {
+        "lineIndex": 4,
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+        "offset": 13.666666666666668,
+        "segmentDuration": 4.466666666666667,
+        "audioDuration": 4.16,
+        "method": "SPEECH_BOUND_ESTIMATE",
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 1.982
+          },
+          {
+            "start": 2.37,
+            "end": 4.094
+          }
+        ],
+        "words": null,
+        "alignmentModelSha256": null,
+        "cueStartIndex": 8,
+        "cueCount": 3
+      }
+    ],
+    "readability": {
+      "status": "review_required",
+      "limits": {
+        "minDuration": 0.8,
+        "maxCharactersPerSecond": 20,
+        "estimatedCharactersPerLine": 28
+      },
+      "metrics": [
+        {
+          "cueIndex": 0,
+          "start": 0.066,
+          "end": 1.8356338028169017,
+          "duration": 1.7696338028169016,
+          "characters": 38,
+          "charactersPerSecond": 21.473369201871954,
+          "lines": [
+            "Giới thiệu 'Lane",
+            "Keeper', tựa game thủ"
+          ],
+          "lineLengths": [
+            16,
+            21
+          ]
+        },
+        {
+          "cueIndex": 1,
+          "start": 1.8356338028169017,
+          "end": 3.23,
+          "duration": 1.3943661971830983,
+          "characters": 33,
+          "charactersPerSecond": 23.66666666666667,
+          "lines": [
+            "thành 3 làn đường",
+            "do nhóm tự làm."
+          ],
+          "lineLengths": [
+            17,
+            15
+          ]
+        },
+        {
+          "cueIndex": 2,
+          "start": 3.634,
+          "end": 5.201344262295082,
+          "duration": 1.5673442622950824,
+          "characters": 34,
+          "charactersPerSecond": 21.692745376955898,
+          "lines": [
+            "Người chơi đặt",
+            "tháp trên ba làn để"
+          ],
+          "lineLengths": [
+            14,
+            19
+          ]
+        },
+        {
+          "cueIndex": 3,
+          "start": 5.201344262295082,
+          "end": 6.446,
+          "duration": 1.2446557377049174,
+          "characters": 27,
+          "charactersPerSecond": 21.692745376955912,
+          "lines": [
+            "chặn đứng các đợt quái vật."
+          ],
+          "lineLengths": [
+            27
+          ]
+        },
+        {
+          "cueIndex": 4,
+          "start": 6.8660000000000005,
+          "end": 7.802774193548387,
+          "duration": 0.9367741935483869,
+          "characters": 20,
+          "charactersPerSecond": 21.349862258953173,
+          "lines": [
+            "Hai loại tháp chính:"
+          ],
+          "lineLengths": [
+            20
+          ]
+        },
+        {
+          "cueIndex": 5,
+          "start": 7.802774193548387,
+          "end": 9.934000000000001,
+          "duration": 2.1312258064516136,
+          "characters": 42,
+          "charactersPerSecond": 19.706968577828896,
+          "lines": [
+            "tháp cung bắn nhanh",
+            "và tháp phép làm chậm."
+          ],
+          "lineLengths": [
+            19,
+            22
+          ]
+        },
+        {
+          "cueIndex": 6,
+          "start": 10.398000000000001,
+          "end": 12.282727272727273,
+          "duration": 1.8847272727272717,
+          "characters": 34,
+          "charactersPerSecond": 18.039745321242535,
+          "lines": [
+            "Mỗi màn gồm năm",
+            "đợt, với trùm xuất"
+          ],
+          "lineLengths": [
+            15,
+            18
+          ]
+        },
+        {
+          "cueIndex": 7,
+          "start": 12.282727272727273,
+          "end": 13.306000000000001,
+          "duration": 1.0232727272727278,
+          "characters": 21,
+          "charactersPerSecond": 20.522388059701484,
+          "lines": [
+            "hiện ở màn cuối cùng."
+          ],
+          "lineLengths": [
+            21
+          ]
+        },
+        {
+          "cueIndex": 8,
+          "start": 13.700666666666669,
+          "end": 15.093494252873565,
+          "duration": 1.3928275862068968,
+          "characters": 33,
+          "charactersPerSecond": 23.692810457516334,
+          "lines": [
+            "Tựa game đang",
+            "trong giai đoạn thử"
+          ],
+          "lineLengths": [
+            13,
+            19
+          ]
+        },
+        {
+          "cueIndex": 9,
+          "start": 15.093494252873565,
+          "end": 17.085356321839082,
+          "duration": 1.991862068965517,
+          "characters": 38,
+          "charactersPerSecond": 19.077626203171526,
+          "lines": [
+            "nghiệm nội bộ, chưa",
+            "xác định ngày phát"
+          ],
+          "lineLengths": [
+            19,
+            18
+          ]
+        },
+        {
+          "cueIndex": 10,
+          "start": 17.085356321839082,
+          "end": 17.76066666666667,
+          "duration": 0.6753103448275866,
+          "characters": 16,
+          "charactersPerSecond": 23.692810457516327,
+          "lines": [
+            "hành hay giá cả."
+          ],
+          "lineLengths": [
+            16
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 0,
+          "evidence": {
+            "characters": 38,
+            "duration": 1.7696338028169016,
+            "charactersPerSecond": 21.473369201871954,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 1,
+          "evidence": {
+            "characters": 33,
+            "duration": 1.3943661971830983,
+            "charactersPerSecond": 23.66666666666667,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 2,
+          "evidence": {
+            "characters": 34,
+            "duration": 1.5673442622950824,
+            "charactersPerSecond": 21.692745376955898,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 3,
+          "evidence": {
+            "characters": 27,
+            "duration": 1.2446557377049174,
+            "charactersPerSecond": 21.692745376955912,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 4,
+          "evidence": {
+            "characters": 20,
+            "duration": 0.9367741935483869,
+            "charactersPerSecond": 21.349862258953173,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 7,
+          "evidence": {
+            "characters": 21,
+            "duration": 1.0232727272727278,
+            "charactersPerSecond": 20.522388059701484,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 8,
+          "evidence": {
+            "characters": 33,
+            "duration": 1.3928275862068968,
+            "charactersPerSecond": 23.692810457516334,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        },
+        {
+          "criterion": "caption.minimum_duration",
+          "status": "unknown",
+          "cueIndex": 10,
+          "evidence": {
+            "duration": 0.6753103448275866,
+            "minimumSeconds": 0.8
+          },
+          "recommendedFix": "Review this short cue; adjust caption grouping or timing after listening"
+        },
+        {
+          "criterion": "caption.reading_speed",
+          "status": "unknown",
+          "cueIndex": 10,
+          "evidence": {
+            "characters": 16,
+            "duration": 0.6753103448275866,
+            "charactersPerSecond": 23.692810457516327,
+            "maximumCharactersPerSecond": 20
+          },
+          "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+        }
+      ],
+      "layoutMethod": "ASS two-line character estimate; visual review required"
+    },
+    "humanReview": "REQUIRED",
+    "note": "English CTC boundaries are used only with matching audio SHA, exact wording and validated monotonic word times. Other phrase boundaries remain proportional estimates over VAD or duration; VAD does not align words. Vietnamese word alignment is unsupported. No audio was trimmed. All boundaries require listening."
+  },
+  "speechActivity": {
+    "engine": "silero-vad",
+    "device": "cpu",
+    "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+    "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+    "runner_sha256": "e54778291bd7a5617f0705b518cadf066d6ea39b46f6ee9cfc01b86458f5be45",
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "scipy": "1.17.1",
+      "numpy": "2.4.6",
+      "soundfile": "0.14.0"
+    },
+    "seconds": 0.6663703918457031,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+        "duration": 3.28,
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 1.15
+          },
+          {
+            "start": 1.314,
+            "end": 3.23
+          }
+        ],
+        "speech_ratio": 0.9146341463414634,
+        "max_probability": 0.9999985694885254,
+        "leading_silence": 0.066,
+        "trailing_silence": 0.04999999999999982
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+        "duration": 2.88,
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 2.846
+          }
+        ],
+        "speech_ratio": 0.9763888888888889,
+        "max_probability": 0.9999996423721313,
+        "leading_silence": 0.034,
+        "trailing_silence": 0.03400000000000025
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+        "duration": 3.2,
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 1.022
+          },
+          {
+            "start": 1.186,
+            "end": 3.134
+          }
+        ],
+        "speech_ratio": 0.9075,
+        "max_probability": 0.9999986886978149,
+        "leading_silence": 0.066,
+        "trailing_silence": 0.06600000000000028
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+        "duration": 3.04,
+        "speech": [
+          {
+            "start": 0.098,
+            "end": 1.214
+          },
+          {
+            "start": 1.442,
+            "end": 3.006
+          }
+        ],
+        "speech_ratio": 0.8815789473684209,
+        "max_probability": 0.9999995231628418,
+        "leading_silence": 0.098,
+        "trailing_silence": 0.03400000000000025
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+        "duration": 4.16,
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 1.982
+          },
+          {
+            "start": 2.37,
+            "end": 4.094
+          }
+        ],
+        "speech_ratio": 0.8826923076923077,
+        "max_probability": 0.9999992847442627,
+        "leading_silence": 0.034,
+        "trailing_silence": 0.06599999999999984
+      }
+    ],
+    "parameters": {
+      "onset": 0.5,
+      "offset": 0.35,
+      "min_speech_seconds": 0.25,
+      "end_silence_seconds": 0.2,
+      "padding_seconds": 0.03
+    },
+    "word_timing": "NOT_PROVIDED",
+    "human_review": "NOT_REVIEWED",
+    "checks": [
+      {
+        "criterion": "voice.speech_activity",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+        "status": "pass",
+        "evidence": {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+          "duration": 3.28,
+          "speech": [
+            {
+              "start": 0.066,
+              "end": 1.15
+            },
+            {
+              "start": 1.314,
+              "end": 3.23
+            }
+          ],
+          "speech_ratio": 0.9146341463414634,
+          "max_probability": 0.9999985694885254,
+          "leading_silence": 0.066,
+          "trailing_silence": 0.04999999999999982
+        },
+        "recommendedFix": "Review pauses before trimming; VAD does not align words"
+      },
+      {
+        "criterion": "voice.speech_activity",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+        "status": "pass",
+        "evidence": {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+          "duration": 2.88,
+          "speech": [
+            {
+              "start": 0.034,
+              "end": 2.846
+            }
+          ],
+          "speech_ratio": 0.9763888888888889,
+          "max_probability": 0.9999996423721313,
+          "leading_silence": 0.034,
+          "trailing_silence": 0.03400000000000025
+        },
+        "recommendedFix": "Review pauses before trimming; VAD does not align words"
+      },
+      {
+        "criterion": "voice.speech_activity",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+        "status": "pass",
+        "evidence": {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+          "duration": 3.2,
+          "speech": [
+            {
+              "start": 0.066,
+              "end": 1.022
+            },
+            {
+              "start": 1.186,
+              "end": 3.134
+            }
+          ],
+          "speech_ratio": 0.9075,
+          "max_probability": 0.9999986886978149,
+          "leading_silence": 0.066,
+          "trailing_silence": 0.06600000000000028
+        },
+        "recommendedFix": "Review pauses before trimming; VAD does not align words"
+      },
+      {
+        "criterion": "voice.speech_activity",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+        "status": "pass",
+        "evidence": {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+          "duration": 3.04,
+          "speech": [
+            {
+              "start": 0.098,
+              "end": 1.214
+            },
+            {
+              "start": 1.442,
+              "end": 3.006
+            }
+          ],
+          "speech_ratio": 0.8815789473684209,
+          "max_probability": 0.9999995231628418,
+          "leading_silence": 0.098,
+          "trailing_silence": 0.03400000000000025
+        },
+        "recommendedFix": "Review pauses before trimming; VAD does not align words"
+      },
+      {
+        "criterion": "voice.speech_activity",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+        "status": "pass",
+        "evidence": {
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+          "duration": 4.16,
+          "speech": [
+            {
+              "start": 0.034,
+              "end": 1.982
+            },
+            {
+              "start": 2.37,
+              "end": 4.094
+            }
+          ],
+          "speech_ratio": 0.8826923076923077,
+          "max_probability": 0.9999992847442627,
+          "leading_silence": 0.034,
+          "trailing_silence": 0.06599999999999984
+        },
+        "recommendedFix": "Review pauses before trimming; VAD does not align words"
+      }
+    ]
+  },
+  "technical": true,
+  "findings": [
+    {
+      "criterion": "container_and_codec",
+      "status": "pass",
+      "evidence": {
+        "probeExit": 0,
+        "video": "h264",
+        "audio": "aac",
+        "duration": 18.133333
+      },
+      "severity": "error",
+      "recommendedFix": "Re-encode the existing timeline",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "resolution",
+      "status": "pass",
+      "evidence": {
+        "actual": [
+          1080,
+          1920
+        ],
+        "expected": [
+          1080,
+          1920
+        ]
+      },
+      "severity": "error",
+      "recommendedFix": "Reframe / encode only",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "duration",
+      "status": "pass",
+      "evidence": {
+        "actual": 18.133333,
+        "expected": 18.133333333333333
+      },
+      "severity": "error",
+      "recommendedFix": "Check timeline boundaries and encode only",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "full_decode",
+      "status": "pass",
+      "evidence": {
+        "exitCode": 0,
+        "errorTail": null
+      },
+      "severity": "error",
+      "recommendedFix": "Re-encode the existing timeline; preserve original files",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "black_intervals",
+      "status": "pass",
+      "evidence": [],
+      "severity": "warning",
+      "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "freeze_candidates",
+      "status": "unknown",
+      "evidence": {
+        "intervals": [
+          {
+            "start": 7.8
+          },
+          {
+            "start": 15.1
+          }
+        ],
+        "note": "Static original graphics may be intentional; review their visual pacing"
+      },
+      "severity": "warning",
+      "recommendedFix": "Review static / frozen footage in context",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "silence_candidates",
+      "status": "pass",
+      "evidence": [],
+      "severity": "warning",
+      "recommendedFix": "Listen to pauses; repair only unintended silence",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "audio_loudness",
+      "status": "pass",
+      "evidence": {
+        "input_i": "-16.64",
+        "input_tp": "-1.53",
+        "input_lra": "1.80",
+        "input_thresh": "-27.01",
+        "output_i": "-16.29",
+        "output_tp": "-1.50",
+        "output_lra": "1.80",
+        "output_thresh": "-26.65",
+        "normalization_type": "dynamic",
+        "target_offset": "0.29"
+      },
+      "severity": "warning",
+      "recommendedFix": "Adjust mix / normalize without generating new voice",
+      "timestamp": "2026-11-02T07:45:07.749Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "frame_timing",
+      "status": "pass",
+      "evidence": {
+        "version": 2,
+        "frameTimedNarration": true,
+        "plannedFrames": 544,
+        "measuredVideoFrames": 544,
+        "measuredVideoDuration": 18.133333,
+        "measuredContainerDuration": 18.133333
+      },
+      "severity": "error",
+      "recommendedFix": "Re-encode pinned segments using explicit frame durations; preserve the voice and original version",
+      "timestamp": "2026-11-02T07:45:08.570Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    },
+    {
+      "criterion": "creative_duration_target",
+      "status": "pass",
+      "evidence": {
+        "targetSeconds": 20,
+        "actualSeconds": 18.133333,
+        "tolerance": "30 percent creative-target heuristic; encode duration checked separately",
+        "noAutomaticFiller": true
+      },
+      "severity": "warning",
+      "recommendedFix": "Review pacing or create a revised script; preserve required disclosures and never pad with invented facts",
+      "timestamp": "2026-11-02T07:45:08.587Z",
+      "modelVersion": null,
+      "confidence": null,
+      "relevantFiles": [
+        "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\final.mp4"
+      ]
+    }
+  ],
+  "heuristicsRequireReview": true,
+  "voiceReview": [
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "fail",
+      "wordErrorRate": 0.3333333333333333,
+      "expected": "Giới thiệu 'Lane Keeper', tựa game thủ thành 3 làn đường do nhóm tự làm.",
+      "transcription": "Giới thiệu Lính Khi Pở, tự game thủ thành ba làn đường do nhóm tự làm.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "format_review",
+        "expected": [
+          "3"
+        ],
+        "actual": [],
+        "expectedQuantityWords": [],
+        "actualQuantityWords": [
+          "ba"
+        ]
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Giới thiệu 'Lane Keeper', tựa game thủ thành 3 làn đường do nhóm tự làm.",
+      "spokenText": "Giới thiệu 'Lane Keeper', tựa game thủ thành 3 làn đường do nhóm tự làm.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Người chơi đặt tháp trên ba làn để chặn đứng các đợt quái vật.",
+      "transcription": "Người chơi đặt tháp trên ba làn để chặn đứng các đợt quái vật.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "exact",
+        "expected": [],
+        "actual": [],
+        "expectedQuantityWords": [
+          "ba"
+        ],
+        "actualQuantityWords": [
+          "ba"
+        ]
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Người chơi đặt tháp trên ba làn để chặn đứng các đợt quái vật.",
+      "spokenText": "Người chơi đặt tháp trên ba làn để chặn đứng các đợt quái vật.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Hai loại tháp chính: tháp cung bắn nhanh và tháp phép làm chậm.",
+      "transcription": "hai loại tháp chính, tháp cung bắn nhanh và tháp phép làm chậm.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "exact",
+        "expected": [],
+        "actual": [],
+        "expectedQuantityWords": [
+          "hai"
+        ],
+        "actualQuantityWords": [
+          "hai"
+        ]
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Hai loại tháp chính: tháp cung bắn nhanh và tháp phép làm chậm.",
+      "spokenText": "Hai loại tháp chính: tháp cung bắn nhanh và tháp phép làm chậm.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "pass",
+      "wordErrorRate": 0.07692307692307693,
+      "expected": "Mỗi màn gồm năm đợt, với trùm xuất hiện ở màn cuối cùng.",
+      "transcription": "mỗi màn gồm năm đợt, với chùm xuất hiện ở màn cuối cùng.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "exact",
+        "expected": [],
+        "actual": [],
+        "expectedQuantityWords": [
+          "năm"
+        ],
+        "actualQuantityWords": [
+          "năm"
+        ]
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Mỗi màn gồm năm đợt, với trùm xuất hiện ở màn cuối cùng.",
+      "spokenText": "Mỗi màn gồm năm đợt, với trùm xuất hiện ở màn cuối cùng.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Tựa game đang trong giai đoạn thử nghiệm nội bộ, chưa xác định ngày phát hành hay giá cả.",
+      "transcription": "Tựa game đang trong giai đoạn thử nghiệm nội bộ, chưa xác định ngày phát hành hay giá cả.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "exact",
+        "expected": [],
+        "actual": [],
+        "expectedQuantityWords": [],
+        "actualQuantityWords": []
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [
+          "chưa"
+        ],
+        "actual": [
+          "chưa"
+        ]
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Tựa game đang trong giai đoạn thử nghiệm nội bộ, chưa xác định ngày phát hành hay giá cả.",
+      "spokenText": "Tựa game đang trong giai đoạn thử nghiệm nội bộ, chưa xác định ngày phát hành hay giá cả.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav"
+    }
+  ],
+  "editorial": "UNKNOWN",
+  "facts": "UNKNOWN",
+  "localization": null,
+  "rights": "OWNER_DECLARATION_RECORDED",
+  "publishEligibility": "BLOCKED",
+  "duration": 18.133333,
+  "video": {
+    "index": 0,
+    "codec_name": "h264",
+    "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+    "profile": "High",
+    "codec_type": "video",
+    "codec_tag_string": "avc1",
+    "codec_tag": "0x31637661",
+    "width": 1080,
+    "height": 1920,
+    "coded_width": 1080,
+    "coded_height": 1920,
+    "closed_captions": 0,
+    "film_grain": 0,
+    "has_b_frames": 2,
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "9:16",
+    "pix_fmt": "yuv420p",
+    "level": 40,
+    "chroma_location": "left",
+    "field_order": "progressive",
+    "refs": 1,
+    "is_avc": "true",
+    "nal_length_size": "4",
+    "id": "0x1",
+    "r_frame_rate": "30/1",
+    "avg_frame_rate": "30/1",
+    "time_base": "1/15360",
+    "start_pts": 0,
+    "start_time": "0.000000",
+    "duration_ts": 278528,
+    "duration": "18.133333",
+    "bit_rate": "82772",
+    "bits_per_raw_sample": "8",
+    "nb_frames": "544",
+    "extradata_size": 48,
+    "disposition": {
+      "default": 1,
+      "dub": 0,
+      "original": 0,
+      "comment": 0,
+      "lyrics": 0,
+      "karaoke": 0,
+      "forced": 0,
+      "hearing_impaired": 0,
+      "visual_impaired": 0,
+      "clean_effects": 0,
+      "attached_pic": 0,
+      "timed_thumbnails": 0,
+      "non_diegetic": 0,
+      "captions": 0,
+      "descriptions": 0,
+      "metadata": 0,
+      "dependent": 0,
+      "still_image": 0
+    },
+    "tags": {
+      "language": "und",
+      "handler_name": "VideoHandler",
+      "vendor_id": "[0][0][0][0]",
+      "encoder": "Lavc61.19.100 libx264"
+    }
+  },
+  "audio": {
+    "index": 1,
+    "codec_name": "aac",
+    "codec_long_name": "AAC (Advanced Audio Coding)",
+    "profile": "LC",
+    "codec_type": "audio",
+    "codec_tag_string": "mp4a",
+    "codec_tag": "0x6134706d",
+    "sample_fmt": "fltp",
+    "sample_rate": "96000",
+    "channels": 2,
+    "channel_layout": "stereo",
+    "bits_per_sample": 0,
+    "initial_padding": 0,
+    "id": "0x2",
+    "r_frame_rate": "0/0",
+    "avg_frame_rate": "0/0",
+    "time_base": "1/96000",
+    "start_pts": 0,
+    "start_time": "0.000000",
+    "duration_ts": 1740768,
+    "duration": "18.133000",
+    "bit_rate": "121381",
+    "nb_frames": "1701",
+    "extradata_size": 5,
+    "disposition": {
+      "default": 1,
+      "dub": 0,
+      "original": 0,
+      "comment": 0,
+      "lyrics": 0,
+      "karaoke": 0,
+      "forced": 0,
+      "hearing_impaired": 0,
+      "visual_impaired": 0,
+      "clean_effects": 0,
+      "attached_pic": 0,
+      "timed_thumbnails": 0,
+      "non_diegetic": 0,
+      "captions": 0,
+      "descriptions": 0,
+      "metadata": 0,
+      "dependent": 0,
+      "still_image": 0
+    },
+    "tags": {
+      "language": "und",
+      "handler_name": "SoundHandler",
+      "vendor_id": "[0][0][0][0]"
+    }
+  },
+  "wordAlignment": "UNVERIFIED",
+  "humanReview": "REQUIRED"
+}

@@ -1,0 +1,45 @@
+﻿{
+  "id": "c9d6e14f-93f6-4452-a011-280a46d24653",
+  "profile": "qwen3.5-9b",
+  "mode": "verify",
+  "root": "C:\\Users\\Winka\\Projects\\mmo",
+  "config": {
+    "locale": "vi",
+    "llmUrl": "http://127.0.0.1:11435/v1",
+    "llmModel": "qwen3.5:9b",
+    "llmManaged": true,
+    "llmBinary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ollama\\ollama.exe",
+    "llmModelStore": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\ollama",
+    "llmPort": 11435,
+    "llmDevice": "cuda",
+    "llmModelDigest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+    "python": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\speech\\Scripts\\python.exe",
+    "pythonVi": "",
+    "pythonAsr": "",
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe",
+    "ttsViModel": "",
+    "ttsEnModel": "",
+    "ttsViCodec": "",
+    "asrModel": "",
+    "asrDevice": "auto",
+    "voiceVi": "",
+    "voiceEn": "af_heart",
+    "voiceEnGb": "bf_emma",
+    "ttsDevice": "auto",
+    "gpuLock": "",
+    "maxContext": 8192,
+    "localOnly": true,
+    "uv": "uv"
+  },
+  "configHash": "07ca6ec7b34cbefce287c6abfee3101a343f4093c9ee666f99470772c5e578a8",
+  "state": "queued",
+  "progress": {
+    "status": "Running actual vi-VN inference"
+  },
+  "resultConfig": null,
+  "error": "GPU_BUSY: another application holds the GPU lease; retry later",
+  "createdAt": "2026-10-23T02:41:52.130Z",
+  "updatedAt": "2026-10-23T02:41:58.134Z"
+}
+

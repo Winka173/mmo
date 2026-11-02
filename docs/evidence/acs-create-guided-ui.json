@@ -1,0 +1,677 @@
+{
+  "status": "VERIFIED_REAL_LOCAL_GUIDED_CREATE_DRAFT_NOT_PUBLISH_APPROVAL",
+  "at": "2026-10-23T11:14:17.576Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data",
+  "resumedExistingReadyRun": true,
+  "priorAttempt": "acs-create-guided-render-attempt.json",
+  "runId": "87b45d16-eef2-431c-aac2-cc830eab0652",
+  "language": "en-US",
+  "planSha256": "c2bb00d668f00a34d428feb60179790fff6053cda52d02ddc6c3b6e2891dab0d",
+  "researchSha256": "7af93d489cc06c5c6a9cfbcbbf5c8da850b26b58fe872abf898db043e70f3f77",
+  "shots": [
+    {
+      "text": "Venus looks peaceful but hides intense heat and crushing pressure.",
+      "asset": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\original-graphic-0.png",
+      "durationSec": 4.725,
+      "sourceStart": 0,
+      "sourceDuration": null
+    },
+    {
+      "text": "Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+      "asset": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\original-graphic-1.png",
+      "durationSec": 15.725000000000001,
+      "sourceStart": 0,
+      "sourceDuration": null
+    },
+    {
+      "text": "The atmospheric pressure at the surface is about 93 times what it is at sea level on Earth.",
+      "asset": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\original-graphic-2.png",
+      "durationSec": 6.825,
+      "sourceStart": 0,
+      "sourceDuration": null
+    }
+  ],
+  "voices": [
+    {
+      "engine": "kokoro",
+      "device": "cuda",
+      "language": "en-US",
+      "checkpointSha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "audioSha256": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d"
+    },
+    {
+      "engine": "kokoro",
+      "device": "cuda",
+      "language": "en-US",
+      "checkpointSha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "audioSha256": "f122b90551b2e410b848b6257b46445b8d190a7f2a18348e39ec168f213488f0"
+    },
+    {
+      "engine": "kokoro",
+      "device": "cuda",
+      "language": "en-US",
+      "checkpointSha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+      "audioSha256": "8bcde4fa0286c762b12cbf68c6ab124ccdb2ff89fc3b73e93fd3fc3f5e91d957"
+    }
+  ],
+  "asr": {
+    "engine": "qwen3-asr",
+    "device": "cuda",
+    "modelSha256": "b73be080615a190b42848b04271de85a51fbe8b40113d82561b6b35d5359850c"
+  },
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4",
+  "qa": {
+    "videoSha256": "d3df0cb6f92b456dc3f76b857bd0fd6e759e73dea13b7fd3ee511fadb1663bcd",
+    "sourceAnalysis": null,
+    "captionQuality": {
+      "schemaVersion": 1,
+      "captionTiming": "estimated",
+      "wordAlignment": "UNVERIFIED",
+      "timing": [
+        {
+          "lineIndex": 0,
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-0.wav",
+          "offset": 0,
+          "segmentDuration": 4.725,
+          "audioDuration": 4.425,
+          "method": "VAD_NOT_MEASURED",
+          "speech": null,
+          "cueStartIndex": 0,
+          "cueCount": 2
+        },
+        {
+          "lineIndex": 1,
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-1.wav",
+          "offset": 4.725,
+          "segmentDuration": 15.725000000000001,
+          "audioDuration": 15.425,
+          "method": "VAD_NOT_MEASURED",
+          "speech": null,
+          "cueStartIndex": 2,
+          "cueCount": 6
+        },
+        {
+          "lineIndex": 2,
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-2.wav",
+          "offset": 20.450000000000003,
+          "segmentDuration": 6.825,
+          "audioDuration": 6.525,
+          "method": "VAD_NOT_MEASURED",
+          "speech": null,
+          "cueStartIndex": 8,
+          "cueCount": 3
+        }
+      ],
+      "readability": {
+        "status": "pass",
+        "limits": {
+          "minDuration": 0.8,
+          "maxCharactersPerSecond": 20,
+          "estimatedCharactersPerLine": 28
+        },
+        "metrics": [
+          {
+            "cueIndex": 0,
+            "start": 0,
+            "end": 2.586923076923077,
+            "duration": 2.586923076923077,
+            "characters": 38,
+            "charactersPerSecond": 14.689265536723164,
+            "lines": [
+              "Venus looks peaceful",
+              "but hides intense"
+            ],
+            "lineLengths": [
+              20,
+              17
+            ]
+          },
+          {
+            "cueIndex": 1,
+            "start": 2.586923076923077,
+            "end": 4.425,
+            "duration": 1.838076923076923,
+            "characters": 27,
+            "charactersPerSecond": 14.689265536723164,
+            "lines": [
+              "heat and crushing pressure."
+            ],
+            "lineLengths": [
+              27
+            ]
+          },
+          {
+            "cueIndex": 2,
+            "start": 4.725,
+            "end": 7.460467980295567,
+            "duration": 2.7354679802955673,
+            "characters": 36,
+            "charactersPerSecond": 13.160453808752022,
+            "lines": [
+              "Its thick atmosphere",
+              "traps heat in a"
+            ],
+            "lineLengths": [
+              20,
+              15
+            ]
+          },
+          {
+            "cueIndex": 3,
+            "start": 7.460467980295567,
+            "end": 10.195935960591132,
+            "duration": 2.7354679802955655,
+            "characters": 36,
+            "charactersPerSecond": 13.160453808752031,
+            "lines": [
+              "runaway greenhouse",
+              "effect, making it"
+            ],
+            "lineLengths": [
+              18,
+              17
+            ]
+          },
+          {
+            "cueIndex": 4,
+            "start": 10.195935960591132,
+            "end": 13.083374384236453,
+            "duration": 2.887438423645321,
+            "characters": 38,
+            "charactersPerSecond": 13.160453808752022,
+            "lines": [
+              "the hottest planet",
+              "in our solar system"
+            ],
+            "lineLengths": [
+              18,
+              19
+            ]
+          },
+          {
+            "cueIndex": 5,
+            "start": 13.083374384236453,
+            "end": 15.81884236453202,
+            "duration": 2.7354679802955673,
+            "characters": 36,
+            "charactersPerSecond": 13.160453808752022,
+            "lines": [
+              "with surface",
+              "temperatures hot enough"
+            ],
+            "lineLengths": [
+              12,
+              23
+            ]
+          },
+          {
+            "cueIndex": 6,
+            "start": 15.81884236453202,
+            "end": 18.25036945812808,
+            "duration": 2.43152709359606,
+            "characters": 32,
+            "charactersPerSecond": 13.160453808752022,
+            "lines": [
+              "to melt lead —",
+              "about 872 degrees"
+            ],
+            "lineLengths": [
+              14,
+              17
+            ]
+          },
+          {
+            "cueIndex": 7,
+            "start": 18.25036945812808,
+            "end": 20.150000000000002,
+            "duration": 1.8996305418719217,
+            "characters": 25,
+            "charactersPerSecond": 13.160453808752022,
+            "lines": [
+              "Fahrenheit (467 Celsius)."
+            ],
+            "lineLengths": [
+              25
+            ]
+          },
+          {
+            "cueIndex": 8,
+            "start": 20.450000000000003,
+            "end": 22.722752808988766,
+            "duration": 2.2727528089887628,
+            "characters": 31,
+            "charactersPerSecond": 13.639846743295028,
+            "lines": [
+              "The atmospheric",
+              "pressure at the"
+            ],
+            "lineLengths": [
+              15,
+              15
+            ]
+          },
+          {
+            "cueIndex": 9,
+            "start": 22.722752808988766,
+            "end": 25.362078651685394,
+            "duration": 2.6393258426966284,
+            "characters": 36,
+            "charactersPerSecond": 13.639846743295024,
+            "lines": [
+              "surface is about",
+              "93 times what it is"
+            ],
+            "lineLengths": [
+              16,
+              19
+            ]
+          },
+          {
+            "cueIndex": 10,
+            "start": 25.362078651685394,
+            "end": 26.975,
+            "duration": 1.6129213483146074,
+            "characters": 22,
+            "charactersPerSecond": 13.639846743295013,
+            "lines": [
+              "at sea level on Earth."
+            ],
+            "lineLengths": [
+              22
+            ]
+          }
+        ],
+        "findings": [],
+        "layoutMethod": "ASS two-line character estimate; visual review required"
+      },
+      "humanReview": "REQUIRED",
+      "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Cues can span internal pauses. No audio was trimmed."
+    },
+    "speechActivity": "NOT_MEASURED",
+    "technical": true,
+    "findings": [
+      {
+        "criterion": "container_and_codec",
+        "status": "pass",
+        "evidence": {
+          "probeExit": 0,
+          "video": "h264",
+          "audio": "aac",
+          "duration": 27.397333
+        },
+        "severity": "error",
+        "recommendedFix": "Re-encode the existing timeline",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "resolution",
+        "status": "pass",
+        "evidence": {
+          "actual": [
+            1080,
+            1920
+          ],
+          "expected": [
+            1080,
+            1920
+          ]
+        },
+        "severity": "error",
+        "recommendedFix": "Reframe / encode only",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "duration",
+        "status": "pass",
+        "evidence": {
+          "actual": 27.397333,
+          "expected": 27.275000000000002
+        },
+        "severity": "error",
+        "recommendedFix": "Check timeline boundaries and encode only",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "full_decode",
+        "status": "pass",
+        "evidence": {
+          "exitCode": 0,
+          "errorTail": null
+        },
+        "severity": "error",
+        "recommendedFix": "Re-encode the existing timeline; preserve original files",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "black_intervals",
+        "status": "pass",
+        "evidence": [],
+        "severity": "warning",
+        "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "freeze_candidates",
+        "status": "unknown",
+        "evidence": {
+          "intervals": [
+            {
+              "start": 0.0229818
+            },
+            {
+              "start": 4.756315
+            },
+            {
+              "start": 7.489648
+            },
+            {
+              "start": 10.222982
+            },
+            {
+              "start": 13.089648
+            },
+            {
+              "start": 15.822982
+            },
+            {
+              "start": 20.489648
+            },
+            {
+              "start": 22.722982
+            }
+          ],
+          "note": "Static original graphics may be intentional; review their visual pacing"
+        },
+        "severity": "warning",
+        "recommendedFix": "Review static / frozen footage in context",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "silence_candidates",
+        "status": "unknown",
+        "evidence": [
+          {
+            "start": 3.96999
+          },
+          {
+            "start": 19.673021
+          }
+        ],
+        "severity": "warning",
+        "recommendedFix": "Listen to pauses; repair only unintended silence",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "audio_loudness",
+        "status": "pass",
+        "evidence": {
+          "input_i": "-16.43",
+          "input_tp": "-1.31",
+          "input_lra": "3.60",
+          "input_thresh": "-26.75",
+          "output_i": "-16.06",
+          "output_tp": "-1.50",
+          "output_lra": "3.60",
+          "output_thresh": "-26.35",
+          "normalization_type": "dynamic",
+          "target_offset": "0.06"
+        },
+        "severity": "warning",
+        "recommendedFix": "Adjust mix / normalize without generating new voice",
+        "timestamp": "2026-10-23T10:36:24.140Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      },
+      {
+        "criterion": "creative_duration_target",
+        "status": "pass",
+        "evidence": {
+          "targetSeconds": 30,
+          "actualSeconds": 27.397333,
+          "tolerance": "30 percent creative-target heuristic; encode duration checked separately",
+          "noAutomaticFiller": true
+        },
+        "severity": "warning",
+        "recommendedFix": "Review pacing or create a revised script; preserve required disclosures and never pad with invented facts",
+        "timestamp": "2026-10-23T10:36:26.066Z",
+        "modelVersion": null,
+        "confidence": null,
+        "relevantFiles": [
+          "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\final.mp4"
+        ]
+      }
+    ],
+    "heuristicsRequireReview": true,
+    "voiceReview": [
+      {
+        "criterion": "voice.round_trip",
+        "status": "pass",
+        "wordErrorRate": 0,
+        "expected": "Venus looks peaceful but hides intense heat and crushing pressure.",
+        "transcription": "Venus looks peaceful, but hides intense heat and crushing pressure.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+        "sourceText": "Venus looks peaceful but hides intense heat and crushing pressure.",
+        "spokenText": "Venus looks peaceful but hides intense heat and crushing pressure.",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-0.wav"
+      },
+      {
+        "criterion": "voice.round_trip",
+        "status": "pass",
+        "wordErrorRate": 0,
+        "expected": "Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+        "transcription": "Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system, with surface temperatures hot enough to melt lead—about 872 degrees Fahrenheit, 467 Celsius.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+        "sourceText": "Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+        "spokenText": "Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-1.wav"
+      },
+      {
+        "criterion": "voice.round_trip",
+        "status": "pass",
+        "wordErrorRate": 0,
+        "expected": "The atmospheric pressure at the surface is about 93 times what it is at sea level on Earth.",
+        "transcription": "The atmospheric pressure at the surface is about 93 times what it is at sea level on Earth.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+        "sourceText": "The atmospheric pressure at the surface is about 93 times what it is at sea level on Earth.",
+        "spokenText": "The atmospheric pressure at the surface is about 93 times what it is at sea level on Earth.",
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-2.wav"
+      }
+    ],
+    "editorial": "UNKNOWN",
+    "facts": {
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "approval": "REQUIRED"
+    },
+    "localization": null,
+    "rights": "ORIGINAL_GRAPHICS_WITH_SOURCE_CITATIONS",
+    "publishEligibility": "BLOCKED",
+    "duration": 27.397333,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+      "profile": "High",
+      "codec_type": "video",
+      "codec_tag_string": "avc1",
+      "codec_tag": "0x31637661",
+      "width": 1080,
+      "height": 1920,
+      "coded_width": 1080,
+      "coded_height": 1920,
+      "closed_captions": 0,
+      "film_grain": 0,
+      "has_b_frames": 2,
+      "sample_aspect_ratio": "1:1",
+      "display_aspect_ratio": "9:16",
+      "pix_fmt": "yuv420p",
+      "level": 40,
+      "chroma_location": "left",
+      "field_order": "progressive",
+      "refs": 1,
+      "is_avc": "true",
+      "nal_length_size": "4",
+      "id": "0x1",
+      "r_frame_rate": "30/1",
+      "avg_frame_rate": "30/1",
+      "time_base": "1/15360",
+      "start_pts": 507,
+      "start_time": "0.033008",
+      "duration_ts": 419328,
+      "duration": "27.300000",
+      "bit_rate": "150464",
+      "bits_per_raw_sample": "8",
+      "nb_frames": "819",
+      "extradata_size": 48,
+      "disposition": {
+        "default": 1,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0
+      },
+      "tags": {
+        "language": "und",
+        "handler_name": "VideoHandler",
+        "vendor_id": "[0][0][0][0]",
+        "encoder": "Lavc61.19.100 libx264"
+      }
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "codec_long_name": "AAC (Advanced Audio Coding)",
+      "profile": "LC",
+      "codec_type": "audio",
+      "codec_tag_string": "mp4a",
+      "codec_tag": "0x6134706d",
+      "sample_fmt": "fltp",
+      "sample_rate": "96000",
+      "channels": 2,
+      "channel_layout": "stereo",
+      "bits_per_sample": 0,
+      "initial_padding": 0,
+      "id": "0x2",
+      "r_frame_rate": "0/0",
+      "avg_frame_rate": "0/0",
+      "time_base": "1/96000",
+      "start_pts": 960,
+      "start_time": "0.010000",
+      "duration_ts": 2630144,
+      "duration": "27.397333",
+      "bit_rate": "125835",
+      "nb_frames": "2561",
+      "extradata_size": 5,
+      "disposition": {
+        "default": 1,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0
+      },
+      "tags": {
+        "language": "und",
+        "handler_name": "SoundHandler",
+        "vendor_id": "[0][0][0][0]"
+      }
+    },
+    "wordAlignment": "UNVERIFIED",
+    "humanReview": "REQUIRED"
+  },
+  "checks": [
+    "Resumed the prior real GPU plan/render attempt; no model inference was repeated",
+    "Server-backed deep link restores the saved draft without browser cache; script, research and selected version survive reload",
+    "Continue uses pinned plan/research, actual Kokoro CUDA/ASR/FFmpeg produces preview, QA remains separate, private ZIP downloads, repeated continuation creates no duplicate job, VI/EN UI renders without errors",
+    "Actual prompt Cut 00:05–00:08 removes exactly three timeline seconds and renders a decodable child without AI, keeps the parent bytes and clears inherited plan continuation; container rounding recorded separately",
+    "Deep-linking an enabled future-dated fixture opens a read-only handoff, preserves its config bytes and queues no production; fixture activation is explicitly reverted"
+  ],
+  "zipBytes": 1032048,
+  "publicPosting": false,
+  "humanApproval": "NOT_CREATED",
+  "browserErrors": []
+}

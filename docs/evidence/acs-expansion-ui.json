@@ -1,0 +1,16 @@
+{
+  "status": "VERIFIED_UI_CONTRACTS_AND_REAL_DETERMINISTIC_RENDER",
+  "at": "2026-10-23T07:03:18.442Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\expansion-ui\\f4eb6d6e-3816-4642-8511-8d985cab9aa6\\data",
+  "checks": [
+    "Projects UI persists brand profile, binds a disabled pending-rights draft, opens its wizard without polling reset and saves product disclosure fields",
+    "OAuth UI prepares/cancels a loopback attempt with private cookie; no browser launch, Google call, credentials or channel are created",
+    "Reviewed-delivery policy requires explicit scope consent, can be revoked and creates no upload for disabled/unreviewed pilots",
+    "Transcript phrase selection creates an actual shorter FFmpeg child across all tracks, preserves parent/product evidence and invokes no AI; acknowledgement is automated fixture interaction, not human content approval"
+  ],
+  "childId": "e982bfb0-d34b-484d-a213-d5139dd9353d",
+  "browserErrors": [],
+  "realOAuth": false,
+  "remoteProviders": false,
+  "humanApproval": "NOT_REVIEWED"
+}

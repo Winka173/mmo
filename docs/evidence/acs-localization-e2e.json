@@ -1,0 +1,75 @@
+{
+  "status": "VERIFIED_VI_TO_EN_INTERNAL_DUB_FIXTURE_MEANING_REVIEW_REQUIRED",
+  "fixture": true,
+  "sourceLanguage": "vi-VN",
+  "targetLanguage": "en-US",
+  "mandarinWorkflowVerified": false,
+  "publicPosting": false,
+  "runId": "8da787cc-1330-40f4-a721-4ee4b5828963",
+  "at": "2026-10-23T03:29:20.608Z",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792726160559\\data\\studio\\artifacts\\8da787cc-1330-40f4-a721-4ee4b5828963\\final.mp4",
+  "duration": 24.292,
+  "translation": [
+    {
+      "index": 0,
+      "text": "Venus is the second planet from the Sun and Earth's closest neighbor. Its thick atmosphere traps heat in an uncontrolled greenhouse effect, making it the hottest planet in the solar system."
+    },
+    {
+      "index": 1,
+      "text": "Surface temperatures are hot enough to melt lead. Beneath its dense cloud cover lie volcanic plains and deformed mountains under atmospheric pressure 93 times that of Earth."
+    }
+  ],
+  "retiming": [
+    {
+      "sourceSeconds": 10,
+      "outputSeconds": 11.8,
+      "ratio": 1.1800000000000002
+    },
+    {
+      "sourceSeconds": 9.280000000000001,
+      "outputSeconds": 12.4,
+      "ratio": 1.336206896551724
+    }
+  ],
+  "voiceReview": [
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Venus is the second planet from the Sun and Earth's closest neighbor. Its thick atmosphere traps heat in an uncontrolled greenhouse effect, making it the hottest planet in the solar system.",
+      "transcription": "Venus is the second planet from the Sun and Earth's closest neighbor. Its thick atmosphere traps heat in an uncontrolled greenhouse effect, making it the hottest planet in the solar system.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792726160559\\data\\studio\\artifacts\\8da787cc-1330-40f4-a721-4ee4b5828963\\voice-0.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Surface temperatures are hot enough to melt lead. Beneath its dense cloud cover lie volcanic plains and deformed mountains under atmospheric pressure 93 times that of Earth.",
+      "transcription": "Surface temperatures are hot enough to melt lead. Beneath its dense cloud cover lie volcanic plains and deformed mountains under atmospheric pressure 93 times that of Earth.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792726160559\\data\\studio\\artifacts\\8da787cc-1330-40f4-a721-4ee4b5828963\\voice-1.wav"
+    }
+  ],
+  "originalSources": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\localization-e2e\\1792726160559\\data\\studio\\artifacts\\8da787cc-1330-40f4-a721-4ee4b5828963\\authorized-original.mp4",
+      "sha256": "9cd6f13965bc746fb87054e081974e96d4230c3531b9182e3b695dcf4c2191ba",
+      "size": 734040
+    }
+  ],
+  "checks": [
+    "actual source ASR without expected transcript",
+    "independent local translation",
+    "local English voice replacing source dialogue, no speaker cloning",
+    "timed source excerpts retimed to target narration",
+    "editable target captions",
+    "source/translation/rights manifests retained",
+    "technical QA and ASR target language",
+    "public posting remains blocked"
+  ]
+}

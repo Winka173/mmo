@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-0.mp4",
+      "sha256": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+      "originalName": "fixture-clip-01.mp4"
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-1.mp4",
+      "sha256": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+      "originalName": "fixture-clip-02.mp4"
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-2.mp4",
+      "sha256": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+      "originalName": "fixture-clip-03.mp4"
+    }
+  ]
+}

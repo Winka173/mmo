@@ -1,0 +1,8 @@
+{
+  "task": "script",
+  "exit_code": 0,
+  "stdout": "{\"script\": {\"shots\": [{\"text\": \"Autonomous Creative Studio stores original files, creates editable drafts and exports videos locally.\"}, {\"text\": \"This sample is a software test fixture. It has not been published.\"}, {\"text\": \"Users should note that this is a test environment and not a public release.\"}]}, \"model\": \"qwen3-vl:4b-instruct-q4_K_M\", \"seconds\": 7.475170135498047, \"usage\": {\"prompt_tokens\": 98, \"prompt_tokens_details\": {\"cached_tokens\": 0}, \"completion_tokens\": 82, \"total_tokens\": 180}, \"mode\": \"local\"}\n",
+  "stderr": "",
+  "human_review": "NOT_REVIEWED",
+  "fixture": true
+}

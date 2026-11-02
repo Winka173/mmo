@@ -1,0 +1,55 @@
+{
+ "vi_script": {
+  "text": "Đây là kịch bản video ngắn 45 giây, tập trung vào sự ngắn gọn và phong cách gần gũi cho game thủ:\n\n**(0-5s) Hook:**\nAnh em mê dòng game thủ thành chiến thuật thì đừng bỏ qua Runavelle nhé!\n\n**(5-35s) 3 Ý chính:**\n*   Đây là dự án từ một nhà phát triển độc lập, nơi bạn sẽ xây tháp dọc hai làn đường để chặn quái vật tấn công cổng thành.\n*   Trong bản demo, game cung cấp 3 map, 12 loại tháp và 5 loại quái cho anh em tha hồ tính toán chiến thuật.\n*   Tin vui là bản demo sẽ chính thức lên kệ Steam vào quý 4 năm nay.\n\n**(35-45s) CTA:**\nLưu lại ngay để trải nghiệm Runavelle trên Steam cuối năm nay nhé!",
+  "decode_tps": 13.55,
+  "prompt_tokens": 184,
+  "out_tokens": 192,
+  "wall_s": 43.0,
+  "load_s": 23.8
+ },
+ "vi_localize": {
+  "text": "Để thu hút người chơi trẻ, mình sẽ dùng văn phong năng động, ngắn gọn và mang tính \"kêu gọi hành động\" (call-to-action) mạnh mẽ. Dưới đây là 3 phương án tùy theo mức độ \"phá cách\":\n\n**Phương án 1: Cân bằng, chuyên nghiệp (Khuyên dùng)**\n> \"Chặn đường, xây tháp, giữ cổng! Với 12 loại tháp, 5 loài quái vật và 3 bản đồ, bản demo của Runavelle sẽ chính thức đổ bộ Steam quý 4 năm nay. Tuyệt đối không để một con goblin nào lọt lưới!\"\n\n**Phương án 2: Trẻ trung, \"game thủ\" (Hào hứng)**\n> \"Xây tháp chặn đường, quyết giữ cổng thành! 12 tháp, 5 loại quái, 3 bản đồ — Runavelle Demo sẽ trình làng trên Steam quý 4 này. Sẵn sàng chưa? Đừng để một con goblin nào lọt qua nhé!\"\n\n**Phương án 3: Ngắn gọn, súc tích (Dành cho clip quảng cáo nhanh)**\n> \"Xây tháp, chặn đường, thủ cổng! 12 loại tháp, 5 loài quái, 3 bản đồ. Runavelle Demo sẽ lên kệ Steam quý 4 năm nay. Một con goblin lọt qua cũng là thất bại. Chiến thôi!\"\n\n**Các điểm chính đã bản địa hóa:**\n*   **\"Block the lanes, stack your towers, and hold the gate\"** $\\rightarrow$ Chuyển thành các cụm động từ mạnh: *Xây tháp, chặn đường, giữ cổng*.\n*   **\"Lands on Steam\"** $\\rightarrow$ Dùng từ *đổ bộ, trình làng, lên kệ* cho tự nhiên với giới trẻ.\n*   **\"Don't let a single goblin through\"** $\\rightarrow$ Dịch thoát ý thành *không lọt lưới, không lọt qua* để tạo áp lực kịch tính cho game thủ.",
+  "decode_tps": 13.44,
+  "prompt_tokens": 97,
+  "out_tokens": 438,
+  "wall_s": 33.2,
+  "load_s": 0.0
+ },
+ "vi_facts": {
+  "text": "1) Demo có 3 map.\n2) KHÔNG CÓ TRONG NGUỒN.\n3) Phát hành trên Steam vào quý 4.\n4) KHÔNG CÓ TRONG NGUỒN.",
+  "decode_tps": 19.08,
+  "prompt_tokens": 182,
+  "out_tokens": 49,
+  "wall_s": 3.2,
+  "load_s": 0.0
+ },
+ "vi_comment": {
+  "text": "Chào bạn, Runavelle rất tiếc vì bạn có trải nghiệm chưa tốt. Đội ngũ phát triển sẽ ghi nhận ý kiến của bạn để cải thiện game trong thời gian tới. Cảm ơn bạn đã phản hồi!",
+  "decode_tps": 14.16,
+  "prompt_tokens": 112,
+  "out_tokens": 47,
+  "wall_s": 3.9,
+  "load_s": 0.0
+ },
+ "json": {
+  "text": "{\n  \"title\": \"Demo Game Thủ Thành Runavelle: Chiến Thuật Chặn Quái Đỉnh Cao\",\n  \"hooks\": [\n    \"Khám phá Runavelle - siêu phẩm thủ thành chiến thuật sắp đổ bộ Steam!\",\n    \"3 bản đồ, 12 loại tháp, bạn sẽ xây dựng phòng tuyến thế nào để bảo vệ cổng thành?\",\n    \"Sẵn sàng đối đầu với 5 loại quái vật trong bản demo Runavelle sắp ra mắt.\"\n  ],\n  \"tags\": [\n    \"Runavelle\",\n    \"game thủ thành\",\n    \"tower defense\",\n    \"game indie\",\n    \"Steam\",\n    \"chiến thuật\"\n  ],\n  \"language\": \"vi\"\n}",
+  "decode_tps": 14.97,
+  "prompt_tokens": 182,
+  "out_tokens": 167,
+  "wall_s": 11.8,
+  "load_s": 0.0
+ },
+ "en_script": {
+  "text": "(Energetic, fast-paced tone)\n\n**Hook:** Check out Runavelle, a brand new tower-defense game created by a single indie developer!\n\n**Point 1:** In the demo, you’ll face off against five different monster types across three unique maps.\n\n**Point 2:** To protect your castle gate, you can strategically place twelve different tower types along two lanes of attack.\n\n**Point 3:** It’s all about the perfect defense to stop the hoard from breaking through!\n\n**CTA:** Get ready—the demo launches on Steam in Q4! Keep an eye out for it!",
+  "decode_tps": 12.29,
+  "prompt_tokens": 142,
+  "out_tokens": 130,
+  "wall_s": 11.2,
+  "load_s": 0.0
+ },
+ "cpu_only_probe": {
+  "decode_tps": 7.12,
+  "out_tokens": 228,
+  "wall_s": 52.8
+ }
+}

@@ -1,0 +1,207 @@
+{
+  "startedAt": "2026-10-26T20:40:39.811Z",
+  "install": {
+    "state": "installed",
+    "error": null,
+    "status": "INSTALLED_NOT_INFERENCE_VERIFIED"
+  },
+  "verify": {
+    "state": "verified",
+    "error": null,
+    "vision": "MATCHED_KNOWN_FIXTURE_ONLY",
+    "evidence": [
+      {
+        "script": {
+          "shots": [
+            {
+              "text": "Thư viện địa phương là nơi lưu trữ nhiều loại sách và tài liệu quý giá."
+            },
+            {
+              "text": "Đây là không gian yên tĩnh lý tưởng cho việc học tập và nghiên cứu."
+            },
+            {
+              "text": "Thư viện địa phương cung cấp nhiều đầu sách đa dạng cho cộng đồng."
+            },
+            {
+              "text": "Đây là điểm đến tuyệt vời cho những người yêu thích đọc sách."
+            }
+          ]
+        },
+        "model": "gemma4:31b",
+        "model_digest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+        "seconds": 31.86457633972168,
+        "usage": {
+          "input_tokens": 56,
+          "output_tokens": 106
+        },
+        "mode": "local",
+        "device": "cpu",
+        "requested_device": "cpu",
+        "execution": {
+          "name": "gemma4:31b",
+          "model": "gemma4:31b",
+          "size": 16981447145,
+          "digest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "gemma4",
+            "families": [
+              "gemma4"
+            ],
+            "parameter_size": "30.7B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-27T03:41:01.4227687+07:00",
+          "size_vram": 0,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        },
+        "llmProfile": {
+          "profile": "quality",
+          "task": "script_final",
+          "reviewRequired": false,
+          "reason": "script_final uses the quality profile"
+        }
+      },
+      {
+        "script": {
+          "shots": [
+            {
+              "text": "Our local library offers a wide variety of books and resources. It is a welcoming space for the entire community."
+            },
+            {
+              "text": "Visit the local library to explore its collection. It provides a quiet environment for reading and study."
+            },
+            {
+              "text": "The local library provides access to numerous literary works. It serves as a hub for learning and discovery."
+            }
+          ]
+        },
+        "model": "gemma4:31b",
+        "model_digest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+        "seconds": 33.217437505722046,
+        "usage": {
+          "input_tokens": 50,
+          "output_tokens": 114
+        },
+        "mode": "local",
+        "device": "cpu",
+        "requested_device": "cpu",
+        "execution": {
+          "name": "gemma4:31b",
+          "model": "gemma4:31b",
+          "size": 16981447145,
+          "digest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "gemma4",
+            "families": [
+              "gemma4"
+            ],
+            "parameter_size": "30.7B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-27T03:41:35.1527467+07:00",
+          "size_vram": 0,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        },
+        "llmProfile": {
+          "profile": "quality",
+          "task": "script_final",
+          "reviewRequired": false,
+          "reason": "script_final uses the quality profile"
+        }
+      },
+      {
+        "script": {
+          "circleColor": "blue",
+          "rectangleColor": "orange",
+          "visibleText": "ACS 42"
+        },
+        "model": "gemma4:31b",
+        "model_digest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+        "seconds": 24.56660509109497,
+        "usage": {
+          "input_tokens": 163,
+          "output_tokens": 25
+        },
+        "mode": "local",
+        "device": "cpu",
+        "requested_device": "cpu",
+        "execution": {
+          "name": "gemma4:31b",
+          "model": "gemma4:31b",
+          "size": 16981447145,
+          "digest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "gemma4",
+            "families": [
+              "gemma4"
+            ],
+            "parameter_size": "30.7B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-27T03:42:10.5080058+07:00",
+          "size_vram": 0,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        },
+        "llmProfile": {
+          "profile": "quality",
+          "task": "judge_vision",
+          "reviewRequired": false,
+          "reason": "judge_vision uses the quality profile"
+        },
+        "capability": "vision",
+        "sample": "controlled colors / visible text",
+        "expected": {
+          "circleColor": "blue",
+          "rectangleColor": "orange",
+          "visibleText": "ACS 42"
+        },
+        "validation": "MATCHED_KNOWN_FIXTURE_ONLY"
+      }
+    ]
+  },
+  "routing": {
+    "draft": {
+      "model": "qwen3.5:9b",
+      "device": "cuda",
+      "profile": {
+        "profile": "fast",
+        "task": "draft",
+        "reviewRequired": false,
+        "reason": "draft uses the fast profile"
+      },
+      "seconds": 6.164885520935059,
+      "usage": {
+        "input_tokens": 54,
+        "output_tokens": 25
+      },
+      "hook": "Trở lại thời phong kiến, thống trị giang hồ ngay hôm nay."
+    },
+    "script_final": {
+      "model": "gemma4:31b",
+      "device": "cpu",
+      "profile": {
+        "profile": "quality",
+        "task": "script_final",
+        "reviewRequired": false,
+        "reason": "script_final uses the quality profile"
+      },
+      "seconds": 23.360437631607056,
+      "usage": {
+        "input_tokens": 55,
+        "output_tokens": 30
+      },
+      "hook": "Xây tháp chiến thuật, chặn đứng mọi kẻ thù, bảo vệ thành trì ngay!"
+    }
+  },
+  "verdict": "ROUTING_VERIFIED",
+  "finishedAt": "2026-10-26T20:42:50.167Z"
+}

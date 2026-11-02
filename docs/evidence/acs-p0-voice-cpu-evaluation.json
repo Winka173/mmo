@@ -1,0 +1,1131 @@
+{
+  "status": "VERIFIED_REAL_LOCAL_INFERENCE_OWNER_REVIEW_PENDING",
+  "at": "2026-10-23T13:04:37.499Z",
+  "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301",
+  "requestedDevice": "cpu",
+  "selection": "5 fixed original authored samples selected before inference; raw and dictionary numeric pairs retained even when review fails",
+  "scope": "Small regression set for pronunciation, numbers, pauses and caption grouping; not representative quality certification",
+  "vietnameseSkipped": "Configured VieNeu engine requires CUDA; CPU English subset deliberately selected before inference",
+  "localOnly": true,
+  "productionConfigChanged": false,
+  "expectedTextSentToASR": false,
+  "wordAlignment": "NOT_PROVIDED",
+  "humanListening": "NOT_REVIEWED",
+  "publicPosting": false,
+  "samples": [
+    {
+      "id": "en-us-baseline",
+      "language": "en-US",
+      "text": "Keep the original files. The small boats cross the harbor in the gentle morning light.",
+      "dictionary": [],
+      "spokenText": "Keep the original files. The small boats cross the harbor in the gentle morning light.",
+      "inference": {
+        "engine": "kokoro",
+        "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro\\kokoro-v1_0.pth",
+        "checkpoint_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "language": "en-US",
+        "device": "cpu",
+        "seconds": 10.43512225151062,
+        "model_sha256": "1846d1f3e0d51617af6e000b7b77cfb9f88cd2085ea3f95e00f54c76052ade8b",
+        "model_files": [
+          {
+            "path": "config.json",
+            "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+            "bytes": 2351
+          },
+          {
+            "path": "kokoro-v1_0.pth",
+            "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+            "bytes": 327212226
+          },
+          {
+            "path": "voices/af_heart.pt",
+            "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+            "bytes": 523425
+          },
+          {
+            "path": "voices/bf_emma.pt",
+            "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+            "bytes": 523420
+          }
+        ],
+        "codec_sha256": null,
+        "codec_files": [],
+        "sdk_version": "0.9.4",
+        "voice_asset_sha256": null,
+        "torch_version": "2.8.0+cu128",
+        "audio_seconds": 5.35,
+        "peak_vram_mb": null,
+        "human_review": "NOT_REVIEWED",
+        "voice": "af_heart",
+        "requested_device": "cpu"
+      },
+      "reusedPriorActualInference": true,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-baseline.wav",
+      "audioSha256": "5887d583e5a6cf7130bd1889b148006831cddba38779b8b9738ea401cd93b03c",
+      "waveform": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "seconds": 5.35,
+        "peakLinear": 0.344818115234375,
+        "rmsLinear": 0.049035370284985114,
+        "clippedSamples": 0,
+        "sampleCount": 128400
+      },
+      "fullDecode": "PASS",
+      "roundTrip": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0,
+        "expected": "Keep the original files. The small boats cross the harbor in the gentle morning light.",
+        "transcription": "Keep the original files. The small boats cross the harbor in the gentle morning light.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [],
+          "actual": [],
+          "expectedQuantityWords": [],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "captions": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "grouping": {
+          "version": 2,
+          "shortCueTargetSeconds": 0.8,
+          "characterMeasure": "Unicode code points",
+          "audioChanged": false
+        },
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-baseline.wav",
+            "offset": 0,
+            "segmentDuration": 5.6499999999999995,
+            "audioDuration": 5.35,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.258,
+                "end": 1.79
+              },
+              {
+                "start": 2.082,
+                "end": 4.99
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 3
+          }
+        ],
+        "readability": {
+          "status": "pass",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.258,
+              "end": 1.5265714285714287,
+              "duration": 1.2685714285714287,
+              "characters": 24,
+              "charactersPerSecond": 18.918918918918916,
+              "lines": [
+                "Keep the original files."
+              ],
+              "lineLengths": [
+                24
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 1.5265714285714287,
+              "end": 3.6685714285714286,
+              "duration": 2.142,
+              "characters": 35,
+              "charactersPerSecond": 16.339869281045754,
+              "lines": [
+                "The small boats",
+                "cross the harbor in"
+              ],
+              "lineLengths": [
+                15,
+                19
+              ]
+            },
+            {
+              "cueIndex": 2,
+              "start": 3.6685714285714286,
+              "end": 4.99,
+              "duration": 1.3214285714285716,
+              "characters": 25,
+              "charactersPerSecond": 18.918918918918916,
+              "lines": [
+                "the gentle morning light."
+              ],
+              "lineLengths": [
+                25
+              ]
+            }
+          ],
+          "findings": [],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Short neighboring phrases are grouped within the caption size allowance. Cues can span internal pauses. No audio was trimmed."
+      },
+      "captionSourcePreserved": true
+    },
+    {
+      "id": "en-us-raw-numbers",
+      "language": "en-US",
+      "text": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+      "dictionary": [],
+      "spokenText": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+      "inference": {
+        "engine": "kokoro",
+        "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro\\kokoro-v1_0.pth",
+        "checkpoint_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "language": "en-US",
+        "device": "cpu",
+        "seconds": 7.658986330032349,
+        "model_sha256": "1846d1f3e0d51617af6e000b7b77cfb9f88cd2085ea3f95e00f54c76052ade8b",
+        "model_files": [
+          {
+            "path": "config.json",
+            "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+            "bytes": 2351
+          },
+          {
+            "path": "kokoro-v1_0.pth",
+            "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+            "bytes": 327212226
+          },
+          {
+            "path": "voices/af_heart.pt",
+            "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+            "bytes": 523425
+          },
+          {
+            "path": "voices/bf_emma.pt",
+            "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+            "bytes": 523420
+          }
+        ],
+        "codec_sha256": null,
+        "codec_files": [],
+        "sdk_version": "0.9.4",
+        "voice_asset_sha256": null,
+        "torch_version": "2.8.0+cu128",
+        "audio_seconds": 5.525,
+        "peak_vram_mb": null,
+        "human_review": "NOT_REVIEWED",
+        "voice": "af_heart",
+        "requested_device": "cpu"
+      },
+      "reusedPriorActualInference": true,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-raw-numbers.wav",
+      "audioSha256": "d0031671689f9c7f938bb47c93845eab044f2c1e7f81c45fd924f8e736eba7ab",
+      "waveform": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "seconds": 5.525,
+        "peakLinear": 0.361907958984375,
+        "rmsLinear": 0.04919129708317448,
+        "clippedSamples": 0,
+        "sampleCount": 132600
+      },
+      "fullDecode": "PASS",
+      "roundTrip": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0,
+        "expected": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+        "transcription": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [
+            "2.5",
+            "12",
+            "60"
+          ],
+          "actual": [
+            "2.5",
+            "12",
+            "60"
+          ],
+          "expectedQuantityWords": [],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "captions": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "grouping": {
+          "version": 2,
+          "shortCueTargetSeconds": 0.8,
+          "characterMeasure": "Unicode code points",
+          "audioChanged": false
+        },
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-raw-numbers.wav",
+            "offset": 0,
+            "segmentDuration": 5.825,
+            "audioDuration": 5.525,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 5.15
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 2
+          }
+        ],
+        "readability": {
+          "status": "pass",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.29,
+              "end": 2.9128571428571433,
+              "duration": 2.622857142857143,
+              "characters": 34,
+              "charactersPerSecond": 12.962962962962962,
+              "lines": [
+                "Version 2.5 includes",
+                "12 levels and"
+              ],
+              "lineLengths": [
+                20,
+                13
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 2.9128571428571433,
+              "end": 5.15,
+              "duration": 2.237142857142857,
+              "characters": 29,
+              "charactersPerSecond": 12.962962962962964,
+              "lines": [
+                "runs at 60 frames",
+                "per second."
+              ],
+              "lineLengths": [
+                17,
+                11
+              ]
+            }
+          ],
+          "findings": [],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Short neighboring phrases are grouped within the caption size allowance. Cues can span internal pauses. No audio was trimmed."
+      },
+      "captionSourcePreserved": true
+    },
+    {
+      "id": "en-us-explicit-numbers",
+      "language": "en-US",
+      "text": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+      "dictionary": [
+        {
+          "term": "2.5",
+          "spoken": "two point five",
+          "language": "en-US"
+        },
+        {
+          "term": "12",
+          "spoken": "twelve",
+          "language": "en-US"
+        },
+        {
+          "term": "60",
+          "spoken": "sixty",
+          "language": "en-US"
+        }
+      ],
+      "spokenText": "Version two point five includes twelve levels and runs at sixty frames per second.",
+      "inference": {
+        "engine": "kokoro",
+        "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro\\kokoro-v1_0.pth",
+        "checkpoint_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "language": "en-US",
+        "device": "cpu",
+        "seconds": 6.930696725845337,
+        "model_sha256": "1846d1f3e0d51617af6e000b7b77cfb9f88cd2085ea3f95e00f54c76052ade8b",
+        "model_files": [
+          {
+            "path": "config.json",
+            "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+            "bytes": 2351
+          },
+          {
+            "path": "kokoro-v1_0.pth",
+            "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+            "bytes": 327212226
+          },
+          {
+            "path": "voices/af_heart.pt",
+            "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+            "bytes": 523425
+          },
+          {
+            "path": "voices/bf_emma.pt",
+            "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+            "bytes": 523420
+          }
+        ],
+        "codec_sha256": null,
+        "codec_files": [],
+        "sdk_version": "0.9.4",
+        "voice_asset_sha256": null,
+        "torch_version": "2.8.0+cu128",
+        "audio_seconds": 5.625,
+        "peak_vram_mb": null,
+        "human_review": "NOT_REVIEWED",
+        "voice": "af_heart",
+        "requested_device": "cpu"
+      },
+      "reusedPriorActualInference": true,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-explicit-numbers.wav",
+      "audioSha256": "52d9d01e6a095cf9be124399232f1b545cda783b88b911ca6d906d03be481e10",
+      "waveform": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "seconds": 5.625,
+        "peakLinear": 0.377227783203125,
+        "rmsLinear": 0.04960409631607426,
+        "clippedSamples": 0,
+        "sampleCount": 135000
+      },
+      "fullDecode": "PASS",
+      "roundTrip": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "fail",
+        "wordErrorRate": 0.35714285714285715,
+        "expected": "Version two point five includes twelve levels and runs at sixty frames per second.",
+        "transcription": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "format_review",
+          "expected": [],
+          "actual": [
+            "2.5",
+            "12",
+            "60"
+          ],
+          "expectedQuantityWords": [
+            "two",
+            "five",
+            "twelve",
+            "sixty"
+          ],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "captions": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "grouping": {
+          "version": 2,
+          "shortCueTargetSeconds": 0.8,
+          "characterMeasure": "Unicode code points",
+          "audioChanged": false
+        },
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-explicit-numbers.wav",
+            "offset": 0,
+            "segmentDuration": 5.925,
+            "audioDuration": 5.625,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 5.246
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 2
+          }
+        ],
+        "readability": {
+          "status": "pass",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.29,
+              "end": 2.964666666666667,
+              "duration": 2.674666666666667,
+              "characters": 34,
+              "charactersPerSecond": 12.71186440677966,
+              "lines": [
+                "Version 2.5 includes",
+                "12 levels and"
+              ],
+              "lineLengths": [
+                20,
+                13
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 2.964666666666667,
+              "end": 5.246,
+              "duration": 2.2813333333333334,
+              "characters": 29,
+              "charactersPerSecond": 12.711864406779661,
+              "lines": [
+                "runs at 60 frames",
+                "per second."
+              ],
+              "lineLengths": [
+                17,
+                11
+              ]
+            }
+          ],
+          "findings": [],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Short neighboring phrases are grouped within the caption size allowance. Cues can span internal pauses. No audio was trimmed."
+      },
+      "captionSourcePreserved": true
+    },
+    {
+      "id": "en-us-pauses-names",
+      "language": "en-US",
+      "text": "ACS saved the original. Wait a moment... Then, you can continue editing the video.",
+      "dictionary": [
+        {
+          "term": "ACS",
+          "spoken": "A C S",
+          "language": "en-US"
+        }
+      ],
+      "spokenText": "A C S saved the original. Wait a moment... Then, you can continue editing the video.",
+      "inference": {
+        "engine": "kokoro",
+        "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro\\kokoro-v1_0.pth",
+        "checkpoint_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "language": "en-US",
+        "device": "cpu",
+        "seconds": 6.93891167640686,
+        "model_sha256": "1846d1f3e0d51617af6e000b7b77cfb9f88cd2085ea3f95e00f54c76052ade8b",
+        "model_files": [
+          {
+            "path": "config.json",
+            "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+            "bytes": 2351
+          },
+          {
+            "path": "kokoro-v1_0.pth",
+            "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+            "bytes": 327212226
+          },
+          {
+            "path": "voices/af_heart.pt",
+            "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+            "bytes": 523425
+          },
+          {
+            "path": "voices/bf_emma.pt",
+            "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+            "bytes": 523420
+          }
+        ],
+        "codec_sha256": null,
+        "codec_files": [],
+        "sdk_version": "0.9.4",
+        "voice_asset_sha256": null,
+        "torch_version": "2.8.0+cu128",
+        "audio_seconds": 5.95,
+        "peak_vram_mb": null,
+        "human_review": "NOT_REVIEWED",
+        "voice": "af_heart",
+        "requested_device": "cpu"
+      },
+      "reusedPriorActualInference": true,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-pauses-names.wav",
+      "audioSha256": "caa100f65a6e5f9b4d15a937420d1d047374402152b6562178e5bcebe4e8a184",
+      "waveform": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "seconds": 5.95,
+        "peakLinear": 0.7132568359375,
+        "rmsLinear": 0.05073780612662688,
+        "clippedSamples": 0,
+        "sampleCount": 142800
+      },
+      "fullDecode": "PASS",
+      "roundTrip": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0.125,
+        "expected": "A C S saved the original. Wait a moment... Then, you can continue editing the video.",
+        "transcription": "A CS saved the original. Wait a moment, then you can continue editing the video.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [],
+          "actual": [],
+          "expectedQuantityWords": [],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "captions": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "grouping": {
+          "version": 2,
+          "shortCueTargetSeconds": 0.8,
+          "characterMeasure": "Unicode code points",
+          "audioChanged": false
+        },
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-pauses-names.wav",
+            "offset": 0,
+            "segmentDuration": 6.25,
+            "audioDuration": 5.95,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 2.846
+              },
+              {
+                "start": 3.202,
+                "end": 5.566
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 3
+          }
+        ],
+        "readability": {
+          "status": "pass",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.29,
+              "end": 1.7045,
+              "duration": 1.4144999999999999,
+              "characters": 23,
+              "charactersPerSecond": 16.260162601626018,
+              "lines": [
+                "ACS saved the original."
+              ],
+              "lineLengths": [
+                23
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 1.7045,
+              "end": 2.6885,
+              "duration": 0.984,
+              "characters": 16,
+              "charactersPerSecond": 16.260162601626018,
+              "lines": [
+                "Wait a moment..."
+              ],
+              "lineLengths": [
+                16
+              ]
+            },
+            {
+              "cueIndex": 2,
+              "start": 2.6885,
+              "end": 5.566,
+              "duration": 2.8775,
+              "characters": 41,
+              "charactersPerSecond": 14.24847958297133,
+              "lines": [
+                "Then, you can continue",
+                "editing the video."
+              ],
+              "lineLengths": [
+                22,
+                18
+              ]
+            }
+          ],
+          "findings": [],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Short neighboring phrases are grouped within the caption size allowance. Cues can span internal pauses. No audio was trimmed."
+      },
+      "captionSourcePreserved": true
+    },
+    {
+      "id": "en-gb-baseline",
+      "language": "en-GB",
+      "text": "Keep the original files. The small boats cross the harbour in the gentle morning light.",
+      "dictionary": [],
+      "spokenText": "Keep the original files. The small boats cross the harbour in the gentle morning light.",
+      "inference": {
+        "engine": "kokoro",
+        "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro\\kokoro-v1_0.pth",
+        "checkpoint_sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+        "language": "en-GB",
+        "device": "cpu",
+        "seconds": 7.655724287033081,
+        "model_sha256": "1846d1f3e0d51617af6e000b7b77cfb9f88cd2085ea3f95e00f54c76052ade8b",
+        "model_files": [
+          {
+            "path": "config.json",
+            "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+            "bytes": 2351
+          },
+          {
+            "path": "kokoro-v1_0.pth",
+            "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+            "bytes": 327212226
+          },
+          {
+            "path": "voices/af_heart.pt",
+            "sha256": "0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff",
+            "bytes": 523425
+          },
+          {
+            "path": "voices/bf_emma.pt",
+            "sha256": "d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701",
+            "bytes": 523420
+          }
+        ],
+        "codec_sha256": null,
+        "codec_files": [],
+        "sdk_version": "0.9.4",
+        "voice_asset_sha256": null,
+        "torch_version": "2.8.0+cu128",
+        "audio_seconds": 5.475,
+        "peak_vram_mb": null,
+        "human_review": "NOT_REVIEWED",
+        "voice": "bf_emma",
+        "requested_device": "cpu"
+      },
+      "reusedPriorActualInference": true,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-gb-baseline.wav",
+      "audioSha256": "501c9ffd4e152d9a974db5cfa405b0f9a17258b1919222d5af4b1af4c575977f",
+      "waveform": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "seconds": 5.475,
+        "peakLinear": 0.4742431640625,
+        "rmsLinear": 0.06284619835293742,
+        "clippedSamples": 0,
+        "sampleCount": 131400
+      },
+      "fullDecode": "PASS",
+      "roundTrip": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0.06666666666666667,
+        "expected": "Keep the original files. The small boats cross the harbour in the gentle morning light.",
+        "transcription": "Keep the original files. The small boats cross the harbor in the gentle morning light.",
+        "detectedLanguage": "English",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [],
+          "actual": [],
+          "expectedQuantityWords": [],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "captions": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "grouping": {
+          "version": 2,
+          "shortCueTargetSeconds": 0.8,
+          "characterMeasure": "Unicode code points",
+          "audioChanged": false
+        },
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-gb-baseline.wav",
+            "offset": 0,
+            "segmentDuration": 5.7749999999999995,
+            "audioDuration": 5.475,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.29,
+                "end": 1.758
+              },
+              {
+                "start": 2.05,
+                "end": 4.862
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 3
+          }
+        ],
+        "readability": {
+          "status": "pass",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.29,
+              "end": 1.4984705882352942,
+              "duration": 1.2084705882352942,
+              "characters": 24,
+              "charactersPerSecond": 19.859813084112147,
+              "lines": [
+                "Keep the original files."
+              ],
+              "lineLengths": [
+                24
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 1.4984705882352942,
+              "end": 3.6031764705882354,
+              "duration": 2.104705882352941,
+              "characters": 36,
+              "charactersPerSecond": 17.104527669088878,
+              "lines": [
+                "The small boats",
+                "cross the harbour in"
+              ],
+              "lineLengths": [
+                15,
+                20
+              ]
+            },
+            {
+              "cueIndex": 2,
+              "start": 3.6031764705882354,
+              "end": 4.862,
+              "duration": 1.2588235294117647,
+              "characters": 25,
+              "charactersPerSecond": 19.85981308411215,
+              "lines": [
+                "the gentle morning light."
+              ],
+              "lineLengths": [
+                25
+              ]
+            }
+          ],
+          "findings": [],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Short neighboring phrases are grouped within the caption size allowance. Cues can span internal pauses. No audio was trimmed."
+      },
+      "captionSourcePreserved": true
+    }
+  ],
+  "asr": {
+    "engine": "qwen3-asr",
+    "device": "cpu",
+    "requested_device": "cpu",
+    "model_sha256": "b73be080615a190b42848b04271de85a51fbe8b40113d82561b6b35d5359850c",
+    "model_files": [
+      {
+        "path": "chat_template.json",
+        "sha256": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff",
+        "bytes": 1161
+      },
+      {
+        "path": "config.json",
+        "sha256": "2e74a751548b8ad7d7526d29365ad8144c345d8b412b1152d25dc6698452712f",
+        "bytes": 6194
+      },
+      {
+        "path": "generation_config.json",
+        "sha256": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c",
+        "bytes": 142
+      },
+      {
+        "path": "merges.txt",
+        "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "bytes": 1671853
+      },
+      {
+        "path": "model-00001-of-00002.safetensors",
+        "sha256": "a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6",
+        "bytes": 4220320824
+      },
+      {
+        "path": "model-00002-of-00002.safetensors",
+        "sha256": "6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc",
+        "bytes": 478200688
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "sha256": "f994739fe38e5210b9e3e8ce6c6307315e2ceac3cb630e7b7414d69dce520f60",
+        "bytes": 64821
+      },
+      {
+        "path": "preprocessor_config.json",
+        "sha256": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d",
+        "bytes": 330
+      },
+      {
+        "path": "tokenizer_config.json",
+        "sha256": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c",
+        "bytes": 12487
+      },
+      {
+        "path": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "bytes": 2776833
+      }
+    ],
+    "seconds": 37.36996030807495,
+    "peak_vram_mb": null,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-baseline.wav",
+        "language": "English",
+        "text": "Keep the original files. The small boats cross the harbor in the gentle morning light."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-raw-numbers.wav",
+        "language": "English",
+        "text": "Version 2.5 includes 12 levels and runs at 60 frames per second."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-explicit-numbers.wav",
+        "language": "English",
+        "text": "Version 2.5 includes 12 levels and runs at 60 frames per second."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-pauses-names.wav",
+        "language": "English",
+        "text": "A CS saved the original. Wait a moment, then you can continue editing the video."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-gb-baseline.wav",
+        "language": "English",
+        "text": "Keep the original files. The small boats cross the harbor in the gentle morning light."
+      }
+    ],
+    "timestamps": "NOT_REQUESTED",
+    "human_review": "NOT_REVIEWED"
+  },
+  "vad": {
+    "engine": "silero-vad",
+    "device": "cpu",
+    "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+    "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+    "runner_sha256": "61e69135e57e5558631021332d08eb329a9afd58db776e95e120d9c7fe95be52",
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "scipy": "1.17.1",
+      "numpy": "2.4.6",
+      "soundfile": "0.14.0"
+    },
+    "seconds": 0.29621171951293945,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-baseline.wav",
+        "duration": 5.35,
+        "speech": [
+          {
+            "start": 0.258,
+            "end": 1.79
+          },
+          {
+            "start": 2.082,
+            "end": 4.99
+          }
+        ],
+        "speech_ratio": 0.8299065420560747,
+        "max_probability": 0.9999986886978149,
+        "leading_silence": 0.258,
+        "trailing_silence": 0.35999999999999943
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-raw-numbers.wav",
+        "duration": 5.525,
+        "speech": [
+          {
+            "start": 0.29,
+            "end": 5.15
+          }
+        ],
+        "speech_ratio": 0.8796380090497737,
+        "max_probability": 0.9999994039535522,
+        "leading_silence": 0.29000000000000004,
+        "trailing_silence": 0.375
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-explicit-numbers.wav",
+        "duration": 5.625,
+        "speech": [
+          {
+            "start": 0.29,
+            "end": 5.246
+          }
+        ],
+        "speech_ratio": 0.8810666666666668,
+        "max_probability": 0.9999991655349731,
+        "leading_silence": 0.29000000000000004,
+        "trailing_silence": 0.37899999999999956
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-us-pauses-names.wav",
+        "duration": 5.95,
+        "speech": [
+          {
+            "start": 0.29,
+            "end": 2.846
+          },
+          {
+            "start": 3.202,
+            "end": 5.566
+          }
+        ],
+        "speech_ratio": 0.8268907563025208,
+        "max_probability": 0.9999991655349731,
+        "leading_silence": 0.29000000000000004,
+        "trailing_silence": 0.38400000000000034
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760479301\\en-gb-baseline.wav",
+        "duration": 5.475,
+        "speech": [
+          {
+            "start": 0.29,
+            "end": 1.758
+          },
+          {
+            "start": 2.05,
+            "end": 4.862
+          }
+        ],
+        "speech_ratio": 0.7817351598173515,
+        "max_probability": 0.9999994039535522,
+        "leading_silence": 0.29000000000000004,
+        "trailing_silence": 0.6129999999999995
+      }
+    ],
+    "parameters": {
+      "onset": 0.5,
+      "offset": 0.35,
+      "min_speech_seconds": 0.25,
+      "end_silence_seconds": 0.2,
+      "padding_seconds": 0.03
+    },
+    "word_timing": "NOT_PROVIDED",
+    "human_review": "NOT_REVIEWED"
+  },
+  "summary": {
+    "clips": 5,
+    "audioSeconds": 27.924999999999997,
+    "roundTripPass": 4,
+    "roundTripFlagged": 1,
+    "clippingFlagged": 0,
+    "captionFindings": 0,
+    "locales": [
+      "en-US",
+      "en-GB"
+    ],
+    "voices": {
+      "vi": "NOT_EVALUATED",
+      "enUS": "af_heart",
+      "enGB": "bf_emma"
+    }
+  },
+  "limitations": [
+    "Strict token edit distance compares words literally. ASR may output digits for spoken numbers; numeric pairs are retained for listening, not automatically declared correct.",
+    "VAD measures speech activity and silence only. Caption times remain phrase estimates; no word timestamps or subtitle synchronization acceptance is inferred.",
+    "No listening by owner, broad accent/long-form evaluation, expressive voice or pronunciation approval has occurred.",
+    "Dictionary entries are explicit authored evaluation settings, not automatic factual/number rewriting or a universally validated pronunciation preset."
+  ],
+  "deterministicRecheck": {
+    "at": "2026-10-23T13:08:18.070Z",
+    "sourceReportSha256": "06e1d912008462abd2df935a028d67dc27c99ecd2fe9b7be6bc74da303a1b376",
+    "voiceQaSha256": "37862d32b83672df21fb5f6f3b4acca15947ab9121e83b602c846280b13159e9",
+    "captionQaSha256": "743610f3ee42e6a849a631f106298e559a13eeb12efcb055efbb46542af127c2",
+    "inferencePerformed": false,
+    "priorModelOutputsPreserved": true
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "status": "VERIFIED_REAL_LOCAL_SEMANTIC_UI_SMALL_CPU_FIXTURE_ONLY",
+  "at": "2026-10-23T09:34:59.971Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-ui\\5dbe7eea-a187-4c85-9e4c-9400bbe83d8b\\data",
+  "sources": [
+    {
+      "originalRunId": "38730039-9152-403e-a596-09703d67b28a",
+      "runId": "9d35bd17-6826-4155-9c6d-4d03fb7a9b33",
+      "title": "Venus · sourced original explainer",
+      "language": "vi-VN",
+      "originalMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4",
+      "copyMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-ui\\5dbe7eea-a187-4c85-9e4c-9400bbe83d8b\\data\\studio\\artifacts\\9d35bd17-6826-4155-9c6d-4d03fb7a9b33\\final.mp4",
+      "sha256": "27321085d33481c088f9bb9a5084cf5f0f1d80887879f4cc4ff345d9eebc3b90"
+    },
+    {
+      "originalRunId": "a94382e2-e7b0-43a9-a908-6f334980999b",
+      "runId": "43df781b-a92f-4052-87c1-77726caa8097",
+      "title": "Venus · sourced original explainer",
+      "language": "en-US",
+      "originalMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4",
+      "copyMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-ui\\5dbe7eea-a187-4c85-9e4c-9400bbe83d8b\\data\\studio\\artifacts\\43df781b-a92f-4052-87c1-77726caa8097\\final.mp4",
+      "sha256": "129bd984face4a3fb0244b3e61ce32d690f4263d18087e8bdb8641e82dd8d038"
+    },
+    {
+      "originalRunId": "ff7e19ef-214e-4441-a1d5-1b2c0a93713d",
+      "runId": "020f0626-c6e0-46a2-9d2b-e6cb943a70a1",
+      "title": "ACS FIXTURE — NOT GAMEPLAY",
+      "language": "en-US",
+      "originalMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\ff7e19ef-214e-4441-a1d5-1b2c0a93713d\\final.mp4",
+      "copyMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-ui\\5dbe7eea-a187-4c85-9e4c-9400bbe83d8b\\data\\studio\\artifacts\\020f0626-c6e0-46a2-9d2b-e6cb943a70a1\\final.mp4",
+      "sha256": "d65a506b534824a01a7a31ba2d9548a03380c7634e209841fd2ffac12b4a83c9"
+    }
+  ],
+  "index": {
+    "createdAt": "2026-10-23T09:34:33.258Z",
+    "documents": 3,
+    "coverage": {
+      "eligibleRoots": 3,
+      "indexedRoots": 3,
+      "excludedDerivedVersions": 0,
+      "limit": 100
+    },
+    "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+    "stale": false
+  },
+  "installedId": "74c988fe-1f46-4382-b5d8-e9d5de6a5a57",
+  "verifiedId": "c611503a-ed20-48eb-b77a-35324e6e4426",
+  "verification": {
+    "status": "VERIFIED_SMALL_EMBEDDING_FIXTURE_ONLY",
+    "metadata": {
+      "engine": "qwen3-embedding",
+      "device": "cpu",
+      "seconds": 1.235000000000582,
+      "peakVramMiB": null,
+      "identity": {
+        "executionDevice": "cpu",
+        "dtype": "float32",
+        "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+        "files": [
+          {
+            "path": "README.md",
+            "bytes": 17237,
+            "sha256": "c34d9b7e5a267ad3fdd13227a253686bc90844ff4744a2a6a86c7c905e3d06f3"
+          },
+          {
+            "path": "config.json",
+            "bytes": 727,
+            "sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9"
+          },
+          {
+            "path": "merges.txt",
+            "bytes": 1671853,
+            "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+          },
+          {
+            "path": "model.safetensors",
+            "bytes": 1191586416,
+            "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 11423705,
+            "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 9706,
+            "sha256": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 2776833,
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+          }
+        ],
+        "dimensions": 1024,
+        "pooling": "last_nonpadding_token",
+        "normalization": "L2",
+        "queryInstruction": "Given a content search query, retrieve relevant original video scripts.",
+        "engineSha256": "03f4e066141d2dc88f75a5f26e41e67a8b0ed9fdbedf3253901fb2d6c58289c3",
+        "versions": {
+          "torch": "2.8.0+cu128",
+          "transformers": "4.57.6",
+          "tokenizers": "0.22.2"
+        }
+      },
+      "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+      "semanticTruth": "NOT_CERTIFIED",
+      "rights": "NOT_CERTIFIED",
+      "humanReview": "NOT_REVIEWED"
+    },
+    "scores": {
+      "library": 0.5868001082530256,
+      "unrelated": 0.24550172939691386
+    },
+    "humanReview": "NOT_REVIEWED",
+    "truthOrRightsCertified": false
+  },
+  "results": [
+    {
+      "query": "sao Kim khí quyển và thời gian quay",
+      "first": {
+        "runId": "9d35bd17-6826-4155-9c6d-4d03fb7a9b33",
+        "title": "Venus · sourced original explainer",
+        "language": "vi-VN",
+        "score": 0.5666843527319854,
+        "excerpt": "Venus · sourced original explainer Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius. Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng. Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+        "chunk": 0
+      }
+    },
+    {
+      "query": "clearly labeled software calibration test fixture",
+      "first": {
+        "runId": "020f0626-c6e0-46a2-9d2b-e6cb943a70a1",
+        "title": "ACS FIXTURE — NOT GAMEPLAY",
+        "language": "en-US",
+        "score": 0.6748907227805132,
+        "excerpt": "ACS FIXTURE — NOT GAMEPLAY This is a clearly labeled software test fixture for Autonomous Creative Studio. It uses generated calibration footage, not real gameplay. Original source files are preserved. The narration and captions are created locally, and this export is not approved for public posting.",
+        "chunk": 0
+      }
+    }
+  ],
+  "checks": [
+    "Selected profile reuses pinned weights and compatible runtime, applies only embedding settings and performs actual explicit CPU verification",
+    "Actual original VI/EN drafts build a 1024-dimensional derived index; fixed Vietnamese/scientific and English/calibration queries find their corresponding source versions",
+    "Vietnamese/English search UI renders without runtime errors; anonymous and foreign-origin requests are refused; no public post or human approval"
+  ],
+  "requestedDevice": "cpu",
+  "productionConfigChanged": false,
+  "publicPosting": false,
+  "humanApproval": "NOT_CREATED",
+  "browserErrors": []
+}

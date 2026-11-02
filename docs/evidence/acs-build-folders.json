@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_GENERATED_BUILD_FOLDER_BOUNDS",
+  "at": "2026-10-23T08:47:51.741Z",
+  "fixture": "C:\\Users\\Winka\\Projects\\mmo\\.local\\build-folder-safety\\4806df65-145b-4cd9-9ced-a5465553bdd2",
+  "checks": [
+    "Reject external junction without modifying its target",
+    "Reject unknown/traversal targets",
+    "Remove only recognized resolved generated folder; neighboring fixture remains intact"
+  ]
+}

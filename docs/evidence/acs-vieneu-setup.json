@@ -1,0 +1,250 @@
+{
+  "status": "IMPLEMENTED_UNVERIFIED",
+  "sdk": "3.8.3",
+  "transformers": "4.57.6",
+  "voice_asset_sha256": "e1f13cd2c2e0d29fdab5e15bfd7a30f3d7b768e6132bb43dd2b853f8efefdce9",
+  "voices": [
+    {
+      "name": "Adam bựa",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Trúc Ly",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Thiện Minh",
+      "aliases": [
+        "Anh Khôi"
+      ],
+      "region": "Bắc"
+    },
+    {
+      "name": "Mai Anh",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Hải Đăng",
+      "aliases": [
+        "Minh Quân Pro",
+        "Minh Quân"
+      ],
+      "region": "Bắc"
+    },
+    {
+      "name": "Thùy Dung",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Thiền Tâm Đức",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Ngọc Huyền",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Quang Sơn",
+      "aliases": [],
+      "region": "Trung"
+    },
+    {
+      "name": "Ngọc Trân",
+      "aliases": [],
+      "region": "Trung"
+    },
+    {
+      "name": "Minh Đức",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Phạm Tuyên",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Thái Sơn",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Xuân Vĩnh",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Thanh Bình",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Ngọc Linh",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Đoan Trang",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Thục Đoan",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Minh Triết",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Mỹ Duyên",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Quỳnh Anh",
+      "aliases": [],
+      "region": "Bắc"
+    },
+    {
+      "name": "Đức Trí",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Kim Thanh",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Adam",
+      "aliases": [],
+      "region": "Nam"
+    },
+    {
+      "name": "Quốc Tuấn",
+      "aliases": [
+        "Mạnh Dũng"
+      ],
+      "region": "Bắc"
+    }
+  ],
+  "models": [
+    {
+      "repo": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+      "revision": "61b85e3d937fbbacb387714180e8182823512523",
+      "files": [
+        {
+          "path": "config.json",
+          "bytes": 1553,
+          "sha256": "eee8e032cb936a60312f594a8156c086173a9c0255a545bd11a448f22a7c77ae"
+        },
+        {
+          "path": "denoiser.onnx",
+          "bytes": 42661414,
+          "sha256": "b7621953291cfe05e695a9c0ff4255aa2f93239fc17c26627e18b7b6b8f72f0b"
+        },
+        {
+          "path": "README.md",
+          "bytes": 15458,
+          "sha256": "5d5bb2de661fabc0e073b3b844dc131696fac3dddd5ea882d10fd9a849108eb7"
+        },
+        {
+          "path": "speaker_encoder.onnx",
+          "bytes": 28303423,
+          "sha256": "a6ac6a63997761ae2997373e2ee1c47040854b4b759ea41ec48e4e42df0f4d73"
+        },
+        {
+          "path": "update/config.json",
+          "bytes": 2152,
+          "sha256": "a9f8d9c4b4736448ab355d1a98cfe48f5e39aecf2916c37b0806c228612e9a2d"
+        },
+        {
+          "path": "update/model.safetensors",
+          "bytes": 247974928,
+          "sha256": "119003a9e121760d1c3b9b50bd675bfde8d5f3de2b12641cf97a17d3883a5da7"
+        },
+        {
+          "path": "update/special_tokens_map.json",
+          "bytes": 1108,
+          "sha256": "e7ad7c838b1e3c669a85e7caf940c01267e4d2448c99a14228e6d1708d7e99e6"
+        },
+        {
+          "path": "update/tokenizer.json",
+          "bytes": 22320,
+          "sha256": "6cc6bcbe380b8c37bd9f2514e37c5dfa3e00e122c6e3125dae5c4afe48e39158"
+        },
+        {
+          "path": "update/tokenizer_config.json",
+          "bytes": 8617,
+          "sha256": "92275a9c86820184aef42a27439b1aab4605d96a694a1cc6e23970c6152c3fa6"
+        }
+      ],
+      "inference": "NOT_VERIFIED",
+      "license_review": "Model cards declare Apache-2.0; inspect pinned README and voice provenance before public use"
+    },
+    {
+      "repo": "OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano",
+      "revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+      "files": [
+        {
+          "path": "__init__.py",
+          "bytes": 52,
+          "sha256": "ed0b4910a5e53b1dfc3234cfcf96e2c6890d339f9134a3dfed8481d01b3768fd"
+        },
+        {
+          "path": "config.json",
+          "bytes": 7385,
+          "sha256": "b38892f8ba00efc18af2ad9eca999c7603f871548c2e7f99258cb1cefc70ee06"
+        },
+        {
+          "path": "configuration_moss_audio_tokenizer.py",
+          "bytes": 19249,
+          "sha256": "b2d67dc4581e70f4b69b2d7eccefe32581d0c5192fe4d97fe1830e94a255b8aa"
+        },
+        {
+          "path": "model-00001-of-00001.safetensors",
+          "bytes": 87922568,
+          "sha256": "34d9880d805eecb21bde975202b1c256dbd0eb98c8680b9d3aeffd2bc6ac2f67"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "bytes": 34346,
+          "sha256": "2bf639e2c37c8502b1d0d92bf616b8108cb9975d42f587487a103682575b1d6d"
+        },
+        {
+          "path": "modeling_moss_audio_tokenizer.py",
+          "bytes": 138814,
+          "sha256": "b14af7c188944da5101adbd4aaa9c3617d66b83507f0efbd6eb416381a105930"
+        },
+        {
+          "path": "README.md",
+          "bytes": 12491,
+          "sha256": "83cae343211c7c482433c9758f16fc9d17046a0cd450d185b473542e87e35ef8"
+        }
+      ],
+      "inference": "NOT_VERIFIED",
+      "license_review": "Model cards declare Apache-2.0; inspect pinned README and voice provenance before public use"
+    }
+  ],
+  "human_review": "NOT_REVIEWED",
+  "scope": "Pinned download; local tokenizer/config/phonemizer and CUDA availability tested; no Vietnamese audio generated; no human listening review",
+  "license_source": "Pinned VieNeu README states Apache-2.0 includes bundled preset voices and permits commercial output; no additional cloned voices authorized",
+  "local_code_inspection": "MOSS Python static search found no exec/eval/subprocess/network operations; this is not a full security audit",
+  "torch": "2.8.0+cu128",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "local_tokenizer": "VERIFIED PreTrainedTokenizerFast",
+  "local_codec_config": "VERIFIED MossAudioTokenizerConfig",
+  "phonemizer": "VERIFIED Vietnamese sample without model inference",
+  "inference": "BLOCKED GPU_BUSY while another local application owns shared GPU lease",
+  "environment_inventory": "engines/requirements-vieneu.lock.txt"
+}

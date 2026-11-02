@@ -1,0 +1,50 @@
+{
+  "status": "VERIFIED",
+  "fixture": true,
+  "genuineGameplay": false,
+  "language": "en-US",
+  "humanListening": "NOT_REVIEWED",
+  "asr": [
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "This is a clearly labeled software test fixture for Autonomous Creative Studio. It uses generated calibration footage, not real gameplay.",
+      "transcription": "This is a clearly labeled software test fixture for autonomous creative studio. It uses generated calibration footage, not real gameplay.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\ff7e19ef-214e-4441-a1d5-1b2c0a93713d\\voice-0.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Original source files are preserved. The narration and captions are created locally, and this export is not approved for public posting.",
+      "transcription": "Original source files are preserved. The narration and captions are created locally, and this export is not approved for public posting.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\ff7e19ef-214e-4441-a1d5-1b2c0a93713d\\voice-1.wav"
+    }
+  ],
+  "runId": "ff7e19ef-214e-4441-a1d5-1b2c0a93713d",
+  "cutId": "10624669-741a-4127-9ef7-101ce34e5dbd",
+  "narrationRevisionId": "392519f1-7124-40ab-9ae2-3878abb1275a",
+  "originalSeconds": 19.002667,
+  "cutSeconds": 16.003,
+  "outputs": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\ff7e19ef-214e-4441-a1d5-1b2c0a93713d",
+  "checks": [
+    "real local Kokoro inference",
+    "FFmpeg render",
+    "SRT",
+    "thumbnail",
+    "decode QA",
+    "3-second deterministic cut",
+    "parent preserved",
+    "publication blocked",
+    "one narration segment revised",
+    "unrelated voice and rendered segment bytes preserved"
+  ],
+  "at": "2026-10-22T17:51:37.633Z"
+}

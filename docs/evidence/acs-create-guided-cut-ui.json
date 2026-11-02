@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED_REAL_GRAPHIC_DRAFT_TIMELINE_CUT_NO_AI",
+  "at": "2026-10-23T11:14:17.278Z",
+  "parentId": "87b45d16-eef2-431c-aac2-cc830eab0652",
+  "cutId": "b1383eda-10c3-4477-a719-7f22c1504a6a",
+  "parentDuration": 27.397333,
+  "cutDuration": 24.266667,
+  "parentTimelineDuration": 27.275000000000002,
+  "cutTimelineDuration": 24.275000000000002,
+  "timelineSecondsRemoved": 3,
+  "containerSecondsRemoved": 3.130665999999998,
+  "scope": "Exactly 3 seconds removed from the editable timeline; the older parent encode has frame/AAC rounding drift from its timeline. Child duration checked against its own timeline within one frame plus 20 ms.",
+  "parentVideoSha256": "d3df0cb6f92b456dc3f76b857bd0fd6e759e73dea13b7fd3ee511fadb1663bcd",
+  "cutVideoSha256": "c6d287d6998735f61d3f37ef09b4155430b77398523184b6c6ac58679603b15a",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\b1383eda-10c3-4477-a719-7f22c1504a6a\\final.mp4",
+  "technical": true,
+  "planning": null,
+  "noAIRequestFiles": true,
+  "originalPreserved": true,
+  "publicPosting": false
+}

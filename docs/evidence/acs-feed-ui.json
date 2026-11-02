@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED_REAL_PUBLIC_FEED_UI_METADATA_ONLY",
+  "at": "2026-10-23T07:23:25.247Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\feed-ui\\eba9d2f9-94ad-416d-9f9c-060965fbfa4a\\data",
+  "checks": [
+    "Wizard persists offered-feed metadata consent while pilot and source reuse remain disabled/pending",
+    "Packaged worker retrieves actual NASA RSS metadata, retains URL/date/source hash/reasons and displays candidates without AI or third-party media"
+  ],
+  "autopilotId": "bf5566ae-51c9-4481-a7f5-9575e18071c4",
+  "items": 10,
+  "feed": "https://www.nasa.gov/feed/",
+  "AIInference": false,
+  "publicPosting": false,
+  "browserErrors": []
+}

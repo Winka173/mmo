@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED_CONTROLLED_LIVE_OWNER_FAILURE_UI_AND_CLEANUP",
+  "at": "2026-10-23T18:03:11.059Z",
+  "exeSha256": "b470e39f5b874a402a0be19f20c7b069220220c24b108eef26de64c53fe21dca",
+  "config": "C:\\Users\\Winka\\Projects\\mmo\\.local\\startup-failure-smoke\\769158fb-f171-4170-b5bc-10a611af81a0",
+  "checks": [
+    "Existing live owner is retained; no duplicate worker starts",
+    "Failed child is not reported READY",
+    "Configured diagnostic file and bilingual native failure UI display the reason",
+    "Owned web/worker processes are cleaned; live test lock is unchanged"
+  ],
+  "controlledFault": true,
+  "AIInference": false,
+  "publicPosting": false
+}

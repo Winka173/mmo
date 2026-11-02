@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED_REAL_LIBASS_RENDER_MODEL_VISUAL_INSPECTED",
+  "visualInspection": "Model inspected the generated PNG: C:\\New\\Node remains on one visible text line and the brace/pos text is shown literally on the next. No user ASS override moved the caption. Owner review not performed.",
+  "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\p0-caption-literals\\1792760569134",
+  "image": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\p0-caption-literals\\1792760569134\\literal-caption.png",
+  "imageSha256": "542cebbfdd2f63f008100495d2fc9e6c26ba44e4acd78e6a02814bad3da9263b",
+  "sourceText": "File C:\\New\\Node {\\pos(0,0)} remains literal.",
+  "scriptAss": "[Script Info]\nScriptType: v4.00+\nPlayResX: 1280\nPlayResY: 720\nWrapStyle: 2\nScaledBorderAndShadow: yes\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\nStyle: Default,Arial,46,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,3,14,0,2,60,60,100,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\nDialogue: 0,0:00:00.00,0:00:03.00,Default,,0,0,0,,File C:\\⁠New\\⁠Node\\N｛\\⁠pos(0,0)｝ remains literal.\n",
+  "renderer": "Local FFmpeg/libass; Arial",
+  "scope": "Literal path/backslash/brace handling, not narration or word timing",
+  "publicPosting": false
+}

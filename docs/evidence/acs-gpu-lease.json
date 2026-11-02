@@ -1,0 +1,7 @@
+{
+  "status": "VERIFIED",
+  "contention": "GPU_BUSY",
+  "crash_recovery": "PASS",
+  "metadata_cleanup": "PASS",
+  "platform": "win32"
+}

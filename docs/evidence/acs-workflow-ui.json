@@ -1,0 +1,14 @@
+{
+  "status": "VERIFIED_UI_FIXTURES_NO_ACCOUNT_OR_POSTING",
+  "at": "2026-10-23T04:29:41.760Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\workflow-ui\\6af466d3-3119-42e4-9b27-7c16da1ce010\\data",
+  "checks": [
+    "source permissions, expiry, folder watch and locale-specific pronunciation persist through wizard UI",
+    "production window saved via UI; dry-run calendar has no queue or publication side effects",
+    "fictional credentials encrypted with real Windows DPAPI, absent from API response; new channel and posting remain disabled; unreviewed upload blocked",
+    "new channel/settings screens render in English; web mode cannot mutate Windows startup"
+  ],
+  "browserErrors": [],
+  "publicPosting": false,
+  "realOAuth": false
+}

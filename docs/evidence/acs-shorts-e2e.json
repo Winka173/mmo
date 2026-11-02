@@ -1,0 +1,38 @@
+{
+  "status": "VERIFIED_ORIGINAL_EXCERPT_FIXTURE_EDITORIAL_REVIEW_REQUIRED",
+  "at": "2026-10-23T03:43:16.683Z",
+  "fixture": true,
+  "genuineHumanSpeaker": false,
+  "realGameplay": false,
+  "publicPosting": false,
+  "runId": "a324fc12-73b6-49c5-a1a1-a7c1c80e9f1d",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\shorts-e2e\\1792726996621\\data\\studio\\artifacts\\a324fc12-73b6-49c5-a1a1-a7c1c80e9f1d\\final.mp4",
+  "duration": 19.9,
+  "selection": {
+    "selected": {
+      "startChunk": 0,
+      "endChunk": 1,
+      "title": "Venus: The Hottest Planet Explained",
+      "rationale": "This excerpt forms a complete, coherent thought by combining the proximity to the sun with the atmospheric mechanism (runaway greenhouse effect) that makes it the hottest planet. It flows naturally from the introduction of Venus's position to the explanation of its extreme temperature and atmospheric composition.",
+      "standalone": true
+    },
+    "alternatives": [],
+    "sourceInterval": {
+      "start": 0,
+      "end": 19.907
+    },
+    "timing": "CHUNK_BOUNDARIES_REVIEW_START_END",
+    "speakerMeaning": "REQUIRES_EDITORIAL_REVIEW",
+    "noNewSyntheticSpeech": true
+  },
+  "checks": [
+    "actual local ASR of source audio",
+    "local LLM candidate selection",
+    "original image and speech reused without TTS",
+    "chunk timing explicitly estimated",
+    "separate editable original video/dialogue/caption tracks",
+    "full decode and technical QA",
+    "original source hash preserved",
+    "no external posting"
+  ]
+}

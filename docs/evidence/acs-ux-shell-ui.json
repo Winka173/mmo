@@ -1,0 +1,47 @@
+{
+  "status": "VERIFIED_ACTUAL_BROWSER_UI_CONTRACTS",
+  "at": "2026-10-23T18:03:53.106Z",
+  "serverEntry": "C:\\Users\\Winka\\Projects\\mmo\\desktop\\backend\\apps\\web\\server.js",
+  "serverSha256": "77ed26c75f3e41067621def7107521786f1a77f878074d317df4471354b45da8",
+  "fixture": {
+    "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\ux-5f0b3e27-8f89-425c-8c93-34d793785986\\data",
+    "planId": "ccc7bf2d-95be-4692-a685-908f49a07fe6",
+    "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+    "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+    "inference": "NOT_PERFORMED",
+    "publicPosting": false
+  },
+  "checks": [
+    "All 14 destinations retained; grouped sidebar supports keyboard collapse and persists across reload; Home links to the exact saved plan without starting it",
+    "Four Models tabs expose one panel at a time; deep links, Home/End keyboard control and in-tab voice/setup drafts are preserved",
+    "An explicitly injected diagnostic error retains its raw message and shows relevant Settings navigation; no tool was actually removed",
+    "VI/EN Home and Models render; layouts at 1280/960/640/480 CSS pixels have no horizontal page overflow (viewport checks, not a physical Windows DPI acceptance)"
+  ],
+  "sizes": [
+    {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "clientWidth": 1280
+    },
+    {
+      "width": 960,
+      "scrollWidth": 960,
+      "clientWidth": 960
+    },
+    {
+      "width": 640,
+      "scrollWidth": 640,
+      "clientWidth": 640
+    },
+    {
+      "width": 480,
+      "scrollWidth": 480,
+      "clientWidth": 480
+    }
+  ],
+  "browserErrors": [],
+  "inference": false,
+  "publishing": false,
+  "physicalWindowsDpi": "NOT_TESTED",
+  "errorCase": "EXPLICIT_INJECTED_FFPROBE_ERROR_NO_TOOL_REMOVAL"
+}

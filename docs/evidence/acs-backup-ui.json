@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED_BACKUP_UI_FIXTURE",
+  "at": "2026-10-23T18:02:27.048Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\backup-ui\\6aa41a7e-10f0-4dd5-b838-3d01bfe99848\\data",
+  "checks": [
+    "UI and backend require paused production before backup",
+    "UI creates checksummed Studio metadata backup; media and credentials excluded",
+    "Optional media backup preserves bytes; inspection detects tampering without restoring or mutating live state",
+    "Vietnamese and English backup UI renders without browser errors"
+  ],
+  "backups": [
+    "2026-10-23T18-02-26-092Z-199e6638-studio-metadata",
+    "2026-10-23T18-02-26-289Z-1d1424e0-studio-media"
+  ],
+  "actualMedia": "CONTRACT_BYTES_ONLY_NOT_RENDER_ACCEPTANCE",
+  "restore": "DESKTOP_ONLY_NOT_AVAILABLE_IN_WEB_FIXTURE",
+  "browserErrors": []
+}

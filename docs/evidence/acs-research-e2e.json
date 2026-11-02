@@ -1,0 +1,512 @@
+{
+  "status": "VERIFIED_TECHNICAL_DRAFT_WITH_VOICE_FLAGS",
+  "at": "2026-10-23T04:07:15.426Z",
+  "source": [
+    "https://science.nasa.gov/venus/venus-facts/"
+  ],
+  "realGameplay": false,
+  "publicPosting": false,
+  "runs": [
+    {
+      "id": "38730039-9152-403e-a596-09703d67b28a",
+      "language": "vi-VN",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4",
+      "duration": 28.096,
+      "technical": true,
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "actualSources": [
+        {
+          "url": "https://science.nasa.gov/venus/venus-facts/",
+          "sha256": "f3df536ae95a54248693ffca52f1d7799630ce1875763e444a376797726613d8",
+          "fetchedAt": "2026-10-23T04:03:45.078Z"
+        }
+      ],
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "fail",
+          "wordErrorRate": 0.20512820512820512,
+          "expected": "Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius.",
+          "transcription": "Sao Kim nóng đến mức chảy trì, khí quyển dày dữ như trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất, bề mặt nóng khoảng 467 độ Celsius.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius.",
+          "spokenText": "Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\voice-0.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.02857142857142857,
+          "expected": "Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng.",
+          "transcription": "Khí quyển chủ yếu là carbon dioxide với mấy axit sulfuric đậm đặc, áp suất bề mặt gấp chín mươi ba lần trái đất, không có mùa nào vì trục quay gần như thẳng đứng.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng.",
+          "spokenText": "Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\voice-1.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.025,
+          "expected": "Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+          "transcription": "dù sao kim nóng hơn cả thủy tinh nhưng ở độ cao năm mươi km nhiệt độ lại mát mẻ hơn đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+          "spokenText": "Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\voice-2.wav"
+        }
+      ],
+      "voiceStatus": "FLAGGED_REQUIRES_REVIEW",
+      "humanReview": "NOT_REVIEWED",
+      "contentApproved": false,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 28.096
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 28.096,
+            "expected": 27.980000000000004
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 1.589648
+              },
+              {
+                "start": 13.256315
+              },
+              {
+                "start": 15.822982
+              },
+              {
+                "start": 20.456315
+              },
+              {
+                "start": 23.656315
+              },
+              {
+                "start": 25.822982
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.36",
+            "input_tp": "-1.17",
+            "input_lra": "1.90",
+            "input_thresh": "-26.77",
+            "output_i": "-16.08",
+            "output_tp": "-1.50",
+            "output_lra": "1.40",
+            "output_thresh": "-26.50",
+            "normalization_type": "dynamic",
+            "target_offset": "0.08"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T04:05:36.479Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4"
+          ]
+        }
+      ],
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "research.json",
+        "citations.md",
+        "voice-review.json",
+        "voice-repair.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json"
+      ]
+    },
+    {
+      "id": "a94382e2-e7b0-43a9-a908-6f334980999b",
+      "language": "en-US",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4",
+      "duration": 31.018667,
+      "technical": true,
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "actualSources": [
+        {
+          "url": "https://science.nasa.gov/venus/venus-facts/",
+          "sha256": "f3df536ae95a54248693ffca52f1d7799630ce1875763e444a376797726613d8",
+          "fetchedAt": "2026-10-23T04:05:38.172Z"
+        }
+      ],
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0,
+          "expected": "Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+          "transcription": "Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system, with surface temperatures hot enough to melt lead, about 872 degrees Fahrenheit, 467 Celsius.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+          "spokenText": "Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius).",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\voice-0.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0,
+          "expected": "The atmosphere is mostly carbon dioxide — the same gas drives the greenhouse effect on both Venus and Earth — with dense clouds composed of sulfuric acid.",
+          "transcription": "The atmosphere is mostly carbon dioxide. The same gas drives the greenhouse effect on both Venus and Earth, with dense clouds composed of sulfuric acid.",
+          "detectedLanguage": "English",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "The atmosphere is mostly carbon dioxide — the same gas drives the greenhouse effect on both Venus and Earth — with dense clouds composed of sulfuric acid.",
+          "spokenText": "The atmosphere is mostly carbon dioxide — the same gas drives the greenhouse effect on both Venus and Earth — with dense clouds composed of sulfuric acid.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\voice-1.wav"
+        }
+      ],
+      "voiceStatus": "ASR_MATCHED_LISTENING_REQUIRED",
+      "humanReview": "NOT_REVIEWED",
+      "contentApproved": false,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 31.018667
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 31.018667,
+            "expected": 30.950000000000003
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 0.0229818
+              },
+              {
+                "start": 2.589648
+              },
+              {
+                "start": 4.689648
+              },
+              {
+                "start": 7.389648
+              },
+              {
+                "start": 10.089648
+              },
+              {
+                "start": 12.956315
+              },
+              {
+                "start": 15.656315
+              },
+              {
+                "start": 19.956315
+              },
+              {
+                "start": 22.222982
+              },
+              {
+                "start": 24.656315
+              },
+              {
+                "start": 27.222982
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "unknown",
+          "evidence": [
+            {
+              "start": 19.136031
+            }
+          ],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.54",
+            "input_tp": "-0.88",
+            "input_lra": "3.30",
+            "input_thresh": "-26.88",
+            "output_i": "-16.08",
+            "output_tp": "-1.50",
+            "output_lra": "2.00",
+            "output_thresh": "-26.41",
+            "normalization_type": "dynamic",
+            "target_offset": "0.08"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T04:16:32.554Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4"
+          ]
+        }
+      ],
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "research.json",
+        "citations.md",
+        "voice-review.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T07:04:09.318Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data",
+  "source": "https://www.adafruit.com/product/4201",
+  "targetDuration": 30,
+  "publicPosting": false,
+  "affiliateEnabled": false,
+  "humanApproval": "NOT_REVIEWED",
+  "runs": [],
+  "activeRun": {
+    "id": "64b9dea9-0d71-457a-a5e3-da1cf41a321c",
+    "language": "vi-VN"
+  },
+  "error": "Error: Resource wait deadline; queued work retained"
+}

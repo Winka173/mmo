@@ -1,0 +1,54 @@
+{
+  "status": "VERIFIED_FRAME_TIMING_WITH_REUSED_REAL_SPEECH_NO_NEW_MODEL_INFERENCE",
+  "at": "2026-10-23T11:08:41.309Z",
+  "sourceRunId": "87b45d16-eef2-431c-aac2-cc830eab0652",
+  "runId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data",
+  "publicPosting": false,
+  "humanReview": "NOT_CREATED",
+  "speechPolicy": "Reuse byte-identical actual Kokoro CUDA WAVs and their original checkpoint metadata. No fresh ASR or speech quality approval.",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+  "sourceVideoSha256": "d3df0cb6f92b456dc3f76b857bd0fd6e759e73dea13b7fd3ee511fadb1663bcd",
+  "videoSha256": "9c6922315cef1bb2b497ca4fed6fffe9a9fc0cc8323a9fa556cd7ce5b4a5e3cd",
+  "renderTiming": {
+    "version": 2,
+    "frameTimedNarration": true,
+    "plannedFrames": 819,
+    "measuredVideoFrames": 819,
+    "measuredVideoDuration": 27.3,
+    "measuredContainerDuration": 27.3
+  },
+  "timelineDuration": 27.299999999999997,
+  "voices": [
+    {
+      "index": 0,
+      "sha256": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d",
+      "reusedFrom": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-0.wav"
+    },
+    {
+      "index": 1,
+      "sha256": "f122b90551b2e410b848b6257b46445b8d190a7f2a18348e39ec168f213488f0",
+      "reusedFrom": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-1.wav"
+    },
+    {
+      "index": 2,
+      "sha256": "8bcde4fa0286c762b12cbf68c6ab124ccdb2ff89fc3b73e93fd3fc3f5e91d957",
+      "reusedFrom": "C:\\Users\\Winka\\Projects\\mmo\\.local\\create-ui\\99b34bc7-4b25-4361-a7fa-33562a247ae1\\data\\studio\\artifacts\\87b45d16-eef2-431c-aac2-cc830eab0652\\voice-2.wav"
+    }
+  ],
+  "ttsRequests": [],
+  "ASR": "NOT_RERUN; earlier source evidence remains separate",
+  "cut": {
+    "id": "921e94a8-fab2-4c11-b1c7-4ca15fbbac9d",
+    "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\921e94a8-fab2-4c11-b1c7-4ca15fbbac9d\\final.mp4",
+    "timelineDuration": 24.299999999999997,
+    "containerDuration": 24.3,
+    "videoDuration": 24.3,
+    "videoFrames": 729,
+    "timelineSecondsRemoved": 3,
+    "containerSecondsRemoved": 3,
+    "technical": true
+  },
+  "originalPreserved": true,
+  "publishEligibility": "BLOCKED"
+}

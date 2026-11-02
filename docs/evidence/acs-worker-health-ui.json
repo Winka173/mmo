@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED_BOUNDED_AUTOMATIC_WORKER_AND_WEB_RECOVERY",
+  "at": "2026-10-23T18:02:59.182Z",
+  "exeSha256": "b470e39f5b874a402a0be19f20c7b069220220c24b108eef26de64c53fe21dca",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\worker-health-ui\\b8c0412e-dea7-4059-83b5-15f5296d4483\\data",
+  "webviewProfile": "C:\\Users\\Winka\\Projects\\mmo\\.local\\worker-health-ui\\b8c0412e-dea7-4059-83b5-15f5296d4483\\webview",
+  "shellClose": "NO_REOPEN_REQUIRED_FOR_AUTOMATIC_RECOVERY",
+  "autopilotId": "36eaf265-6c64-4bc9-94b0-8c7c3a27a74b",
+  "draftSha256": "b3d41dd2caa706f8e553150def35912b0574a201a3680185372288f9578a7caa",
+  "oldWorkerPid": 25424,
+  "newWorkerPid": 30360,
+  "oldWebPid": 18968,
+  "newWebPid": 29348,
+  "restartLimit": 3,
+  "workerAttempts": 3,
+  "webAttempts": 1,
+  "retryLimitEnforced": true,
+  "checks": [
+    "Actual owned worker death automatically starts a fresh lock-owning worker without reopening the app",
+    "Actual owned web death recovers on the same port and preserves authenticated session",
+    "Three worker restart attempts are allowed; a fourth fault stops retries with an explicit blocked diagnostic",
+    "Only owned paused fixture processes were terminated; saved draft bytes remain unchanged"
+  ],
+  "automaticRestart": true,
+  "publicPosting": false,
+  "AIInference": false
+}

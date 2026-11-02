@@ -1,0 +1,428 @@
+{
+  "status": "VERIFIED_LOCAL_DRAFT_PIPELINE_NOT_FACT_OR_PUBLICATION_APPROVAL",
+  "recoveredFromOriginalArtifacts": true,
+  "recoveredAt": "2026-10-23T04:01:57.848Z",
+  "source": [
+    "https://science.nasa.gov/venus/venus-facts/"
+  ],
+  "realGameplay": false,
+  "publicPosting": false,
+  "runs": [
+    {
+      "id": "a72ae97e-3a34-466d-a966-e4f3b40cb5b1",
+      "language": "vi-VN",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4",
+      "duration": 19.28,
+      "technical": true,
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c4",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "actualSources": [
+        {
+          "url": "https://science.nasa.gov/venus/venus-facts/",
+          "sha256": "bfb5cd3eaf52a637a31e55ebbd817ece64ca09d212a8a3fee5c771eba97dbaaa",
+          "fetchedAt": "2026-10-23T02:30:33.191Z"
+        }
+      ],
+      "humanReview": "NOT_REVIEWED",
+      "contentApproved": false,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 19.28
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 19.28,
+            "expected": 19.23
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 12.622982
+              },
+              {
+                "start": 14.656315
+              },
+              {
+                "start": 16.789648
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.30",
+            "input_tp": "-1.26",
+            "input_lra": "2.10",
+            "input_thresh": "-26.45",
+            "output_i": "-16.06",
+            "output_tp": "-1.50",
+            "output_lra": "2.00",
+            "output_thresh": "-26.18",
+            "normalization_type": "dynamic",
+            "target_offset": "0.06"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T02:31:30.364Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\a72ae97e-3a34-466d-a966-e4f3b40cb5b1\\final.mp4"
+          ]
+        }
+      ],
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "research.json",
+        "citations.md",
+        "voice-review.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json"
+      ]
+    },
+    {
+      "id": "f780d8bb-f4a0-4098-a0ff-e3711a986f65",
+      "language": "en-US",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4",
+      "duration": 19.907,
+      "technical": true,
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "actualSources": [
+        {
+          "url": "https://science.nasa.gov/venus/venus-facts/",
+          "sha256": "bfb5cd3eaf52a637a31e55ebbd817ece64ca09d212a8a3fee5c771eba97dbaaa",
+          "fetchedAt": "2026-10-23T02:31:31.262Z"
+        }
+      ],
+      "humanReview": "NOT_REVIEWED",
+      "contentApproved": false,
+      "findings": [
+        {
+          "criterion": "container_and_codec",
+          "status": "pass",
+          "evidence": {
+            "probeExit": 0,
+            "video": "h264",
+            "audio": "aac",
+            "duration": 19.907
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "resolution",
+          "status": "pass",
+          "evidence": {
+            "actual": [
+              1080,
+              1920
+            ],
+            "expected": [
+              1080,
+              1920
+            ]
+          },
+          "severity": "error",
+          "recommendedFix": "Reframe / encode only",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "duration",
+          "status": "pass",
+          "evidence": {
+            "actual": 19.907,
+            "expected": 19.85
+          },
+          "severity": "error",
+          "recommendedFix": "Check timeline boundaries and encode only",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "full_decode",
+          "status": "pass",
+          "evidence": {
+            "exitCode": 0,
+            "errorTail": null
+          },
+          "severity": "error",
+          "recommendedFix": "Re-encode the existing timeline; preserve original files",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "black_intervals",
+          "status": "pass",
+          "evidence": [],
+          "severity": "warning",
+          "recommendedFix": "Inspect flagged clips; replace or trim only affected intervals",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "freeze_candidates",
+          "status": "unknown",
+          "evidence": {
+            "intervals": [
+              {
+                "start": 0.0229818
+              },
+              {
+                "start": 2.722982
+              },
+              {
+                "start": 5.589648
+              },
+              {
+                "start": 7.922982
+              },
+              {
+                "start": 12.256315
+              },
+              {
+                "start": 14.589648
+              },
+              {
+                "start": 17.189648
+              }
+            ],
+            "note": "Static original graphics may be intentional; review their visual pacing"
+          },
+          "severity": "warning",
+          "recommendedFix": "Review static / frozen footage in context",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "silence_candidates",
+          "status": "unknown",
+          "evidence": [
+            {
+              "start": 4.81776
+            },
+            {
+              "start": 11.468448
+            }
+          ],
+          "severity": "warning",
+          "recommendedFix": "Listen to pauses; repair only unintended silence",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        },
+        {
+          "criterion": "audio_loudness",
+          "status": "pass",
+          "evidence": {
+            "input_i": "-16.58",
+            "input_tp": "-1.53",
+            "input_lra": "3.40",
+            "input_thresh": "-27.09",
+            "output_i": "-15.98",
+            "output_tp": "-1.50",
+            "output_lra": "2.50",
+            "output_thresh": "-26.50",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.02"
+          },
+          "severity": "warning",
+          "recommendedFix": "Adjust mix / normalize without generating new voice",
+          "timestamp": "2026-10-23T02:32:20.956Z",
+          "modelVersion": null,
+          "confidence": null,
+          "relevantFiles": [
+            "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792722632733\\data\\studio\\artifacts\\f780d8bb-f4a0-4098-a0ff-e3711a986f65\\final.mp4"
+          ]
+        }
+      ],
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "research.json",
+        "citations.md",
+        "voice-review.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json"
+      ]
+    }
+  ]
+}

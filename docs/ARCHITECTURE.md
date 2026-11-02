@@ -1,4 +1,29 @@
-# Kiến trúc (V4)
+# AUTONOMOUS CREATIVE STUDIO — Kiến trúc
+
+## Lớp Studio Windows (đang triển khai)
+
+- Đợt restore/recovery 24/10: `src-tauri/src/supervisor.rs` quản lý web/worker bằng Job Object riêng, retry exit thật với budget 3/dịch vụ/phiên và backoff 2/5/10s; giữ loopback session và không retry khi maintenance/Quit. `maintenance.mjs` chạy ngoài web/worker, giành worker lock và phục hồi journal trước DataStore.init khi startup. Restore UI pin SHA manifest + fingerprint dữ liệu; staging/old copies/journal nằm tại `.restore/<uuid>`, checksum và atomic copy có rollback. Helper chỉ nhận action restore/rollback cố định, không chạy command do request cung cấp. Xem RESTORE_AND_RECOVERY.md.
+
+- Tauri/WebView2 quản lý Next SSR và Node worker bằng Windows Job Object; portable và NSIS chứa Node runtime, backend và mã engine. Python env/model weights cài riêng.
+- Khi đặt `ACS_CONFIG_DIR`, shell tạo WebView bằng builder với profile riêng `<config>/webview`; tránh dùng chung browser cache với native instance khác có debug arguments khác. Chạy bình thường không override giữ nguyên profile cũ của người dùng. Khác biệt này không di chuyển JSON/JSONL nguồn; crash-worker recovery vẫn cần xác thực owner/heartbeat và mở lại app.
+- Proxy dùng capability cookie HttpOnly theo mỗi lần mở app, loopback host/origin checks; giữ địa chỉ127.0.0.1 qua `skipProxyUrlNormalize`.
+- `packages/automation/src/studio.ts` lưu Autopilot và StudioRun dưới `studio/`; snapshot có hash, queue job `STUDIO_RUN` vẫn dùng file store hiện có.
+- Guided Create dùng `StudioRun.planning`: requested → ready → continuing. Job plan-only dừng trước voice/render; `plan.json` giữ script/source/snapshot hash. Continuation có lock/idempotency riêng, không biến việc tiếp tục dựng thành approval. Duration được đo về sau không làm thay đổi identity lời/media. Child versions không kế thừa trạng thái planning của parent.
+- Qwen Embedding lưu index JSON dẫn xuất theo corpus/config/runtime fingerprint; chỉ original ready roots và chunk nguyên cảnh trong giới hạn công bố. Index stale hoặc malformed không được dùng để suy ra factual/rights/originality approval. Xem `SEMANTIC_SEARCH.md`.
+- Scheduler kiểm tra hash media/brief và identity nguồn theo ngôn ngữ; có IANA timezone/windows/quota/backlog/embargo và dry-run. Facts feed dùng bounded RSS/Atom metadata, lexical/recency ranking và ghim bài gốc; bỏ slot khi nguồn hết/stale thay vì tạo filler. Chưa semantic director hoặc full publishing calendar.
+- Python runner inference offline, OS byte lock dùng chung GPU lease với Asset Forge; CPU Kokoro không giữ GPU lock. Không đụng weights/env/dữ liệu của app khác.
+- Worker pin bản sao media, cache voice/segment, xuất MP4/phụ đề/thumbnail/QA/manual package; phiên bản con cắt hoặc sửa một đoạn narration giữ parent.
+- Stage QA/facts/rights độc lập; export kỹ thuật không cho quyền đăng. Auto-publish Studio chưa được nghiệm thu.
+- `STUDIO_VOICE` lưu yêu cầu nghe thử bền vững dưới `studio/voices`, WAV dưới `studio/voice-audio`; metadata giữ hash audio, checkpoint và quyết định nghe duyệt riêng.
+- Qwen3-ASR chạy trong env riêng, đọc WAV local sau TTS để so lời/ngôn ngữ. Không dùng expected script làm context ASR; không giả định word timing tiếng Việt.
+- Aligner English tùy chọn là Python entry riêng `alignment_engine.py`, CPU/local-only, checkpoint/tokenizer/runner/audio hash và acoustic agreement guards; không đổi voice runner/fingerprint. Pipeline chỉ dùng word evidence đã khớp; mixed/unsupported giữ estimated. Manual `set_caption_timing` tạo child với `manually_edited`, không sửa speech.
+- Catalog mô tả media lưu revision bất biến theo SHA và atomic head trong `studio/media-catalog`; matching pin metadata tại lần chạy đầu. `STUDIO_MEDIA_VISION` lưu task/keyframe/config/hash riêng, gọi managed Qwen và trả gợi ý chưa duyệt. Insights chống lặp dùng lineage + lexical/source intervals; performance learning chỉ đưa đề xuất khi đủ metric remote hợp lệ, không tự cấp quyền đăng.
+- Brand schema/preset revision pin font, subtitle style, CTA, voice profiles và logo có SHA/quyền. Logo được copy vào artifact trước render. Editor tách working draft local khỏi immutable run/version; bản cắt dựng danh sách cảnh từ video clips của saved timeline, không lấy thời gian shot gốc.
+- Scene/black/freeze/motion/audio analysis tái sử dụng package games/FFmpeg, lưu source SHA/coverage và flag OCR/semantic/authenticity chưa xác minh. Gợi ý không tự thay shot; child giữ report.
+- Private ZIP đóng gói artifact whitelist cùng manifest/review snapshot, byte-bound technical QA và CRC/SHA; durable temp/recovery, authenticated download/range. Export không cấp quyền đăng, không đóng raw sources/secrets/logs/models.
+- FileLock chỉ thu hồi PID còn tồn tại khi probe thời điểm sinh chứng minh PID đã được tái sử dụng; owner nonce bảo vệ heartbeat/release. Native startup yêu cầu web health và live worker giữ đúng lock; lỗi cleanup/diagnostic hiện trong splash và config folder đã chọn.
+- Adapter LLM dùng chung của cả UI cũ và Studio chặn endpoint ngoài HTTP loopback và chặn redirect; cache phân biệt endpoint/model/request. Không có nhánh fallback AI cloud.
+- Kết quả thật và giới hạn xem `RELEASE_QA.md`, `KNOWN_ISSUES.md`; phần V4 dưới đây là nền tảng cũ, không chứng nhận toàn bộ tính năng mới hoàn tất.
 
 ## Nguyên tắc
 - **Không database.** Nguồn sự thật = file JSON/JSONL dưới `DATA_DIR` (mặc định `%LOCALAPPDATA%/TuToMoFactory/data`). `index/`, `analytics/aggregates.json` chỉ là dữ liệu dẫn xuất, xóa được và dựng lại được.

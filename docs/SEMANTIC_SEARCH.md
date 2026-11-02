@@ -1,0 +1,25 @@
+# Local script retrieval
+
+Qwen3-Embedding-0.6B is integrated as optional derived script search. It does not replace JSON/JSONL, verify a source claim, certify rights, determine genuine gameplay or automatically reject content as a semantic duplicate.
+
+The selected [official checkpoint](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/tree/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3) is revision `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`. Its pinned card declares Apache-2.0. Only seven selected files download: 1,207,486,477 bytes; weights SHA256 `0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd`. The installer uses the existing bounded/resumable downloader, verifies sizes/hashes and records an atomic manifest. It reuses a compatible isolated ASR Python runtime without installing or changing its packages; environment/model mutexes coordinate inference and setup.
+
+The separate `embedding_engine.py` uses offline Transformers AutoModel/AutoTokenizer without remote code, last non-padding token pooling and L2-normalized 1024-dimensional vectors. Query instructions differ from documents. Application limits: 32 inputs/request, 6000 characters/input, 2048 tokens/input; overlong input fails rather than silently truncating. CUDA is the default. Explicit CPU is supported and reported; unavailable/busy CUDA never falls back to CPU or cloud. Runtime/checkpoint/tokenizer/pooling/instruction/device/dtype are fingerprinted; source and query text hashes are checked.
+
+## Current measurements
+
+`acs-semantic-inference.json`: three actual previously rendered ACS drafts (VI/EN Venus explainers and an explicitly labeled calibration fixture), three fixed queries, **explicit CPU**, four threads. The VI query ranks the Vietnamese Venus draft first (0.5667 cosine similarity), the English Venus query ranks the English draft (0.7835), and the calibration query ranks that fixture (0.6749). One index inference reported 2.094s after imports/checkpoint validation; process startup/hash/import overhead is additional. The profile's separate controlled library-versus-bicycle query also ranks the intended passage. These are tiny technical retrieval fixtures, not a general accuracy benchmark, GPU measurement, publication approval or human assessment. Production GPU configuration is unchanged.
+
+`acs-semantic-cuda.json` additionally verifies actual **CUDA** on three controlled VI/EN texts: 1.532s load/inference, 9.438s whole process, 1149.52 MiB PyTorch peak allocation (not whole-device memory). Vietnamese Venus query ranks the matching passage at 0.6623 versus unrelated library text at 0.1259. All vectors have 1024 dimensions. CPU and CUDA fingerprints differ by device/dtype so indices are not silently mixed across execution modes. This is a small CUDA smoke probe, not broad multilingual retrieval acceptance.
+
+`acs-semantic-ui.json` verifies selected-profile reuse/apply/inference, actual index build, VI/EN queries and links, bilingual UI, anonymous 401 and foreign-Origin 403 against the prepared production SSR/worker. The UI test's own store selects CPU explicitly; production GPU defaults are unchanged. Its fixture media are exact copies of previously rendered drafts; no new human review or public action is performed.
+
+## Data and UI
+
+Models & Tools → select Qwen Embedding → install/reuse selected weights → apply embedding fields only → verify inference. Compatible ASR Python must already exist, or configure a separate compatible isolated Python under Advanced Settings. The selected-profile installer does not download all engines or secretly alter an existing runtime.
+
+Media Library → Build/refresh index → enter a VI/EN content query → Search with local model. Work persists as `STUDIO_SEMANTIC` queue jobs. GPU contention/cooldown leaves tasks queued; source failures remain inspectable. UI displays original version links, excerpts and cosine similarity, with no quality/right/originality approval implied.
+
+`studio/semantic/index.json` is a replaceable derived index. It covers the latest 100 ready **original** productions, at most 600 lossless whitespace chunks. Child/cut versions are excluded to avoid indexing unspoken/deleted parent narration as if it were a new independent script. Coverage is shown. Indexing does not delete/modify source productions. Model/runtime/config changes or newly eligible/changed scripts invalidate the index; searches hold until rebuild. A failed rebuild does not replace a valid index. Chunk comparisons deduplicate results by production ID, not by meaning or permission.
+
+Tasks and request/log evidence live under `studio/semantic/tasks/`; config is removed from the dedicated API task response. HTTP uses the existing desktop session and strict Origin boundary. UI acceptance is recorded separately in `acs-semantic-ui.json` after a real selected-profile/index/query walkthrough. Broader media-library search, embeddings-assisted discovery/dedup, automatic index refresh, vector cache/incremental updates and multilingual recall calibration remain future work.

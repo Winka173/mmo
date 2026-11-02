@@ -1,0 +1,55 @@
+{
+ "vi_script": {
+  "text": "Chào cả nhà, nếu bạn mê thể loại phòng thủ thì đây là tin nóng! Runavelle, tựa game xây tháp chiến thuật độc lập, đang sắp ra mắt. Demo gồm 3 bản đồ, 12 loại tháp và 5 loại quái để bạn thử sức. Nhiệm vụ của bạn là xây tháp dọc hai làn đường, chặn đứng dòng quái vật trước khi chúng phá cổng. Dự kiến game sẽ lên Steam vào quý 4 này. Hiện chưa có giá bán hay thông tin hỗ trợ tay cầm, nhưng chất lượng demo đang được đánh giá cao. Hãy theo dõi Steam để không bỏ lỡ ngày phát hành nhé!",
+  "decode_tps": 13.3,
+  "prompt_tokens": 174,
+  "out_tokens": 131,
+  "wall_s": 21.4,
+  "load_s": 11.0
+ },
+ "vi_localize": {
+  "text": "Chặn lối đi, xây tháp, giữ vững cổng thành. 12 tháp, 5 loại quái, 3 bản đồ – Demo Runavelle đổ bộ Steam quý 4. Đừng để một con Goblin nào lọt vào!",
+  "decode_tps": 13.82,
+  "prompt_tokens": 94,
+  "out_tokens": 49,
+  "wall_s": 4.0,
+  "load_s": 0.0
+ },
+ "vi_facts": {
+  "text": "Dựa vào nguồn cung cấp, câu trả lời cho 4 câu hỏi là:\n\n1) Demo có **3** map.\n2) **KHÔNG CÓ TRONG NGUỒN** (Nguồn ghi: \"Chưa có thông tin về giá bán\").\n3) Phát hành trên **Steam** vào **quý 4**.\n4) **KHÔNG CÓ TRONG NGUỒN** (Nguồn ghi: \"Chưa có thông tin về... hỗ trợ tay cầm\").",
+  "decode_tps": 21.01,
+  "prompt_tokens": 174,
+  "out_tokens": 101,
+  "wall_s": 5.3,
+  "load_s": 0.0
+ },
+ "vi_comment": {
+  "text": "Xin lỗi bạn đã có trải nghiệm chưa tốt. Runavelle không miễn phí và không hỗ trợ tay cầm. Vui lòng liên hệ hỗ trợ để được giải đáp chi tiết nhé.",
+  "decode_tps": 13.88,
+  "prompt_tokens": 103,
+  "out_tokens": 39,
+  "wall_s": 3.3,
+  "load_s": 0.0
+ },
+ "json": {
+  "text": "{\n  \"title\": \"Demo Runavelle: 3 map, 12 tháp, lên Steam Q4\",\n  \"hooks\": [\n    \"Khám phá 3 map và 12 loại tháp độc đáo trong bản demo mới nhất.\",\n    \"Chiến thuật xây tháp chặn 5 loại quái xâm lăng cổng thành.\",\n    \"Game thủ thành độc lập sắp ra mắt trên Steam vào quý 4.\"\n  ],\n  \"tags\": [\n    \"Runavelle\",\n    \"Thủ thành\",\n    \"Chiến thuật\",\n    \"Demo\",\n    \"Steam\",\n    \"Game độc lập\"\n  ],\n  \"language\": \"vi\"\n}",
+  "decode_tps": 18.94,
+  "prompt_tokens": 176,
+  "out_tokens": 152,
+  "wall_s": 8.5,
+  "load_s": 0.0
+ },
+ "en_script": {
+  "text": "Stop scrolling and check out Runavelle! This isn’t your average tower defense; it’s a fresh, indie-developed twist on the classic formula. Here is why you need to keep an eye on this.\n\nFirst, the scale is impressive for a demo. You get three distinct maps to master right out of the box. Second, the variety is huge. You have access to twelve different tower types to build your perfect strategy. Third, the challenge is real. You face five unique monster types, and your goal is simple: build towers along two lanes to stop them from reaching the castle gate.\n\nThe developer has confirmed the demo launches on Steam in Q4. While pricing and controller support aren’t announced yet, the core gameplay is ready for you to test. Don’t wait for the full release. Check out the Steam page now and see if you can defend the castle!",
+  "decode_tps": 13.91,
+  "prompt_tokens": 138,
+  "out_tokens": 180,
+  "wall_s": 13.4,
+  "load_s": 0.0
+ },
+ "cpu_only_probe": {
+  "decode_tps": 4.14,
+  "out_tokens": 76,
+  "wall_s": 34.1
+ }
+}

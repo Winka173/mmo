@@ -1,0 +1,72 @@
+{
+  "status": "VERIFIED_REAL_SPEECH_SCOPED_MIX_REPAIR_NO_NEW_AI",
+  "at": "2026-10-23T14:10:36.959Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-repair-e2e\\4ab48d1f-ee15-4910-842d-0b84153a5bbf\\data",
+  "parentId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+  "childId": "0d20e33c-6bd9-4756-a4a8-50c3a9d47ae9",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-repair-e2e\\4ab48d1f-ee15-4910-842d-0b84153a5bbf\\data\\studio\\artifacts\\0d20e33c-6bd9-4756-a4a8-50c3a9d47ae9\\final.mp4",
+  "sourceEvidence": "acs-frame-speech-e2e.json",
+  "fault": "Existing copied speech attenuated to 4% gain, original source artifacts untouched",
+  "before": {
+    "criterion": "audio_loudness",
+    "status": "unknown",
+    "evidence": {
+      "input_i": "-44.42",
+      "input_tp": "-29.14",
+      "input_lra": "3.90",
+      "input_thresh": "-54.63",
+      "output_i": "-16.06",
+      "output_tp": "-1.50",
+      "output_lra": "4.00",
+      "output_thresh": "-26.35",
+      "normalization_type": "dynamic",
+      "target_offset": "0.06"
+    },
+    "severity": "warning",
+    "recommendedFix": "Adjust mix / normalize without generating new voice",
+    "timestamp": "2026-10-23T14:10:33.798Z",
+    "modelVersion": null,
+    "confidence": null,
+    "relevantFiles": [
+      "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-repair-e2e\\4ab48d1f-ee15-4910-842d-0b84153a5bbf\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4"
+    ]
+  },
+  "after": {
+    "criterion": "audio_loudness",
+    "status": "pass",
+    "evidence": {
+      "input_i": "-16.16",
+      "input_tp": "-1.33",
+      "input_lra": "3.60",
+      "input_thresh": "-26.49",
+      "output_i": "-16.04",
+      "output_tp": "-1.50",
+      "output_lra": "4.00",
+      "output_thresh": "-26.34",
+      "normalization_type": "dynamic",
+      "target_offset": "0.04"
+    },
+    "severity": "warning",
+    "recommendedFix": "Adjust mix / normalize without generating new voice",
+    "timestamp": "2026-10-23T14:10:35.954Z",
+    "modelVersion": null,
+    "confidence": null,
+    "relevantFiles": [
+      "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-repair-e2e\\4ab48d1f-ee15-4910-842d-0b84153a5bbf\\data\\studio\\artifacts\\0d20e33c-6bd9-4756-a4a8-50c3a9d47ae9\\final.mp4"
+    ]
+  },
+  "execution": {
+    "kind": "mix",
+    "attempt": 1,
+    "aiRequests": 0,
+    "parentPreserved": true,
+    "videoStreamCopied": true
+  },
+  "technical": true,
+  "parentVideoSha256": "9cbfb61fa3f2af730cfa1480b4a7732eb6dded7620a23fb611ade77311651361",
+  "originalSpeechDraftSha256": "9c6922315cef1bb2b497ca4fed6fffe9a9fc0cc8323a9fa556cd7ce5b4a5e3cd",
+  "originalPreserved": true,
+  "aiRequests": [],
+  "publicPosting": false,
+  "humanListening": "NOT_REVIEWED"
+}

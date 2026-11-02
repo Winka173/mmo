@@ -1,0 +1,519 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T06:23:47.441Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data",
+  "source": "https://www.adafruit.com/product/4201",
+  "publicPosting": false,
+  "affiliateEnabled": false,
+  "humanApproval": "NOT_REVIEWED",
+  "runs": [
+    {
+      "id": "0780f0dd-be22-4a4d-aff7-00a0691b3c4e",
+      "language": "vi-VN",
+      "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\final.mp4",
+      "duration": 34.058,
+      "technical": true,
+      "product": {
+        "name": "Adafruit AirLift – ESP32 WiFi Co-Processor Breakout Board",
+        "price": "9.9500",
+        "currency": "USD",
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.adafruit.com/product/4201",
+        "retrievedAt": "2026-10-23T06:23:49.083Z"
+      },
+      "claims": [
+        {
+          "id": "c1",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c2",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c3",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c4",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        },
+        {
+          "id": "c5",
+          "status": "EVIDENCE_FOUND",
+          "reasons": []
+        }
+      ],
+      "description": "Thông tin được tra cứu ngày 23/10/2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.\n\nhttps://www.adafruit.com/product/4201",
+      "voiceReview": [
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.0625,
+          "expected": "Bo mạch Adafruit AirLift là một bộ xử lý con WiFi sử dụng ESP32 mạnh mẽ.",
+          "transcription": "Bo mạch Adafruit Elipse là một bộ xử lý con WiFi sử dụng ESP32 mạnh mẽ.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Bo mạch Adafruit AirLift là một bộ xử lý con WiFi sử dụng ESP32 mạnh mẽ.",
+          "spokenText": "Bo mạch Adafruit AirLift là một bộ xử lý con WiFi sử dụng ESP32 mạnh mẽ.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-0.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.10526315789473684,
+          "expected": "Nó giúp vi điều khiển thông thường có thể kết nối WiFi và truyền dữ liệu qua TLS/SSL.",
+          "transcription": "Nó giúp vi điều khiển thông thường có thể kết nối Wi-Fi và truyền dữ liệu qua TLS/SSL.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Nó giúp vi điều khiển thông thường có thể kết nối WiFi và truyền dữ liệu qua TLS/SSL.",
+          "spokenText": "Nó giúp vi điều khiển thông thường có thể kết nối WiFi và truyền dữ liệu qua TLS/SSL.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-1.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "fail",
+          "wordErrorRate": 0.15789473684210525,
+          "expected": "Việc quản lý WiFi bằng chip riêng giúp mã nguồn đơn giản hơn và không cần lưu đệm socket.",
+          "transcription": "Việc quản lý Wi-Fi bằng chip riêng giúp mã nguồn đơn giản hơn và không cần lưu điện socket.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Việc quản lý WiFi bằng chip riêng giúp mã nguồn đơn giản hơn và không cần lưu đệm socket.",
+          "spokenText": "Việc quản lý WiFi bằng chip riêng giúp mã nguồn đơn giản hơn và không cần lưu đệm socket.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-2.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.10344827586206896,
+          "expected": "Sản phẩm đến đã được lắp ráp và kiểm tra, sẵn sàng sử dụng ngay. Thêm mã BeGood15 vào giỏ hàng để giảm giá 15% cho hướng dẫn Halloween.",
+          "transcription": "Sản phẩm đến đã được lắp ráp và kiểm tra, sẵn sàng sử dụng ngay. Thêm mã Bigood 15 và giỏ hàng để giảm giá 15% cho hướng dẫn Halloween.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Sản phẩm đến đã được lắp ráp và kiểm tra, sẵn sàng sử dụng ngay. Thêm mã BeGood15 vào giỏ hàng để giảm giá 15% cho hướng dẫn Halloween.",
+          "spokenText": "Sản phẩm đến đã được lắp ráp và kiểm tra, sẵn sàng sử dụng ngay. Thêm mã BeGood15 vào giỏ hàng để giảm giá 15% cho hướng dẫn Halloween.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-3.wav"
+        },
+        {
+          "criterion": "voice.round_trip",
+          "status": "pass",
+          "wordErrorRate": 0.0625,
+          "expected": "Thông tin được tra cứu ngày 23/10/2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "transcription": "Thông tin được tra cứu ngày 23 tháng 10 năm 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "detectedLanguage": "Vietnamese",
+          "languageMatch": true,
+          "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+          "sourceText": "Thông tin được tra cứu ngày 23/10/2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "spokenText": "Thông tin được tra cứu ngày 23/10/2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+          "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-4.wav"
+        }
+      ],
+      "captionQuality": {
+        "schemaVersion": 1,
+        "captionTiming": "estimated",
+        "wordAlignment": "UNVERIFIED",
+        "timing": [
+          {
+            "lineIndex": 0,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-0.wav",
+            "offset": 0,
+            "segmentDuration": 5.42,
+            "audioDuration": 5.12,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 5.022
+              }
+            ],
+            "cueStartIndex": 0,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 1,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-1.wav",
+            "offset": 5.42,
+            "segmentDuration": 5.74,
+            "audioDuration": 5.44,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 5.374
+              }
+            ],
+            "cueStartIndex": 2,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 2,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-2.wav",
+            "offset": 11.16,
+            "segmentDuration": 4.78,
+            "audioDuration": 4.48,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 4.446
+              }
+            ],
+            "cueStartIndex": 4,
+            "cueCount": 2
+          },
+          {
+            "lineIndex": 3,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-3.wav",
+            "offset": 15.940000000000001,
+            "segmentDuration": 8.57,
+            "audioDuration": 8.27,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.098,
+                "end": 3.358
+              },
+              {
+                "start": 3.714,
+                "end": 8.27
+              }
+            ],
+            "cueStartIndex": 6,
+            "cueCount": 4
+          },
+          {
+            "lineIndex": 4,
+            "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792736627173\\data\\studio\\artifacts\\0780f0dd-be22-4a4d-aff7-00a0691b3c4e\\voice-4.wav",
+            "offset": 24.51,
+            "segmentDuration": 9.440000000000001,
+            "audioDuration": 9.14,
+            "method": "SPEECH_BOUND_ESTIMATE",
+            "speech": [
+              {
+                "start": 0.066,
+                "end": 3.678
+              },
+              {
+                "start": 4.066,
+                "end": 7.134
+              },
+              {
+                "start": 7.362,
+                "end": 9.14
+              }
+            ],
+            "cueStartIndex": 10,
+            "cueCount": 4
+          }
+        ],
+        "readability": {
+          "status": "review_required",
+          "limits": {
+            "minDuration": 0.8,
+            "maxCharactersPerSecond": 20,
+            "estimatedCharactersPerLine": 28
+          },
+          "metrics": [
+            {
+              "cueIndex": 0,
+              "start": 0.066,
+              "end": 2.648704225352113,
+              "duration": 2.582704225352113,
+              "characters": 37,
+              "charactersPerSecond": 14.32606941081517,
+              "lines": [
+                "Bo mạch Adafruit",
+                "AirLift là một bộ xử"
+              ],
+              "lineLengths": [
+                16,
+                20
+              ]
+            },
+            {
+              "cueIndex": 1,
+              "start": 2.648704225352113,
+              "end": 5.022,
+              "duration": 2.3732957746478873,
+              "characters": 34,
+              "charactersPerSecond": 14.326069410815174,
+              "lines": [
+                "lý con WiFi sử",
+                "dụng ESP32 mạnh mẽ."
+              ],
+              "lineLengths": [
+                14,
+                19
+              ]
+            },
+            {
+              "cueIndex": 2,
+              "start": 5.486,
+              "end": 7.824047619047619,
+              "duration": 2.338047619047619,
+              "characters": 37,
+              "charactersPerSecond": 15.825169555388094,
+              "lines": [
+                "Nó giúp vi điều",
+                "khiển thông thường có"
+              ],
+              "lineLengths": [
+                15,
+                21
+              ]
+            },
+            {
+              "cueIndex": 3,
+              "start": 7.824047619047619,
+              "end": 10.794,
+              "duration": 2.969952380952382,
+              "characters": 47,
+              "charactersPerSecond": 15.825169555388088,
+              "lines": [
+                "thể kết nối WiFi và truyền",
+                "dữ liệu qua TLS/SSL."
+              ],
+              "lineLengths": [
+                26,
+                20
+              ]
+            },
+            {
+              "cueIndex": 4,
+              "start": 11.226,
+              "end": 13.117363636363637,
+              "duration": 1.8913636363636357,
+              "characters": 38,
+              "charactersPerSecond": 20.09132420091325,
+              "lines": [
+                "Việc quản lý WiFi",
+                "bằng chip riêng giúp"
+              ],
+              "lineLengths": [
+                17,
+                20
+              ]
+            },
+            {
+              "cueIndex": 5,
+              "start": 13.117363636363637,
+              "end": 15.606000000000002,
+              "duration": 2.488636363636365,
+              "characters": 50,
+              "charactersPerSecond": 20.09132420091323,
+              "lines": [
+                "mã nguồn đơn giản hơn và",
+                "không cần lưu đệm socket."
+              ],
+              "lineLengths": [
+                24,
+                25
+              ]
+            },
+            {
+              "cueIndex": 6,
+              "start": 16.038,
+              "end": 18.169636363636364,
+              "duration": 2.131636363636364,
+              "characters": 36,
+              "charactersPerSecond": 16.888433981576252,
+              "lines": [
+                "Sản phẩm đến đã",
+                "được lắp ráp và kiểm"
+              ],
+              "lineLengths": [
+                15,
+                20
+              ]
+            },
+            {
+              "cueIndex": 7,
+              "start": 18.169636363636364,
+              "end": 20.124363636363636,
+              "duration": 1.954727272727272,
+              "characters": 27,
+              "charactersPerSecond": 13.812668588968473,
+              "lines": [
+                "tra, sẵn sàng sử dụng ngay."
+              ],
+              "lineLengths": [
+                27
+              ]
+            },
+            {
+              "cueIndex": 8,
+              "start": 20.124363636363636,
+              "end": 22.31521212121212,
+              "duration": 2.190848484848484,
+              "characters": 37,
+              "charactersPerSecond": 16.88843398157626,
+              "lines": [
+                "Thêm mã BeGood15",
+                "vào giỏ hàng để giảm"
+              ],
+              "lineLengths": [
+                16,
+                20
+              ]
+            },
+            {
+              "cueIndex": 9,
+              "start": 22.31521212121212,
+              "end": 24.21,
+              "duration": 1.8947878787878807,
+              "characters": 32,
+              "charactersPerSecond": 16.888433981576238,
+              "lines": [
+                "giá 15% cho hướng",
+                "dẫn Halloween."
+              ],
+              "lineLengths": [
+                17,
+                14
+              ]
+            },
+            {
+              "cueIndex": 10,
+              "start": 24.576,
+              "end": 26.866708333333335,
+              "duration": 2.2907083333333347,
+              "characters": 39,
+              "charactersPerSecond": 17.025301489713872,
+              "lines": [
+                "Thông tin được tra",
+                "cứu ngày 23/10/2026."
+              ],
+              "lineLengths": [
+                18,
+                20
+              ]
+            },
+            {
+              "cueIndex": 11,
+              "start": 26.866708333333335,
+              "end": 29.369208333333333,
+              "duration": 2.5024999999999977,
+              "characters": 36,
+              "charactersPerSecond": 14.3856143856144,
+              "lines": [
+                "Đây là tổng hợp từ",
+                "nguồn, không phải"
+              ],
+              "lineLengths": [
+                18,
+                17
+              ]
+            },
+            {
+              "cueIndex": 12,
+              "start": 29.369208333333333,
+              "end": 31.13129166666667,
+              "duration": 1.7620833333333366,
+              "characters": 30,
+              "charactersPerSecond": 17.02530148971385,
+              "lines": [
+                "trải nghiệm sử",
+                "dụng trực tiếp."
+              ],
+              "lineLengths": [
+                14,
+                15
+              ]
+            },
+            {
+              "cueIndex": 13,
+              "start": 31.13129166666667,
+              "end": 33.65,
+              "duration": 2.518708333333329,
+              "characters": 39,
+              "charactersPerSecond": 15.484127115419636,
+              "lines": [
+                "Giá và tình trạng",
+                "hàng có thể thay đổi."
+              ],
+              "lineLengths": [
+                17,
+                21
+              ]
+            }
+          ],
+          "findings": [
+            {
+              "criterion": "caption.reading_speed",
+              "status": "unknown",
+              "cueIndex": 4,
+              "evidence": {
+                "characters": 38,
+                "duration": 1.8913636363636357,
+                "charactersPerSecond": 20.09132420091325,
+                "maximumCharactersPerSecond": 20
+              },
+              "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+            },
+            {
+              "criterion": "caption.reading_speed",
+              "status": "unknown",
+              "cueIndex": 5,
+              "evidence": {
+                "characters": 50,
+                "duration": 2.488636363636365,
+                "charactersPerSecond": 20.09132420091323,
+                "maximumCharactersPerSecond": 20
+              },
+              "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+            }
+          ],
+          "layoutMethod": "ASS two-line character estimate; visual review required"
+        },
+        "humanReview": "REQUIRED",
+        "note": "Phrase boundaries distributed proportionally over measured speech when available; VAD does not align words. Cues can span internal pauses. No audio was trimmed."
+      },
+      "preflight": {
+        "checkedAt": "2026-10-23T06:32:41.756Z",
+        "approvedEvidenceHash": "66586d1f5886b44fb99ce837e994ec84c98a95d96c2e27bc4fcbd1d0b818871b",
+        "checks": [
+          {
+            "url": "https://www.adafruit.com/product/4201",
+            "fetchedAt": "2026-10-23T06:32:42.884Z",
+            "sha256": "017f46cfe80486d7acb94e42d0eaa7362809c426ed3c63cd632f5fae3d8ab79b"
+          }
+        ],
+        "affiliate": null,
+        "status": "UNCHANGED_RETRIEVED_EVIDENCE"
+      },
+      "contentApproved": false,
+      "humanReview": "NOT_REVIEWED",
+      "outputs": [
+        "final.mp4",
+        "thumbnail.jpg",
+        "qa.json",
+        "manifest.json",
+        "metadata.txt",
+        "caption-quality.json",
+        "research.json",
+        "citations.md",
+        "speech-activity.json",
+        "voice-review.json",
+        "voice-repair.json",
+        "captions.srt",
+        "captions.ass",
+        "timeline.json",
+        "product-evidence.json",
+        "product-publication-description.txt"
+      ]
+    }
+  ],
+  "activeRun": {
+    "id": "84230142-d659-4a96-a4c7-5d64cf317b74",
+    "language": "en-US"
+  },
+  "error": "Error: Bounded research repair exhausted: Narration length 66 words is outside the requested range; target 46 words"
+}

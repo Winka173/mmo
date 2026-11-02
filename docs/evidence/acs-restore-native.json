@@ -1,0 +1,35 @@
+{
+  "status": "VERIFIED_NATIVE_UI_RESTORE_AND_UNDO",
+  "at": "2026-10-23T18:02:40.578Z",
+  "exeSha256": "b470e39f5b874a402a0be19f20c7b069220220c24b108eef26de64c53fe21dca",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\restore-native\\50bbb3a2-acb0-4077-ac63-4c646835a88f\\data",
+  "backup": "2026-10-23T18-02-31-511Z-2c509ac1-studio-metadata",
+  "transactionId": "7701f64f-782e-4cdc-902d-e6e23c22d571",
+  "checks": [
+    "Actual Windows UI inspects checksums/removals, requires explicit confirmation, restarts owned web/worker, restores metadata and preserves excluded media; all production/posting held",
+    "Actual UI undo restores previous project and removed metadata; production remains held",
+    "Backup/restore UI reconnects and renders in VI and EN; no AI or external messages/posts"
+  ],
+  "restore": {
+    "status": "RESTORED",
+    "id": "7701f64f-782e-4cdc-902d-e6e23c22d571",
+    "backup": "2026-10-23T18-02-31-511Z-2c509ac1-studio-metadata",
+    "restored": 6,
+    "safetyFolder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\restore-native\\50bbb3a2-acb0-4077-ac63-4c646835a88f\\data\\.restore\\7701f64f-782e-4cdc-902d-e6e23c22d571\\old",
+    "productionHeld": true,
+    "transactionId": "7701f64f-782e-4cdc-902d-e6e23c22d571",
+    "action": "restore",
+    "at": "2026-10-23T18:02:34.618Z"
+  },
+  "undo": {
+    "status": "ROLLED_BACK",
+    "id": "d4b8942b-42bf-4970-a7ea-eeb84d1ba7ab",
+    "backup": "2026-10-23T18-02-31-511Z-2c509ac1-studio-metadata",
+    "productionHeld": true,
+    "transactionId": "7701f64f-782e-4cdc-902d-e6e23c22d571",
+    "action": "rollback",
+    "at": "2026-10-23T18:02:38.738Z"
+  },
+  "AIInference": false,
+  "publicPosting": false
+}

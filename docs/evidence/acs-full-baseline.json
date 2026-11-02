@@ -1,0 +1,45 @@
+{
+  "status": "NOT_ALL_PASS_MISSING_TOOL_AND_FIXTURE_TIMEOUT",
+  "tests": 335,
+  "passed": 309,
+  "failedAssertions": 2,
+  "notExecuted": 24,
+  "files": 66,
+  "limits": "Missing espeak-ng blocks three legacy suites; games fixture beforeAll timed out, investigated separately. Skipped setup dependents are not passes.",
+  "suiteFailures": [
+    {
+      "file": "apps/worker/test/game-publish.test.ts",
+      "message": "GAME_PRODUCE không thành công: manual_action BINARY_MISSING Không tìm thấy chương trình \"espeak-ng\". Hãy cài đặt và thêm vào PATH (xem RUNBOOK.md).",
+      "assertions": []
+    },
+    {
+      "file": "packages/games/test/games.test.ts",
+      "message": "Hook timed out in 300000ms.\nIf this is a long-running hook, pass a timeout value as the last argument or configure it globally with \"hookTimeout\".",
+      "assertions": []
+    },
+    {
+      "file": "packages/media/test/media.test.ts",
+      "message": "",
+      "assertions": [
+        {
+          "test": "render + QA (real FFmpeg) renders a real 1080x1920 H.264/AAC short that passes QA",
+          "errors": [
+            "FactoryError: Không tìm thấy chương trình \"espeak-ng\". Hãy cài đặt và thêm vào PATH (xem RUNBOOK.md).\n    at ChildProcess.<anonymous> (C:\\Users\\Winka\\Projects\\mmo\\packages\\media\\src\\exec.ts:24:13)\n    at ChildProcess.emit (node:events:524:28)\n    at Process.ChildProcess._handle.onexit (node:internal/child_process:291:12)\n    at onErrorNT (node:internal/child_process:483:16)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "packages/quality/test/quality.test.ts",
+      "message": "",
+      "assertions": [
+        {
+          "test": "Quality Judge + auto-repair (U1 / AF) detects a silent clip and unreadable subtitles on the REAL mp4, repairs only the affected scene/subtitles, keeps v1+v2",
+          "errors": [
+            "FactoryError: Không tìm thấy chương trình \"espeak-ng\". Hãy cài đặt và thêm vào PATH (xem RUNBOOK.md).\n    at ChildProcess.<anonymous> (C:\\Users\\Winka\\Projects\\mmo\\packages\\media\\src\\exec.ts:24:13)\n    at ChildProcess.emit (node:events:524:28)\n    at Process.ChildProcess._handle.onexit (node:internal/child_process:291:12)\n    at onErrorNT (node:internal/child_process:483:16)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)"
+          ]
+        }
+      ]
+    }
+  ]
+}

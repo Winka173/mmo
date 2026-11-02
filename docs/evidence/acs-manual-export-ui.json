@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED_REAL_VIDEO_MANUAL_PACKAGE_UI_NOT_PUBLICATION",
+  "at": "2026-10-23T08:11:15.222Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\export-ui\\e6ef2c99-544e-4dc2-be6c-ea6b41c311b5\\data",
+  "runId": "a94382e2-e7b0-43a9-a908-6f334980999b",
+  "exportId": "6fa0126ce01bc64edce7297cc7a4f4320aaa563fd8441eb5aff980ff1d889947",
+  "archiveSha256": "25152ad180b89769550d41f1b52b289e531079e5d2a248d2e9424eda9f0033ac",
+  "bytes": 1039224,
+  "files": [
+    "final.mp4",
+    "captions.srt",
+    "captions.ass",
+    "thumbnail.jpg",
+    "citations.md",
+    "README.txt",
+    "package-manifest.json",
+    "publish-draft.json"
+  ],
+  "checks": [
+    "Real legacy MP4 is revalidated with actual FFmpeg, archived without changing bytes, with UTF-8 captions/thumbnail/provenance and explicit pending reviews",
+    "Authenticated ZIP download and Range 206 match SHA; ASS sidecar serves text; anonymous and foreign-origin access are rejected",
+    "Repeated requests reuse the exact package; tampered ZIP is held, parent media remains unchanged and no worker/model/account/post is invoked"
+  ],
+  "AIInference": false,
+  "publicPosting": false,
+  "humanApproval": "NOT_REVIEWED",
+  "browserErrors": []
+}

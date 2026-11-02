@@ -1,0 +1,13 @@
+{
+  "status": "BLOCKED_SHARED_GPU_RESOURCE_WAIT",
+  "at": "2026-10-23T05:36:43.989430+00:00",
+  "voiceSampleId": "4b64a2f4-6f25-4c38-9b3b-d48238c3ecbc",
+  "language": "en-GB",
+  "state": "running",
+  "error": null,
+  "lastUpdate": "2026-10-23T05:27:19.003Z",
+  "installerSha256": "92EA46EA42E270D851681FF4956F78B90D41BE77CA772E5E71A361986438A721",
+  "voiceInferenceOnThisInstaller": "NOT_COMPLETED",
+  "nativeWindowAuthClose": "VERIFIED_SEPARATELY",
+  "humanReview": "NOT_REVIEWED"
+}

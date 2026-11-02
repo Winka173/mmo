@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T06:54:37.017Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792738476960\\data",
+  "source": "https://www.adafruit.com/product/4201",
+  "targetDuration": 30,
+  "publicPosting": false,
+  "affiliateEnabled": false,
+  "humanApproval": "NOT_REVIEWED",
+  "runs": [],
+  "activeRun": {
+    "id": "ad79150f-ee50-4ce6-aa43-0db1f226f3e9",
+    "language": "vi-VN"
+  },
+  "error": "Error: Bounded research repair exhausted: Narration length 69 words is outside the requested range; target 105 words"
+}

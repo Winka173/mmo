@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "captionTiming": "estimated",
+  "wordAlignment": "UNVERIFIED",
+  "alignedLines": 0,
+  "grouping": {
+    "version": 2,
+    "shortCueTargetSeconds": 0.8,
+    "characterMeasure": "Unicode code points",
+    "audioChanged": false
+  },
+  "timing": [
+    {
+      "lineIndex": 0,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-0.wav",
+      "offset": 0,
+      "segmentDuration": 3.6,
+      "audioDuration": 3.28,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 1.15
+        },
+        {
+          "start": 1.314,
+          "end": 3.23
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 0,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 1,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-1.wav",
+      "offset": 3.6,
+      "segmentDuration": 3.2,
+      "audioDuration": 2.88,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 2.846
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 2,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 2,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-2.wav",
+      "offset": 6.800000000000001,
+      "segmentDuration": 3.5,
+      "audioDuration": 3.2,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 1.022
+        },
+        {
+          "start": 1.186,
+          "end": 3.134
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 4,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 3,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-3.wav",
+      "offset": 10.3,
+      "segmentDuration": 3.3666666666666667,
+      "audioDuration": 3.04,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.098,
+          "end": 1.214
+        },
+        {
+          "start": 1.442,
+          "end": 3.006
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 6,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 4,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\voice-4.wav",
+      "offset": 13.666666666666668,
+      "segmentDuration": 4.466666666666667,
+      "audioDuration": 4.16,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 1.982
+        },
+        {
+          "start": 2.37,
+          "end": 4.094
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 8,
+      "cueCount": 3
+    }
+  ],
+  "readability": {
+    "status": "review_required",
+    "limits": {
+      "minDuration": 0.8,
+      "maxCharactersPerSecond": 20,
+      "estimatedCharactersPerLine": 28
+    },
+    "metrics": [
+      {
+        "cueIndex": 0,
+        "start": 0.066,
+        "end": 1.8356338028169017,
+        "duration": 1.7696338028169016,
+        "characters": 38,
+        "charactersPerSecond": 21.473369201871954,
+        "lines": [
+          "Giới thiệu 'Lane",
+          "Keeper', tựa game thủ"
+        ],
+        "lineLengths": [
+          16,
+          21
+        ]
+      },
+      {
+        "cueIndex": 1,
+        "start": 1.8356338028169017,
+        "end": 3.23,
+        "duration": 1.3943661971830983,
+        "characters": 33,
+        "charactersPerSecond": 23.66666666666667,
+        "lines": [
+          "thành 3 làn đường",
+          "do nhóm tự làm."
+        ],
+        "lineLengths": [
+          17,
+          15
+        ]
+      },
+      {
+        "cueIndex": 2,
+        "start": 3.634,
+        "end": 5.201344262295082,
+        "duration": 1.5673442622950824,
+        "characters": 34,
+        "charactersPerSecond": 21.692745376955898,
+        "lines": [
+          "Người chơi đặt",
+          "tháp trên ba làn để"
+        ],
+        "lineLengths": [
+          14,
+          19
+        ]
+      },
+      {
+        "cueIndex": 3,
+        "start": 5.201344262295082,
+        "end": 6.446,
+        "duration": 1.2446557377049174,
+        "characters": 27,
+        "charactersPerSecond": 21.692745376955912,
+        "lines": [
+          "chặn đứng các đợt quái vật."
+        ],
+        "lineLengths": [
+          27
+        ]
+      },
+      {
+        "cueIndex": 4,
+        "start": 6.8660000000000005,
+        "end": 7.802774193548387,
+        "duration": 0.9367741935483869,
+        "characters": 20,
+        "charactersPerSecond": 21.349862258953173,
+        "lines": [
+          "Hai loại tháp chính:"
+        ],
+        "lineLengths": [
+          20
+        ]
+      },
+      {
+        "cueIndex": 5,
+        "start": 7.802774193548387,
+        "end": 9.934000000000001,
+        "duration": 2.1312258064516136,
+        "characters": 42,
+        "charactersPerSecond": 19.706968577828896,
+        "lines": [
+          "tháp cung bắn nhanh",
+          "và tháp phép làm chậm."
+        ],
+        "lineLengths": [
+          19,
+          22
+        ]
+      },
+      {
+        "cueIndex": 6,
+        "start": 10.398000000000001,
+        "end": 12.282727272727273,
+        "duration": 1.8847272727272717,
+        "characters": 34,
+        "charactersPerSecond": 18.039745321242535,
+        "lines": [
+          "Mỗi màn gồm năm",
+          "đợt, với trùm xuất"
+        ],
+        "lineLengths": [
+          15,
+          18
+        ]
+      },
+      {
+        "cueIndex": 7,
+        "start": 12.282727272727273,
+        "end": 13.306000000000001,
+        "duration": 1.0232727272727278,
+        "characters": 21,
+        "charactersPerSecond": 20.522388059701484,
+        "lines": [
+          "hiện ở màn cuối cùng."
+        ],
+        "lineLengths": [
+          21
+        ]
+      },
+      {
+        "cueIndex": 8,
+        "start": 13.700666666666669,
+        "end": 15.093494252873565,
+        "duration": 1.3928275862068968,
+        "characters": 33,
+        "charactersPerSecond": 23.692810457516334,
+        "lines": [
+          "Tựa game đang",
+          "trong giai đoạn thử"
+        ],
+        "lineLengths": [
+          13,
+          19
+        ]
+      },
+      {
+        "cueIndex": 9,
+        "start": 15.093494252873565,
+        "end": 17.085356321839082,
+        "duration": 1.991862068965517,
+        "characters": 38,
+        "charactersPerSecond": 19.077626203171526,
+        "lines": [
+          "nghiệm nội bộ, chưa",
+          "xác định ngày phát"
+        ],
+        "lineLengths": [
+          19,
+          18
+        ]
+      },
+      {
+        "cueIndex": 10,
+        "start": 17.085356321839082,
+        "end": 17.76066666666667,
+        "duration": 0.6753103448275866,
+        "characters": 16,
+        "charactersPerSecond": 23.692810457516327,
+        "lines": [
+          "hành hay giá cả."
+        ],
+        "lineLengths": [
+          16
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 0,
+        "evidence": {
+          "characters": 38,
+          "duration": 1.7696338028169016,
+          "charactersPerSecond": 21.473369201871954,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 1,
+        "evidence": {
+          "characters": 33,
+          "duration": 1.3943661971830983,
+          "charactersPerSecond": 23.66666666666667,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 2,
+        "evidence": {
+          "characters": 34,
+          "duration": 1.5673442622950824,
+          "charactersPerSecond": 21.692745376955898,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 3,
+        "evidence": {
+          "characters": 27,
+          "duration": 1.2446557377049174,
+          "charactersPerSecond": 21.692745376955912,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 4,
+        "evidence": {
+          "characters": 20,
+          "duration": 0.9367741935483869,
+          "charactersPerSecond": 21.349862258953173,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 7,
+        "evidence": {
+          "characters": 21,
+          "duration": 1.0232727272727278,
+          "charactersPerSecond": 20.522388059701484,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 8,
+        "evidence": {
+          "characters": 33,
+          "duration": 1.3928275862068968,
+          "charactersPerSecond": 23.692810457516334,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      },
+      {
+        "criterion": "caption.minimum_duration",
+        "status": "unknown",
+        "cueIndex": 10,
+        "evidence": {
+          "duration": 0.6753103448275866,
+          "minimumSeconds": 0.8
+        },
+        "recommendedFix": "Review this short cue; adjust caption grouping or timing after listening"
+      },
+      {
+        "criterion": "caption.reading_speed",
+        "status": "unknown",
+        "cueIndex": 10,
+        "evidence": {
+          "characters": 16,
+          "duration": 0.6753103448275866,
+          "charactersPerSecond": 23.692810457516327,
+          "maximumCharactersPerSecond": 20
+        },
+        "recommendedFix": "Review reading speed; regroup captions without removing speech or facts"
+      }
+    ],
+    "layoutMethod": "ASS two-line character estimate; visual review required"
+  },
+  "humanReview": "REQUIRED",
+  "note": "English CTC boundaries are used only with matching audio SHA, exact wording and validated monotonic word times. Other phrase boundaries remain proportional estimates over VAD or duration; VAD does not align words. Vietnamese word alignment is unsupported. No audio was trimmed. All boundaries require listening."
+}

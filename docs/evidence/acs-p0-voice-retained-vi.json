@@ -1,0 +1,338 @@
+{
+  "status": "VERIFIED_RETAINED_REAL_VI_SPEECH_RECHECK_NOT_NEW_INFERENCE",
+  "at": "2026-10-23T13:08:18.736Z",
+  "selection": "All five narration lines in the already verified Vietnamese product draft; selected without excluding failures",
+  "sourceEvidence": {
+    "file": "C:\\Users\\Winka\\Projects\\mmo\\docs\\evidence\\acs-product-e2e.json",
+    "sha256": "611b5486c98fb30a904b7d21c68bedf6c199a224392c693f8f16a3f288f3f7c8",
+    "voiceReviewFile": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-review.json",
+    "voiceReviewSha256": "e6a1691c3116e208a3ce545483719a3fb50f07b785a917f9cb8327e5e407b91a"
+  },
+  "inferencePerformed": false,
+  "originalArtifactsModified": false,
+  "localOnly": true,
+  "humanListening": "NOT_REVIEWED",
+  "wordAlignment": "NOT_PROVIDED",
+  "publicPosting": false,
+  "asr": {
+    "engine": "qwen3-asr",
+    "device": "cuda",
+    "modelSha256": "b73be080615a190b42848b04271de85a51fbe8b40113d82561b6b35d5359850c"
+  },
+  "samples": [
+    {
+      "index": 0,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-0.wav",
+      "audioSha256": "38f418b22d6c9eca35d8906def97fc20163622da4a2a92a5376ace4373f807fd",
+      "seconds": 4.24,
+      "sourceText": "Adafruit AirLift giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+      "spokenText": "Adafruit AirLift giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+      "transcription": "Adafruit Elf giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+      "tts": {
+        "engine": "vieneu",
+        "voice": "Minh Quân",
+        "device": "cuda",
+        "sdkVersion": "3.8.3",
+        "modelSha256": "b36c9326c8d38a5b333155332043c9ca16bd5b7b8965b9377bd9cd582cb155ee",
+        "codecSha256": "fa114e135654161496a501411e397b649edb67a7bb5a4eec9980263da8514cf7"
+      },
+      "priorStatus": "pass",
+      "current": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0.058823529411764705,
+        "expected": "Adafruit AirLift giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+        "transcription": "Adafruit Elf giúp dự án vi điều khiển của bạn bay bổng với kết nối không dây.",
+        "detectedLanguage": "Vietnamese",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [],
+          "actual": [],
+          "expectedQuantityWords": [
+            "không"
+          ],
+          "actualQuantityWords": [
+            "không"
+          ]
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [
+            "không"
+          ],
+          "actual": [
+            "không"
+          ]
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "changed": false
+    },
+    {
+      "index": 1,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-1.wav",
+      "audioSha256": "abea3cfeadb9c230730cffb4ebc4b80db7f7a0f2981f5fb229d05fbd436ae0aa",
+      "seconds": 4.88,
+      "sourceText": "Chip ESP32 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+      "spokenText": "Chip ESP32 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+      "transcription": "chip A532 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+      "tts": {
+        "engine": "vieneu",
+        "voice": "Minh Quân",
+        "device": "cuda",
+        "sdkVersion": "3.8.3",
+        "modelSha256": "b36c9326c8d38a5b333155332043c9ca16bd5b7b8965b9377bd9cd582cb155ee",
+        "codecSha256": "fa114e135654161496a501411e397b649edb67a7bb5a4eec9980263da8514cf7"
+      },
+      "priorStatus": "pass",
+      "current": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "fail",
+        "wordErrorRate": 0.05555555555555555,
+        "expected": "Chip ESP32 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+        "transcription": "chip A532 đảm nhận mọi công việc nặng nề kết nối mạng và truyền dữ liệu an toàn.",
+        "detectedLanguage": "Vietnamese",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "mismatch",
+          "expected": [
+            "32"
+          ],
+          "actual": [
+            "532"
+          ],
+          "expectedQuantityWords": [],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "changed": true
+    },
+    {
+      "index": 2,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-2.wav",
+      "audioSha256": "326a886efacdcec33ed40031799a09c0f49bee311e5225d662713a2b010da9c1",
+      "seconds": 3.84,
+      "sourceText": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ đệm phức tạp.",
+      "spokenText": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ đệm phức tạp.",
+      "transcription": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ điện phức tạp.",
+      "tts": {
+        "engine": "vieneu",
+        "voice": "Minh Quân",
+        "device": "cuda",
+        "sdkVersion": "3.8.3",
+        "modelSha256": "b36c9326c8d38a5b333155332043c9ca16bd5b7b8965b9377bd9cd582cb155ee",
+        "codecSha256": "fa114e135654161496a501411e397b649edb67a7bb5a4eec9980263da8514cf7"
+      },
+      "priorStatus": "pass",
+      "current": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0.05555555555555555,
+        "expected": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ đệm phức tạp.",
+        "transcription": "Phần cứng đã sẵn sàng với mã nguồn đơn giản, không cần lưu bộ nhớ điện phức tạp.",
+        "detectedLanguage": "Vietnamese",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [],
+          "actual": [],
+          "expectedQuantityWords": [
+            "không"
+          ],
+          "actualQuantityWords": [
+            "không"
+          ]
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [
+            "không"
+          ],
+          "actual": [
+            "không"
+          ]
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "changed": false
+    },
+    {
+      "index": 3,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-3.wav",
+      "audioSha256": "d2c72d839b55e0c11828c4a94cf351eb3c143478790d20050feb6d0b1c45bdbb",
+      "seconds": 4.64,
+      "sourceText": "Chỉ cần bus SPI, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+      "spokenText": "Chỉ cần bus SPI, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+      "transcription": "chỉ cần bus SVE, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+      "tts": {
+        "engine": "vieneu",
+        "voice": "Minh Quân",
+        "device": "cuda",
+        "sdkVersion": "3.8.3",
+        "modelSha256": "b36c9326c8d38a5b333155332043c9ca16bd5b7b8965b9377bd9cd582cb155ee",
+        "codecSha256": "fa114e135654161496a501411e397b649edb67a7bb5a4eec9980263da8514cf7"
+      },
+      "priorStatus": "pass",
+      "current": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "pass",
+        "wordErrorRate": 0.058823529411764705,
+        "expected": "Chỉ cần bus SPI, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+        "transcription": "chỉ cần bus SVE, hai chân điều khiển và nguồn 250mA để bắt đầu ngay lập tức.",
+        "detectedLanguage": "Vietnamese",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "exact",
+          "expected": [
+            "250"
+          ],
+          "actual": [
+            "250"
+          ],
+          "expectedQuantityWords": [
+            "hai"
+          ],
+          "actualQuantityWords": [
+            "hai"
+          ]
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "changed": false
+    },
+    {
+      "index": 4,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\product-e2e\\1792739049254\\data\\studio\\artifacts\\64b9dea9-0d71-457a-a5e3-da1cf41a321c\\voice-4.wav",
+      "audioSha256": "c67da458b895645477cbb10e489305e4d239593f5925cef53ec077db69ce783d",
+      "seconds": 8.87,
+      "sourceText": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+      "spokenText": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+      "transcription": "Thông tin được tra cứu ngày 23 tháng 10, 2022. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+      "tts": {
+        "engine": "vieneu",
+        "voice": "Minh Quân",
+        "device": "cuda",
+        "sdkVersion": "3.8.3",
+        "modelSha256": "b36c9326c8d38a5b333155332043c9ca16bd5b7b8965b9377bd9cd582cb155ee",
+        "codecSha256": "fa114e135654161496a501411e397b649edb67a7bb5a4eec9980263da8514cf7"
+      },
+      "priorStatus": "pass",
+      "current": {
+        "criterion": "voice.round_trip",
+        "policyVersion": 2,
+        "status": "fail",
+        "wordErrorRate": 0.030303030303030304,
+        "expected": "Thông tin được tra cứu ngày 23 tháng 10, 2026. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+        "transcription": "Thông tin được tra cứu ngày 23 tháng 10, 2022. Đây là tổng hợp từ nguồn, không phải trải nghiệm sử dụng trực tiếp. Giá và tình trạng hàng có thể thay đổi.",
+        "detectedLanguage": "Vietnamese",
+        "languageMatch": true,
+        "numericEvidence": {
+          "status": "mismatch",
+          "expected": [
+            "23",
+            "10",
+            "2026"
+          ],
+          "actual": [
+            "23",
+            "10",
+            "2022"
+          ],
+          "expectedQuantityWords": [
+            "không"
+          ],
+          "actualQuantityWords": [
+            "không"
+          ]
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [
+            "không"
+          ],
+          "actual": [
+            "không"
+          ]
+        },
+        "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee."
+      },
+      "changed": true
+    }
+  ],
+  "summary": {
+    "clips": 5,
+    "audioSeconds": 26.47,
+    "previousPass": 5,
+    "currentPass": 3,
+    "currentFlagged": 2,
+    "newlyFlagged": [
+      {
+        "index": 1,
+        "numericEvidence": {
+          "status": "mismatch",
+          "expected": [
+            "32"
+          ],
+          "actual": [
+            "532"
+          ],
+          "expectedQuantityWords": [],
+          "actualQuantityWords": []
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [],
+          "actual": []
+        }
+      },
+      {
+        "index": 4,
+        "numericEvidence": {
+          "status": "mismatch",
+          "expected": [
+            "23",
+            "10",
+            "2026"
+          ],
+          "actual": [
+            "23",
+            "10",
+            "2022"
+          ],
+          "expectedQuantityWords": [
+            "không"
+          ],
+          "actualQuantityWords": [
+            "không"
+          ]
+        },
+        "negationEvidence": {
+          "match": true,
+          "expected": [
+            "không"
+          ],
+          "actual": [
+            "không"
+          ]
+        }
+      }
+    ]
+  },
+  "scope": "Deterministic re-evaluation of retained authentic VieNeu CUDA speech/Qwen ASR outputs. Detecting mismatch does not determine whether TTS or ASR was wrong; owner listening remains required."
+}

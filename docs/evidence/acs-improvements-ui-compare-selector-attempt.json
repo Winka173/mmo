@@ -1,0 +1,20 @@
+{
+  "status": "FAILED",
+  "at": "2026-10-23T15:36:34.500Z",
+  "fixture": {
+    "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\improvements-578136d8-f653-4d78-a0b5-3524447b5479\\data",
+    "planId": "ee168715-2654-487d-a412-3db345d3b1dc",
+    "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+    "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+    "inference": "NOT_PERFORMED",
+    "publicPosting": false,
+    "compareId": "921e94a8-fab2-4c11-b1c7-4ca15fbbac9d",
+    "mediaRunId": "8ddc6a7d-cb8c-4da1-903c-d63d9a9ee00b",
+    "mediaSourceSha": "f7e1c6c08453fb561862274e34d2f25890f54372be6e2bfdd02ea7d49d9e18b0",
+    "visionTaskId": "9fbe8851-c2fc-45c3-b474-453e53a55167",
+    "visionScope": "Reuse prior actual flagged vision suggestion; no new inference or owner acceptance"
+  },
+  "checks": [],
+  "error": "Error: Improvement UI timeout",
+  "browserErrors": []
+}

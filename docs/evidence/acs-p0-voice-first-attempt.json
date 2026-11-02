@@ -1,0 +1,128 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T13:00:14.167Z",
+  "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-voice\\1792760414123",
+  "selection": "Nine fixed original authored samples selected before inference; raw and dictionary numeric pairs retained even when review fails",
+  "scope": "Small regression set for pronunciation, numbers, pauses and caption grouping; not representative quality certification",
+  "localOnly": true,
+  "productionConfigChanged": false,
+  "expectedTextSentToASR": false,
+  "wordAlignment": "NOT_PROVIDED",
+  "humanListening": "NOT_REVIEWED",
+  "publicPosting": false,
+  "samples": [
+    {
+      "id": "vi-diacritics",
+      "language": "vi-VN",
+      "text": "Giữ nguyên bản gốc. Những chiếc thuyền nhỏ vượt qua bến cảng, dưới ánh nắng dịu dàng.",
+      "dictionary": [],
+      "spokenText": "Giữ nguyên bản gốc. Những chiếc thuyền nhỏ vượt qua bến cảng, dưới ánh nắng dịu dàng."
+    },
+    {
+      "id": "vi-raw-numbers",
+      "language": "vi-VN",
+      "text": "Bản cập nhật có 12 màn chơi, chạy ở 60 khung hình mỗi giây và có dung lượng 2,5 GB.",
+      "dictionary": [],
+      "spokenText": "Bản cập nhật có 12 màn chơi, chạy ở 60 khung hình mỗi giây và có dung lượng 2,5 GB."
+    },
+    {
+      "id": "vi-explicit-numbers",
+      "language": "vi-VN",
+      "text": "Bản cập nhật có 12 màn chơi, chạy ở 60 khung hình mỗi giây và có dung lượng 2,5 GB.",
+      "dictionary": [
+        {
+          "term": "12",
+          "spoken": "mười hai",
+          "language": "vi-VN"
+        },
+        {
+          "term": "60",
+          "spoken": "sáu mươi",
+          "language": "vi-VN"
+        },
+        {
+          "term": "2,5",
+          "spoken": "hai phẩy năm",
+          "language": "vi-VN"
+        },
+        {
+          "term": "GB",
+          "spoken": "ghi ga bai",
+          "language": "vi-VN"
+        }
+      ],
+      "spokenText": "Bản cập nhật có mười hai màn chơi, chạy ở sáu mươi khung hình mỗi giây và có dung lượng hai phẩy năm ghi ga bai."
+    },
+    {
+      "id": "vi-pauses-names",
+      "language": "vi-VN",
+      "text": "ACS đã lưu bản gốc. Chờ một chút... Sau đó, bạn có thể tiếp tục chỉnh sửa video.",
+      "dictionary": [
+        {
+          "term": "ACS",
+          "spoken": "ây xi ét",
+          "language": "vi-VN"
+        }
+      ],
+      "spokenText": "ây xi ét đã lưu bản gốc. Chờ một chút... Sau đó, bạn có thể tiếp tục chỉnh sửa video."
+    },
+    {
+      "id": "en-us-baseline",
+      "language": "en-US",
+      "text": "Keep the original files. The small boats cross the harbor in the gentle morning light.",
+      "dictionary": [],
+      "spokenText": "Keep the original files. The small boats cross the harbor in the gentle morning light."
+    },
+    {
+      "id": "en-us-raw-numbers",
+      "language": "en-US",
+      "text": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+      "dictionary": [],
+      "spokenText": "Version 2.5 includes 12 levels and runs at 60 frames per second."
+    },
+    {
+      "id": "en-us-explicit-numbers",
+      "language": "en-US",
+      "text": "Version 2.5 includes 12 levels and runs at 60 frames per second.",
+      "dictionary": [
+        {
+          "term": "2.5",
+          "spoken": "two point five",
+          "language": "en-US"
+        },
+        {
+          "term": "12",
+          "spoken": "twelve",
+          "language": "en-US"
+        },
+        {
+          "term": "60",
+          "spoken": "sixty",
+          "language": "en-US"
+        }
+      ],
+      "spokenText": "Version two point five includes twelve levels and runs at sixty frames per second."
+    },
+    {
+      "id": "en-us-pauses-names",
+      "language": "en-US",
+      "text": "ACS saved the original. Wait a moment... Then, you can continue editing the video.",
+      "dictionary": [
+        {
+          "term": "ACS",
+          "spoken": "A C S",
+          "language": "en-US"
+        }
+      ],
+      "spokenText": "A C S saved the original. Wait a moment... Then, you can continue editing the video."
+    },
+    {
+      "id": "en-gb-baseline",
+      "language": "en-GB",
+      "text": "Keep the original files. The small boats cross the harbour in the gentle morning light.",
+      "dictionary": [],
+      "spokenText": "Keep the original files. The small boats cross the harbour in the gentle morning light."
+    }
+  ],
+  "error": "GPU_BUSY: another application holds the GPU lease; retry later"
+}

@@ -1,0 +1,848 @@
+﻿{
+    "at":  "2026-10-25T15:23:25.2010347Z",
+    "status":  "COMPLETED",
+    "workspace":  "C:\\Users\\Winka\\Projects\\mmo",
+    "plannedBytes":  14718730548,
+    "deletedBytes":  14718730548,
+    "removed":  [
+                    ".local\\acs-all-improvements-tests.json",
+                    ".local\\acs-current-selected-tests.json",
+                    ".local\\acs-final-selected-tests.json",
+                    ".local\\acs-footage-tests.json",
+                    ".local\\acs-frame-exact-test.json",
+                    ".local\\acs-frame-selected-tests.json",
+                    ".local\\acs-frame-timing-tests.json",
+                    ".local\\acs-full-tests.json",
+                    ".local\\acs-games-fixture-tests.json",
+                    ".local\\acs-guided-plan-tests.json",
+                    ".local\\acs-latest-tests.json",
+                    ".local\\acs-managed.json",
+                    ".local\\acs-managed.json.bak",
+                    ".local\\acs-media-intelligence-tests.json",
+                    ".local\\acs-media-matching-tests.json",
+                    ".local\\acs-p0-plan-tests.json",
+                    ".local\\acs-p0-repair-tests.json",
+                    ".local\\acs-p0-selected-tests.json",
+                    ".local\\acs-p0-setup-tests.json",
+                    ".local\\acs-p0-voice-pipeline-test.json",
+                    ".local\\acs-p0-voice-tests.json",
+                    ".local\\acs-restore-recovery-tests.json",
+                    ".local\\acs-still-timeline-tests.json",
+                    ".local\\acs-ux-guidance-tests.json",
+                    ".local\\acs-ux-quality-tests.json",
+                    ".local\\alignment-benchmark-request.json",
+                    ".local\\alignment-benchmark-request-unsupported-vi.json",
+                    ".local\\alignment-benchmark-result.json",
+                    ".local\\alignment-install-request.json",
+                    ".local\\backup-ui",
+                    ".local\\benchmarks",
+                    ".local\\build-folder-safety",
+                    ".local\\crash-resume",
+                    ".local\\create-ui",
+                    ".local\\desktop-current-build.log",
+                    ".local\\e2e-frame.jpg",
+                    ".local\\e2e-studio",
+                    ".local\\expansion-ui",
+                    ".local\\export-ui",
+                    ".local\\features-ui",
+                    ".local\\feed-discovery",
+                    ".local\\feed-ui",
+                    ".local\\footage-benchmark",
+                    ".local\\frame-speech",
+                    ".local\\image-benchmark",
+                    ".local\\image-seek-probe.mp4",
+                    ".local\\image-ui",
+                    ".local\\improvements-brand-cta-preview.png",
+                    ".local\\improvements-first-package",
+                    ".local\\improvements-speech",
+                    ".local\\installed-smoke",
+                    ".local\\llm-setup",
+                    ".local\\llm-vision-check.log",
+                    ".local\\localization-e2e",
+                    ".local\\management-ui",
+                    ".local\\media-intelligence",
+                    ".local\\models\\flux2-klein-4b\\.cache\\huggingface\\download\\text_encoder\\aoe4E07IMh7reFyUkVoVk040mQk=.8c0506e7f4936fa7e26183a4fd8da4e2bdbc5990ba64ae441f965d51228f36ea.incomplete",
+                    ".local\\models\\flux2-klein-4b\\.cache\\huggingface\\download\\text_encoder\\Dr_lZJDwE1cnGAQMwA77jJEQIk8=.82f2bd839378541b0557bfabaf37c7d3d637071fdcb73302dedd7cf61162ce07.incomplete",
+                    ".local\\native-smoke",
+                    ".local\\p0-repair-e2e",
+                    ".local\\p0-setup-preflight",
+                    ".local\\p0-ui",
+                    ".local\\p0-voice",
+                    ".local\\product-e2e",
+                    ".local\\research-e2e",
+                    ".local\\restore-crash",
+                    ".local\\restore-native",
+                    ".local\\semantic-e2e",
+                    ".local\\semantic-ui",
+                    ".local\\shorts-e2e",
+                    ".local\\source-watch-e2e",
+                    ".local\\startup-failure-smoke",
+                    ".local\\timeline-e2e",
+                    ".local\\ui-smoke-data",
+                    ".local\\ux-shell-tsconfig.json",
+                    ".local\\vad-benchmark",
+                    ".local\\vad-production",
+                    ".local\\vad-ui",
+                    ".local\\worker-health-ui",
+                    ".local\\workflow-ui",
+                    "apps\\web\\.next",
+                    "apps\\web\\tsconfig.tsbuildinfo",
+                    "desktop\\backend",
+                    "desktop\\engines",
+                    "desktop\\runtime",
+                    "docs\\evidence\\01-games-library.png",
+                    "docs\\evidence\\02-game-detail.png",
+                    "docs\\evidence\\03-game-video-wizard.png",
+                    "docs\\evidence\\04-accounts.png",
+                    "docs\\evidence\\05-mobile-games.png",
+                    "docs\\evidence\\acs-backup-ui.log",
+                    "docs\\evidence\\acs-backup-ui.png",
+                    "docs\\evidence\\acs-channels.png",
+                    "docs\\evidence\\acs-create.png",
+                    "docs\\evidence\\acs-create-cut-ui.png",
+                    "docs\\evidence\\acs-create-guided-failure.png",
+                    "docs\\evidence\\acs-create-guided-render-attempt.log",
+                    "docs\\evidence\\acs-create-guided-ui.log",
+                    "docs\\evidence\\acs-create-plan-ui.png",
+                    "docs\\evidence\\acs-create-preview-ui.png",
+                    "docs\\evidence\\acs-expansion-ui.log",
+                    "docs\\evidence\\acs-expansion-ui-failure.png",
+                    "docs\\evidence\\acs-feature-ui.log",
+                    "docs\\evidence\\acs-feature-ui-failure.png",
+                    "docs\\evidence\\acs-feed-ui.log",
+                    "docs\\evidence\\acs-feed-ui.png",
+                    "docs\\evidence\\acs-footage-ui.log",
+                    "docs\\evidence\\acs-footage-ui.png",
+                    "docs\\evidence\\acs-image-library.png",
+                    "docs\\evidence\\acs-image-ui.log",
+                    "docs\\evidence\\acs-improvements-cut-navigation.png",
+                    "docs\\evidence\\acs-improvements-editor.png",
+                    "docs\\evidence\\acs-improvements-media.png",
+                    "docs\\evidence\\acs-improvements-ui.log",
+                    "docs\\evidence\\acs-improvements-ui-failure.png",
+                    "docs\\evidence\\acs-insights-ui.png",
+                    "docs\\evidence\\acs-management-ui.log",
+                    "docs\\evidence\\acs-management-ui-failure.png",
+                    "docs\\evidence\\acs-manual-export-ui.log",
+                    "docs\\evidence\\acs-manual-export-ui.png",
+                    "docs\\evidence\\acs-mobile.png",
+                    "docs\\evidence\\acs-model-installer.png",
+                    "docs\\evidence\\acs-models.png",
+                    "docs\\evidence\\acs-native-create.png",
+                    "docs\\evidence\\acs-native-expansion.png",
+                    "docs\\evidence\\acs-native-failure.html",
+                    "docs\\evidence\\acs-native-failure.png",
+                    "docs\\evidence\\acs-native-voices.png",
+                    "docs\\evidence\\acs-native-window.png",
+                    "docs\\evidence\\acs-native-wizard-en.png",
+                    "docs\\evidence\\acs-native-wizard-vi.png",
+                    "docs\\evidence\\acs-overview.png",
+                    "docs\\evidence\\acs-p0-plan-ui.png",
+                    "docs\\evidence\\acs-p0-setup-ui.png",
+                    "docs\\evidence\\acs-p0-ui.log",
+                    "docs\\evidence\\acs-p0-ui-failure.png",
+                    "docs\\evidence\\acs-p0-ui-first-attempt.png",
+                    "docs\\evidence\\acs-projects-ui.png",
+                    "docs\\evidence\\acs-restore-native.png",
+                    "docs\\evidence\\acs-review.png",
+                    "docs\\evidence\\acs-semantic-ui.log",
+                    "docs\\evidence\\acs-semantic-ui.png",
+                    "docs\\evidence\\acs-settings-compact.png",
+                    "docs\\evidence\\acs-startup-failure-ui.png",
+                    "docs\\evidence\\acs-timeline-e2e.json.bak",
+                    "docs\\evidence\\acs-transcript-ui.png",
+                    "docs\\evidence\\acs-ui-failure.html",
+                    "docs\\evidence\\acs-ui-failure.png",
+                    "docs\\evidence\\acs-ui-server.log",
+                    "docs\\evidence\\acs-ux-home-en.png",
+                    "docs\\evidence\\acs-ux-home-vi.png",
+                    "docs\\evidence\\acs-ux-models-480.png",
+                    "docs\\evidence\\acs-ux-models-vi.png",
+                    "docs\\evidence\\acs-ux-shell-failure.png",
+                    "docs\\evidence\\acs-ux-shell-ui.log",
+                    "docs\\evidence\\acs-vad-ui.log",
+                    "docs\\evidence\\acs-vad-ui.png",
+                    "docs\\evidence\\acs-wizard.png",
+                    "docs\\evidence\\acs-worker-health-ui.png",
+                    "docs\\evidence\\acs-workflow-ui.log",
+                    "docs\\evidence\\acs-workflow-ui-failure.png",
+                    "docs\\evidence\\games-contact-sheet.jpg",
+                    "engines\\__pycache__",
+                    "src-tauri\\target"
+                ],
+    "errors":  [
+
+               ],
+    "protected":  [
+                      ".git",
+                      "source and tests",
+                      "fixtures",
+                      "package manifests and lockfiles",
+                      "node_modules",
+                      ".local/models installed checkpoints",
+                      ".local/engines",
+                      ".local/tools",
+                      "dist/windows current release",
+                      "LocalAppData user data and credentials"
+                  ],
+    "targets":  [
+                    {
+                        "path":  ".local\\acs-all-improvements-tests.json",
+                        "bytes":  132272
+                    },
+                    {
+                        "path":  ".local\\acs-current-selected-tests.json",
+                        "bytes":  102775
+                    },
+                    {
+                        "path":  ".local\\acs-final-selected-tests.json",
+                        "bytes":  103380
+                    },
+                    {
+                        "path":  ".local\\acs-footage-tests.json",
+                        "bytes":  3615
+                    },
+                    {
+                        "path":  ".local\\acs-frame-exact-test.json",
+                        "bytes":  1967
+                    },
+                    {
+                        "path":  ".local\\acs-frame-selected-tests.json",
+                        "bytes":  103894
+                    },
+                    {
+                        "path":  ".local\\acs-frame-timing-tests.json",
+                        "bytes":  6026
+                    },
+                    {
+                        "path":  ".local\\acs-full-tests.json",
+                        "bytes":  133161
+                    },
+                    {
+                        "path":  ".local\\acs-games-fixture-tests.json",
+                        "bytes":  6111
+                    },
+                    {
+                        "path":  ".local\\acs-guided-plan-tests.json",
+                        "bytes":  5603
+                    },
+                    {
+                        "path":  ".local\\acs-latest-tests.json",
+                        "bytes":  100338
+                    },
+                    {
+                        "path":  ".local\\acs-managed.json",
+                        "bytes":  89
+                    },
+                    {
+                        "path":  ".local\\acs-managed.json.bak",
+                        "bytes":  89
+                    },
+                    {
+                        "path":  ".local\\acs-media-intelligence-tests.json",
+                        "bytes":  9691
+                    },
+                    {
+                        "path":  ".local\\acs-media-matching-tests.json",
+                        "bytes":  3526
+                    },
+                    {
+                        "path":  ".local\\acs-p0-plan-tests.json",
+                        "bytes":  7340
+                    },
+                    {
+                        "path":  ".local\\acs-p0-repair-tests.json",
+                        "bytes":  5542
+                    },
+                    {
+                        "path":  ".local\\acs-p0-selected-tests.json",
+                        "bytes":  118190
+                    },
+                    {
+                        "path":  ".local\\acs-p0-setup-tests.json",
+                        "bytes":  7029
+                    },
+                    {
+                        "path":  ".local\\acs-p0-voice-pipeline-test.json",
+                        "bytes":  1193
+                    },
+                    {
+                        "path":  ".local\\acs-p0-voice-tests.json",
+                        "bytes":  9662
+                    },
+                    {
+                        "path":  ".local\\acs-restore-recovery-tests.json",
+                        "bytes":  134350
+                    },
+                    {
+                        "path":  ".local\\acs-still-timeline-tests.json",
+                        "bytes":  2215
+                    },
+                    {
+                        "path":  ".local\\acs-ux-guidance-tests.json",
+                        "bytes":  2943
+                    },
+                    {
+                        "path":  ".local\\acs-ux-quality-tests.json",
+                        "bytes":  119927
+                    },
+                    {
+                        "path":  ".local\\alignment-benchmark-request.json",
+                        "bytes":  1610
+                    },
+                    {
+                        "path":  ".local\\alignment-benchmark-request-unsupported-vi.json",
+                        "bytes":  1610
+                    },
+                    {
+                        "path":  ".local\\alignment-benchmark-result.json",
+                        "bytes":  3998
+                    },
+                    {
+                        "path":  ".local\\alignment-install-request.json",
+                        "bytes":  59
+                    },
+                    {
+                        "path":  ".local\\backup-ui",
+                        "bytes":  51417
+                    },
+                    {
+                        "path":  ".local\\benchmarks",
+                        "bytes":  18988764
+                    },
+                    {
+                        "path":  ".local\\build-folder-safety",
+                        "bytes":  20
+                    },
+                    {
+                        "path":  ".local\\crash-resume",
+                        "bytes":  10040305
+                    },
+                    {
+                        "path":  ".local\\create-ui",
+                        "bytes":  86699453
+                    },
+                    {
+                        "path":  ".local\\desktop-current-build.log",
+                        "bytes":  11576
+                    },
+                    {
+                        "path":  ".local\\e2e-frame.jpg",
+                        "bytes":  56459
+                    },
+                    {
+                        "path":  ".local\\e2e-studio",
+                        "bytes":  120159569
+                    },
+                    {
+                        "path":  ".local\\expansion-ui",
+                        "bytes":  53289609
+                    },
+                    {
+                        "path":  ".local\\export-ui",
+                        "bytes":  4997463
+                    },
+                    {
+                        "path":  ".local\\features-ui",
+                        "bytes":  76517842
+                    },
+                    {
+                        "path":  ".local\\feed-discovery",
+                        "bytes":  15164
+                    },
+                    {
+                        "path":  ".local\\feed-ui",
+                        "bytes":  69391
+                    },
+                    {
+                        "path":  ".local\\footage-benchmark",
+                        "bytes":  1016270
+                    },
+                    {
+                        "path":  ".local\\frame-speech",
+                        "bytes":  24961687
+                    },
+                    {
+                        "path":  ".local\\image-benchmark",
+                        "bytes":  1319088
+                    },
+                    {
+                        "path":  ".local\\image-seek-probe.mp4",
+                        "bytes":  261
+                    },
+                    {
+                        "path":  ".local\\image-ui",
+                        "bytes":  2885670
+                    },
+                    {
+                        "path":  ".local\\improvements-brand-cta-preview.png",
+                        "bytes":  198880
+                    },
+                    {
+                        "path":  ".local\\improvements-first-package",
+                        "bytes":  14762
+                    },
+                    {
+                        "path":  ".local\\improvements-speech",
+                        "bytes":  5180406
+                    },
+                    {
+                        "path":  ".local\\installed-smoke",
+                        "bytes":  4164266944
+                    },
+                    {
+                        "path":  ".local\\llm-setup",
+                        "bytes":  93359
+                    },
+                    {
+                        "path":  ".local\\llm-vision-check.log",
+                        "bytes":  3244
+                    },
+                    {
+                        "path":  ".local\\localization-e2e",
+                        "bytes":  15421467
+                    },
+                    {
+                        "path":  ".local\\management-ui",
+                        "bytes":  58667
+                    },
+                    {
+                        "path":  ".local\\media-intelligence",
+                        "bytes":  91405
+                    },
+                    {
+                        "path":  ".local\\models\\flux2-klein-4b\\.cache\\huggingface\\download\\text_encoder\\aoe4E07IMh7reFyUkVoVk040mQk=.8c0506e7f4936fa7e26183a4fd8da4e2bdbc5990ba64ae441f965d51228f36ea.incomplete",
+                        "bytes":  4089446400
+                    },
+                    {
+                        "path":  ".local\\models\\flux2-klein-4b\\.cache\\huggingface\\download\\text_encoder\\Dr_lZJDwE1cnGAQMwA77jJEQIk8=.82f2bd839378541b0557bfabaf37c7d3d637071fdcb73302dedd7cf61162ce07.incomplete",
+                        "bytes":  1342177280
+                    },
+                    {
+                        "path":  ".local\\native-smoke",
+                        "bytes":  32128088
+                    },
+                    {
+                        "path":  ".local\\p0-repair-e2e",
+                        "bytes":  4923130
+                    },
+                    {
+                        "path":  ".local\\p0-setup-preflight",
+                        "bytes":  49249
+                    },
+                    {
+                        "path":  ".local\\p0-ui",
+                        "bytes":  240828677
+                    },
+                    {
+                        "path":  ".local\\p0-voice",
+                        "bytes":  1385010
+                    },
+                    {
+                        "path":  ".local\\product-e2e",
+                        "bytes":  20816030
+                    },
+                    {
+                        "path":  ".local\\research-e2e",
+                        "bytes":  22961247
+                    },
+                    {
+                        "path":  ".local\\restore-crash",
+                        "bytes":  14512
+                    },
+                    {
+                        "path":  ".local\\restore-native",
+                        "bytes":  30414811
+                    },
+                    {
+                        "path":  ".local\\semantic-e2e",
+                        "bytes":  22851872
+                    },
+                    {
+                        "path":  ".local\\semantic-ui",
+                        "bytes":  23305214
+                    },
+                    {
+                        "path":  ".local\\shorts-e2e",
+                        "bytes":  37528400
+                    },
+                    {
+                        "path":  ".local\\source-watch-e2e",
+                        "bytes":  30072758
+                    },
+                    {
+                        "path":  ".local\\startup-failure-smoke",
+                        "bytes":  46140135
+                    },
+                    {
+                        "path":  ".local\\timeline-e2e",
+                        "bytes":  80552561
+                    },
+                    {
+                        "path":  ".local\\ui-smoke-data",
+                        "bytes":  53232
+                    },
+                    {
+                        "path":  ".local\\ux-shell-tsconfig.json",
+                        "bytes":  589
+                    },
+                    {
+                        "path":  ".local\\vad-benchmark",
+                        "bytes":  1464517
+                    },
+                    {
+                        "path":  ".local\\vad-production",
+                        "bytes":  3049143
+                    },
+                    {
+                        "path":  ".local\\vad-ui",
+                        "bytes":  772627
+                    },
+                    {
+                        "path":  ".local\\worker-health-ui",
+                        "bytes":  98410086
+                    },
+                    {
+                        "path":  ".local\\workflow-ui",
+                        "bytes":  19268243
+                    },
+                    {
+                        "path":  "apps\\web\\.next",
+                        "bytes":  420667297
+                    },
+                    {
+                        "path":  "apps\\web\\tsconfig.tsbuildinfo",
+                        "bytes":  166191
+                    },
+                    {
+                        "path":  "desktop\\backend",
+                        "bytes":  222294846
+                    },
+                    {
+                        "path":  "desktop\\engines",
+                        "bytes":  77931
+                    },
+                    {
+                        "path":  "desktop\\runtime",
+                        "bytes":  102939584
+                    },
+                    {
+                        "path":  "docs\\evidence\\01-games-library.png",
+                        "bytes":  54071
+                    },
+                    {
+                        "path":  "docs\\evidence\\02-game-detail.png",
+                        "bytes":  290545
+                    },
+                    {
+                        "path":  "docs\\evidence\\03-game-video-wizard.png",
+                        "bytes":  463554
+                    },
+                    {
+                        "path":  "docs\\evidence\\04-accounts.png",
+                        "bytes":  96482
+                    },
+                    {
+                        "path":  "docs\\evidence\\05-mobile-games.png",
+                        "bytes":  60990
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-backup-ui.log",
+                        "bytes":  148
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-backup-ui.png",
+                        "bytes":  133152
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-channels.png",
+                        "bytes":  113455
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create.png",
+                        "bytes":  67369
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create-cut-ui.png",
+                        "bytes":  160294
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create-guided-failure.png",
+                        "bytes":  153453
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create-guided-render-attempt.log",
+                        "bytes":  7628
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create-guided-ui.log",
+                        "bytes":  2869
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create-plan-ui.png",
+                        "bytes":  105128
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-create-preview-ui.png",
+                        "bytes":  115109
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-expansion-ui.log",
+                        "bytes":  3424
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-expansion-ui-failure.png",
+                        "bytes":  64694
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-feature-ui.log",
+                        "bytes":  5085
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-feature-ui-failure.png",
+                        "bytes":  194637
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-feed-ui.log",
+                        "bytes":  1607
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-feed-ui.png",
+                        "bytes":  124752
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-footage-ui.log",
+                        "bytes":  146
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-footage-ui.png",
+                        "bytes":  113118
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-image-library.png",
+                        "bytes":  114317
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-image-ui.log",
+                        "bytes":  2223
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-improvements-cut-navigation.png",
+                        "bytes":  206584
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-improvements-editor.png",
+                        "bytes":  240152
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-improvements-media.png",
+                        "bytes":  184071
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-improvements-ui.log",
+                        "bytes":  147
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-improvements-ui-failure.png",
+                        "bytes":  222302
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-insights-ui.png",
+                        "bytes":  88036
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-management-ui.log",
+                        "bytes":  146
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-management-ui-failure.png",
+                        "bytes":  233707
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-manual-export-ui.log",
+                        "bytes":  146
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-manual-export-ui.png",
+                        "bytes":  206374
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-mobile.png",
+                        "bytes":  49275
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-model-installer.png",
+                        "bytes":  194637
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-models.png",
+                        "bytes":  226149
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-create.png",
+                        "bytes":  86631
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-expansion.png",
+                        "bytes":  92031
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-failure.html",
+                        "bytes":  9267
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-failure.png",
+                        "bytes":  67312
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-voices.png",
+                        "bytes":  286924
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-window.png",
+                        "bytes":  212802
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-wizard-en.png",
+                        "bytes":  101492
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-native-wizard-vi.png",
+                        "bytes":  105141
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-overview.png",
+                        "bytes":  119769
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-p0-plan-ui.png",
+                        "bytes":  134822
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-p0-setup-ui.png",
+                        "bytes":  95630
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-p0-ui.log",
+                        "bytes":  147
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-p0-ui-failure.png",
+                        "bytes":  125768
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-p0-ui-first-attempt.png",
+                        "bytes":  125768
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-projects-ui.png",
+                        "bytes":  64757
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-restore-native.png",
+                        "bytes":  179136
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-review.png",
+                        "bytes":  202573
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-semantic-ui.log",
+                        "bytes":  1907
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-semantic-ui.png",
+                        "bytes":  161866
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-settings-compact.png",
+                        "bytes":  102699
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-startup-failure-ui.png",
+                        "bytes":  38990
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-timeline-e2e.json.bak",
+                        "bytes":  785
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-transcript-ui.png",
+                        "bytes":  275059
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ui-failure.html",
+                        "bytes":  163
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ui-failure.png",
+                        "bytes":  7289
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ui-server.log",
+                        "bytes":  144
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ux-home-en.png",
+                        "bytes":  162667
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ux-home-vi.png",
+                        "bytes":  33839
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ux-models-480.png",
+                        "bytes":  86938
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ux-models-vi.png",
+                        "bytes":  88204
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ux-shell-failure.png",
+                        "bytes":  97459
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-ux-shell-ui.log",
+                        "bytes":  147
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-vad-ui.log",
+                        "bytes":  1672
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-vad-ui.png",
+                        "bytes":  237595
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-wizard.png",
+                        "bytes":  70666
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-worker-health-ui.png",
+                        "bytes":  81674
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-workflow-ui.log",
+                        "bytes":  146
+                    },
+                    {
+                        "path":  "docs\\evidence\\acs-workflow-ui-failure.png",
+                        "bytes":  87523
+                    },
+                    {
+                        "path":  "docs\\evidence\\games-contact-sheet.jpg",
+                        "bytes":  50684
+                    },
+                    {
+                        "path":  "engines\\__pycache__",
+                        "bytes":  80857
+                    },
+                    {
+                        "path":  "src-tauri\\target",
+                        "bytes":  3228454622
+                    }
+                ],
+    "completedAt":  "2026-10-25T15:25:08.2170710Z",
+    "freeDiskIncreaseBytes":  14806487040
+}

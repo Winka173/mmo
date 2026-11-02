@@ -1,0 +1,9 @@
+{
+  "status": "FAILED_OR_BLOCKED_WORKER_HEALTH_ATTEMPT",
+  "at": "2026-10-23T11:50:25.422Z",
+  "exeSha256": "2ed93f0d48eeb7893dd11163abb0e52885b862d0e243758f3b2cc18b619297bc",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\worker-health-ui\\ff8dd4f7-78aa-4053-b58c-8634025f8eb0\\data",
+  "config": "C:\\Users\\Winka\\Projects\\mmo\\.local\\worker-health-ui\\ff8dd4f7-78aa-4053-b58c-8634025f8eb0",
+  "error": "Error: Native shell exited before startup (101)",
+  "childExitCode": 101
+}

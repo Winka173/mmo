@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "language": "vi-VN",
+  "measurement": "probed_audio_duration",
+  "targetSeconds": 20,
+  "actualAudioSeconds": 16.56,
+  "actualTimelineSeconds": 18.133333333333333,
+  "ratio": 0.9066666666666666,
+  "targetStatus": "within_heuristic_tolerance",
+  "unitsPerSecondBand": [
+    2.5,
+    5
+  ],
+  "measurements": [
+    {
+      "index": 0,
+      "text": "Giới thiệu 'Lane Keeper', tựa game thủ thành 3 làn đường do nhóm tự làm.",
+      "audioSeconds": 3.28,
+      "segmentSeconds": 3.6,
+      "units": 15,
+      "unitsPerSecond": 4.573170731707317,
+      "unit": "whitespace_syllables",
+      "pace": "within_heuristic_range",
+      "protectedReasons": [
+        "numeric_claim"
+      ],
+      "proposedAudioBudgetSeconds": 3.6497262479871173,
+      "suggestion": "Review delivery or remove repetition elsewhere; retain exact claims, numbers, qualifications and disclosures"
+    },
+    {
+      "index": 1,
+      "text": "Người chơi đặt tháp trên ba làn để chặn đứng các đợt quái vật.",
+      "audioSeconds": 2.88,
+      "segmentSeconds": 3.2,
+      "units": 14,
+      "unitsPerSecond": 4.861111111111112,
+      "unit": "whitespace_syllables",
+      "pace": "within_heuristic_range",
+      "protectedReasons": [],
+      "proposedAudioBudgetSeconds": 3.20463768115942,
+      "suggestion": "Review optional connective wording and repetition after listening; no automatic wording change"
+    },
+    {
+      "index": 2,
+      "text": "Hai loại tháp chính: tháp cung bắn nhanh và tháp phép làm chậm.",
+      "audioSeconds": 3.2,
+      "segmentSeconds": 3.5,
+      "units": 13,
+      "unitsPerSecond": 4.0625,
+      "unit": "whitespace_syllables",
+      "pace": "within_heuristic_range",
+      "protectedReasons": [],
+      "proposedAudioBudgetSeconds": 3.5607085346215785,
+      "suggestion": "Review optional connective wording and repetition after listening; no automatic wording change"
+    },
+    {
+      "index": 3,
+      "text": "Mỗi màn gồm năm đợt, với trùm xuất hiện ở màn cuối cùng.",
+      "audioSeconds": 3.04,
+      "segmentSeconds": 3.3666666666666667,
+      "units": 13,
+      "unitsPerSecond": 4.276315789473684,
+      "unit": "whitespace_syllables",
+      "pace": "within_heuristic_range",
+      "protectedReasons": [],
+      "proposedAudioBudgetSeconds": 3.3826731078904992,
+      "suggestion": "Review optional connective wording and repetition after listening; no automatic wording change"
+    },
+    {
+      "index": 4,
+      "text": "Tựa game đang trong giai đoạn thử nghiệm nội bộ, chưa xác định ngày phát hành hay giá cả.",
+      "audioSeconds": 4.16,
+      "segmentSeconds": 4.466666666666667,
+      "units": 19,
+      "unitsPerSecond": 4.5673076923076925,
+      "unit": "whitespace_syllables",
+      "pace": "within_heuristic_range",
+      "protectedReasons": [
+        "negation_or_qualification"
+      ],
+      "proposedAudioBudgetSeconds": 4.628921095008051,
+      "suggestion": "Review delivery or remove repetition elsewhere; retain exact claims, numbers, qualifications and disclosures"
+    }
+  ],
+  "autoChanges": false,
+  "willPublish": false,
+  "humanReview": "REQUIRED",
+  "recommendation": "Listen for rhythm, pauses and pronunciation; matching a target is not evidence of editorial quality",
+  "limitations": "Whitespace-based pace bands and +/-30% target tolerance are editorial heuristics, not validated listening scores. Vietnamese syllables and English words must not be compared directly."
+}

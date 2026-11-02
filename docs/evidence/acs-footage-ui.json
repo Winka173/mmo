@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED_UI_WITH_MEASURED_SYNTHETIC_SOURCE_ONLY",
+  "at": "2026-10-23T07:46:02.238Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\footage-benchmark\\1792741176466\\data",
+  "runId": "406826f1-4f5e-4fcd-81e4-3bfdb6f13899",
+  "checks": [
+    "Quality tab loads actual source SHA/coverage/scene and black signals, bounded highlight suggestions and unavailable OCR status",
+    "Source path copy control is available; clipboard not modified by test",
+    "Vietnamese and English views render without browser errors"
+  ],
+  "realGameplay": false,
+  "AIInference": false,
+  "publicPosting": false,
+  "browserErrors": []
+}

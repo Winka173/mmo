@@ -1,0 +1,362 @@
+{
+  "status": "VERIFIED_SMALL_LICENSED_ASR_EVALUATION_NOT_QUALITY_CERTIFICATION",
+  "at": "2026-10-23T09:39:45Z",
+  "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670",
+  "requestedDevice": "cuda",
+  "cpuThreads": 4,
+  "dataset": "google/fleurs",
+  "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "selection": "First three distinct utterance IDs in first 12 validation rows per locale; fixed before inference",
+  "scope": "Nine speech clips, not a representative WER corpus, translation/TTS acceptance, word alignment or human review",
+  "expectedTextSentToASR": false,
+  "productionConfigChanged": false,
+  "humanReview": "NOT_REVIEWED",
+  "publicPosting": false,
+  "samples": [
+    {
+      "locale": "vi_vn",
+      "expectedLanguage": "Vietnamese",
+      "rowIndex": 0,
+      "utteranceId": 1594,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\vi_vn-0-10056093347220194289.wav",
+      "sha256": "c32afc1cf9eb6b33753fc979edcb64426dcf677a85958ece9671ea8f78dabfe3",
+      "seconds": 14.94,
+      "sampleRate": 16000,
+      "reference": "Một số loài động vật như voi và hươu cao cổ thường hay lại gần xe và chỉ với các dụng cụ bình thường chúng ta cũng sẽ quan sát một cách dễ dàng.",
+      "datasetTranscription": "một số loài động vật như voi và hươu cao cổ thường hay lại gần xe và chỉ với các dụng cụ bình thường chúng ta cũng sẽ quan sát một cách dễ dàng",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/vi_vn/dev.tsv",
+      "metadataSha256": "c9bc17cede9765b1c75cb7a608f7066cb6bb6f8245cc75d721a5217a5dffb414",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/vi_vn/validation/0/audio/audio.wav",
+      "transcription": "một số loài động vật như voi và thú cưng cổ thường hay lạy gần xe và chỉ với các dụng cụ bình thường chúng ta cũng sẽ quan sát một cách dễ dàng.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "metric": "WER",
+      "referenceUnits": 34,
+      "errors": 3,
+      "errorRate": 0.08823529411764706
+    },
+    {
+      "locale": "vi_vn",
+      "expectedLanguage": "Vietnamese",
+      "rowIndex": 1,
+      "utteranceId": 1573,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\vi_vn-1-10096143719994033924.wav",
+      "sha256": "8209cb4d4ffa8d8950e1a8e77f84d8256cc8ba2e82c72ff199ff636f4114b196",
+      "seconds": 10.2,
+      "sampleRate": 16000,
+      "reference": "Điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động, vì bạn phải ở ngoài trời và phải có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được.",
+      "datasetTranscription": "điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và phải có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/vi_vn/dev.tsv",
+      "metadataSha256": "c9bc17cede9765b1c75cb7a608f7066cb6bb6f8245cc75d721a5217a5dffb414",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/vi_vn/validation/1/audio/audio.wav",
+      "transcription": "Điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "metric": "WER",
+      "referenceUnits": 39,
+      "errors": 1,
+      "errorRate": 0.02564102564102564
+    },
+    {
+      "locale": "vi_vn",
+      "expectedLanguage": "Vietnamese",
+      "rowIndex": 2,
+      "utteranceId": 1628,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\vi_vn-2-10282809127467658620.wav",
+      "sha256": "4cbca4c1e19617f726b957dd31209f2e522e20a5c04533668ab8ca7620394dfb",
+      "seconds": 8.88,
+      "sampleRate": 16000,
+      "reference": "Các sản phẩm thủ công có thể được coi là đồ cổ, mặc dù tuổi đời của chúng trẻ hơn rất nhiều các sản phẩm tương tự được sản xuất hàng loạt.",
+      "datasetTranscription": "các sản phẩm thủ công có thể được coi là đồ cổ mặc dù tuổi đời của chúng trẻ hơn rất nhiều các sản phẩm tương tự được sản xuất hàng loạt",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/vi_vn/dev.tsv",
+      "metadataSha256": "c9bc17cede9765b1c75cb7a608f7066cb6bb6f8245cc75d721a5217a5dffb414",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/vi_vn/validation/2/audio/audio.wav",
+      "transcription": "Các sản phẩm thủ công có thể được coi là đồ cổ, mặc dù tuổi đời của chúng trẻ hơn rất nhiều các sản phẩm tương tự được sản xuất hàng loạt.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "metric": "WER",
+      "referenceUnits": 32,
+      "errors": 0,
+      "errorRate": 0.0
+    },
+    {
+      "locale": "en_us",
+      "expectedLanguage": "English",
+      "rowIndex": 0,
+      "utteranceId": 1548,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\en_us-0-10010138729160973689.wav",
+      "sha256": "048169439c0328b758349af74aeb54a82a7a476e309709eb791dced06db25d48",
+      "seconds": 6.54,
+      "sampleRate": 16000,
+      "reference": "When you call someone who is thousands of miles away, you are using a satellite.",
+      "datasetTranscription": "when you call someone who is thousands of miles away you are using a satellite",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/en_us/dev.tsv",
+      "metadataSha256": "9d57ee7e91e9d4c92edb39f6bbea668ef8dc2a3ff96eb510d5580b2ad05d17ec",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/en_us/validation/0/audio/audio.wav",
+      "transcription": "When you call someone who is thousands of miles away, you are using a satellite.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "metric": "WER",
+      "referenceUnits": 15,
+      "errors": 0,
+      "errorRate": 0.0
+    },
+    {
+      "locale": "en_us",
+      "expectedLanguage": "English",
+      "rowIndex": 1,
+      "utteranceId": 1620,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\en_us-1-10035998729701048400.wav",
+      "sha256": "5fefdcd12d4c136762cc7841b084126fc60c6d6410f983cc9f82b6cfc45737a2",
+      "seconds": 16.38,
+      "sampleRate": 16000,
+      "reference": "Now widely available throughout the archipelago, Javanese cuisine features an array of simply seasoned dishes, the predominant flavorings the Javanese favor being peanuts, chillies, sugar (especially Javanese coconut sugar) and various aromatic spices.",
+      "datasetTranscription": "now widely available throughout the archipelago javanese cuisine features an array of simply seasoned dishes the predominant flavorings the javanese favor being peanuts chillies sugar especially javanese coconut sugar and various aromatic spices",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/en_us/dev.tsv",
+      "metadataSha256": "9d57ee7e91e9d4c92edb39f6bbea668ef8dc2a3ff96eb510d5580b2ad05d17ec",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/en_us/validation/1/audio/audio.wav",
+      "transcription": "Now widely available throughout the archipelago, Japanese cuisine's features an array of simply seasoned dishes. The predominant flavorings the Japanese favor being peanuts, chilies, sugar, especially Japanese coconut sugar, and various aromatic spices.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "metric": "WER",
+      "referenceUnits": 33,
+      "errors": 5,
+      "errorRate": 0.15151515151515152
+    },
+    {
+      "locale": "en_us",
+      "expectedLanguage": "English",
+      "rowIndex": 2,
+      "utteranceId": 1510,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\en_us-2-1009709090964908274.wav",
+      "sha256": "e5664ae10a6273fbe0009068e512f4c416cccbeff19d3d2d11e5fb8d72d03fb7",
+      "seconds": 7.92,
+      "sampleRate": 16000,
+      "reference": "The U.N. also hopes to finalize a fund to help countries affected by global warming to cope with the impacts.",
+      "datasetTranscription": "the u.n. also hopes to finalize a fund to help countries affected by global warming to cope with the impacts",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/en_us/dev.tsv",
+      "metadataSha256": "9d57ee7e91e9d4c92edb39f6bbea668ef8dc2a3ff96eb510d5580b2ad05d17ec",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/en_us/validation/2/audio/audio.wav",
+      "transcription": "The UN also hopes to finalize a fund to help countries affected by global warming to cope with the impacts.",
+      "detectedLanguage": "English",
+      "languageMatch": true,
+      "metric": "WER",
+      "referenceUnits": 21,
+      "errors": 2,
+      "errorRate": 0.09523809523809523
+    },
+    {
+      "locale": "cmn_hans_cn",
+      "expectedLanguage": "Chinese",
+      "rowIndex": 0,
+      "utteranceId": 1579,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\cmn_hans_cn-0-10116334326946811387.wav",
+      "sha256": "f3e12a114bedbc867e06bfb7aceb2721701aa729685b9e4be39f2b98305b72ab",
+      "seconds": 18.38,
+      "sampleRate": 16000,
+      "reference": "报告警告称，没有人能保证目前在伊拉克采取的任何行动能够阻止宗派战争、不断增长的暴力或走向混乱。",
+      "datasetTranscription": "报 告 警 告 称 没 有 人 能 保 证 目 前 在 伊 拉 克 采 取 的 任 何 行 动 能 够 阻 止 宗 派 战 争 不 断 增 长 的 暴 力 或 走 向 混 乱",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/cmn_hans_cn/dev.tsv",
+      "metadataSha256": "6b4efd804b543048feb278db06f3b58b5ea171cdd4ba072e328ad630ca25384b",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/cmn_hans_cn/validation/0/audio/audio.wav",
+      "transcription": "报告警告称，没有人能保证目前在伊拉克采取的任何行动能够阻止宗派战争不断增长的暴力或走向混乱。",
+      "detectedLanguage": "Chinese",
+      "languageMatch": true,
+      "metric": "CER",
+      "referenceUnits": 44,
+      "errors": 0,
+      "errorRate": 0.0
+    },
+    {
+      "locale": "cmn_hans_cn",
+      "expectedLanguage": "Chinese",
+      "rowIndex": 1,
+      "utteranceId": 1605,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\cmn_hans_cn-1-10149760684641961155.wav",
+      "sha256": "577a635c2261680c61dda5fecbc4f83bff6f37f453665b8d9d1a68f210f57c0a",
+      "seconds": 7.44,
+      "sampleRate": 16000,
+      "reference": "因为远离大陆，哺乳动物无法长途跋涉而来，使得巨龟成为科隆群岛主要的食草动物。",
+      "datasetTranscription": "因 为 远 离 大 陆 哺 乳 动 物 无 法 长 途 跋 涉 而 来 使 得 巨 龟 成 为 科 隆 群 岛 主 要 的 食 草 动 物",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/cmn_hans_cn/dev.tsv",
+      "metadataSha256": "6b4efd804b543048feb278db06f3b58b5ea171cdd4ba072e328ad630ca25384b",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/cmn_hans_cn/validation/1/audio/audio.wav",
+      "transcription": "因为远离大陆，哺乳动物无法长途跋涉而来，使得巨龟成为科隆群岛主主要的食草动物。",
+      "detectedLanguage": "Chinese",
+      "languageMatch": true,
+      "metric": "CER",
+      "referenceUnits": 35,
+      "errors": 1,
+      "errorRate": 0.02857142857142857
+    },
+    {
+      "locale": "cmn_hans_cn",
+      "expectedLanguage": "Chinese",
+      "rowIndex": 2,
+      "utteranceId": 1581,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\cmn_hans_cn-2-10291819997967779677.wav",
+      "sha256": "8234c830aba9500be3c32dab1f91e72599b9bb03c36f962ae8b6bfc174ca13f0",
+      "seconds": 7.56,
+      "sampleRate": 16000,
+      "reference": "亚马逊河也是地球上最宽的河流，有些河段的宽度可达6英里。",
+      "datasetTranscription": "亚 马 逊 河 也 是 地 球 上 最 宽 的 河 流 有 些 河 段 的 宽 度 可 达 6 英 里",
+      "metadataUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/cmn_hans_cn/dev.tsv",
+      "metadataSha256": "6b4efd804b543048feb278db06f3b58b5ea171cdd4ba072e328ad630ca25384b",
+      "audioSource": "https://datasets-server.huggingface.co/cached-assets/google/fleurs/--/70bb2e84b976b7e960aa89f1c648e09c59f894dd/--/cmn_hans_cn/validation/2/audio/audio.wav",
+      "transcription": "亚马逊河也是地球上最宽的河流，有些河段的宽度可达6英里。",
+      "detectedLanguage": "Chinese",
+      "languageMatch": true,
+      "metric": "CER",
+      "referenceUnits": 26,
+      "errors": 0,
+      "errorRate": 0.0
+    }
+  ],
+  "provenance": {
+    "card": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/README.md",
+    "cardSha256": "688f79f2a5c731af3796e9f683eb02f9b3f09d040decd8c5625d0f37098e71c6",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "exitCode": 0,
+  "wallSeconds": 59.11000000000058,
+  "inference": {
+    "engine": "qwen3-asr",
+    "device": "cuda",
+    "requested_device": "cuda",
+    "model_sha256": "b73be080615a190b42848b04271de85a51fbe8b40113d82561b6b35d5359850c",
+    "model_files": [
+      {
+        "path": "chat_template.json",
+        "sha256": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff",
+        "bytes": 1161
+      },
+      {
+        "path": "config.json",
+        "sha256": "2e74a751548b8ad7d7526d29365ad8144c345d8b412b1152d25dc6698452712f",
+        "bytes": 6194
+      },
+      {
+        "path": "generation_config.json",
+        "sha256": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c",
+        "bytes": 142
+      },
+      {
+        "path": "merges.txt",
+        "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "bytes": 1671853
+      },
+      {
+        "path": "model-00001-of-00002.safetensors",
+        "sha256": "a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6",
+        "bytes": 4220320824
+      },
+      {
+        "path": "model-00002-of-00002.safetensors",
+        "sha256": "6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc",
+        "bytes": 478200688
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "sha256": "f994739fe38e5210b9e3e8ce6c6307315e2ceac3cb630e7b7414d69dce520f60",
+        "bytes": 64821
+      },
+      {
+        "path": "preprocessor_config.json",
+        "sha256": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d",
+        "bytes": 330
+      },
+      {
+        "path": "tokenizer_config.json",
+        "sha256": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c",
+        "bytes": 12487
+      },
+      {
+        "path": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "bytes": 2776833
+      }
+    ],
+    "seconds": 31.245815753936768,
+    "peak_vram_mb": 4480.79052734375,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\vi_vn-0-10056093347220194289.wav",
+        "language": "Vietnamese",
+        "text": "một số loài động vật như voi và thú cưng cổ thường hay lạy gần xe và chỉ với các dụng cụ bình thường chúng ta cũng sẽ quan sát một cách dễ dàng."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\vi_vn-1-10096143719994033924.wav",
+        "language": "Vietnamese",
+        "text": "Điện thoại vệ tinh nói chung không phải là sự thay thế cho điện thoại di động vì bạn phải ở ngoài trời và có tầm nhìn thông thoáng thẳng đến vệ tinh thì mới sử dụng được."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\vi_vn-2-10282809127467658620.wav",
+        "language": "Vietnamese",
+        "text": "Các sản phẩm thủ công có thể được coi là đồ cổ, mặc dù tuổi đời của chúng trẻ hơn rất nhiều các sản phẩm tương tự được sản xuất hàng loạt."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\en_us-0-10010138729160973689.wav",
+        "language": "English",
+        "text": "When you call someone who is thousands of miles away, you are using a satellite."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\en_us-1-10035998729701048400.wav",
+        "language": "English",
+        "text": "Now widely available throughout the archipelago, Japanese cuisine's features an array of simply seasoned dishes. The predominant flavorings the Japanese favor being peanuts, chilies, sugar, especially Japanese coconut sugar, and various aromatic spices."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\en_us-2-1009709090964908274.wav",
+        "language": "English",
+        "text": "The UN also hopes to finalize a fund to help countries affected by global warming to cope with the impacts."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\cmn_hans_cn-0-10116334326946811387.wav",
+        "language": "Chinese",
+        "text": "报告警告称，没有人能保证目前在伊拉克采取的任何行动能够阻止宗派战争不断增长的暴力或走向混乱。"
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\cmn_hans_cn-1-10149760684641961155.wav",
+        "language": "Chinese",
+        "text": "因为远离大陆，哺乳动物无法长途跋涉而来，使得巨龟成为科隆群岛主主要的食草动物。"
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792748385670\\cmn_hans_cn-2-10291819997967779677.wav",
+        "language": "Chinese",
+        "text": "亚马逊河也是地球上最宽的河流，有些河段的宽度可达6英里。"
+      }
+    ],
+    "timestamps": "NOT_REQUESTED",
+    "human_review": "NOT_REVIEWED"
+  },
+  "summary": {
+    "vi_vn": {
+      "metric": "WER",
+      "clips": 3,
+      "seconds": 34.02,
+      "errors": 4,
+      "referenceUnits": 105,
+      "languageMatches": 3,
+      "errorRate": 0.0380952380952381
+    },
+    "en_us": {
+      "metric": "WER",
+      "clips": 3,
+      "seconds": 30.839999999999996,
+      "errors": 7,
+      "referenceUnits": 69,
+      "languageMatches": 3,
+      "errorRate": 0.10144927536231885
+    },
+    "cmn_hans_cn": {
+      "metric": "CER",
+      "clips": 3,
+      "seconds": 33.38,
+      "errors": 1,
+      "referenceUnits": 105,
+      "languageMatches": 3,
+      "errorRate": 0.009523809523809525
+    }
+  },
+  "normalization": "NFC + lowercase; punctuation removed; diacritics retained. VI WER uses whitespace-separated syllables; ZH CER includes letters/digits in mixed names."
+}

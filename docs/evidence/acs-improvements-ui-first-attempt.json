@@ -1,0 +1,19 @@
+{
+  "status": "FAILED",
+  "at": "2026-10-23T15:29:44.772Z",
+  "fixture": {
+    "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\improvements-28e03546-91ce-40a1-9167-f03c3633407d\\data",
+    "planId": "e771aa54-9419-4f96-a27f-2db393d53e39",
+    "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+    "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+    "inference": "NOT_PERFORMED",
+    "publicPosting": false,
+    "mediaRunId": "8ddc6a7d-cb8c-4da1-903c-d63d9a9ee00b",
+    "mediaSourceSha": "f7e1c6c08453fb561862274e34d2f25890f54372be6e2bfdd02ea7d49d9e18b0",
+    "visionTaskId": "9fbe8851-c2fc-45c3-b474-453e53a55167",
+    "visionScope": "Reuse prior actual flagged vision suggestion; no new inference or owner acceptance"
+  },
+  "checks": [],
+  "error": "TimeoutError: locator.fill: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Không gian biên tập', exact: true }).getByLabel('Lời đọc cảnh', { exact: true })\u001b[22m\n",
+  "browserErrors": []
+}

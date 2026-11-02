@@ -1,0 +1,493 @@
+{
+  "status": "VERIFIED_REAL_LOCAL_EMBEDDINGS_SMALL_RETRIEVAL_FIXTURE_ONLY",
+  "at": "2026-10-23T09:26:31.680Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-e2e\\1792747591242\\data",
+  "sources": [
+    {
+      "originalRunId": "38730039-9152-403e-a596-09703d67b28a",
+      "runId": "3c4f1afa-62d0-4e10-aab5-70f9bb163208",
+      "title": "Venus · sourced original explainer",
+      "language": "vi-VN",
+      "originalMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\38730039-9152-403e-a596-09703d67b28a\\final.mp4",
+      "copyMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-e2e\\1792747591242\\data\\studio\\artifacts\\3c4f1afa-62d0-4e10-aab5-70f9bb163208\\final.mp4",
+      "sha256": "27321085d33481c088f9bb9a5084cf5f0f1d80887879f4cc4ff345d9eebc3b90"
+    },
+    {
+      "originalRunId": "a94382e2-e7b0-43a9-a908-6f334980999b",
+      "runId": "5a4f40eb-bc05-4259-8998-b1be9b23233e",
+      "title": "Venus · sourced original explainer",
+      "language": "en-US",
+      "originalMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\research-e2e\\1792728224592\\data\\studio\\artifacts\\a94382e2-e7b0-43a9-a908-6f334980999b\\final.mp4",
+      "copyMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-e2e\\1792747591242\\data\\studio\\artifacts\\5a4f40eb-bc05-4259-8998-b1be9b23233e\\final.mp4",
+      "sha256": "129bd984face4a3fb0244b3e61ce32d690f4263d18087e8bdb8641e82dd8d038"
+    },
+    {
+      "originalRunId": "ff7e19ef-214e-4441-a1d5-1b2c0a93713d",
+      "runId": "4a467183-881b-4e69-970b-f6485854ce4d",
+      "title": "ACS FIXTURE — NOT GAMEPLAY",
+      "language": "en-US",
+      "originalMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\e2e-studio\\data\\studio\\artifacts\\ff7e19ef-214e-4441-a1d5-1b2c0a93713d\\final.mp4",
+      "copyMp4": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-e2e\\1792747591242\\data\\studio\\artifacts\\4a467183-881b-4e69-970b-f6485854ce4d\\final.mp4",
+      "sha256": "d65a506b534824a01a7a31ba2d9548a03380c7634e209841fd2ffac12b4a83c9"
+    }
+  ],
+  "requestedDevice": "cpu",
+  "productionConfigChanged": false,
+  "AICloud": false,
+  "publicPosting": false,
+  "humanReview": "NOT_REVIEWED",
+  "setup": {
+    "id": "fcfdc425-7ce8-4a9f-9a58-ce360c64b344",
+    "profile": "qwen-embedding",
+    "mode": "install",
+    "root": "C:\\Users\\Winka\\Projects\\mmo",
+    "config": {
+      "pythonEmbedding": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "embeddingModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-embedding-0.6b",
+      "embeddingDevice": "cpu",
+      "pythonImage": "",
+      "imageModel": "",
+      "imageDevice": "cuda_cpu_offload",
+      "vadModel": "",
+      "vadSha256": "",
+      "pythonVad": "",
+      "locale": "vi",
+      "llmUrl": "http://127.0.0.1:11435/v1",
+      "llmModel": "",
+      "llmManaged": false,
+      "llmBinary": "",
+      "llmModelStore": "",
+      "llmPort": 11435,
+      "llmDevice": "cuda",
+      "llmModelDigest": "",
+      "python": "python",
+      "pythonVi": "",
+      "pythonAsr": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "ffmpeg": "ffmpeg",
+      "ffprobe": "ffprobe",
+      "ttsViModel": "",
+      "ttsEnModel": "",
+      "ttsViCodec": "",
+      "asrModel": "",
+      "asrDevice": "auto",
+      "voiceVi": "",
+      "voiceEn": "af_heart",
+      "voiceEnGb": "bf_emma",
+      "ttsDevice": "auto",
+      "gpuLock": "",
+      "maxContext": 8192,
+      "localOnly": true,
+      "uv": "uv"
+    },
+    "configHash": "e17187482df3a73e4b63b6840596bbdfb3331e65fea83b29af73a1e61f2d6006",
+    "state": "installed",
+    "progress": {
+      "status": "INSTALLED_NOT_INFERENCE_VERIFIED",
+      "logFile": "C:\\Users\\Winka\\Projects\\mmo\\.local\\semantic-e2e\\1792747591242\\data\\studio\\setup\\fcfdc425-7ce8-4a9f-9a58-ce360c64b344.log"
+    },
+    "resultConfig": {
+      "pythonEmbedding": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "embeddingModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-embedding-0.6b",
+      "embeddingDevice": "cpu",
+      "pythonImage": "",
+      "imageModel": "",
+      "imageDevice": "cuda_cpu_offload",
+      "vadModel": "",
+      "vadSha256": "",
+      "pythonVad": "",
+      "locale": "vi",
+      "llmUrl": "http://127.0.0.1:11435/v1",
+      "llmModel": "",
+      "llmManaged": false,
+      "llmBinary": "",
+      "llmModelStore": "",
+      "llmPort": 11435,
+      "llmDevice": "cuda",
+      "llmModelDigest": "",
+      "python": "python",
+      "pythonVi": "",
+      "pythonAsr": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "ffmpeg": "ffmpeg",
+      "ffprobe": "ffprobe",
+      "ttsViModel": "",
+      "ttsEnModel": "",
+      "ttsViCodec": "",
+      "asrModel": "",
+      "asrDevice": "auto",
+      "voiceVi": "",
+      "voiceEn": "af_heart",
+      "voiceEnGb": "bf_emma",
+      "ttsDevice": "auto",
+      "gpuLock": "",
+      "maxContext": 8192,
+      "localOnly": true,
+      "uv": "uv"
+    },
+    "error": null,
+    "createdAt": "2026-10-23T09:26:31.686Z",
+    "updatedAt": "2026-10-23T09:26:33.772Z"
+  },
+  "verification": {
+    "id": "22ae097f-be52-48c3-8c04-d3d7b7d55bf9",
+    "profile": "qwen-embedding",
+    "mode": "verify",
+    "root": "C:\\Users\\Winka\\Projects\\mmo",
+    "config": {
+      "pythonEmbedding": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "embeddingModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-embedding-0.6b",
+      "embeddingDevice": "cpu",
+      "pythonImage": "",
+      "imageModel": "",
+      "imageDevice": "cuda_cpu_offload",
+      "vadModel": "",
+      "vadSha256": "",
+      "pythonVad": "",
+      "locale": "vi",
+      "llmUrl": "http://127.0.0.1:11435/v1",
+      "llmModel": "",
+      "llmManaged": false,
+      "llmBinary": "",
+      "llmModelStore": "",
+      "llmPort": 11435,
+      "llmDevice": "cuda",
+      "llmModelDigest": "",
+      "python": "python",
+      "pythonVi": "",
+      "pythonAsr": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "ffmpeg": "ffmpeg",
+      "ffprobe": "ffprobe",
+      "ttsViModel": "",
+      "ttsEnModel": "",
+      "ttsViCodec": "",
+      "asrModel": "",
+      "asrDevice": "auto",
+      "voiceVi": "",
+      "voiceEn": "af_heart",
+      "voiceEnGb": "bf_emma",
+      "ttsDevice": "auto",
+      "gpuLock": "",
+      "maxContext": 8192,
+      "localOnly": true,
+      "uv": "uv"
+    },
+    "configHash": "e17187482df3a73e4b63b6840596bbdfb3331e65fea83b29af73a1e61f2d6006",
+    "state": "verified",
+    "progress": {
+      "status": "VERIFIED_SMALL_EMBEDDING_FIXTURE_ONLY",
+      "metadata": {
+        "engine": "qwen3-embedding",
+        "device": "cpu",
+        "seconds": 1.4059999999990396,
+        "peakVramMiB": null,
+        "identity": {
+          "executionDevice": "cpu",
+          "dtype": "float32",
+          "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+          "files": [
+            {
+              "path": "README.md",
+              "bytes": 17237,
+              "sha256": "c34d9b7e5a267ad3fdd13227a253686bc90844ff4744a2a6a86c7c905e3d06f3"
+            },
+            {
+              "path": "config.json",
+              "bytes": 727,
+              "sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9"
+            },
+            {
+              "path": "merges.txt",
+              "bytes": 1671853,
+              "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+            },
+            {
+              "path": "model.safetensors",
+              "bytes": 1191586416,
+              "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+            },
+            {
+              "path": "tokenizer.json",
+              "bytes": 11423705,
+              "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a"
+            },
+            {
+              "path": "tokenizer_config.json",
+              "bytes": 9706,
+              "sha256": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+            },
+            {
+              "path": "vocab.json",
+              "bytes": 2776833,
+              "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+            }
+          ],
+          "dimensions": 1024,
+          "pooling": "last_nonpadding_token",
+          "normalization": "L2",
+          "queryInstruction": "Given a content search query, retrieve relevant original video scripts.",
+          "engineSha256": "03f4e066141d2dc88f75a5f26e41e67a8b0ed9fdbedf3253901fb2d6c58289c3",
+          "versions": {
+            "torch": "2.8.0+cu128",
+            "transformers": "4.57.6",
+            "tokenizers": "0.22.2"
+          }
+        },
+        "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+        "semanticTruth": "NOT_CERTIFIED",
+        "rights": "NOT_CERTIFIED",
+        "humanReview": "NOT_REVIEWED"
+      },
+      "scores": {
+        "library": 0.5868001082530256,
+        "unrelated": 0.24550172939691386
+      },
+      "humanReview": "NOT_REVIEWED",
+      "truthOrRightsCertified": false
+    },
+    "resultConfig": {
+      "pythonEmbedding": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "embeddingModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-embedding-0.6b",
+      "embeddingDevice": "cpu",
+      "pythonImage": "",
+      "imageModel": "",
+      "imageDevice": "cuda_cpu_offload",
+      "vadModel": "",
+      "vadSha256": "",
+      "pythonVad": "",
+      "locale": "vi",
+      "llmUrl": "http://127.0.0.1:11435/v1",
+      "llmModel": "",
+      "llmManaged": false,
+      "llmBinary": "",
+      "llmModelStore": "",
+      "llmPort": 11435,
+      "llmDevice": "cuda",
+      "llmModelDigest": "",
+      "python": "python",
+      "pythonVi": "",
+      "pythonAsr": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+      "ffmpeg": "ffmpeg",
+      "ffprobe": "ffprobe",
+      "ttsViModel": "",
+      "ttsEnModel": "",
+      "ttsViCodec": "",
+      "asrModel": "",
+      "asrDevice": "auto",
+      "voiceVi": "",
+      "voiceEn": "af_heart",
+      "voiceEnGb": "bf_emma",
+      "ttsDevice": "auto",
+      "gpuLock": "",
+      "maxContext": 8192,
+      "localOnly": true,
+      "uv": "uv"
+    },
+    "error": null,
+    "createdAt": "2026-10-23T09:26:33.786Z",
+    "updatedAt": "2026-10-23T09:27:05.135Z"
+  },
+  "index": {
+    "createdAt": "2026-10-23T09:27:15.518Z",
+    "documents": 3,
+    "coverage": {
+      "eligibleRoots": 3,
+      "indexedRoots": 3,
+      "excludedDerivedVersions": 0,
+      "limit": 100
+    },
+    "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+    "stale": false
+  },
+  "searches": [
+    {
+      "id": "8a8661a3-383e-43ea-ab96-69dc5256c0d9",
+      "kind": "search",
+      "query": "Venus has a hot atmosphere and a slow rotation",
+      "configHash": "e17187482df3a73e4b63b6840596bbdfb3331e65fea83b29af73a1e61f2d6006",
+      "state": "ready",
+      "result": {
+        "matches": [
+          {
+            "runId": "5a4f40eb-bc05-4259-8998-b1be9b23233e",
+            "title": "Venus · sourced original explainer",
+            "language": "en-US",
+            "score": 0.7835428144096592,
+            "excerpt": "Venus · sourced original explainer Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius). The atmosphere is mostly carbon dioxide — the same gas drives the greenhouse effect on both Venus and Earth — with dense clouds composed of sulfuric acid.",
+            "chunk": 0
+          },
+          {
+            "runId": "3c4f1afa-62d0-4e10-aab5-70f9bb163208",
+            "title": "Venus · sourced original explainer",
+            "language": "vi-VN",
+            "score": 0.6796450045974839,
+            "excerpt": "Venus · sourced original explainer Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius. Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng. Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+            "chunk": 0
+          },
+          {
+            "runId": "4a467183-881b-4e69-970b-f6485854ce4d",
+            "title": "ACS FIXTURE — NOT GAMEPLAY",
+            "language": "en-US",
+            "score": 0.15443759317129113,
+            "excerpt": "ACS FIXTURE — NOT GAMEPLAY This is a clearly labeled software test fixture for Autonomous Creative Studio. It uses generated calibration footage, not real gameplay. Original source files are preserved. The narration and captions are created locally, and this export is not approved for public posting.",
+            "chunk": 0
+          }
+        ],
+        "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+        "indexCreatedAt": "2026-10-23T09:27:15.518Z",
+        "device": "cpu",
+        "meaningRightsOriginalityCertified": false
+      },
+      "error": null,
+      "createdAt": "2026-10-23T09:27:15.539Z",
+      "updatedAt": "2026-10-23T09:27:25.845Z"
+    },
+    {
+      "id": "120e45d8-9bc6-4606-bcc7-23f416bbda82",
+      "kind": "search",
+      "query": "sao Kim khí quyển và thời gian quay",
+      "configHash": "e17187482df3a73e4b63b6840596bbdfb3331e65fea83b29af73a1e61f2d6006",
+      "state": "ready",
+      "result": {
+        "matches": [
+          {
+            "runId": "3c4f1afa-62d0-4e10-aab5-70f9bb163208",
+            "title": "Venus · sourced original explainer",
+            "language": "vi-VN",
+            "score": 0.5666843527319854,
+            "excerpt": "Venus · sourced original explainer Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius. Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng. Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+            "chunk": 0
+          },
+          {
+            "runId": "5a4f40eb-bc05-4259-8998-b1be9b23233e",
+            "title": "Venus · sourced original explainer",
+            "language": "en-US",
+            "score": 0.38886958831883095,
+            "excerpt": "Venus · sourced original explainer Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius). The atmosphere is mostly carbon dioxide — the same gas drives the greenhouse effect on both Venus and Earth — with dense clouds composed of sulfuric acid.",
+            "chunk": 0
+          },
+          {
+            "runId": "4a467183-881b-4e69-970b-f6485854ce4d",
+            "title": "ACS FIXTURE — NOT GAMEPLAY",
+            "language": "en-US",
+            "score": 0.2691916164438095,
+            "excerpt": "ACS FIXTURE — NOT GAMEPLAY This is a clearly labeled software test fixture for Autonomous Creative Studio. It uses generated calibration footage, not real gameplay. Original source files are preserved. The narration and captions are created locally, and this export is not approved for public posting.",
+            "chunk": 0
+          }
+        ],
+        "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+        "indexCreatedAt": "2026-10-23T09:27:15.518Z",
+        "device": "cpu",
+        "meaningRightsOriginalityCertified": false
+      },
+      "error": null,
+      "createdAt": "2026-10-23T09:27:25.858Z",
+      "updatedAt": "2026-10-23T09:27:36.122Z"
+    },
+    {
+      "id": "5276a5b0-e5e1-4c9e-8732-7745a80f1bd7",
+      "kind": "search",
+      "query": "clearly labeled software calibration test fixture",
+      "configHash": "e17187482df3a73e4b63b6840596bbdfb3331e65fea83b29af73a1e61f2d6006",
+      "state": "ready",
+      "result": {
+        "matches": [
+          {
+            "runId": "4a467183-881b-4e69-970b-f6485854ce4d",
+            "title": "ACS FIXTURE — NOT GAMEPLAY",
+            "language": "en-US",
+            "score": 0.6748907227805132,
+            "excerpt": "ACS FIXTURE — NOT GAMEPLAY This is a clearly labeled software test fixture for Autonomous Creative Studio. It uses generated calibration footage, not real gameplay. Original source files are preserved. The narration and captions are created locally, and this export is not approved for public posting.",
+            "chunk": 0
+          },
+          {
+            "runId": "5a4f40eb-bc05-4259-8998-b1be9b23233e",
+            "title": "Venus · sourced original explainer",
+            "language": "en-US",
+            "score": 0.13666613888517157,
+            "excerpt": "Venus · sourced original explainer Venus spins slowly in the opposite direction from most planets. Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system with surface temperatures hot enough to melt lead — about 872 degrees Fahrenheit (467 Celsius). The atmosphere is mostly carbon dioxide — the same gas drives the greenhouse effect on both Venus and Earth — with dense clouds composed of sulfuric acid.",
+            "chunk": 0
+          },
+          {
+            "runId": "3c4f1afa-62d0-4e10-aab5-70f9bb163208",
+            "title": "Venus · sourced original explainer",
+            "language": "vi-VN",
+            "score": 0.1265240579534124,
+            "excerpt": "Venus · sourced original explainer Sao Kim nóng đến mức chảy chì. Khí quyển dày giữ nhiệt trong hiệu ứng nhà kính mất kiểm soát, khiến nó trở thành hành tinh nóng nhất. Bề mặt nóng khoảng bốn trăm sáu mươi bảy độ Celsius. Khí quyển chủ yếu là carbon dioxide với mây axit sulfuric đậm đặc. Áp suất bề mặt gấp chín mươi ba lần Trái Đất. Không có mùa nào vì trục quay gần như thẳng đứng. Dù sao Kim nóng hơn cả Thủy Tinh, nhưng ở độ cao năm mươi kilômét, nhiệt độ lại mát mẻ hơn. Đây là lý do các nhà khoa học quan tâm đến khả năng sống sót của vi sinh vật.",
+            "chunk": 0
+          }
+        ],
+        "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+        "indexCreatedAt": "2026-10-23T09:27:15.518Z",
+        "device": "cpu",
+        "meaningRightsOriginalityCertified": false
+      },
+      "error": null,
+      "createdAt": "2026-10-23T09:27:36.136Z",
+      "updatedAt": "2026-10-23T09:27:47.106Z"
+    }
+  ],
+  "rankingMatched": true,
+  "evidence": {
+    "engine": "qwen3-embedding",
+    "device": "cpu",
+    "seconds": 2.0940000000009604,
+    "peakVramMiB": null,
+    "identity": {
+      "executionDevice": "cpu",
+      "dtype": "float32",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 17237,
+          "sha256": "c34d9b7e5a267ad3fdd13227a253686bc90844ff4744a2a6a86c7c905e3d06f3"
+        },
+        {
+          "path": "config.json",
+          "bytes": 727,
+          "sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9"
+        },
+        {
+          "path": "merges.txt",
+          "bytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+        },
+        {
+          "path": "model.safetensors",
+          "bytes": 1191586416,
+          "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 11423705,
+          "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 9706,
+          "sha256": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+        },
+        {
+          "path": "vocab.json",
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        }
+      ],
+      "dimensions": 1024,
+      "pooling": "last_nonpadding_token",
+      "normalization": "L2",
+      "queryInstruction": "Given a content search query, retrieve relevant original video scripts.",
+      "engineSha256": "03f4e066141d2dc88f75a5f26e41e67a8b0ed9fdbedf3253901fb2d6c58289c3",
+      "versions": {
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.6",
+        "tokenizers": "0.22.2"
+      }
+    },
+    "fingerprint": "82693191dc95ac5f2a71c1556f2cf4708b597dca3ead219af45383bd6d422d58",
+    "semanticTruth": "NOT_CERTIFIED",
+    "rights": "NOT_CERTIFIED",
+    "humanReview": "NOT_REVIEWED"
+  },
+  "sourceTruthUnchanged": true,
+  "caveat": "Three previously rendered drafts and three fixed search queries; not general retrieval, duplicate prevention, factual/rights approval or an originality certificate. Explicit CPU benchmark only; production GPU default unchanged."
+}

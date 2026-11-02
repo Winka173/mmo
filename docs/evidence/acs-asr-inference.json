@@ -1,0 +1,38 @@
+{
+  "task": "asr-round-trip",
+  "exit_code": 0,
+  "stdout": "{\"engine\": \"qwen3-asr\", \"device\": \"cuda\", \"requested_device\": \"cuda\", \"model_sha256\": \"b73be080615a190b42848b04271de85a51fbe8b40113d82561b6b35d5359850c\", \"model_files\": [{\"path\": \"chat_template.json\", \"sha256\": \"75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff\", \"bytes\": 1161}, {\"path\": \"config.json\", \"sha256\": \"2e74a751548b8ad7d7526d29365ad8144c345d8b412b1152d25dc6698452712f\", \"bytes\": 6194}, {\"path\": \"generation_config.json\", \"sha256\": \"1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c\", \"bytes\": 142}, {\"path\": \"merges.txt\", \"sha256\": \"8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5\", \"bytes\": 1671853}, {\"path\": \"model-00001-of-00002.safetensors\", \"sha256\": \"a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6\", \"bytes\": 4220320824}, {\"path\": \"model-00002-of-00002.safetensors\", \"sha256\": \"6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc\", \"bytes\": 478200688}, {\"path\": \"model.safetensors.index.json\", \"sha256\": \"f994739fe38e5210b9e3e8ce6c6307315e2ceac3cb630e7b7414d69dce520f60\", \"bytes\": 64821}, {\"path\": \"preprocessor_config.json\", \"sha256\": \"45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d\", \"bytes\": 330}, {\"path\": \"tokenizer_config.json\", \"sha256\": \"4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c\", \"bytes\": 12487}, {\"path\": \"vocab.json\", \"sha256\": \"ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910\", \"bytes\": 2776833}], \"seconds\": 12.888668537139893, \"peak_vram_mb\": 4480.79052734375, \"results\": [{\"file\": \"C:\\\\Users\\\\Winka\\\\Projects\\\\mmo\\\\.local\\\\benchmarks\\\\english-kokoro.wav\", \"language\": \"English\", \"text\": \"Welcome to Autonomous Creative Studio. This is a local voice test. Original files and previous versions remain available for review.\"}, {\"file\": \"C:\\\\Users\\\\Winka\\\\Projects\\\\mmo\\\\.local\\\\benchmarks\\\\english-gb-kokoro.wav\", \"language\": \"English\", \"text\": \"Welcome to Autonomous Creative Studio. This is a British English voice test. Please review the narration before publication.\"}, {\"file\": \"C:\\\\Users\\\\Winka\\\\Projects\\\\mmo\\\\.local\\\\benchmarks\\\\vietnamese-vieneu.wav\", \"language\": \"Vietnamese\", \"text\": \"Xin chào, đây là bản kiểm tra giọng đọc tiếng Việt trên máy. Ứng dụng lưu bản gốc, tạo bản nháp và xuất video để bạn kiểm tra trước khi đăng.\"}, {\"file\": \"C:\\\\Users\\\\Winka\\\\Projects\\\\mmo\\\\.local\\\\benchmarks\\\\vietnamese-before-frame-fix.wav\", \"language\": \"Vietnamese\", \"text\": \"Xin chào, đây là bản kiểm tra giọng đọc tiếng Việt trên máy. Ứng dụng lưu bản gốc, tạo bản nháp và xuất video để bạn kiểm tra trước khi đăng.\"}], \"timestamps\": \"NOT_REQUESTED\", \"human_review\": \"NOT_REVIEWED\"}\n",
+  "stderr": "\nLoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]\nLoading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.98s/it]\nLoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]\nLoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.10s/it]\nThe following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\nSetting `pad_token_id` to `eos_token_id`:151645 for open-end generation.\nSetting `pad_token_id` to `eos_token_id`:151645 for open-end generation.\nSetting `pad_token_id` to `eos_token_id`:151645 for open-end generation.\nSetting `pad_token_id` to `eos_token_id`:151645 for open-end generation.\n",
+  "human_review": "NOT_REVIEWED",
+  "fixture": true,
+  "checks": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\english-kokoro.wav",
+      "detected_language": "English",
+      "normalized_exact_match": true,
+      "reference": "Welcome to Autonomous Creative Studio. This is a local voice test. Original files and previous versions remain available for review.",
+      "transcription": "Welcome to Autonomous Creative Studio. This is a local voice test. Original files and previous versions remain available for review."
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\english-gb-kokoro.wav",
+      "detected_language": "English",
+      "normalized_exact_match": true,
+      "reference": "Welcome to Autonomous Creative Studio. This is a British English voice test. Please review the narration before publication.",
+      "transcription": "Welcome to Autonomous Creative Studio. This is a British English voice test. Please review the narration before publication."
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\vietnamese-vieneu.wav",
+      "detected_language": "Vietnamese",
+      "normalized_exact_match": true,
+      "reference": "Xin chào, đây là bản kiểm tra giọng đọc tiếng Việt trên máy. Ứng dụng lưu bản gốc, tạo bản nháp và xuất video để bạn kiểm tra trước khi đăng.",
+      "transcription": "Xin chào, đây là bản kiểm tra giọng đọc tiếng Việt trên máy. Ứng dụng lưu bản gốc, tạo bản nháp và xuất video để bạn kiểm tra trước khi đăng."
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\vietnamese-before-frame-fix.wav",
+      "detected_language": "Vietnamese",
+      "normalized_exact_match": true,
+      "reference": "Xin chào, đây là bản kiểm tra giọng đọc tiếng Việt trên máy. Ứng dụng lưu bản gốc, tạo bản nháp và xuất video để bạn kiểm tra trước khi đăng.",
+      "transcription": "Xin chào, đây là bản kiểm tra giọng đọc tiếng Việt trên máy. Ứng dụng lưu bản gốc, tạo bản nháp và xuất video để bạn kiểm tra trước khi đăng."
+    }
+  ]
+}

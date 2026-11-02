@@ -1,0 +1,8 @@
+{
+  "status": "FAILED_OR_BLOCKED_NATIVE_ATTEMPT",
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\.local\\installed-smoke\\Ứng dụng ACS\\autonomous-creative-studio.exe",
+  "timestamp": "2026-10-23T08:40:56.421Z",
+  "error": "Error: Native draft walkthrough unexpectedly queued work",
+  "voicesRequested": false,
+  "exeSha256": "549d6e1755b023b46484bf417700ea7a66a8230c4b9a6d4d37c5892bce09badf"
+}

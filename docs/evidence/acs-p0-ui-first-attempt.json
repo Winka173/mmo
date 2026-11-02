@@ -1,0 +1,13 @@
+{
+  "status": "FAILED",
+  "at": "2026-10-23T13:18:49.228Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\20ac1ae9-1bde-4f35-8484-296601cd67e6\\data",
+  "planId": "61d39d08-cb1f-453a-a1bb-a61aca8a655d",
+  "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+  "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+  "inference": "NOT_PERFORMED",
+  "publicPosting": false,
+  "checks": [],
+  "error": "TimeoutError: locator.inputValue: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Phiên bản đang xem', { exact: true })\u001b[22m\n",
+  "browserErrors": []
+}

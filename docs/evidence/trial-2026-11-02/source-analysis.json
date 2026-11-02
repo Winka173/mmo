@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "key": "8fa1bd33be89f3c5ecbfdcedf39926904cf33ef1d7e6a9be6e317c63618dc161",
+  "at": "2026-11-02T07:40:15.782Z",
+  "method": "Existing local FFmpeg scene/black/freeze/audio signals and sampled frame statistics",
+  "semanticReview": "UNKNOWN",
+  "rightsReview": "REQUIRED",
+  "authenticGameplay": "OWNER_SOURCE_REQUIRES_REVIEW",
+  "OCR": "DISABLED_NOT_VERIFIED",
+  "automaticShotReplacement": false,
+  "results": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-0.mp4",
+      "sha256": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+      "status": "MEASURED_LOCAL_HEURISTICS",
+      "analysis": {
+        "assetId": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+        "durationSec": 10,
+        "coverage": {
+          "scannedSeconds": 10,
+          "fullClip": true
+        },
+        "scenes": [],
+        "freezes": [
+          {
+            "start": 0,
+            "end": 10
+          }
+        ],
+        "blacks": [],
+        "silences": [],
+        "audioRms": [
+          -49.094998,
+          -48.24315,
+          -48.753525,
+          -48.262422,
+          -48.20455,
+          -48.414572,
+          -47.885086,
+          -48.493708,
+          -48.058735,
+          -48.232486,
+          -66.034671
+        ],
+        "motion": [
+          {
+            "t": 0.5,
+            "v": 0
+          },
+          {
+            "t": 1,
+            "v": 0
+          },
+          {
+            "t": 1.5,
+            "v": 0
+          },
+          {
+            "t": 2,
+            "v": 0
+          },
+          {
+            "t": 2.5,
+            "v": 0
+          },
+          {
+            "t": 3,
+            "v": 0
+          },
+          {
+            "t": 3.5,
+            "v": 0
+          },
+          {
+            "t": 4,
+            "v": 0
+          },
+          {
+            "t": 4.5,
+            "v": 0
+          },
+          {
+            "t": 5,
+            "v": 0
+          },
+          {
+            "t": 5.5,
+            "v": 0
+          },
+          {
+            "t": 6,
+            "v": 0
+          },
+          {
+            "t": 6.5,
+            "v": 0
+          },
+          {
+            "t": 7,
+            "v": 0
+          },
+          {
+            "t": 7.5,
+            "v": 0
+          },
+          {
+            "t": 8,
+            "v": 0
+          },
+          {
+            "t": 8.5,
+            "v": 0
+          },
+          {
+            "t": 9,
+            "v": 0
+          },
+          {
+            "t": 9.5,
+            "v": 0
+          }
+        ],
+        "highlights": [],
+        "heroCandidates": [],
+        "boringRatio": 1,
+        "leak": {
+          "method": "unavailable",
+          "suspicious": false,
+          "matches": []
+        },
+        "warnings": [
+          "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+          "100% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt",
+          "Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng"
+        ],
+        "analyzedAt": "2026-11-02T07:40:12.202Z"
+      }
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-1.mp4",
+      "sha256": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+      "status": "MEASURED_LOCAL_HEURISTICS",
+      "analysis": {
+        "assetId": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+        "durationSec": 10,
+        "coverage": {
+          "scannedSeconds": 10,
+          "fullClip": true
+        },
+        "scenes": [],
+        "freezes": [
+          {
+            "start": 0,
+            "end": 10
+          }
+        ],
+        "blacks": [],
+        "silences": [],
+        "audioRms": [
+          -48.062962,
+          -48.28902,
+          -48.044555,
+          -48.334238,
+          -48.334587,
+          -47.840471,
+          -48.3134,
+          -48.414592,
+          -48.035648,
+          -47.898758,
+          -67.435266
+        ],
+        "motion": [
+          {
+            "t": 0.5,
+            "v": 0
+          },
+          {
+            "t": 1,
+            "v": 0
+          },
+          {
+            "t": 1.5,
+            "v": 0
+          },
+          {
+            "t": 2,
+            "v": 0
+          },
+          {
+            "t": 2.5,
+            "v": 0
+          },
+          {
+            "t": 3,
+            "v": 0
+          },
+          {
+            "t": 3.5,
+            "v": 0
+          },
+          {
+            "t": 4,
+            "v": 0
+          },
+          {
+            "t": 4.5,
+            "v": 0
+          },
+          {
+            "t": 5,
+            "v": 0
+          },
+          {
+            "t": 5.5,
+            "v": 0
+          },
+          {
+            "t": 6,
+            "v": 0
+          },
+          {
+            "t": 6.5,
+            "v": 0
+          },
+          {
+            "t": 7,
+            "v": 0
+          },
+          {
+            "t": 7.5,
+            "v": 0
+          },
+          {
+            "t": 8,
+            "v": 0
+          },
+          {
+            "t": 8.5,
+            "v": 0
+          },
+          {
+            "t": 9,
+            "v": 0
+          },
+          {
+            "t": 9.5,
+            "v": 0
+          }
+        ],
+        "highlights": [],
+        "heroCandidates": [],
+        "boringRatio": 1,
+        "leak": {
+          "method": "unavailable",
+          "suspicious": false,
+          "matches": []
+        },
+        "warnings": [
+          "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+          "100% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt",
+          "Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng"
+        ],
+        "analyzedAt": "2026-11-02T07:40:13.833Z"
+      }
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-02T07-22-57-937Z\\data\\studio\\artifacts\\ce1ff632-8d67-4ce3-ae34-0a1cf8948d03\\source-2.mp4",
+      "sha256": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+      "status": "MEASURED_LOCAL_HEURISTICS",
+      "analysis": {
+        "assetId": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+        "durationSec": 10,
+        "coverage": {
+          "scannedSeconds": 10,
+          "fullClip": true
+        },
+        "scenes": [],
+        "freezes": [
+          {
+            "start": 0,
+            "end": 10
+          }
+        ],
+        "blacks": [],
+        "silences": [],
+        "audioRms": [
+          -48.253419,
+          -48.616832,
+          -48.337135,
+          -47.649156,
+          -47.897655,
+          -48.304114,
+          -48.197751,
+          -48.295573,
+          -48.115551,
+          -48.796077,
+          -66.949299
+        ],
+        "motion": [
+          {
+            "t": 0.5,
+            "v": 0
+          },
+          {
+            "t": 1,
+            "v": 0
+          },
+          {
+            "t": 1.5,
+            "v": 0
+          },
+          {
+            "t": 2,
+            "v": 0
+          },
+          {
+            "t": 2.5,
+            "v": 0
+          },
+          {
+            "t": 3,
+            "v": 0
+          },
+          {
+            "t": 3.5,
+            "v": 0
+          },
+          {
+            "t": 4,
+            "v": 0
+          },
+          {
+            "t": 4.5,
+            "v": 0
+          },
+          {
+            "t": 5,
+            "v": 0
+          },
+          {
+            "t": 5.5,
+            "v": 0
+          },
+          {
+            "t": 6,
+            "v": 0
+          },
+          {
+            "t": 6.5,
+            "v": 0
+          },
+          {
+            "t": 7,
+            "v": 0
+          },
+          {
+            "t": 7.5,
+            "v": 0
+          },
+          {
+            "t": 8,
+            "v": 0
+          },
+          {
+            "t": 8.5,
+            "v": 0
+          },
+          {
+            "t": 9,
+            "v": 0
+          },
+          {
+            "t": 9.5,
+            "v": 0
+          }
+        ],
+        "highlights": [],
+        "heroCandidates": [],
+        "boringRatio": 1,
+        "leak": {
+          "method": "unavailable",
+          "suspicious": false,
+          "matches": []
+        },
+        "warnings": [
+          "Không có OCR (Tesseract) — không tự kiểm tra được chữ debug/thông tin riêng trong khung hình; cần người xem lại",
+          "100% clip đứng hình/màn đen (màn hình chờ?) — nên cắt bớt",
+          "Không chắc đoạn nào là điểm nhấn — hãy ghi chú (annotation) đoạn quan trọng"
+        ],
+        "analyzedAt": "2026-11-02T07:40:15.780Z"
+      }
+    }
+  ]
+}

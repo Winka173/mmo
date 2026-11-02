@@ -1,0 +1,17 @@
+{
+  "status": "FAILED",
+  "at": "2026-10-23T15:29:44.510Z",
+  "fixture": {
+    "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\p0-ui\\ux-989abcac-4dba-4b7b-913b-5016d5667de7\\data",
+    "planId": "0cdb067c-a6dd-41e8-a43b-daa33935785e",
+    "renderId": "253c5473-57f8-46a1-a557-bf77cd741b94",
+    "priorSpeechSource": "C:\\Users\\Winka\\Projects\\mmo\\.local\\frame-speech\\1792753721268\\data\\studio\\artifacts\\253c5473-57f8-46a1-a557-bf77cd741b94\\final.mp4",
+    "inference": "NOT_PERFORMED",
+    "publicPosting": false
+  },
+  "checks": [
+    "All 14 destinations retained; grouped sidebar supports keyboard collapse and persists across reload; Home links to the exact saved plan without starting it"
+  ],
+  "error": "TimeoutError: locator.fill: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Nội dung nghe thử', { exact: true })\u001b[22m\n",
+  "browserErrors": []
+}

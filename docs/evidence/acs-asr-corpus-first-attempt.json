@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED_OR_FAILED",
+  "at": "2026-10-23T08:24:36Z",
+  "folder": "C:\\Users\\Winka\\Projects\\mmo\\.local\\benchmarks\\fleurs\\1792743876990",
+  "requestedDevice": "cpu",
+  "cpuThreads": 4,
+  "dataset": "google/fleurs",
+  "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "selection": "First three distinct utterance IDs in first 12 validation rows per locale; fixed before inference",
+  "scope": "Nine speech clips, not a representative WER corpus, translation/TTS acceptance, word alignment or human review",
+  "expectedTextSentToASR": false,
+  "productionConfigChanged": false,
+  "humanReview": "NOT_REVIEWED",
+  "publicPosting": false,
+  "errorType": "Error"
+}

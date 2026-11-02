@@ -1,0 +1,12 @@
+{
+  "status": "WAITING_OR_RUNNING_GPU",
+  "started": "2026-10-23T05:45:16.763Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\image-benchmark\\1792734316763\\data",
+  "model": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\flux2-klein-4b",
+  "paidApis": false,
+  "humanReview": "NOT_REVIEWED",
+  "imageId": "1f465666-2e27-42c3-9af8-a6da37193aa0",
+  "state": "ready",
+  "lastError": null,
+  "updatedAt": "2026-10-23T05:59:39.580Z"
+}

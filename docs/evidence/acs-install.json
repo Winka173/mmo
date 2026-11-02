@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-23T18:03:44.5867497Z",
+  "exitCode": 0,
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\.local\\installed-smoke\\Ứng dụng ACS-364f1d03\\autonomous-creative-studio.exe",
+  "target": "C:\\Users\\Winka\\Projects\\mmo\\.local\\installed-smoke\\Ứng dụng ACS-364f1d03",
+  "installerSha256": "364F1D03F14810412A5FB21324890BE7DB35ABF0D12F815A70C810266E58D62F",
+  "status": "VERIFIED_INSTALLED_AND_LAUNCHED",
+  "nativeEvidence": "acs-installed-smoke.json"
+}

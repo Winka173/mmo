@@ -1,0 +1,148 @@
+{
+  "status": "VERIFIED_REAL_SPEECH_ALIGNMENT_BRANDING_PACING_AND_MANUAL_TIMING",
+  "at": "2026-10-23T15:30:18.763Z",
+  "data": "C:\\Users\\Winka\\Projects\\mmo\\.local\\improvements-speech\\6187c3d1-c78e-4bf4-ad54-5afd57bcc6d7\\data",
+  "runId": "c94851bb-ce2b-4a23-a6cc-bcb22046448c",
+  "publicPosting": false,
+  "scope": "Byte-identical prior real Kokoro speech; new CPU acoustic alignment and branded rendering. No new TTS/Qwen ASR/LLM, human listening or factual approval.",
+  "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\improvements-speech\\6187c3d1-c78e-4bf4-ad54-5afd57bcc6d7\\data\\studio\\artifacts\\c94851bb-ce2b-4a23-a6cc-bcb22046448c\\final.mp4",
+  "preview": "C:\\Users\\Winka\\Projects\\mmo\\.local\\improvements-speech\\6187c3d1-c78e-4bf4-ad54-5afd57bcc6d7\\brand-preview.png",
+  "videoSha256": "f5122ceea355227a5bc1c27b8a93e7f19dc15faf2c9729f43ffbc5443d0508ce",
+  "voiceSha256": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d",
+  "originalAudioSha256": "267e82323ae512e0580e345d36442981dac6264031bd458d6326f760ad23d85d",
+  "originalPreserved": true,
+  "alignment": {
+    "engine": "wav2vec2-ctc-en",
+    "device": "cpu",
+    "modelSha256": "8aa76ab2243c81747a1f832954586bc566090c83a0ac167df6f31f0fa917d74a",
+    "words": [
+      {
+        "text": "Venus",
+        "start": 0.38043,
+        "end": 0.64072,
+        "score": 0.950937831401825
+      },
+      {
+        "text": "looks",
+        "start": 0.70079,
+        "end": 0.90102,
+        "score": 0.9966087222099305
+      },
+      {
+        "text": "peaceful",
+        "start": 0.96109,
+        "end": 1.32149,
+        "score": 0.9759836196899414
+      },
+      {
+        "text": "but",
+        "start": 1.66188,
+        "end": 1.76199,
+        "score": 0.9999314943949381
+      },
+      {
+        "text": "hides",
+        "start": 1.80204,
+        "end": 2.04231,
+        "score": 0.9922518730163574
+      },
+      {
+        "text": "intense",
+        "start": 2.1224,
+        "end": 2.50283,
+        "score": 0.9956017647470746
+      },
+      {
+        "text": "heat",
+        "start": 2.5629,
+        "end": 2.78314,
+        "score": 0.9948752075433731
+      },
+      {
+        "text": "and",
+        "start": 2.98337,
+        "end": 3.06346,
+        "score": 0.9279793898264567
+      },
+      {
+        "text": "crushing",
+        "start": 3.12353,
+        "end": 3.46391,
+        "score": 0.9932326376438141
+      },
+      {
+        "text": "pressure.",
+        "start": 3.544,
+        "end": 3.92443,
+        "score": 0.9138926155865192
+      }
+    ],
+    "acousticWordErrorRate": 0
+  },
+  "pacing": {
+    "schemaVersion": 1,
+    "language": "en-US",
+    "measurement": "probed_audio_duration",
+    "targetSeconds": 10,
+    "actualAudioSeconds": 4.425,
+    "actualTimelineSeconds": 4.733333333333333,
+    "ratio": 0.47333333333333333,
+    "targetStatus": "under_target",
+    "unitsPerSecondBand": [
+      1.8,
+      3.3
+    ],
+    "measurements": [
+      {
+        "index": 0,
+        "text": "Venus looks peaceful but hides intense heat and crushing pressure.",
+        "audioSeconds": 4.425,
+        "segmentSeconds": 4.733333333333333,
+        "units": 10,
+        "unitsPerSecond": 2.2598870056497176,
+        "unit": "words",
+        "pace": "within_heuristic_range",
+        "protectedReasons": [],
+        "proposedAudioBudgetSeconds": 9.691666666666666,
+        "suggestion": "Review optional connective wording and repetition after listening; no automatic wording change"
+      }
+    ],
+    "autoChanges": false,
+    "willPublish": false,
+    "humanReview": "REQUIRED",
+    "recommendation": "Choose a shorter target or add independently supported useful context; never insert filler or invented facts",
+    "limitations": "Whitespace-based pace bands and +/-30% target tolerance are editorial heuristics, not validated listening scores. Vietnamese syllables and English words must not be compared directly."
+  },
+  "captionTiming": "aligned",
+  "brand": {
+    "name": "Owned evaluation preset",
+    "font": "Tahoma",
+    "voices": {
+      "vi": "",
+      "enUs": "",
+      "enGb": ""
+    },
+    "accent": "#ffb400",
+    "captionColor": "#ffffff",
+    "captionScale": 0.9,
+    "captionMargin": 0.12,
+    "cta": "Bản thử nội bộ",
+    "ctaSeconds": 3,
+    "logo": {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\improvements-speech\\6187c3d1-c78e-4bf4-ad54-5afd57bcc6d7\\data\\studio\\artifacts\\c94851bb-ce2b-4a23-a6cc-bcb22046448c\\brand-logo.png",
+      "sha256": "749b2d5fc6eb687ea322d7f4da02cbb8a3b5fb6f8594cacf780e1bb3e840ca79",
+      "rightsEvidence": "Owned generated logo rectangle for internal render testing"
+    },
+    "logoCorner": "top_right",
+    "logoWidth": 0.12
+  },
+  "technical": true,
+  "newTtsAsrRequests": [],
+  "child": {
+    "id": "f82ecc0b-175a-46df-877d-de8583052870",
+    "final": "C:\\Users\\Winka\\Projects\\mmo\\.local\\improvements-speech\\6187c3d1-c78e-4bf4-ad54-5afd57bcc6d7\\data\\studio\\artifacts\\f82ecc0b-175a-46df-877d-de8583052870\\final.mp4",
+    "captionTiming": "manually_edited",
+    "technical": true
+  },
+  "humanReview": "NOT_CREATED"
+}

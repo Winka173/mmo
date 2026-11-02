@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_SELECTED_RESTORE_RECOVERY_REGRESSION_NOT_FULL_BASELINE",
+  "at": "2026-10-23T17:59:57.438735+00:00",
+  "rawReport": ".local\\acs-restore-recovery-tests.json",
+  "sha256": "c529043849d64f79d08661972ee0c987985fb59a4c8c323e031ddf1146b9d949",
+  "passed": 303,
+  "total": 303,
+  "failed": 0,
+  "files": 64
+}
