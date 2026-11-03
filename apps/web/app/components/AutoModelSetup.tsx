@@ -12,6 +12,7 @@ const CAPS:Cap[]=[
  {id:"asr",profile:"qwen-asr",vi:"Nhận dạng giọng nói (Việt, Anh, Trung)",en:"Speech recognition (VI, EN, ZH)",hintVi:"Qwen3-ASR-1.7B: kiểm tra lời đọc, phụ đề",hintEn:"Qwen3-ASR-1.7B: narration and caption checks",gib:14,done:c=>!!c.asrModel},
  {id:"vad",profile:"silero-vad",vi:"Phát hiện im lặng",en:"Silence detection",hintVi:"Silero VAD (rất nhỏ)",hintEn:"Silero VAD (tiny)",gib:1,done:c=>!!c.vadModel},
  {id:"search",profile:"qwen-embedding",vi:"Tìm kiếm nội dung",en:"Content search",hintVi:"Qwen3-Embedding-0.6B",hintEn:"Qwen3-Embedding-0.6B",gib:4,done:c=>!!c.embeddingModel},
+ {id:"espeak",profile:"espeak-ng",vi:"Giọng eSpeak (nhà máy cũ)",en:"eSpeak voice (legacy factory)",hintVi:"espeak-ng 1.52.0, bản chính thức, ~13 MB",hintEn:"espeak-ng 1.52.0, official build, about 13 MB",gib:1,done:c=>!!c.espeakPath,optional:true},
  {id:"image",profile:"flux2-klein-4b",vi:"Ảnh minh họa",en:"Illustrations",hintVi:"FLUX.2 klein 4B (tuỳ chọn, ~38 GB)",hintEn:"FLUX.2 klein 4B (optional, ~38 GB)",gib:38,done:c=>!!c.imageModel,optional:true},
 ];
 const DEFAULT_SELECTION=CAPS.filter(c=>!c.optional).map(c=>c.id);

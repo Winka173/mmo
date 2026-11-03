@@ -26,6 +26,8 @@ for(const entry of await fs.readdir(pnpmRoot,{withFileTypes:true})){
    }else if(!(await fs.stat(dest).catch(()=>null)))await fs.cp(src,dest,{recursive:true,dereference:true});
  }
 }
+// The Meta Muse browser driver (owner-authorized meta.ai automation) loads playwright-core at runtime; it has no dependencies.
+await fs.cp(path.join(root,'node_modules/playwright-core'),path.join(root,'desktop/backend/node_modules/playwright-core'),{recursive:true,dereference:true,force:true});
 // All links were dereferenced and sibling packages flattened above. Retaining
 // the duplicate pnpm store creates installer paths over Windows' 260-char limit.
 await clearBuildFolder(root,'desktop/backend/node_modules/.pnpm');
@@ -37,8 +39,8 @@ await fs.copyFile(uv,'desktop/runtime/uv.exe');
 // native compilation must not produce different installer/portable inventories.
 await clearBuildFolder(root,'desktop/engines');
 await fs.cp('engines','desktop/engines',{recursive:true,dereference:true,filter:file=>!file.split(path.sep).includes('__pycache__')&&!file.endsWith('.pyc')});
-await build({entryPoints:['apps/worker/src/main.ts'],outfile:'desktop/backend/apps/web/worker.mjs',bundle:true,platform:'node',format:'esm',target:'node20',external:['sharp','yauzl'],banner:{js:"import { createRequire as __acsCreateRequire } from 'node:module'; const require = __acsCreateRequire(import.meta.url);"}});
-await build({entryPoints:['apps/worker/src/maintenance.ts'],outfile:'desktop/backend/apps/web/maintenance.mjs',bundle:true,platform:'node',format:'esm',target:'node20',external:['sharp','yauzl'],banner:{js:"import { createRequire as __acsCreateRequire } from 'node:module'; const require = __acsCreateRequire(import.meta.url);"}});
+await build({entryPoints:['apps/worker/src/main.ts'],outfile:'desktop/backend/apps/web/worker.mjs',bundle:true,platform:'node',format:'esm',target:'node20',external:['sharp','yauzl','playwright-core'],banner:{js:"import { createRequire as __acsCreateRequire } from 'node:module'; const require = __acsCreateRequire(import.meta.url);"}});
+await build({entryPoints:['apps/worker/src/maintenance.ts'],outfile:'desktop/backend/apps/web/maintenance.mjs',bundle:true,platform:'node',format:'esm',target:'node20',external:['sharp','yauzl','playwright-core'],banner:{js:"import { createRequire as __acsCreateRequire } from 'node:module'; const require = __acsCreateRequire(import.meta.url);"}});
 // Ensure native dependencies resolve for the bundled worker even if Next's tracing changes.
 for(const dep of ['sharp','yauzl']){
  const local=await fs.realpath(path.join(root,'apps/web/node_modules',dep));

@@ -1,4 +1,5 @@
 import {inspectStudioFootage} from "./studio-footage.js";
+import {executeMuseRun} from "./muse-run.js";
 import {buildNarrationPacing} from "../../../packages/quality/src/narration-pacing.js";
 import {executeStudioRepair} from "./studio-repair.js";
 import {matchStudioShots} from "./studio-matching.js";
@@ -7,7 +8,7 @@ import * as path from "node:path";
 import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { z } from "zod";
-import { StudioStore, hash, planRunIdentity,applyPronunciations,type StudioRun } from "@ttm/automation";
+import { StudioStore, hash, planRunIdentity,applyPronunciations,mergePronunciations,pronunciationSuggestions,GlobalPronunciationStore,type StudioRun } from "@ttm/automation";
 import { FactoryError,Timeline,TimelineClip } from "@ttm/core";
 import { readJson, writeJsonAtomic } from "@ttm/storage";
 import { runProcess, toSrt,toAss,renderTimeline,brandAss,applyBrandLogo } from "@ttm/media";
@@ -80,6 +81,7 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
   };
   let active="intake";
   try {
+    if(run.snapshot.generation==="muse"&&!run.edit){active="media";await executeMuseRun(ctx,run,dir,stage as any);await notify(ctx,`ACS · ${run.title}: Muse video ready for review; nothing was posted.`,{dedupeKey:`studio:${id}`});return {runId:id,state:"ready"};}
     if(run.planning?.state==="continuing"){
       const bytes=await fs.readFile(path.join(dir,"plan.json"));const plan=JSON.parse(bytes.toString("utf8"));
       if(createHash("sha256").update(bytes).digest("hex")!==run.planning.sha256||planRunIdentity(plan)!==planRunIdentity(run))throw new FactoryError("QUALITY_LOCK","BLOCKED","Pinned plan changed; create a new plan");
@@ -151,15 +153,17 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
       await stage("intake","passed",generatedOnly?"Original font graphics will be authored locally; source citations retained":`${run.sources.length} pinned source files; owner rights declaration recorded`);
       if(!run.edit&&run.snapshot.family==="game"&&run.sources.some(s=>/\.(mp4|mov|mkv|webm)$/i.test(s.file))){active="media";await stage(active,"running");const analysis=await inspectStudioFootage(run,dir);if(analysis){run.outputs=[...new Set([...run.outputs,"source-analysis.json"])];await studio.saveRun(run);await stage("media","flagged","Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay claims still need review");}}
       if(!research&&run.snapshot.family!=="localization"){active="research";await stage(active,"flagged","Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocked.");}
-      active="script";await stage(active,"running");let scriptProfile:any=null;
+      // Project entries override the global dictionary; the merged list is recorded with the run outputs.
+      const dictionary=mergePronunciations(await new GlobalPronunciationStore(ctx.store).list(),run.snapshot.pronunciation);
+      active="script";await stage(active,"running");let scriptProfile:any=null,scriptModel="";
       if(!run.shots.length){
         const result=run.snapshot.scriptText.trim() ? { script: { shots: run.snapshot.scriptText.trim().split(/\n\s*\n/).map(text=>({text})) }, model: "user-authored", mode: "local" } :research?{script:research.draft,model:research.model,mode:"local"}:await engine({op:"script",task:"script_final",system:`Write a concise video script in ${run.language}. Use ONLY supplied facts. Do not invent features, dates, firsthand tests or evidence. Return JSON {"shots":[{"text":"narration"}]} with 3 to 6 short scenes. No markdown. Target ${run.snapshot.durationSec} seconds.`,prompt:run.snapshot.brief},"script");
         const script=z.object({shots:z.array(z.object({text:z.string().min(1).max(1500)})).min(1).max(12)}).parse(result.script);
         run.shots=script.shots.map((s,i)=>({...s,asset:run.sources.length?run.sources[i%run.sources.length].file:"",durationSec:5,sourceStart:0,sourceDuration:null}));
-        await writeJsonAtomic(path.join(dir,"llm-evidence.json"),result);await studio.saveRun(run);scriptProfile=(result as any).llmProfile??null;
+        await writeJsonAtomic(path.join(dir,"llm-evidence.json"),result);await studio.saveRun(run);scriptProfile=(result as any).llmProfile??null;scriptModel=String((result as any).model??"");
       }
       if(scriptProfile?.reviewRequired)await stage(active,"flagged",`Fast model used because the quality model is not installed (${scriptProfile.reason}); editorial review required`);
-      else await stage(active,"passed",run.snapshot.family==="localization"?"Independent local translation; source/meaning review still required":run.snapshot.scriptText.trim()&&!researched?"Owner-authored script; independent claims review still required":`Local model: ${research?.model??run.config.llmModel}; editorial approval still required`);
+      else await stage(active,"passed",run.snapshot.family==="localization"?"Independent local translation; source/meaning review still required":run.snapshot.scriptText.trim()&&!researched?"Owner-authored script; independent claims review still required":`Local model: ${scriptModel||research?.model||run.config.llmModel}; editorial approval still required`);
       if(generatedOnly&&run.shots.some(s=>!s.asset)){
         for(const [i,shot]of run.shots.entries())if(!shot.asset){const source=await researchIllustration(shot.text,research?.draft.title??run.title,i,path.join(dir,`original-graphic-${i}.png`),run.snapshot.format);shot.asset=source.file;run.sources.push(source);}
         await studio.saveRun(run);
@@ -195,7 +199,7 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
       if (previousPin && (previousPin.weights !== weights || previousPin.codec !== codec || previousPin.runtime !== runtime)) throw new FactoryError("QUALITY_LOCK","BLOCKED","Voice model or runtime changed since the original attempt; create a new production run");
       await writeJsonAtomic(pinFile,{weights,codec,runtime,environment});
       for(let i=0;i<run.shots.length;i++){
-        const s=run.shots[i],spokenText=applyPronunciations(s.text,run.language,run.snapshot.pronunciation),wav=path.join(dir,`voice-${i}.wav`),key=hash({text:spokenText,language:run.language,vi:run.config.ttsViModel,en:run.config.ttsEnModel,voiceVi:run.config.voiceVi,voiceEn:run.config.voiceEn,voiceEnGb:run.config.voiceEnGb,codec:run.config.ttsViCodec,device:run.config.ttsDevice,runtime});
+        const s=run.shots[i],spokenText=applyPronunciations(s.text,run.language,dictionary),wav=path.join(dir,`voice-${i}.wav`),key=hash({text:spokenText,language:run.language,vi:run.config.ttsViModel,en:run.config.ttsEnModel,voiceVi:run.config.voiceVi,voiceEn:run.config.voiceEn,voiceEnGb:run.config.voiceEnGb,codec:run.config.ttsViCodec,device:run.config.ttsDevice,runtime});
         const manifest=path.join(dir,`voice-${i}.json`);
         const cached=await fs.readFile(manifest,"utf8").then(JSON.parse,()=>null);
         const audioHash=await fileDigest(wav).catch(()=>null);
@@ -204,7 +208,7 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
       }
       if (run.config.asrModel && run.config.pythonAsr) {
         const files = run.shots.map((_,i) => path.join(dir,`voice-${i}.wav`));
-        const expectedSpeech=run.shots.map(s=>applyPronunciations(s.text,run.language,run.snapshot.pronunciation));
+        const expectedSpeech=run.shots.map(s=>applyPronunciations(s.text,run.language,dictionary));
         const asrEnvironment=await engine({op:"asr-environment"},"voice-asr-environment");
         const reviewInputKey=async()=>hash({audio:await Promise.all(files.map(fileDigest)),environment:asrEnvironment.fingerprint,device:run.config.asrDevice,expected:expectedSpeech,language:run.language});
         const reviewKey=async()=>hash({inputKey:await reviewInputKey(),policyVersion:VOICE_REVIEW_POLICY_VERSION});
@@ -251,6 +255,9 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
       // TTS/probe above always restores audio duration + 0.3, including cached
       // lines. Keep the measured speech length before rounding video boundaries.
       const audioSeconds=run.shots.map(shot=>shot.durationSec-0.3),frameTiming=run.renderTimingVersion===2;
+      // Reading time: a caption line needs at most 20 characters/second on screen. When the voice is faster than that,
+      // hold the picture a little longer after the sentence (silence, at most 1.5 s) instead of flashing the caption.
+      if(!run.edit){let held=false;for(const shot of run.shots){const need=[...shot.text].length/20;if(need>shot.durationSec+0.01){shot.durationSec=Math.min(shot.durationSec+1.5,need);held=true;}}if(held)await studio.saveRun(run);}
       if(frameTiming){for(const shot of run.shots)shot.durationSec=Math.ceil(shot.durationSec*30-1e-8)/30;await studio.saveRun(run);}
       active="captions";await stage(active,"running");
       const aligned=await alignStudioNarration(ctx,run.config,run.language,run.shots.map((s,i)=>({text:s.text,file:path.join(dir,`voice-${i}.wav`)})),path.join(dir,"alignment.request.json"));
@@ -297,6 +304,8 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
     const renderTiming={version:run.renderTimingVersion,frameTimedNarration,plannedFrames:qaTimeline?Math.round(qaTimeline.duration*qaTimeline.fps):null,measuredVideoFrames:Number(video?.nb_frames)||null,measuredVideoDuration:Number(video?.duration)||null,measuredContainerDuration:Number(p.format.duration)};
     if(frameTimedNarration&&qaTimeline){const passed=renderTiming.measuredVideoFrames===renderTiming.plannedFrames;measured.findings.push({criterion:"frame_timing",status:passed?"pass":"fail",evidence:renderTiming,severity:"error",recommendedFix:"Re-encode pinned segments using explicit frame durations; preserve the voice and original version",timestamp:new Date().toISOString(),modelVersion:null,confidence:null,relevantFiles:[path.join(dir,"final.mp4")]});measured.technical=measured.technical&&passed;}
     const voiceReview=await fs.readFile(path.join(dir,"voice-review.json"),"utf8").then(JSON.parse,()=>null);
+    const pronunciationHints=(Array.isArray(voiceReview?.checks)?voiceReview.checks:[]).filter((c:any)=>c.status==="fail"&&typeof c.transcription==="string").flatMap((c:any)=>{const shot=run.shots.find(s=>s.text===c.expected)??run.shots.find(s=>applyPronunciations(s.text,run.language,run.snapshot.pronunciation)===c.expected);return pronunciationSuggestions(shot?.text??c.expected,c.transcription,run.language);});
+    if(pronunciationHints.length)await writeJsonAtomic(path.join(dir,"pronunciation-suggestions.json"),{suggestions:pronunciationHints,note:"Suggested spoken spellings for terms the ASR did not hear as written; the owner edits and approves them before use"});
     const research=await fs.readFile(path.join(dir,"research.json"),"utf8").then(JSON.parse,()=>null);
     const localization=await fs.readFile(path.join(dir,"localization-translation.json"),"utf8").then(JSON.parse,()=>null);
     const speechActivity=await fs.readFile(path.join(dir,"speech-activity.json"),"utf8").then(JSON.parse,()=>null);
@@ -319,7 +328,7 @@ export async function executeStudio(ctx: Ctx, id: string): Promise<Record<string
     await stage("eligibility","blocked","Publication requires verified facts, rights, account and authorized policy; no automatic publish");
     await writeJsonAtomic(path.join(dir,"manifest.json"),{product:"AUTONOMOUS CREATIVE STUDIO",runId:id,parentId:run.parentId,snapshotHash:run.snapshotHash,sources:run.sources,opportunity:run.snapshot.opportunity,timeline:qaTimeline??null,config:run.config,language:run.language,rights:run.snapshot.rightsEvidence,publishStatus:"MANUAL_EXPORT_NOT_APPROVED",edit:run.edit});
     await fs.writeFile(path.join(dir,"metadata.txt"),`${run.title}\nLanguage: ${run.language}\nManual export — not approved for posting.\n${run.snapshot.brief}\n`,"utf8");
-    run.outputs=["final.mp4","thumbnail.jpg","qa.json","manifest.json","metadata.txt",...(captionQuality?["caption-quality.json"]:[]),...(research?["research.json","citations.md"]:[]),...(speechActivity?["speech-activity.json"]:[]),...(voiceReview?["voice-review.json",...(await fs.stat(path.join(dir,"voice-repair.json")).catch(()=>null)?["voice-repair.json"]:[])]:[]),...(run.edit?.kind !== "cut"?["captions.srt","captions.ass","timeline.json"]:[]),...(await fs.stat(path.join(dir,"shorts-selection.json")).catch(()=>null)?["source-transcript.json","shorts-plan.json","shorts-selection.json"]:[]),...(localization?["localization-transcript.json","localization-translation.json"]:[])];
+    run.outputs=["final.mp4","thumbnail.jpg","qa.json","manifest.json","metadata.txt",...(captionQuality?["caption-quality.json"]:[]),...(research?["research.json","citations.md"]:[]),...(speechActivity?["speech-activity.json"]:[]),...(pronunciationHints.length?["pronunciation-suggestions.json"]:[]),...(voiceReview?["voice-review.json",...(await fs.stat(path.join(dir,"voice-repair.json")).catch(()=>null)?["voice-repair.json"]:[])]:[]),...(run.edit?.kind !== "cut"?["captions.srt","captions.ass","timeline.json"]:[]),...(await fs.stat(path.join(dir,"shorts-selection.json")).catch(()=>null)?["source-transcript.json","shorts-plan.json","shorts-selection.json"]:[]),...(localization?["localization-transcript.json","localization-translation.json"]:[])];
     for(const file of["plan.json","product-evidence.json","product-invalidation.json","product-publication-description.txt","source-analysis.json","source-matching.json","source-intake.json","pacing.json","alignment.json","repair-plan.json","repair-execution.json","repair-result.json"])if(await fs.stat(path.join(dir,file)).catch(()=>null))run.outputs.push(file);
     await stage("delivery","passed","Local export complete; publication not authorized");await stage("analytics","skipped","No remote publication ID");
     run.state="ready";await studio.saveRun(run);

@@ -43,7 +43,34 @@ export function buildStudioCaptions(lines: CaptionLine[], activity: unknown, lay
     at += line.durationSec;
     return evidence;
   });
+  const relaxed=relaxCueTiming(cues,timing.map(t=>({start:t.cueStartIndex,count:t.cueCount,aligned:t.method==="CTC_EN_WORD_ALIGNMENT"})),at);
   const readability = inspectCaptionCues(cues, { duration: at, width: layout.width, fontSize: layout.fontSize });
   const alignedCount=timing.filter(line=>line.method==="CTC_EN_WORD_ALIGNMENT").length,allAligned=alignedCount===lines.length&&lines.length>0;
-  return { cues, evidence: { schemaVersion: 1, captionTiming: allAligned?"aligned" as const:"estimated" as const, wordAlignment: allAligned?"ALIGNED_EN_CTC_NOT_HUMAN_VERIFIED":alignedCount?"PARTIALLY_ALIGNED":"UNVERIFIED", alignedLines:alignedCount,grouping: { version: 2, shortCueTargetSeconds: 0.8, characterMeasure: "Unicode code points", audioChanged: false }, timing, readability, humanReview: "REQUIRED", note: "English CTC boundaries are used only with matching audio SHA, exact wording and validated monotonic word times. Other phrase boundaries remain proportional estimates over VAD or duration; VAD does not align words. Vietnamese word alignment is unsupported. No audio was trimmed. All boundaries require listening." } };
+  return { cues, evidence: { schemaVersion: 1, captionTiming: allAligned?"aligned" as const:"estimated" as const, wordAlignment: allAligned?"ALIGNED_EN_CTC_NOT_HUMAN_VERIFIED":alignedCount?"PARTIALLY_ALIGNED":"UNVERIFIED", alignedLines:alignedCount,grouping: { version: 3, readingTime: relaxed, shortCueTargetSeconds: 0.8, characterMeasure: "Unicode code points", audioChanged: false }, timing, readability, humanReview: "REQUIRED", note: "English CTC boundaries are used only with matching audio SHA, exact wording and validated monotonic word times. Other phrase boundaries remain proportional estimates over VAD or duration; VAD does not align words. Vietnamese word alignment is unsupported. No audio was trimmed. All boundaries require listening." } };
+}
+
+/**
+ * Reading-time pass (grouping v3). Speech pacing alone gave cues above 20 characters/second and under 0.8 s.
+ * Within one narration line the cues may use the line's silent tail and a short lead-in, and the window is shared in
+ * proportion to characters so each cue gets equal reading speed. Captions never move into another line's speech.
+ * Word-aligned English lines keep their aligned starts and only extend their ends.
+ */
+export function relaxCueTiming(cues:Cue[],lines:{start:number;count:number;aligned:boolean}[],total:number,opts={leadIn:0.15,minDuration:0.8,maxCps:20}){
+  let changed=0;
+  const used=lines.filter(l=>l.count),spans=used.map(l=>({first:cues[l.start].start,last:cues[l.start+l.count-1].end,chars:cues.slice(l.start,l.start+l.count).reduce((n,c)=>n+[...c.text].length,0)}));
+  // Silent gaps are shared between neighbouring lines so both reach the lowest reading speed possible (balanced split).
+  const n=spans.length,gapBefore=spans.map((sp,k)=>Math.max(0,sp.first-(k?spans[k-1].last:0))),tail=Math.max(0,total-(n?spans[n-1].last:0)),lead=gapBefore.map(g=>g/2);
+  if(n)lead[0]=gapBefore[0];
+  const cps=(k:number)=>spans[k].chars/Math.max(1e-6,spans[k].last-spans[k].first+lead[k]+(k+1<n?gapBefore[k+1]-lead[k+1]:tail));
+  for(let it=0;it<30;it++)for(let k=1;k<n;k++){let lo=0,hi=gapBefore[k];for(let b=0;b<30;b++){const mid=(lo+hi)/2;lead[k]=mid;if(cps(k)>cps(k-1))lo=mid;else hi=mid;}lead[k]=(lo+hi)/2;}
+  const windows=spans.map((sp,k)=>({start:sp.first-lead[k],end:k+1<n?spans[k+1].first-lead[k+1]:total}));
+  used.forEach((line,k)=>{
+    const own=cues.slice(line.start,line.start+line.count),{start:windowStart,end:windowEnd}=windows[k];
+    // Readable lines keep their speech-bound timing; only lines that are too fast or too short are re-timed.
+    if(own.every(c=>c.end-c.start>=opts.minDuration&&[...c.text].length/Math.max(1e-6,c.end-c.start)<=opts.maxCps))return;
+    if(line.aligned){own.forEach((c,i)=>{const end=i+1<own.length?own[i+1].start:windowEnd;if(end>c.end){c.end=end;changed++;}});return;}
+    const chars=own.map(c=>Math.max(1,[...c.text].length)),sum=chars.reduce((a,b)=>a+b,0),span=windowEnd-windowStart;if(span<=0)return;
+    let t=windowStart;own.forEach((c,i)=>{const start=t,end=i===own.length-1?windowEnd:t+span*chars[i]/sum;if(Math.abs(c.start-start)>1e-3||Math.abs(c.end-end)>1e-3)changed++;c.start=start;c.end=end;t=end;});
+  });
+  return {method:"shared-gap proportional reading time",maxCharactersPerSecond:opts.maxCps,changedCues:changed};
 }

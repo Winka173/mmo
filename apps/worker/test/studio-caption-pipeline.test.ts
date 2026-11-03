@@ -61,13 +61,17 @@ describe("caption artifact pipeline contract (mock AI/VAD, actual FFmpeg)", () =
     expect(run.state).toBe("ready"); expect(run.outputs).toContain("caption-quality.json");
     expect(evidence.captionTiming).toBe("estimated"); expect(evidence.wordAlignment).toBe("UNVERIFIED");
     expect(evidence.timing.map((t: any) => t.method)).toEqual(["SPEECH_BOUND_ESTIMATE", "VAD_NO_SPEECH"]);
-    expect(evidence.readability.findings.map((f: any) => f.criterion)).toContain("caption.reading_speed");
-    expect(qa.captionQuality).toEqual(evidence); expect(run.stages.find(s => s.id === "captions")?.state).toBe("flagged");
+    // The fast line is re-timed into the held silence instead of only being reported (grouping v3).
+    expect(evidence.readability.findings.map((f: any) => f.criterion)).not.toContain("caption.reading_speed"); expect(evidence.grouping.readingTime.changedCues).toBeGreaterThan(0);
+    expect(qa.captionQuality).toEqual(evidence);
     expect(timeline?.captionTiming).toBe("estimated");
     const captions = timeline!.clips.filter(c => c.track === "caption");
     expect(captions.map(c => c.text)).toEqual(["ACS giữ dấu Việt.", "Keep this original line."]);
-    expect(captions[0].start).toBeCloseTo(0.2); expect(captions[0].duration).toBeCloseTo(0.6);
-    expect(captions[1].start).toBeCloseTo(1.3); expect(captions[1].duration).toBeCloseTo(1);
+    // Speech-bound starts were 0.2 s and 1.3 s; both lines were too fast, so each may start earlier (lead-in) and use the held silence,
+    // never overlapping the next line, reaching at least 0.8 s and at most 20 characters per second.
+    expect(captions[0].start).toBeGreaterThanOrEqual(0); expect(captions[0].start).toBeLessThanOrEqual(0.2 + 1e-6); expect(captions[1].start).toBeLessThanOrEqual(1.3 + 1e-6);
+    expect(captions[0].start + captions[0].duration).toBeLessThanOrEqual(captions[1].start + 1e-6);
+    for (const c of captions) { expect(c.duration).toBeGreaterThanOrEqual(0.8); expect([...c.text!].length / c.duration).toBeLessThanOrEqual(20 + 1e-6); }
     expect(await fs.readFile(dir + "/voice-0.wav")).toEqual(pcm); expect(await fs.readFile(dir + "/voice-1.wav")).toEqual(pcm);
   }, 60000);
 });

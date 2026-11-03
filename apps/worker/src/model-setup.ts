@@ -36,6 +36,13 @@ export async function executeModelSetup(ctx:Ctx,id:string){
   await progress({status:label,logFile});const result=await runProcess(binary,args,{timeoutMs:7200000,env:{UV_NO_PROGRESS:"1",PYTHONUTF8:"1",PYTHONDONTWRITEBYTECODE:"1"}});await fs.appendFile(logFile,`${label}\n${result.stdout}\n${result.stderr}\n`,"utf8");if(result.code!==0)throw new Error(`${label}: ${result.stderr.slice(-2200)}`);return result;
  };
  try{
+  if(row.profile==="espeak-ng"){
+   // Legacy voice tool: unpack the pinned official MSI (no installer, no registry, no admin rights).
+   if(row.mode!=="install")throw new Error("espeak-ng has only an install step");
+   const python=row.config.pythonAsr||row.config.python,script=path.join(path.dirname(process.env.ACS_ENGINE_RUNNER??path.resolve("engines/runner.py")),"install-espeak.py");
+   const result=await run(python,[script,row.root],"Unpack pinned espeak-ng 1.52.0 (SHA-256 checked)"),info=JSON.parse(result.stdout.trim().split(/\r?\n/).pop()??"{}");
+   await registry.save({...row,state:"installed",progress:{status:"INSTALLED_LEGACY_VOICE_TOOL",logFile,info},resultConfig:{...row.config,espeakPath:String(info.exe??"")}});return {setupId:id,state:"installed"};
+  }
   if(row.mode==="preflight"){
    await progress({status:"Checking selected profile without creating environments or loading models"});
    const preflight=await setupPreflight(row);

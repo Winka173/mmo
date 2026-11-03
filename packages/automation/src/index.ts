@@ -25,3 +25,4 @@ export * from './studio-media-catalog.js';
 export * from './studio-content-insights.js';
 export * from "./accounts.js";
 export * from "./channel-strategy.js";
+export * from "./studio-posts.js";

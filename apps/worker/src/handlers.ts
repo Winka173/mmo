@@ -1,4 +1,6 @@
 import { FactoryError, idempotencyKey, nowIso, type Job } from "@ttm/core";
+import {writeMusePrompts} from "./muse-run.js";
+import {executeStudioPost,checkStudioPost,syncPageInbox,sendInboxReply} from "./studio-posts.js";
 import { GameRegistry, produceGameVideo } from "@ttm/games";
 import { SourceLicenseRegistry } from "@ttm/governance";
 import { runIntelJob } from "./intel.js";
@@ -108,6 +110,11 @@ export async function runJob(ctx: Ctx, job: Job): Promise<void> {
       case "STUDIO_WATCH_SCAN":{const a=await new StudioStore(ctx.store).autopilot(String(job.payload.autopilotId));if(!a)throw new FactoryError("SOURCE_NOT_FOUND","HUMAN_REQUIRED","Autopilot not found");result={watch:await new SourceWatchStore(ctx.store).poll(a,new Date(),true)};break;}
       case "STUDIO_PUBLISH":result=await executeStudioPublication(ctx,String(job.payload.publicationId));break;
       case "STUDIO_CHANNEL_CHECK":result=await checkStudioChannel(ctx,String(job.payload.channelId));break;
+      case "STUDIO_POST_PUBLISH":result=await executeStudioPost(ctx,String(job.payload.postId),String(job.payload.channelId));break;
+      case "STUDIO_POST_CHECK":result={metrics:await checkStudioPost(ctx,String(job.payload.postId),String(job.payload.channelId))};break;
+      case "STUDIO_INBOX_SYNC":result=await syncPageInbox(ctx,String(job.payload.channelId));break;
+      case "STUDIO_MUSE":result=await writeMusePrompts(ctx,String(job.payload.autopilotId));break;
+      case "STUDIO_INBOX_SEND":result=await sendInboxReply(ctx,String(job.payload.itemId));break;
       case "STUDIO_PUBLICATION_CHECK":result=await checkStudioPublication(ctx,String(job.payload.publicationId));break;
       case "STUDIO_SETUP":result=await executeModelSetup(ctx,String(job.payload.setupId));break;
       case "STUDIO_IMAGE":result=await executeImage(ctx,String(job.payload.imageId));break;

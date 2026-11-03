@@ -11,7 +11,7 @@ import { createServer } from 'node:net';
 import { chromium } from 'playwright-core';
 
 const root = process.cwd(), stamp = new Date().toISOString().replace(/[:.]/g, '-'), trial = path.join(root, '.local/trial', stamp), cfg = path.join(trial, 'cfg'), dataDir = path.join(trial, 'data');
-const exe = process.env.ACS_SMOKE_EXE ?? path.join(root, 'dist/windows/AUTONOMOUS CREATIVE STUDIO.exe'), evidenceDir = path.join(root, 'docs/evidence/trial-2026-11-02');
+const exe = process.env.ACS_SMOKE_EXE ?? path.join(root, 'dist/windows/AUTONOMOUS CREATIVE STUDIO.exe'), evidenceDir = path.join(root, process.env.TRIAL_EVIDENCE ?? 'docs/evidence/trial-2026-11-02');
 const fastAfterMin = Number((process.argv.find((a) => a.startsWith('--fast-cpu-after-min=')) ?? '=20').split('=')[1]);
 const log = []; const note = (m, extra) => { const row = { at: new Date().toISOString(), m, ...(extra ? { extra } : {}) }; log.push(row); console.log(row.at.slice(11, 19), m, extra ? JSON.stringify(extra).slice(0, 300) : ''); };
 const free = () => ({ freeRamGb: +(os.freemem() / 2 ** 30).toFixed(1) });
@@ -58,6 +58,8 @@ try {
   let { json: ws } = await api();
   if (!/ffmpeg/i.test(ws.config.ffmpeg) || ws.config.ffmpeg === 'ffmpeg') { const cfgNew = { ...ws.config, ffmpeg: path.join(root, '.local/tools/ffmpeg.exe'), ffprobe: path.join(root, '.local/tools/ffprobe.exe') }; note('save-config ffmpeg paths', await api({ action: 'save-config', value: cfgNew }).then((r) => r.status)); }
   // 3. The labelled fixture production, started with the Autopilots page "Test run" button
+  // Round 3: the owner applies the voice-check suggestion for the game name to the global dictionary (UI: Settings › Pronunciation).
+  if (process.env.TRIAL_PRONUNCIATION) note('global pronunciation', await page.evaluate(async (entry) => { const r = await fetch('/api/studio/pronunciations', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ entries: [entry] }) }); return r.status; }, JSON.parse(process.env.TRIAL_PRONUNCIATION)));
   const brief = 'FIXTURE (không phải gameplay thật): "Lane Keeper" là game thủ thành 3 làn đường do nhóm phát triển tự làm. Người chơi đặt tháp trên 3 làn để chặn quái. Có 2 loại tháp: tháp cung bắn nhanh và tháp phép làm chậm. Mỗi màn có 5 đợt quái, đợt cuối có trùm. Game đang trong giai đoạn thử nghiệm nội bộ, chưa có ngày phát hành và chưa có giá.';
   const now = new Date().toISOString();
   const saved = await api({ action: 'save-autopilot', value: { name: 'Trial — Lane Keeper (fixture)', family: 'game', brief, sourceFolder: path.join(root, '.local/fixture-media/trial'), rights: 'AUTHORIZED_REUSE', rightsEvidence: 'Synthetic FFmpeg fixture clips generated for this trial; labelled NOT REAL GAMEPLAY on screen', languages: ['vi-VN'], audience: 'Người chơi game chiến thuật trên điện thoại', tone: 'clear', cadenceDays: 7, durationSec: 20, format: 'short_9x16', mode: 'REVIEW_REQUIRED', enabled: false, step: 7, targets: [] } });

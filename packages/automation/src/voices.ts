@@ -36,8 +36,11 @@ export class VoiceStore {
   }
   async save(value: VoiceSample) { const row = VoiceSample.parse(value); row.updatedAt = new Date().toISOString(); await writeJsonAtomic(this.file(row.id), row); return row; }
   async enqueue(input: unknown) {
-    const value = z.object({ language: Locale, text: z.string().trim().min(1).max(1500) }).parse(input);
-    const config = await new StudioStore(this.store).config(); const id = randomUUID(); const now = new Date().toISOString();
+    const value = z.object({ language: Locale, text: z.string().trim().min(1).max(1500), voice: z.string().trim().max(100).optional() }).parse(input);
+    const config = await new StudioStore(this.store).config();
+    // A preview of a specific voice: the sample records the voice in its own config snapshot.
+    if (value.voice) { if (value.language === "vi-VN") config.voiceVi = value.voice; else if (value.language === "en-GB") config.voiceEnGb = value.voice; else config.voiceEn = value.voice; }
+    delete (value as any).voice; const id = randomUUID(); const now = new Date().toISOString();
     const sample = await this.save(VoiceSample.parse({ ...value, id, config, configHash: hash(config), state: "queued", createdAt: now, updatedAt: now }));
     const { job } = await new FileQueue(this.store).enqueue({ kind: "STUDIO_VOICE", idempotencyKey: `voice:${id}`, payload: { sampleId: id, engineKeys:studioEngineKeys(config,value.language,true) }, usesGpu: config.ttsDevice !== "cpu" || !!config.asrModel&&config.asrDevice!=="cpu", priority: 2 });
     return { ...sample, jobId: job.id };

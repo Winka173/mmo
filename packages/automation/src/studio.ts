@@ -14,7 +14,7 @@ import {DiscoveryConfig,SourceOpportunity,OpportunityStore} from "./opportunitie
 
 export const Locale = z.enum(["vi-VN", "en-US", "en-GB"]);
 export const StudioConfig = z.object({
-  alignmentModel:z.string().default(""),
+  alignmentModel:z.string().default(""),espeakPath:z.string().default(""),
   pythonEmbedding:z.string().default(""),embeddingModel:z.string().default(""),embeddingDevice:z.enum(["cuda","cpu"]).default("cuda"),
   pythonImage:z.string().default(""),imageModel:z.string().default(""),imageDevice:z.literal("cuda_cpu_offload").default("cuda_cpu_offload"),
   vadModel:z.string().default(""),vadSha256:z.string().regex(/^[a-f0-9]{64}$|^$/).default(""),pythonVad:z.string().default(""),
@@ -70,6 +70,8 @@ export const Autopilot = z.object({
   schedule:ProductionSchedule.default({}),
   durationSec: z.number().min(10).max(180).default(30), format: z.enum(["short_9x16", "long_16x9"]).default("short_9x16"),
   mode: z.enum(["DRAFT_ONLY", "REVIEW_REQUIRED", "AUTHORIZED_AUTO_PUBLISH"]).default("REVIEW_REQUIRED"),
+  /** "muse": the finished video (with its own audio) comes from Meta Muse via the owner's browser session; ACS only reviews, checks and publishes it. */
+  generation:z.enum(["pipeline","muse"]).default("pipeline"),musePrompts:z.array(z.string().trim().min(10).max(2000)).max(4).default([]),museOverlay:z.object({captions:z.boolean().default(false),logo:z.boolean().default(false)}).default({}),
   policyConsent: z.boolean().default(false), enabled: z.boolean().default(false),
   step: z.number().int().min(1).max(7).default(1), revision: z.number().int().positive().default(1),
   nextRunAt: z.string().datetime().nullable().default(null), createdAt: z.string().datetime(), updatedAt: z.string().datetime(),

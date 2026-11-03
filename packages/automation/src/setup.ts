@@ -8,7 +8,7 @@ import { DataStore, readJson, writeJsonAtomic, withLock } from "@ttm/storage";
 import { FileQueue } from "./queue.js";
 import { StudioConfig, StudioStore, hash } from "./studio.js";
 
-export const SetupProfile=z.enum(["qwen3.5-9b","qwen-quality","kokoro","vieneu","qwen-asr","silero-vad","flux2-klein-4b","qwen-embedding","wav2vec2-en-align"]);
+export const SetupProfile=z.enum(["espeak-ng","qwen3.5-9b","qwen-quality","kokoro","vieneu","qwen-asr","silero-vad","flux2-klein-4b","qwen-embedding","wav2vec2-en-align"]);
 export const ModelSetup=z.object({id:z.string().uuid(),profile:SetupProfile,mode:z.enum(["install","verify","preflight"]).default("install"),root:z.string(),config:StudioConfig,configHash:z.string(),state:z.enum(["queued","running","checked","installed","verified","failed"]),progress:z.record(z.unknown()).default({}),resultConfig:StudioConfig.nullable().default(null),error:z.string().nullable().default(null),createdAt:z.string(),updatedAt:z.string()});
 export type ModelSetup=z.infer<typeof ModelSetup>;
 const StoredModelSetup=z.unknown().transform(input=>{const raw=input as ModelSetup,authentic=!!raw&&raw.configHash===hash(raw.config),row=ModelSetup.parse(input);if(authentic)row.configHash=hash(row.config);return row;});

@@ -13,7 +13,7 @@ type Probe = (binary:string,args:string[])=>Promise<{code:number;stdout:string;s
 const probe:Probe = (binary,args)=>runProcess(binary,args,{timeoutMs:args.some(a=>/import[^;]*torch/.test(a))?120000:10000,env:{PYTHONDONTWRITEBYTECODE:"1"}});
 const text=(vi:string,en:string):Text=>({vi,en});
 /** Reservations cover weights, environments, download cache and headroom; these are not measured inference estimates. */
-export const SETUP_DISK_GIB:Record<ModelSetup["profile"],number>={"qwen3.5-9b":16,"qwen-quality":24,kokoro:10,vieneu:18,"qwen-asr":14,"silero-vad":1,"flux2-klein-4b":38,"qwen-embedding":4,"wav2vec2-en-align":2};
+export const SETUP_DISK_GIB:Record<ModelSetup["profile"],number>={"espeak-ng":1,"qwen3.5-9b":16,"qwen-quality":24,kokoro:10,vieneu:18,"qwen-asr":14,"silero-vad":1,"flux2-klein-4b":38,"qwen-embedding":4,"wav2vec2-en-align":2};
 export function setupPython(profile:ModelSetup["profile"],root:string,config:StudioConfig){
  const base=path.join(root,".local","engines"),binary=process.platform==="win32"?"Scripts/python.exe":"bin/python";
  if(profile==="qwen-embedding")return config.pythonEmbedding||config.pythonAsr||path.join(base,"asr",binary);

@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       case "apply-setup":{
         const row=await new ModelSetupStore(store).get(String(body.id));if(!row?.resultConfig||!["installed","verified"].includes(row.state))throw new Error("Setup has not completed");
         const current=await studio.config(),merged={...current};
-        const keys=row.profile==="wav2vec2-en-align"?["pythonAsr","alignmentModel"]:row.profile==="qwen-embedding"?["pythonEmbedding","embeddingModel","embeddingDevice"]:row.profile==="flux2-klein-4b"?["pythonImage","imageModel","imageDevice"]:row.profile==="silero-vad"?["pythonVad","vadModel","vadSha256"]:row.profile==="qwen-quality"?["llmManaged","llmBinary","llmModelStore","llmPort","llmUrl","llmQualityModel","llmQualityModelDigest","llmQualityDevice"]:row.profile==="qwen3.5-9b"?["llmManaged","llmBinary","llmModelStore","llmPort","llmUrl","llmModel","llmModelDigest"]:row.profile==="kokoro"?["python","ttsEnModel"]:row.profile==="vieneu"?["pythonVi","ttsViModel","ttsViCodec","voiceVi"]:["pythonAsr","asrModel"];
+        const keys=row.profile==="espeak-ng"?["espeakPath"]:row.profile==="wav2vec2-en-align"?["pythonAsr","alignmentModel"]:row.profile==="qwen-embedding"?["pythonEmbedding","embeddingModel","embeddingDevice"]:row.profile==="flux2-klein-4b"?["pythonImage","imageModel","imageDevice"]:row.profile==="silero-vad"?["pythonVad","vadModel","vadSha256"]:row.profile==="qwen-quality"?["llmManaged","llmBinary","llmModelStore","llmPort","llmUrl","llmQualityModel","llmQualityModelDigest","llmQualityDevice"]:row.profile==="qwen3.5-9b"?["llmManaged","llmBinary","llmModelStore","llmPort","llmUrl","llmModel","llmModelDigest"]:row.profile==="kokoro"?["python","ttsEnModel"]:row.profile==="vieneu"?["pythonVi","ttsViModel","ttsViCodec","voiceVi"]:["pythonAsr","asrModel"];
         for(const key of keys)(merged as any)[key]=(row.resultConfig as any)[key];return Response.json(await studio.saveConfig(merged));
       }
       case "save-autopilot": {
@@ -73,10 +73,12 @@ export async function POST(request: Request) {
       case "run": {
         const a = await studio.autopilot(body.id); if (!a) throw new Error("Autopilot not found");
         if (!a.brief.trim()) throw new Error("Provide a verified source brief first");
+        if(a.generation==="muse"){if(!a.musePrompts.length)throw new Error("Write and approve a Muse prompt first");const runs=[];for(const lang of new Set(a.languages))runs.push(await studio.enqueue(a,lang,`manual:${randomUUID()}`,false));return Response.json(runs);}
         const prepared=await studio.prepareSource(a);if(!prepared)throw new Error("No new eligible source or feed opportunity; check source scan status first");if((await studio.autopilot(a.id))?.revision!==a.revision)throw new Error("Autopilot changed while pinning the source. Reload first.");
         const runs = []; for (const lang of new Set(a.languages)) runs.push(await studio.enqueue(prepared, lang, `manual:${randomUUID()}`,body.action==="plan"));
         return Response.json(runs);
       }
+      case "muse-prompts":{const a=await studio.autopilot(String(body.id));if(!a)throw new Error("Autopilot not found");return Response.json(await(await getQueue()).enqueue({kind:"STUDIO_MUSE",idempotencyKey:`muse-prompts:${a.id}:${a.revision}`,payload:{autopilotId:a.id},usesGpu:true}));}
       case "save-config": return Response.json(await studio.saveConfig(body.value));
       case "discover-tools": return Response.json(await discoverStudioTools(String(body.root ?? ""), await studio.config()));
       case "voice-sample": return Response.json(await new VoiceStore(store).enqueue(body));

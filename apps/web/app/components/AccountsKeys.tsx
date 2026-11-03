@@ -2,6 +2,7 @@
 import {useEffect,useState} from "react";
 import YouTubeOAuth from "./YouTubeOAuth";
 import {shortTime} from "./labels";
+import {MuseAccount} from "./MuseControls";
 
 type Field={key:string;vi:string;en:string;secret?:boolean;present?:boolean;value?:string|null};
 type Entry={id:string;group:string;vi:string;en:string;fields:Field[];usedBy:{vi:string;en:string}[];test:string|null;state:string;checkedAt:string|null;detail:string|null;accountName:string|null;expiresAt:string|null};
@@ -57,6 +58,7 @@ export default function AccountsKeys({en}:{en:boolean}){
    </article>)}
    {group==="youtube"&&<YouTubeOAuth en={en} channels={data.channels.filter(c=>c.platform.startsWith("youtube")) as any}/>}
   </section>)}
+  <section className="acs-account-group" aria-label="Meta AI"><h3>Meta AI / Muse</h3><MuseAccount en={en}/></section>
   <section className="acs-account-group" aria-label={t("Affiliate","Affiliate")}><h3>{t("Affiliate","Affiliate")}</h3><article className="acs-panel acs-account" data-entry="affiliate"><header><h3>{t("Mạng affiliate","Affiliate networks")}</h3><span className="acs-badge">{t("Không cần khóa","No key needed")}</span></header><p className="acs-muted">{t("Link affiliate và lời công bố được nhập theo từng sản phẩm trong Autopilot. Hiện không tính năng nào gọi API của mạng affiliate, nên không có khóa nào cần nhập.","Affiliate links and disclosures are entered per product in each Autopilot. No feature calls an affiliate network API today, so there is no key to enter.")}</p></article></section>
   {data.unused.length>0&&<section className="acs-account-group" aria-label={t("Khóa không còn dùng","Keys no longer used")}><h3>{t("Khóa không còn dùng","Keys no longer used")}</h3>{data.unused.map(k=><p key={k}><code>{k}</code> <button type="button" disabled={!!busy} onClick={()=>void post({action:"remove",id:`unused:${k}`},`u-${k}`,t("Đã xóa","Removed"))}>{t("Xóa","Remove")}</button></p>)}</section>}
   <p className="acs-muted">{t("Lưu trữ","Storage")}: {data.backend==="windows-dpapi"?"Windows DPAPI":data.backend}</p>

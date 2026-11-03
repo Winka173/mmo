@@ -2,6 +2,11 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path";
 import { FactoryError } from "@ttm/core";
 import { audioDuration, ffmpeg, runProcess } from "./exec.js";
+import { existsSync } from "node:fs";
+import nodePath from "node:path";
+/** Unpacked by scripts/install-espeak.py (no installer, no registry); its data folder is passed explicitly. */
+const LOCAL_ESPEAK = [process.env.ACS_SETUP_ROOT, process.env.ACS_DESKTOP_CONFIG, process.cwd()].filter((r): r is string => !!r).map((r) => nodePath.resolve(r, ".local/tools/espeak-ng/espeak-ng.exe")).find((f) => existsSync(f)) ?? "";
+function espeakEnv(bin: string): Record<string, string> | undefined { const dir = nodePath.dirname(bin); return existsSync(nodePath.join(dir, "espeak-ng-data")) && !process.env.ESPEAK_DATA_PATH ? { ESPEAK_DATA_PATH: dir } : undefined; }
 
 export type TtsLicense = { engine: string; voice: string; license: string; commercialUseOk: boolean; notes: string };
 
@@ -48,11 +53,11 @@ export class EspeakNgTts implements TtsProvider {
     return v.voice || v.speedWpm || v.pitch ? `espeak-ng:${v.voice ?? "vi"}:${v.speedWpm ?? 165}:${v.pitch ?? 45}` : "espeak-ng";
   }
   private get bin() {
-    return this.opts.bin ?? process.env.ESPEAK_PATH ?? "espeak-ng";
+    return this.opts.bin ?? process.env.ESPEAK_PATH ?? (LOCAL_ESPEAK || "espeak-ng");
   }
   async available() {
     try {
-      return (await runProcess(this.bin, ["--version"], { timeoutMs: 10_000 })).code === 0;
+      return (await runProcess(this.bin, ["--version"], { timeoutMs: 10_000, env: espeakEnv(this.bin) })).code === 0;
     } catch {
       return false;
     }
@@ -69,7 +74,7 @@ export class EspeakNgTts implements TtsProvider {
   async synthesize(text: string, outWav: string): Promise<number> {
     const raw = `${outWav}.raw.wav`;
     const r = await runProcess(this.bin, ["-v", this.opts.voice ?? "vi", "-s", String(this.opts.speedWpm ?? 165), "-p", String(this.opts.pitch ?? 45), "-w", raw, applyLexicon(text, [...(this.opts.lexicon ?? []), ...DEFAULT_LEXICON])], {
-      timeoutMs: 120_000,
+      timeoutMs: 120_000, env: espeakEnv(this.bin),
     });
     if (r.code !== 0) throw new FactoryError("TTS_FAILED", "RETRYABLE", `eSpeak NG lỗi: ${r.stderr.slice(-300)}`, { provider: this.id });
     await ffmpeg(["-i", raw, "-ar", "48000", "-ac", "1", "-af", "highpass=f=80,lowpass=f=9000", outWav]);

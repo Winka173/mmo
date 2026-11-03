@@ -120,7 +120,7 @@ try {
   for (const view of ['channels', 'telegram', 'production', 'models']) { await page.goto(`${base}/studio/${view}`); await page.waitForTimeout(2000); stray[view] = await page.locator('main input[type=password]').count(); }
   check('No credential inputs outside Settings › Accounts & Keys', Object.values(stray).every((n) => n === 0), JSON.stringify(stray));
   await page.goto(`${base}/studio/settings`); const accounts = page.getByLabel('Tài khoản & Khóa', { exact: true }); await accounts.locator('[data-entry="telegram-bot"]').waitFor({ timeout: 20000 });
-  const states = await accounts.locator('[data-entry] [data-state], [data-channel] [data-state]').evaluateAll((els) => els.map((e) => e.getAttribute('data-state')));
+  const states = await accounts.locator('[data-entry]:not([data-entry="meta-muse"]) [data-state], [data-channel] [data-state]').evaluateAll((els) => els.map((e) => e.getAttribute('data-state')));
   const groups = await accounts.locator('.acs-account-group > h3').allInnerTexts();
   check('Accounts & Keys lists YouTube, Meta, TikTok, Telegram and affiliate with a status each, all "needs account" at first', ['YouTube', 'Facebook & Instagram (Meta)', 'TikTok', 'Telegram', 'Affiliate'].every((g) => groups.includes(g)) && states.length >= 7 && states.every((x) => x === 'not_set'), `${groups.join(', ')} | ${states.join(',')}`);
   const fakeBot = '123456789:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
@@ -142,9 +142,33 @@ try {
   for (const view of ['channels', 'planner', 'review', 'autopilots', 'production', 'library']) { await page.goto(`${base}/studio/${view}`); await page.waitForTimeout(2500); const lines = (await page.locator('main').innerText()).split('\n').filter((l) => /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(l)); if (lines.length) leaks.push(`${view}: ${lines[0]}`); }
   check('English: the six operating pages show no Vietnamese text', leaks.length === 0, leaks.join(' | '));
   await page.evaluate((l) => { document.cookie = `acs_locale=${l}; Path=/; SameSite=Strict`; }, 'vi');
-  const legacy = {};
-  for (const [route, heading] of [['/experiments', 'Thử nghiệm A/B'], ['/budget', 'Ngân sách & chi phí'], ['/planner', '']]) { const r = await page.goto(`${base}${route}`); legacy[route] = r?.status(); if (heading) legacy[route] += (await page.getByRole('heading', { name: heading }).isVisible().catch(() => false)) ? ' ok' : ' no-heading'; }
-  check('Legacy A/B, budget and planner pages render from stored data (HTTP 200)', Object.values(legacy).every((v) => String(v).startsWith('200') && !String(v).includes('no-heading')), JSON.stringify(legacy));
+  // Round 3: Studio A/B + Budget (VI/EN), posts, inbox, pronunciation, voices, Muse
+  await page.goto(`${base}/studio/experiments`); await page.getByRole('heading', { name: 'Thử nghiệm A/B' }).first().waitFor({ timeout: 20000 });
+  const exp = page.getByLabel('Tạo thử nghiệm'); await exp.getByLabel('ID').fill('ui-check-ab'); await exp.getByLabel('Giả thuyết').fill('Hook ngắn hơn giữ người xem lâu hơn'); await exp.getByLabel('Nhánh A').fill('Hook 2 giây'); await exp.getByLabel('Nhánh B').fill('Hook 5 giây');
+  await exp.getByRole('button', { name: 'Tạo thử nghiệm' }).click(); await page.getByRole('cell', { name: 'ui-check-ab' }).waitFor({ timeout: 15000 });
+  check('A/B tests live in the Studio menu and create an experiment from stored data', await page.getByRole('link', { name: /Thử nghiệm A\/B/ }).isVisible());
+  await page.goto(`${base}/studio/budget`); await page.getByLabel('Trần ngân sách').waitFor({ timeout: 20000 });
+  check('Budget page in the Studio menu shows local-only spending and caps', /Nhà cung cấp trả phí được phép: không có/.test(await page.locator('main').innerText()));
+  await page.goto(`${base}/studio/posts`); const np = page.getByLabel('Tạo bài viết'); await np.waitFor({ timeout: 20000 });
+  await np.getByLabel('Tên bài (nội bộ)').fill('UI check text post'); await np.getByLabel('Loại bài').selectOption('text'); await np.getByLabel('Nội dung / chú thích').fill('Bài chữ thử nghiệm của UI check');
+  await np.getByRole('button', { name: 'Tạo bài' }).click(); const postCard = page.locator('[data-post]').filter({ hasText: 'UI check text post' }); await postCard.waitFor({ timeout: 15000 });
+  await postCard.getByLabel('Ghi chú duyệt (đã kiểm tra gì)').fill('Đã đọc lại nội dung, không có quyền bên thứ ba'); await postCard.getByRole('button', { name: 'Duyệt nội dung' }).click(); await postCard.getByRole('button', { name: /Duyệt quyền/ }).click();
+  await postCard.locator('select[name=channel]').waitFor({ timeout: 15000 });
+  const opts = await postCard.locator('select[name=channel]').locator('option').allInnerTexts();
+  check('Posts: text post created, reviewed; Facebook Page offered, export package available', opts.some((o) => /Facebook Page/.test(o)) && (await postCard.getByRole('link', { name: /Gói đăng thủ công/ }).count()) === 1, opts.join(' | '));
+  const postZip = await page.evaluate(async (href) => { const r = await fetch(href); const b = new Uint8Array(await r.arrayBuffer()); return r.status === 200 && b[0] === 80 && b[1] === 75; }, await postCard.getByRole('link', { name: /Gói đăng thủ công/ }).getAttribute('href'));
+  check('Posts: the manual posting package downloads as a zip', postZip);
+  await page.goto(`${base}/studio/inbox`); await page.getByRole('button', { name: /Đồng bộ/ }).first().waitFor({ timeout: 20000 }).catch(() => {});
+  check('Page inbox lists a sync button per Facebook Page and states that replies need approval', (await page.getByRole('button', { name: /Đồng bộ/ }).count()) >= 1 && /bạn sửa và duyệt/.test(await page.locator('main').innerText()));
+  await page.goto(`${base}/studio/settings`); await page.getByLabel('Từ điển phát âm chung').waitFor({ timeout: 20000 });
+  const gp = page.getByLabel('Từ điển phát âm chung'); await gp.getByRole('button', { name: '+ Thêm mục' }).click(); await gp.getByLabel('Cách viết').fill('Lane Keeper'); await gp.getByLabel('Cách đọc').fill('Lên Kíp-pơ'); await gp.getByRole('button', { name: 'Lưu từ điển' }).click();
+  await gp.getByRole('status').waitFor({ timeout: 10000 });
+  const dict = await page.evaluate(() => fetch('/api/studio/pronunciations').then((r) => r.json()));
+  check('Global pronunciation dictionary saves Lane Keeper → Lên Kíp-pơ', dict.entries.some((e) => e.term === 'Lane Keeper' && e.spoken === 'Lên Kíp-pơ'));
+  const muse = page.locator('[data-entry="meta-muse"]'); await muse.waitFor({ timeout: 15000 });
+  check('Meta AI / Muse entry: terms notice, needs acknowledgement, login window disabled until enabled', /điều khoản của Meta/.test(await muse.innerText()) && (await muse.getByRole('button', { name: 'Mở cửa sổ đăng nhập' }).isDisabled()));
+  const catalog = await page.evaluate(() => fetch('/api/studio/voice-catalog').then(async (r) => ({ status: r.status, json: await r.json() })));
+  check('Voice catalog endpoint answers (empty until voice engines are installed in this isolated profile)', catalog.status === 200 && Array.isArray(catalog.json.voices), JSON.stringify(catalog.json.defaults));
   check('No page errors', errors.length === 0, errors.join(' | '));
   await page.screenshot({ path: path.join(cfg, 'create.png') });
 } catch (error) {
