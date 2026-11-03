@@ -1,0 +1,209 @@
+{
+  "key": "3352c163010fe470ab65e1346c94b67009003ea0f6956675914e554e14e6d8b2",
+  "inputKey": "b27219f8b30b3b362bf97ba0f0fdebe6c878b0f92fe02e14e473f95d44145a8f",
+  "policyVersion": 2,
+  "rescoredWithoutInference": false,
+  "engine": {
+    "engine": "qwen3-asr",
+    "device": "cuda",
+    "requested_device": "auto",
+    "model_sha256": "b73be080615a190b42848b04271de85a51fbe8b40113d82561b6b35d5359850c",
+    "model_files": [
+      {
+        "path": "chat_template.json",
+        "sha256": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff",
+        "bytes": 1161
+      },
+      {
+        "path": "config.json",
+        "sha256": "2e74a751548b8ad7d7526d29365ad8144c345d8b412b1152d25dc6698452712f",
+        "bytes": 6194
+      },
+      {
+        "path": "generation_config.json",
+        "sha256": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c",
+        "bytes": 142
+      },
+      {
+        "path": "merges.txt",
+        "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "bytes": 1671853
+      },
+      {
+        "path": "model-00001-of-00002.safetensors",
+        "sha256": "a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6",
+        "bytes": 4220320824
+      },
+      {
+        "path": "model-00002-of-00002.safetensors",
+        "sha256": "6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc",
+        "bytes": 478200688
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "sha256": "f994739fe38e5210b9e3e8ce6c6307315e2ceac3cb630e7b7414d69dce520f60",
+        "bytes": 64821
+      },
+      {
+        "path": "preprocessor_config.json",
+        "sha256": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d",
+        "bytes": 330
+      },
+      {
+        "path": "tokenizer_config.json",
+        "sha256": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c",
+        "bytes": 12487
+      },
+      {
+        "path": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "bytes": 2776833
+      }
+    ],
+    "seconds": 9.880828380584717,
+    "peak_vram_mb": 4480.79052734375,
+    "results": [
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-0.wav",
+        "language": "Vietnamese",
+        "text": "Giới thiệu Liên Kípper, game thủ thành ba làn đường do nhóm tự phát triển."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-1.wav",
+        "language": "Vietnamese",
+        "text": "Chiến thuật đặt tháp cung bắn nhanh và tháp phép làm chậm để chặn quái."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-2.wav",
+        "language": "Vietnamese",
+        "text": "vượt qua năm đợt quái mỗi màn đối đầu với chu ở đợt cuối cùng."
+      },
+      {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-3.wav",
+        "language": "Vietnamese",
+        "text": "Game hiện đang trong giai đoạn thử nghiệm nội bộ, chưa có giá và ngày phát hành."
+      }
+    ],
+    "timestamps": "NOT_REQUESTED",
+    "human_review": "NOT_REVIEWED"
+  },
+  "checks": [
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "fail",
+      "wordErrorRate": 0.1875,
+      "expected": "Giới thiệu Lên Kíp-pơ, game thủ thành 3 làn đường do nhóm tự phát triển.",
+      "transcription": "Giới thiệu lên Kipper, game thủ thành ba làn đường do nhóm tự phát triển.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "format_review",
+        "expected": [
+          "3"
+        ],
+        "actual": [],
+        "expectedQuantityWords": [],
+        "actualQuantityWords": [
+          "ba"
+        ]
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Giới thiệu Lane Keeper, game thủ thành 3 làn đường do nhóm tự phát triển.",
+      "spokenText": "Giới thiệu Lên Kíp-pơ, game thủ thành 3 làn đường do nhóm tự phát triển.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-0.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Chiến thuật đặt tháp cung bắn nhanh và tháp phép làm chậm để chặn quái.",
+      "transcription": "Chiến thuật đặt tháp cung bắn nhanh và tháp phép làm chậm để chặn quái.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "exact",
+        "expected": [],
+        "actual": [],
+        "expectedQuantityWords": [],
+        "actualQuantityWords": []
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Chiến thuật đặt tháp cung bắn nhanh và tháp phép làm chậm để chặn quái.",
+      "spokenText": "Chiến thuật đặt tháp cung bắn nhanh và tháp phép làm chậm để chặn quái.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-1.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "unknown",
+      "wordErrorRate": 0.13333333333333333,
+      "expected": "Vượt qua 5 đợt quái mỗi màn, đối đầu với trùm ở đợt cuối cùng.",
+      "transcription": "vượt qua năm đợt quái mỗi màn đối đầu với chùm ở đợt cuối cùng.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "format_review",
+        "expected": [
+          "5"
+        ],
+        "actual": [],
+        "expectedQuantityWords": [],
+        "actualQuantityWords": [
+          "năm"
+        ]
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [],
+        "actual": []
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Vượt qua 5 đợt quái mỗi màn, đối đầu với trùm ở đợt cuối cùng.",
+      "spokenText": "Vượt qua 5 đợt quái mỗi màn, đối đầu với trùm ở đợt cuối cùng.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-2.wav"
+    },
+    {
+      "criterion": "voice.round_trip",
+      "policyVersion": 2,
+      "status": "pass",
+      "wordErrorRate": 0,
+      "expected": "Game hiện đang trong giai đoạn thử nghiệm nội bộ, chưa có giá và ngày phát hành.",
+      "transcription": "Game hiện đang trong giai đoạn thử nghiệm nội bộ, chưa có giá và ngày phát hành.",
+      "detectedLanguage": "Vietnamese",
+      "languageMatch": true,
+      "numericEvidence": {
+        "status": "exact",
+        "expected": [],
+        "actual": [],
+        "expectedQuantityWords": [],
+        "actualQuantityWords": []
+      },
+      "negationEvidence": {
+        "match": true,
+        "expected": [
+          "chưa"
+        ],
+        "actual": [
+          "chưa"
+        ]
+      },
+      "reason": "Punctuation/case normalized; Vietnamese tokens are whitespace-separated syllables. Changed digit/number-word sequences or negations cannot pass the aggregate WER threshold. Number words vs digits remain unknown pending listening. These lexical checks do not establish semantic truth. ASR errors and names need review. Threshold 0.15 is a heuristic, not a calibrated quality guarantee.",
+      "sourceText": "Game hiện đang trong giai đoạn thử nghiệm nội bộ, chưa có giá và ngày phát hành.",
+      "spokenText": "Game hiện đang trong giai đoạn thử nghiệm nội bộ, chưa có giá và ngày phát hành.",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-3.wav"
+    }
+  ],
+  "repairEvidence": "voice-repair.json"
+}

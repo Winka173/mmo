@@ -1,0 +1,179 @@
+{
+  "engine": "silero-vad",
+  "device": "cpu",
+  "checkpoint": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+  "model_sha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+  "runner_sha256": "e54778291bd7a5617f0705b518cadf066d6ea39b46f6ee9cfc01b86458f5be45",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "scipy": "1.17.1",
+    "numpy": "2.4.6",
+    "soundfile": "0.14.0"
+  },
+  "seconds": 0.1986083984375,
+  "results": [
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-0.wav",
+      "duration": 3.52,
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 1.118
+        },
+        {
+          "start": 1.282,
+          "end": 3.486
+        }
+      ],
+      "speech_ratio": 0.9340909090909091,
+      "max_probability": 0.9999990463256836,
+      "leading_silence": 0.034,
+      "trailing_silence": 0.03400000000000025
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-1.wav",
+      "duration": 3.36,
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 3.326
+        }
+      ],
+      "speech_ratio": 0.9702380952380952,
+      "max_probability": 0.9999990463256836,
+      "leading_silence": 0.066,
+      "trailing_silence": 0.03400000000000025
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-2.wav",
+      "duration": 3.28,
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 3.262
+        }
+      ],
+      "speech_ratio": 0.9743902439024391,
+      "max_probability": 0.9999992847442627,
+      "leading_silence": 0.066,
+      "trailing_silence": 0.017999999999999794
+    },
+    {
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-3.wav",
+      "duration": 3.76,
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 1.982
+        },
+        {
+          "start": 2.242,
+          "end": 3.742
+        }
+      ],
+      "speech_ratio": 0.9170212765957447,
+      "max_probability": 0.9999984502792358,
+      "leading_silence": 0.034,
+      "trailing_silence": 0.017999999999999794
+    }
+  ],
+  "parameters": {
+    "onset": 0.5,
+    "offset": 0.35,
+    "min_speech_seconds": 0.25,
+    "end_silence_seconds": 0.2,
+    "padding_seconds": 0.03
+  },
+  "word_timing": "NOT_PROVIDED",
+  "human_review": "NOT_REVIEWED",
+  "checks": [
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-0.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-0.wav",
+        "duration": 3.52,
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 1.118
+          },
+          {
+            "start": 1.282,
+            "end": 3.486
+          }
+        ],
+        "speech_ratio": 0.9340909090909091,
+        "max_probability": 0.9999990463256836,
+        "leading_silence": 0.034,
+        "trailing_silence": 0.03400000000000025
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-1.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-1.wav",
+        "duration": 3.36,
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 3.326
+          }
+        ],
+        "speech_ratio": 0.9702380952380952,
+        "max_probability": 0.9999990463256836,
+        "leading_silence": 0.066,
+        "trailing_silence": 0.03400000000000025
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-2.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-2.wav",
+        "duration": 3.28,
+        "speech": [
+          {
+            "start": 0.066,
+            "end": 3.262
+          }
+        ],
+        "speech_ratio": 0.9743902439024391,
+        "max_probability": 0.9999992847442627,
+        "leading_silence": 0.066,
+        "trailing_silence": 0.017999999999999794
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    },
+    {
+      "criterion": "voice.speech_activity",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-3.wav",
+      "status": "pass",
+      "evidence": {
+        "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-3.wav",
+        "duration": 3.76,
+        "speech": [
+          {
+            "start": 0.034,
+            "end": 1.982
+          },
+          {
+            "start": 2.242,
+            "end": 3.742
+          }
+        ],
+        "speech_ratio": 0.9170212765957447,
+        "max_probability": 0.9999984502792358,
+        "leading_silence": 0.034,
+        "trailing_silence": 0.017999999999999794
+      },
+      "recommendedFix": "Review pauses before trimming; VAD does not align words"
+    }
+  ]
+}

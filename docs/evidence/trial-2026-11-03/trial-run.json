@@ -1,0 +1,410 @@
+{
+  "status": "PASS",
+  "runId": "78ad66b1-7cc0-4246-a97c-ba719c0eab4d",
+  "state": "ready",
+  "error": null,
+  "switchedToFastCpu": false,
+  "inLibrary": true,
+  "outputs": [
+    "final.mp4",
+    "thumbnail.jpg",
+    "qa.json",
+    "manifest.json",
+    "metadata.txt",
+    "caption-quality.json",
+    "speech-activity.json",
+    "voice-review.json",
+    "voice-repair.json",
+    "captions.srt",
+    "captions.ass",
+    "timeline.json",
+    "source-analysis.json",
+    "source-matching.json",
+    "source-intake.json",
+    "pacing.json"
+  ],
+  "copied": [
+    "final.mp4",
+    "thumbnail.jpg",
+    "qa.json",
+    "manifest.json",
+    "metadata.txt",
+    "caption-quality.json",
+    "speech-activity.json",
+    "voice-review.json",
+    "voice-repair.json",
+    "captions.srt",
+    "captions.ass",
+    "timeline.json",
+    "source-analysis.json",
+    "source-matching.json",
+    "source-intake.json",
+    "pacing.json"
+  ],
+  "stages": [
+    {
+      "id": "intake",
+      "state": "passed",
+      "note": "3 pinned source files; owner rights declaration recorded",
+      "startedAt": "2026-11-03T02:33:53.254Z",
+      "finishedAt": "2026-11-03T02:33:53.287Z"
+    },
+    {
+      "id": "research",
+      "state": "flagged",
+      "note": "Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocked.",
+      "startedAt": null,
+      "finishedAt": "2026-11-03T02:33:55.513Z"
+    },
+    {
+      "id": "script",
+      "state": "passed",
+      "note": "Local model: gemma4:31b; editorial approval still required",
+      "startedAt": "2026-11-03T02:33:55.517Z",
+      "finishedAt": "2026-11-03T02:34:33.996Z"
+    },
+    {
+      "id": "storyboard",
+      "state": "passed",
+      "note": "4 text/media segments",
+      "startedAt": null,
+      "finishedAt": "2026-11-03T02:34:34.023Z"
+    },
+    {
+      "id": "media",
+      "state": "flagged",
+      "note": "DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+      "startedAt": "2026-11-03T02:34:34.002Z",
+      "finishedAt": "2026-11-03T02:34:34.020Z"
+    },
+    {
+      "id": "voice",
+      "state": "flagged",
+      "note": "ASR found a language/text mismatch; inspect Voice QA and revise affected narration",
+      "startedAt": "2026-11-03T02:34:34.470Z",
+      "finishedAt": "2026-11-03T02:36:22.927Z"
+    },
+    {
+      "id": "captions",
+      "state": "flagged",
+      "note": "estimated; 4/4 lines use speech-bound estimates. 0 readability findings; listening review remains required. See caption-quality.json",
+      "startedAt": "2026-11-03T02:36:25.455Z",
+      "finishedAt": "2026-11-03T02:36:25.463Z"
+    },
+    {
+      "id": "preview",
+      "state": "passed",
+      "note": "Final MP4 available for review",
+      "startedAt": null,
+      "finishedAt": "2026-11-03T02:36:28.220Z"
+    },
+    {
+      "id": "quality",
+      "state": "flagged",
+      "note": "Technical checks passed; review required: freeze_candidates",
+      "startedAt": "2026-11-03T02:36:28.223Z",
+      "finishedAt": "2026-11-03T02:36:28.631Z"
+    },
+    {
+      "id": "repair",
+      "state": "flagged",
+      "note": "Same-text retry budget exhausted; inspect failed line instead of generating indefinitely",
+      "startedAt": "2026-11-03T02:35:58.117Z",
+      "finishedAt": "2026-11-03T02:36:22.924Z"
+    },
+    {
+      "id": "render",
+      "state": "passed",
+      "note": "FFmpeg render; source media preserved without deceptive crop",
+      "startedAt": "2026-11-03T02:36:25.474Z",
+      "finishedAt": "2026-11-03T02:36:28.217Z"
+    },
+    {
+      "id": "eligibility",
+      "state": "blocked",
+      "note": "Publication requires verified facts, rights, account and authorized policy; no automatic publish",
+      "startedAt": null,
+      "finishedAt": "2026-11-03T02:36:28.701Z"
+    },
+    {
+      "id": "delivery",
+      "state": "passed",
+      "note": "Local export complete; publication not authorized",
+      "startedAt": null,
+      "finishedAt": "2026-11-03T02:36:28.707Z"
+    },
+    {
+      "id": "analytics",
+      "state": "skipped",
+      "note": "No remote publication ID",
+      "startedAt": null,
+      "finishedAt": "2026-11-03T02:36:28.710Z"
+    }
+  ],
+  "config": {
+    "llmModel": "qwen3.5:9b",
+    "llmDevice": "cuda",
+    "llmQualityModel": "gemma4:31b",
+    "ttsViModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\vieneu",
+    "voiceVi": "Minh Quân",
+    "asrModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-asr",
+    "ffmpeg": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe"
+  },
+  "exe": "C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\AUTONOMOUS CREATIVE STUDIO.exe",
+  "trialDataDir": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z",
+  "fixture": "Synthetic FFmpeg clips labelled NOT REAL GAMEPLAY; no owner gameplay exists",
+  "log": [
+    {
+      "at": "2026-11-03T02:32:50.793Z",
+      "m": "app ready",
+      "extra": {
+        "base": "http://127.0.0.1:49466",
+        "freeRamGb": 28.2
+      }
+    },
+    {
+      "at": "2026-11-03T02:32:51.040Z",
+      "m": "setup folder",
+      "extra": {
+        "folder": "C:\\Users\\Winka\\Projects\\mmo"
+      }
+    },
+    {
+      "at": "2026-11-03T02:32:51.088Z",
+      "m": "clicked one-click install"
+    },
+    {
+      "at": "2026-11-03T02:32:51.117Z",
+      "m": "setup progress",
+      "extra": {
+        "missing": [
+          "llmModel",
+          "llmQualityModel",
+          "ttsViModel",
+          "ttsEnModel",
+          "asrModel",
+          "vadModel",
+          "embeddingModel"
+        ],
+        "setups": ""
+      }
+    },
+    {
+      "at": "2026-11-03T02:33:51.281Z",
+      "m": "setup progress",
+      "extra": {
+        "missing": [],
+        "setups": "qwen-quality:installed kokoro:installed qwen3.5-9b:installed vieneu:installed qwen-embedding:installed silero-vad:installed qwen-asr:installed"
+      }
+    },
+    {
+      "at": "2026-11-03T02:33:51.281Z",
+      "m": "all selected AI parts installed and applied",
+      "extra": {
+        "setups": "qwen-quality:installed kokoro:installed qwen3.5-9b:installed vieneu:installed qwen-embedding:installed silero-vad:installed qwen-asr:installed"
+      }
+    },
+    {
+      "at": "2026-11-03T02:33:51.291Z",
+      "m": "discover-tools",
+      "extra": {
+        "config": {
+          "alignmentModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\wav2vec2-en-align",
+          "espeakPath": "",
+          "pythonEmbedding": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+          "embeddingModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-embedding-0.6b",
+          "embeddingDevice": "cuda",
+          "pythonImage": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\image\\Scripts\\python.exe",
+          "imageModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\flux2-klein-4b",
+          "imageDevice": "cuda_cpu_offload",
+          "vadModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\silero-vad\\silero_vad.jit",
+          "vadSha256": "e1122837f4154c511485fe0b9c64455f7b929c96fbb8d79fbdb336383ebd3720",
+          "pythonVad": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+          "locale": "vi",
+          "llmUrl": "http://127.0.0.1:11435/v1",
+          "llmModel": "qwen3.5:9b",
+          "llmManaged": true,
+          "llmBinary": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ollama\\ollama.exe",
+          "llmModelStore": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\ollama",
+          "llmPort": 11435,
+          "llmDevice": "cuda",
+          "llmModelDigest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+          "llmQualityModel": "gemma4:31b",
+          "llmQualityModelDigest": "17ba34c06c801ba22f6047bab21ced9429c6d43e0e42ecf339b0f3e5a61e8d97",
+          "llmQualityDevice": "cpu",
+          "llmQualityMinFreeRamGb": 26,
+          "llmQualityRamGraceMs": 45000,
+          "vramGuard": {
+            "enabled": true,
+            "marginMb": 1500
+          },
+          "python": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\speech\\Scripts\\python.exe",
+          "pythonVi": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\vieneu\\Scripts\\python.exe",
+          "pythonAsr": "C:\\Users\\Winka\\Projects\\mmo\\.local\\engines\\asr\\Scripts\\python.exe",
+          "ffmpeg": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffmpeg.exe",
+          "ffprobe": "C:\\Users\\Winka\\Projects\\mmo\\.local\\tools\\ffprobe.exe",
+          "ttsViModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\vieneu",
+          "ttsEnModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\kokoro",
+          "ttsViCodec": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\moss-nano",
+          "asrModel": "C:\\Users\\Winka\\Projects\\mmo\\.local\\models\\qwen3-asr",
+          "asrDevice": "auto",
+          "voiceVi": "Minh Quân",
+          "voiceEn": "af_heart",
+          "voiceEnGb": "bf_emma",
+          "ttsDevice": "auto",
+          "gpuLock": "",
+          "maxContext": 8192,
+          "localOnly": true,
+          "uv": "\\\\?\\C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\runtime\\uv.exe"
+        },
+        "found": [
+          "python",
+          "pythonVi",
+          "pythonAsr",
+          "pythonImage",
+          "imageModel",
+          "asrModel",
+          "alignmentModel",
+          "ttsEnModel",
+          "ttsViModel",
+          "ttsViCodec",
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "root": "C:\\Users\\Winka\\Projects\\mmo",
+        "note": "Detected paths only. Run diagnostics and audition before use."
+      }
+    },
+    {
+      "at": "2026-11-03T02:33:51.320Z",
+      "m": "save-config ffmpeg paths",
+      "extra": 200
+    },
+    {
+      "at": "2026-11-03T02:33:51.338Z",
+      "m": "global pronunciation",
+      "extra": 200
+    },
+    {
+      "at": "2026-11-03T02:33:51.353Z",
+      "m": "autopilot saved",
+      "extra": {
+        "id": "eeed7609-d259-4889-acca-72ce86dd270f"
+      }
+    },
+    {
+      "at": "2026-11-03T02:33:51.497Z",
+      "m": "clicked Test run"
+    },
+    {
+      "at": "2026-11-03T02:33:52.560Z",
+      "m": "run queued",
+      "extra": {
+        "id": "78ad66b1-7cc0-4246-a97c-ba719c0eab4d"
+      }
+    },
+    {
+      "at": "2026-11-03T02:33:52.585Z",
+      "m": "run",
+      "extra": {
+        "state": "queued",
+        "stages": [],
+        "error": null,
+        "freeRamGb": 29.5
+      }
+    },
+    {
+      "at": "2026-11-03T02:34:07.634Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:running",
+          "media:flagged — Local scene/black/freeze/motion suggestions available in source-analysis.json; semantic matching and actual gameplay cla"
+        ],
+        "error": null,
+        "freeRamGb": 17.1
+      }
+    },
+    {
+      "at": "2026-11-03T02:34:37.753Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:passed — Local model: gemma4:31b; editorial approval still required",
+          "storyboard:passed — 4 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:running"
+        ],
+        "error": null,
+        "freeRamGb": 30.3
+      }
+    },
+    {
+      "at": "2026-11-03T02:35:37.937Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:passed — Local model: gemma4:31b; editorial approval still required",
+          "storyboard:passed — 4 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:running",
+          "repair:running — Retry failed narration line 1 once with the exact same spoken text; preserve other lines"
+        ],
+        "error": null,
+        "freeRamGb": 30
+      }
+    },
+    {
+      "at": "2026-11-03T02:36:23.083Z",
+      "m": "run",
+      "extra": {
+        "state": "running",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:passed — Local model: gemma4:31b; editorial approval still required",
+          "storyboard:passed — 4 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:flagged — ASR found a language/text mismatch; inspect Voice QA and revise affected narration",
+          "repair:flagged — Same-text retry budget exhausted; inspect failed line instead of generating indefinitely"
+        ],
+        "error": null,
+        "freeRamGb": 30.5
+      }
+    },
+    {
+      "at": "2026-11-03T02:36:38.128Z",
+      "m": "run",
+      "extra": {
+        "state": "ready",
+        "stages": [
+          "intake:passed — 3 pinned source files; owner rights declaration recorded",
+          "research:flagged — Uses owner-provided brief. Independent research and claim verification not implemented in this slice; publication blocke",
+          "script:passed — Local model: gemma4:31b; editorial approval still required",
+          "storyboard:passed — 4 text/media segments",
+          "media:flagged — DETERMINISTIC_METADATA; 0/3 sources described; visual agreement and rights require review",
+          "voice:flagged — ASR found a language/text mismatch; inspect Voice QA and revise affected narration",
+          "captions:flagged — estimated; 4/4 lines use speech-bound estimates. 0 readability findings; listening review remains required. See caption-",
+          "preview:passed — Final MP4 available for review",
+          "quality:flagged — Technical checks passed; review required: freeze_candidates",
+          "repair:flagged — Same-text retry budget exhausted; inspect failed line instead of generating indefinitely",
+          "render:passed — FFmpeg render; source media preserved without deceptive crop",
+          "eligibility:blocked — Publication requires verified facts, rights, account and authorized policy; no automatic publish",
+          "delivery:passed — Local export complete; publication not authorized",
+          "analytics:skipped — No remote publication ID"
+        ],
+        "error": null,
+        "freeRamGb": 30.7
+      }
+    }
+  ]
+}

@@ -1,5 +1,22 @@
 # Release QA — AUTONOMOUS CREATIVE STUDIO
 
+## 03/11/2026 — round 3: non-video posts, Page inbox, A/B + Budget in Studio, pronunciation, captions, voices, espeak-ng, Gemma, Meta Muse
+
+**Real Gemma 4 31B runs.** The waiter `apps/worker/tools/gemma-window.ts` found a 31.8 GB free-RAM window (Asset Forge untouched) and ran the quality script stage on CPU in 43 s (`evidence/gemma-window.json`). Same brief, Qwen3.5-9B changed "đợt cuối" (last wave) into "màn cuối" (last level); Gemma kept the source facts. Gemma then also wrote the script inside the packaged-app trial (`evidence/trial-2026-11-03/`, stage note "Local model: gemma4:31b", not flagged).
+
+**Trial re-run (packaged app, same labelled fixture media).** Before → after:
+- captions: 9 reading-speed/short-cue findings → **0 (pass)**. Fix: caption reading-time pass (balanced use of silent gaps, proportional re-timing of only unreadable lines) plus holding the picture up to 1.5 s after a sentence that is faster than 20 characters/second;
+- voice check line 1: WER 0.33 ("Lính Khi Pở") → 0.19 ("lên Kipper") with the dictionary entry Lane Keeper → "Lên Kíp-pơ" (global dictionary; suggestion produced automatically by the voice check as `pronunciation-suggestions.json`). Still above the 0.15 heuristic, so it stays flagged for listening; line 3 is "unknown" because the ASR wrote "năm" for "5" and "chùm" for "trùm".
+- technical QA true, 15.17 s; script by Gemma 4 31B (CPU), voice VieNeu "Minh Quân" (CUDA), ASR Qwen3-ASR (CUDA). An intermediate run on the build before the picture-hold fix still had 2 caption findings; the evidence folder holds the final run.
+
+**espeak-ng.** New optional one-click profile "eSpeak voice (legacy factory)": `engines/install-espeak.py` downloads the official espeak-ng 1.52.0 MSI (SHA-256 `7f673c70…eafb9`), unpacks it without running an installer (olefile 0.47 wheel, SHA-256 pinned + Windows expand.exe) into `.local/tools/espeak-ng`; the legacy TTS passes `ESPEAK_DATA_PATH`. The four previously failing legacy test files now pass (31 tests).
+
+**Tests:** full `vitest run` 93/94 files, 457 tests pass, 7 skipped; the only failure is `game-publish.test.ts` whose setup hook hit its 600 s limit while the heavy FFmpeg game suites ran in parallel. Run alone it passes (7/7 in 21.6 s). Root/web TypeScript, Next build and Tauri build PASS.
+
+**Native UI check** on the final batch: **34/34 PASS** (`evidence/acs-ui-rules-check.json`; portable EXE SHA-256 `96BCCDAA…58FC4`, installer `9A8E4FF7…E07846`); adds A/B + Budget (VI), posts (create, two reviews, channel choice, ZIP export), Page inbox, global dictionary, Meta Muse entry, voice catalog.
+
+**New features (all tested with local fakes; every live path is "chờ tài khoản / needs account", nothing posted, logged in or messaged):** text/link/image/carousel posts for Facebook Page, image/carousel for Instagram (images hosted as unpublished photos of a linked Page), TikTok photo mode (audited app + verified domain), YouTube community = manual export only (`/studio/posts`, `studio-posts.test.ts`); Facebook Page inbox/comments with assistant drafts and owner approval before send (`/studio/inbox`); A/B tests and Budget inside the Studio menu, VI/EN (`/studio/experiments`, `/studio/budget`); global + project pronunciation dictionary with suggestions; per-project/per-Create voice picker with local preview (25 VieNeu presets, installed Kokoro voices; the voice is written into the run config so re-renders keep it); Meta Muse video source (browser driver against a local fake meta.ai page, `muse.test.ts`; needs login; Muse limits UNVERIFIED).
+
 ## 02/11/2026 — operating-page review, Accounts & Keys, multi-platform channels, real trial (v0.2.0)
 
 **Gates (this session).** Root and web TypeScript PASS. Next production build + Tauri Windows build (`scripts/desktop-build.ps1`) PASS for every batch, final batch rebuilt after the last source change. Full `vitest run`: 431 passed, 7 skipped, 3 failed + 1 file failed at setup — all four are the known missing `espeak-ng` binary in legacy factory render tests (`media.test.ts`, `games.test.ts`, `quality.test.ts`, `game-publish.test.ts`); no other failure. Targeted suites for every change below PASS (automation 29 files/140 tests incl. new ones).

@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "key": "3288bfd47f44a7a6b3c2a4f8152170ec917d5b154677b77dc411c1ff99d7d05b",
+  "at": "2026-11-03T02:34:34.015Z",
+  "inputIdentity": "badab055ecad4b5a669aa6e94b6079cd6db668d0d6a226c59965c24c2f9b16c6",
+  "manifestSha256": null,
+  "method": "DETERMINISTIC_METADATA",
+  "embedding": null,
+  "candidates": [
+    {
+      "id": "13ff37de13a63cb19f4759b7caad1a653317557700f1884573dfce4d5fc569c7",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-0.mp4",
+      "sha256": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+      "description": "",
+      "origin": "UNANNOTATED_SOURCE",
+      "startSec": 0,
+      "endSec": null,
+      "excludedReason": null
+    },
+    {
+      "id": "1daf7f067d31a8231b746f216b9fe01e5c4201e7c4a9bbee72f0264ee6c9d8fd",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-1.mp4",
+      "sha256": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+      "description": "",
+      "origin": "UNANNOTATED_SOURCE",
+      "startSec": 0,
+      "endSec": null,
+      "excludedReason": null
+    },
+    {
+      "id": "248b51c666d3a0155e32325918f26929ffc3bacf6be46146092b4314e1db8221",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-2.mp4",
+      "sha256": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+      "description": "",
+      "origin": "UNANNOTATED_SOURCE",
+      "startSec": 0,
+      "endSec": null,
+      "excludedReason": null
+    }
+  ],
+  "assignments": [
+    {
+      "shot": 0,
+      "candidateId": "13ff37de13a63cb19f4759b7caad1a653317557700f1884573dfce4d5fc569c7",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-0.mp4",
+      "sha256": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+      "sourceStart": 0,
+      "sourceDuration": null,
+      "score": null,
+      "method": "UNANNOTATED_BALANCED_SELECTION",
+      "description": "",
+      "reused": false,
+      "semanticReview": "UNKNOWN"
+    },
+    {
+      "shot": 1,
+      "candidateId": "1daf7f067d31a8231b746f216b9fe01e5c4201e7c4a9bbee72f0264ee6c9d8fd",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-1.mp4",
+      "sha256": "81229ca94c21115814747b888ce2d8984fcc146015ccbfafa75e7d22ade9aa4c",
+      "sourceStart": 0,
+      "sourceDuration": null,
+      "score": null,
+      "method": "UNANNOTATED_BALANCED_SELECTION",
+      "description": "",
+      "reused": false,
+      "semanticReview": "UNKNOWN"
+    },
+    {
+      "shot": 2,
+      "candidateId": "248b51c666d3a0155e32325918f26929ffc3bacf6be46146092b4314e1db8221",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-2.mp4",
+      "sha256": "f23e6be4d531da8c59ecf1d86e21cf6c3c1dc2ddcde08ba08ea4d418a2781a2f",
+      "sourceStart": 0,
+      "sourceDuration": null,
+      "score": null,
+      "method": "UNANNOTATED_BALANCED_SELECTION",
+      "description": "",
+      "reused": false,
+      "semanticReview": "UNKNOWN"
+    },
+    {
+      "shot": 3,
+      "candidateId": "13ff37de13a63cb19f4759b7caad1a653317557700f1884573dfce4d5fc569c7",
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\source-0.mp4",
+      "sha256": "eca9fa11f62cdd2d611d30f650628d2353815bf9a40e0d99df6621006415eefc",
+      "sourceStart": 0,
+      "sourceDuration": null,
+      "score": null,
+      "method": "UNANNOTATED_BALANCED_SELECTION",
+      "description": "",
+      "reused": true,
+      "semanticReview": "UNKNOWN"
+    }
+  ],
+  "coverage": {
+    "sources": 3,
+    "annotatedSources": 0,
+    "shots": 4,
+    "unannotatedAssignments": 4
+  },
+  "visualUnderstanding": "NOT_PERFORMED",
+  "meaningReview": "REQUIRED",
+  "rightsReview": "REQUIRED",
+  "publicationApproval": false,
+  "warnings": [
+    "No acs-media.json descriptions; selection balances sources and does not claim visual/narration agreement",
+    "Some source intervals are reused; inspect repetition before approval"
+  ],
+  "reportSha256": "41b69b06d0066e8c2dbf778ad497421b90b442c7937cbad7770260520b6f5fe1"
+}

@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:02,025
+Giới thiệu Lane Keeper, game thủ thành
+
+2
+00:00:02,025 --> 00:00:03,836
+3 làn đường do nhóm tự phát triển.
+
+3
+00:00:03,836 --> 00:00:05,861
+Chiến thuật đặt tháp cung bắn nhanh và
+
+4
+00:00:05,861 --> 00:00:07,566
+tháp phép làm chậm để chặn quái.
+
+5
+00:00:07,566 --> 00:00:09,520
+Vượt qua 5 đợt quái mỗi màn, đối đầu
+
+6
+00:00:09,520 --> 00:00:10,878
+với trùm ở đợt cuối cùng.
+
+7
+00:00:10,878 --> 00:00:12,724
+Game hiện đang trong giai đoạn thử
+
+8
+00:00:12,724 --> 00:00:15,167
+nghiệm nội bộ, chưa có giá và ngày phát hành.

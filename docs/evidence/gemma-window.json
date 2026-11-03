@@ -1,0 +1,65 @@
+{
+  "purpose": "Real Gemma 4 31B script_final run when RAM allows; Asset Forge untouched",
+  "gateGb": 27,
+  "intervalMin": 5,
+  "samples": [
+    {
+      "at": "2026-11-03T01:47:30.565Z",
+      "freeGb": 31.8
+    }
+  ],
+  "status": "RAN",
+  "wallSeconds": 43.243,
+  "gemma": {
+    "model": "gemma4:31b",
+    "device": "cpu",
+    "profile": {
+      "profile": "quality",
+      "task": "script_final",
+      "reviewRequired": false,
+      "reason": "script_final uses the quality profile"
+    },
+    "shots": [
+      {
+        "text": "Giới thiệu Lane Keeper, game thủ thành 3 làn đường do nhóm tự phát triển."
+      },
+      {
+        "text": "Người chơi đặt tháp cung bắn nhanh hoặc tháp phép làm chậm để chặn quái."
+      },
+      {
+        "text": "Mỗi màn gồm 5 đợt quái, với trùm xuất hiện ở đợt cuối cùng."
+      },
+      {
+        "text": "Game hiện đang thử nghiệm nội bộ, chưa có giá và ngày phát hành."
+      }
+    ]
+  },
+  "qwen": {
+    "model": "qwen3.5:9b",
+    "device": "cpu",
+    "profile": {
+      "profile": "fast",
+      "task": "script_final",
+      "reviewRequired": true,
+      "reason": "script_final wanted the quality model but none is installed: result is flagged for human review"
+    },
+    "shots": [
+      {
+        "text": "Giới thiệu 'Lane Keeper', tựa game thủ thành 3 làn đường do nhóm tự làm."
+      },
+      {
+        "text": "Người chơi đặt tháp trên ba làn để chặn đứng các đợt quái vật."
+      },
+      {
+        "text": "Hai loại tháp chính: tháp cung bắn nhanh và tháp phép làm chậm."
+      },
+      {
+        "text": "Mỗi màn gồm năm đợt, với trùm xuất hiện ở màn cuối cùng."
+      },
+      {
+        "text": "Tựa game đang trong giai đoạn thử nghiệm nội bộ, chưa xác định ngày phát hành hay giá cả."
+      }
+    ]
+  },
+  "brief": "FIXTURE (không phải gameplay thật): \"Lane Keeper\" là game thủ thành 3 làn đường do nhóm phát triển tự làm. Người chơi đặt tháp trên 3 làn để chặn quái. Có 2 loại tháp: tháp cung bắn nhanh và tháp phép làm chậm. Mỗi màn có 5 đợt quái, đợt cuối có trùm. Game đang trong giai đoạn thử nghiệm nội bộ, chưa có ngày phát hành và chưa có giá."
+}

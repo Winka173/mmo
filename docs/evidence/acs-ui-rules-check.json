@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "exe": "C:\\Users\\Winka\\Projects\\mmo\\dist\\windows\\AUTONOMOUS CREATIVE STUDIO.exe",
-  "at": "2026-11-02T07:59:05.244Z",
+  "at": "2026-11-03T02:41:53.761Z",
   "checks": [
     {
       "name": "Overview shows the readiness card with a single install-or-create action",
@@ -16,7 +16,7 @@
     {
       "name": "VRAM popover is on top (nothing covers it) and shows live numbers",
       "ok": true,
-      "detail": "RTX 5070 Ti 8.3 / 15.9 GB VRAM GPU 5% · 48°C Đo cả thiết bị: game hoặc app khác đang dùng VRAM cũng "
+      "detail": "RTX 5070 Ti 3.3 / 15.9 GB VRAM GPU 14% · 44°C Đo cả thiết bị: game hoặc app khác đang dùng VRAM cũng"
     },
     {
       "name": "RAM chip opens its own popover",
@@ -26,7 +26,7 @@
     {
       "name": "Models: automatic setup with an automatic folder (no typing needed)",
       "ok": true,
-      "detail": "C:\\Users\\Winka\\Projects\\mmo\\.local\\ui-rules-check\\975e56a9-cd30-474c-beb0-c5fd8bf5437d"
+      "detail": "C:\\Users\\Winka\\Projects\\mmo\\.local\\ui-rules-check\\928304fc-7880-4a3a-b9fb-37ac14e49596"
     },
     {
       "name": "Models: one install button, quality model and voices listed",
@@ -36,7 +36,7 @@
     {
       "name": "Support report is created and downloads as a zip",
       "ok": true,
-      "detail": "{\"status\":200,\"bytes\":2040,\"magic\":\"PK\"}"
+      "detail": "{\"status\":200,\"bytes\":2058,\"magic\":\"PK\"}"
     },
     {
       "name": "Create: video title is filled automatically from the media folder",
@@ -61,7 +61,7 @@
     {
       "name": "Production: run state, stage names and controls are translated",
       "ok": true,
-      "detail": "AUTONOMOUS CREATIVE STUDIO Theo dõi từng bước sản xuất Ý tưởng, nguồn và phiên bản trong một quy trình rõ ràng. Worker đang hoạt động · PID 42240 Số lần phục hồ"
+      "detail": "AUTONOMOUS CREATIVE STUDIO Theo dõi từng bước sản xuất Ý tưởng, nguồn và phiên bản trong một quy trình rõ ràng. Worker đang hoạt động · PID 25716 Số lần phục hồ"
     },
     {
       "name": "Production: tab switch works",
@@ -101,7 +101,7 @@
     {
       "name": "Accounts & Keys lists YouTube, Meta, TikTok, Telegram and affiliate with a status each, all \"needs account\" at first",
       "ok": true,
-      "detail": "YouTube, Facebook & Instagram (Meta), TikTok, Telegram, Affiliate | not_set,not_set,not_set,not_set,not_set,not_set,not_set"
+      "detail": "YouTube, Facebook & Instagram (Meta), TikTok, Telegram, Meta AI / Muse, Affiliate | not_set,not_set,not_set,not_set,not_set,not_set,not_set"
     },
     {
       "name": "Saving a key stores it write-only: status \"saved, not tested\", the value is never shown again",
@@ -129,9 +129,44 @@
       "detail": ""
     },
     {
-      "name": "Legacy A/B, budget and planner pages render from stored data (HTTP 200)",
+      "name": "A/B tests live in the Studio menu and create an experiment from stored data",
       "ok": true,
-      "detail": "{\"/experiments\":\"200 ok\",\"/budget\":\"200 ok\",\"/planner\":200}"
+      "detail": ""
+    },
+    {
+      "name": "Budget page in the Studio menu shows local-only spending and caps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Posts: text post created, reviewed; Facebook Page offered, export package available",
+      "ok": true,
+      "detail": "UI check Facebook Page · Facebook Page — kênh đang tắt"
+    },
+    {
+      "name": "Posts: the manual posting package downloads as a zip",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Page inbox lists a sync button per Facebook Page and states that replies need approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Global pronunciation dictionary saves Lane Keeper → Lên Kíp-pơ",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Meta AI / Muse entry: terms notice, needs acknowledgement, login window disabled until enabled",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Voice catalog endpoint answers (empty until voice engines are installed in this isolated profile)",
+      "ok": true,
+      "detail": "{\"vi\":\"\",\"enUs\":\"af_heart\",\"enGb\":\"bf_emma\"}"
     },
     {
       "name": "No page errors",

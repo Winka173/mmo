@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "captionTiming": "estimated",
+  "wordAlignment": "UNVERIFIED",
+  "alignedLines": 0,
+  "grouping": {
+    "version": 3,
+    "readingTime": {
+      "method": "shared-gap proportional reading time",
+      "maxCharactersPerSecond": 20,
+      "changedCues": 8
+    },
+    "shortCueTargetSeconds": 0.8,
+    "characterMeasure": "Unicode code points",
+    "audioChanged": false
+  },
+  "timing": [
+    {
+      "lineIndex": 0,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-0.wav",
+      "offset": 0,
+      "segmentDuration": 3.8333333333333335,
+      "audioDuration": 3.52,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 1.118
+        },
+        {
+          "start": 1.282,
+          "end": 3.486
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 0,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 1,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-1.wav",
+      "offset": 3.8333333333333335,
+      "segmentDuration": 3.6666666666666665,
+      "audioDuration": 3.36,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 3.326
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 2,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 2,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-2.wav",
+      "offset": 7.5,
+      "segmentDuration": 3.6,
+      "audioDuration": 3.28,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.066,
+          "end": 3.262
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 4,
+      "cueCount": 2
+    },
+    {
+      "lineIndex": 3,
+      "file": "C:\\Users\\Winka\\Projects\\mmo\\.local\\trial\\2026-11-03T02-32-46-104Z\\data\\studio\\artifacts\\78ad66b1-7cc0-4246-a97c-ba719c0eab4d\\voice-3.wav",
+      "offset": 11.1,
+      "segmentDuration": 4.066666666666666,
+      "audioDuration": 3.76,
+      "method": "SPEECH_BOUND_ESTIMATE",
+      "speech": [
+        {
+          "start": 0.034,
+          "end": 1.982
+        },
+        {
+          "start": 2.242,
+          "end": 3.742
+        }
+      ],
+      "words": null,
+      "alignmentModelSha256": null,
+      "cueStartIndex": 6,
+      "cueCount": 2
+    }
+  ],
+  "readability": {
+    "status": "pass",
+    "limits": {
+      "minDuration": 0.8,
+      "maxCharactersPerSecond": 20,
+      "estimatedCharactersPerLine": 28
+    },
+    "metrics": [
+      {
+        "cueIndex": 0,
+        "start": 0,
+        "end": 2.0247042252149914,
+        "duration": 2.0247042252149914,
+        "characters": 38,
+        "charactersPerSecond": 18.768173408619724,
+        "lines": [
+          "Giới thiệu Lane",
+          "Keeper, game thủ thành"
+        ],
+        "lineLengths": [
+          15,
+          22
+        ]
+      },
+      {
+        "cueIndex": 1,
+        "start": 2.0247042252149914,
+        "end": 3.836281689881037,
+        "duration": 1.8115774646660454,
+        "characters": 34,
+        "charactersPerSecond": 18.768173408619717,
+        "lines": [
+          "3 làn đường do",
+          "nhóm tự phát triển."
+        ],
+        "lineLengths": [
+          14,
+          19
+        ]
+      },
+      {
+        "cueIndex": 2,
+        "start": 3.836281689881037,
+        "end": 5.860985915271388,
+        "duration": 2.024704225390351,
+        "characters": 38,
+        "charactersPerSecond": 18.76817340699421,
+        "lines": [
+          "Chiến thuật đặt tháp",
+          "cung bắn nhanh và"
+        ],
+        "lineLengths": [
+          20,
+          17
+        ]
+      },
+      {
+        "cueIndex": 3,
+        "start": 5.860985915271388,
+        "end": 7.565999999810631,
+        "duration": 1.7050140845392434,
+        "characters": 32,
+        "charactersPerSecond": 18.768173406994208,
+        "lines": [
+          "tháp phép làm",
+          "chậm để chặn quái."
+        ],
+        "lineLengths": [
+          13,
+          18
+        ]
+      },
+      {
+        "cueIndex": 4,
+        "start": 7.565999999810631,
+        "end": 9.520457142761934,
+        "duration": 1.954457142951303,
+        "characters": 36,
+        "charactersPerSecond": 18.41943689061335,
+        "lines": [
+          "Vượt qua 5 đợt quái",
+          "mỗi màn, đối đầu"
+        ],
+        "lineLengths": [
+          19,
+          16
+        ]
+      },
+      {
+        "cueIndex": 5,
+        "start": 9.520457142761934,
+        "end": 10.877719047589228,
+        "duration": 1.3572619048272934,
+        "characters": 25,
+        "charactersPerSecond": 18.419436890613355,
+        "lines": [
+          "với trùm ở đợt cuối cùng."
+        ],
+        "lineLengths": [
+          25
+        ]
+      },
+      {
+        "cueIndex": 6,
+        "start": 10.877719047589228,
+        "end": 12.723595238078252,
+        "duration": 1.8458761904890242,
+        "characters": 34,
+        "charactersPerSecond": 18.419436891372683,
+        "lines": [
+          "Game hiện đang",
+          "trong giai đoạn thử"
+        ],
+        "lineLengths": [
+          14,
+          19
+        ]
+      },
+      {
+        "cueIndex": 7,
+        "start": 12.723595238078252,
+        "end": 15.166666666666666,
+        "duration": 2.4430714285884143,
+        "characters": 45,
+        "charactersPerSecond": 18.419436891372683,
+        "lines": [
+          "nghiệm nội bộ, chưa có",
+          "giá và ngày phát hành."
+        ],
+        "lineLengths": [
+          22,
+          22
+        ]
+      }
+    ],
+    "findings": [],
+    "layoutMethod": "ASS two-line character estimate; visual review required"
+  },
+  "humanReview": "REQUIRED",
+  "note": "English CTC boundaries are used only with matching audio SHA, exact wording and validated monotonic word times. Other phrase boundaries remain proportional estimates over VAD or duration; VAD does not align words. Vietnamese word alignment is unsupported. No audio was trimmed. All boundaries require listening."
+}
